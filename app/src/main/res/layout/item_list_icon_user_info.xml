@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/image_icon"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="@drawable/x_image_icon_bg_round_yellow"
+        android:scaleType="centerInside"
+        android:src="@mipmap/icon_home_phone" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="全部订单"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/textsize_7" />
+</LinearLayout>

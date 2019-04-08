@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/qianhui"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="30dp"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="热门城市"
+            android:textColor="@color/gray_shen"
+            android:textSize="13sp" />
+
+        <com.jcool.dev.travel.view.QGridView
+            android:id="@+id/item_header_city_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:columnWidth="60dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:horizontalSpacing="15dp"
+            android:numColumns="3"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

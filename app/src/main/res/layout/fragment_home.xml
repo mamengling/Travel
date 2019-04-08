@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/refreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:descendantFocusability="blocksDescendants"
+    app:srlEnablePreviewInEditMode="false">
+
+    <com.scwang.smartrefresh.layout.header.ClassicsHeader
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srlAccentColor="@color/text_black" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:theme="@style/ToolbarTheme">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsingToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="@color/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fitsSystemWindows="true"
+                    android:orientation="vertical"
+                    android:scaleType="centerInside">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+                        <!--↓ banner-->
+                        <com.jcool.dev.travel.view.rollviewpage.RollPagerView
+                            android:id="@+id/normal_view_pager"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:background="@color/blue"
+                            app:rollviewpager_play_delay="3000" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/root_bg_color" />
+
+                        <include layout="@layout/xml_item_home_icon" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/root_bg_color" />
+
+                        <com.jcool.dev.travel.view.FixedGridView
+                            android:id="@+id/fixedGridView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:numColumns="1"
+                            android:scrollbars="none"
+                            android:stretchMode="columnWidth" />
+
+                    </LinearLayout>
+                    <!--layout_collapseMode设置LinearLayout可随着滑动控件的滑动而滑动 -->
+                    <!--layout_collapseParallaxMultiplier视差因子 -->
+                </LinearLayout>
+
+                <include layout="@layout/layout_toobar" />
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+
+            <!--tablayout在收缩的时候不会消失，所以这里放在appBarLayout里面，appBarLayout是LinearLayout的子类，所以不影响上面的toolbar-->
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tl_main_tabtop"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@color/white"
+                app:tabIndicatorColor="@color/blue"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="@color/blue"
+                app:tabTextAppearance="@style/TabLayoutTextStyle"
+                app:tabTextColor="@color/home_color_tab_divider" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/root_bg_color" />
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nsv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

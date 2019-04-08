@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#00ffffff"
+    android:contentInsetStart="0dp"
+    android:contentInsetLeft="0dp"
+    android:gravity="center_vertical"
+    app:contentInsetLeft="0dp"
+    app:contentInsetStart="0dp"
+    app:layout_collapseMode="pin"
+    app:theme="@style/ToolbarTheme"
+    app:titleTextColor="#ffffff"
+    tools:showIn="@layout/fragment_home">
+    <!--layout_collapseMode toolbar折叠后固定于顶部 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:drawablePadding="5dp"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:gravity="center"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/white"
+            android:textIsSelectable="true"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/icon_back"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@mipmap/icon_home_phone"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/icon_right"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:drawableRight="@mipmap/icon_home_message" />
+    </RelativeLayout>
+</android.support.v7.widget.Toolbar>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <ImageView
+        android:id="@+id/image_goods"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_home_banne02" />
+
+
+    <TextView
+        android:id="@+id/tv_goods_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_goods"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:maxLines="2"
+        android:text="特惠秒杀"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/textsize_7" />
+
+    <TextView
+        android:id="@+id/tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_goods_title"
+        android:paddingTop="5dp"
+        android:text="¥999起"
+        android:textColor="@color/red"
+        android:textSize="@dimen/textsize_7" />
+
+    <TextView
+        android:id="@+id/tv_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_money"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/blue"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="查看更多>>"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+</RelativeLayout>

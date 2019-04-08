@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#ffffff"
+    android:contentInsetStart="0dp"
+    android:contentInsetLeft="0dp"
+    android:gravity="center_vertical"
+    app:contentInsetLeft="0dp"
+    app:contentInsetStart="0dp"
+    app:layout_collapseMode="pin"
+    app:theme="@style/ToolbarTheme"
+    app:titleTextColor="#ffffff">
+    <!--layout_collapseMode toolbar折叠后固定于顶部 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/icon_back"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@mipmap/icon_lift_arrow"
+            android:gravity="center"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/icon_back"
+            android:background="@drawable/x_edt_search_bg_drak"
+            android:gravity="center"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/edt_search"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/root_bg_color"
+                android:drawableLeft="@mipmap/icon_search_edt_right"
+                android:drawablePadding="10dp"
+                android:gravity="left|center_vertical"
+                android:hint="请输入您的关键字"
+                android:textColor="#8D8D8D"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</android.support.v7.widget.Toolbar>

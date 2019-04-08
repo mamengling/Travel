@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFD665</color>
+    <color name="colorPrimaryDark">#FFD665</color>
+    <color name="colorAccent">#FFD665</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray">#eae7e8</color>
+    <color name="gray_bg">#d6d6d6</color>
+    <color name="qianhui">#F4F4F4</color>
+    <color name="root_bg_color1">#F1F1F1</color>
+    <color name="root_bg_color">#EFEFEF</color>
+    <color name="gray_shen">#9c999a</color>
+    <color name="shenhui">#80797b</color>
+    <color name="gray_bg_light">#F1F1F1</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="orange">#f1bd10</color>
+    <color name="orange_more">#FD8B06</color>
+    <color name="orange_wallet">#FF9A2E</color>
+    <color name="red_wallet">#E36B00</color>
+    <color name="blue_light">#21b0ed</color>
+    <color name="blue">#0d72ff</color>
+    <color name="red">#e32200</color>
+    <color name="red_money">#ff0000</color>
+    <color name="app_bg">#EEEEEE</color>
+    <color name="bg_my">#FDAF07</color>
+    <color name="text_black">#333333</color>
+    <color name="text_grey">#999999</color>
+    <color name="text_blue">#00BAFF</color>
+
+    <color name="img_blue">#50A7E9</color>
+
+    <color name="roboto_calendar_background">#FFFFFF</color>
+    <color name="roboto_calendar_month_font">#2A99BC</color>
+    <color name="roboto_calendar_day_of_the_week_font">#161d20</color>
+    <color name="roboto_calendar_selected_day_font">#FFFFFF</color>
+    <color name="roboto_calendar_selected_day_background">#6e9fff</color>
+    <color name="roboto_calendar_current_day_ring">#e6e7e8</color>
+    <color name="roboto_calendar_day_of_the_month_font">#444242</color>
+    <color name="roboto_calendar_day_of_the_month_font_p">#b2b2b2</color>
+    <color name="roboto_calendar_circle_1">#6e9fff</color>
+    <color name="roboto_calendar_circle_2">#55c6da</color>
+    <color name="roboto_calendar_month_arrow">#55c6da</color>
+    <color name="home_color_toolbar_title">#333333</color>
+    <color name="home_color_toolbar_divider">#E7E7E7</color>
+    <color name="home_color_tab_sel_text">#FD8B06</color>
+    <color name="home_color_tab_unsel_text">#999999</color>
+    <color name="home_color_tab_indicator">#FD8B06</color>
+
+    <color name="home_color_content_title">#666666</color>
+    <color name="home_color_content_hint">#999999</color>
+    <color name="home_color_content_divider">#eeeeee</color>
+    <color name="home_color_tab_divider">#333333</color>
+
+    <integer-array name="gplus_colors">
+        <item>@color/gplus_color_1</item>
+        <item>@color/gplus_color_2</item>
+        <item>@color/gplus_color_3</item>
+        <item>@color/gplus_color_4</item>
+    </integer-array>
+
+    <color name="gplus_color_1">#3e802f</color>
+    <color name="gplus_color_2">#f4b400</color>
+    <color name="gplus_color_3">#427fed</color>
+    <color name="gplus_color_4">#b23424</color>
+    <color name="gplus_color_5">#9fb3e9</color>
+</resources>
