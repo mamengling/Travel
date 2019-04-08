@@ -6,19 +6,16 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jcool.dev.travel.R;
-import com.jcool.dev.travel.adapter.HomeTabGoodsAdapter;
 import com.jcool.dev.travel.adapter.TravelListAdapter;
 import com.jcool.dev.travel.base.BaseFragment;
 import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.TravelBean;
 import com.jcool.dev.travel.iactivityview.HomeTabFragmentView;
 import com.jcool.dev.travel.persenter.HomeTabFragmentPresenter;
-import com.jcool.dev.travel.ui.TravelInfoActivity;
-import com.jcool.dev.travel.ui.TravelListActivity;
+import com.jcool.dev.travel.ui.TravelDefuiltActivity;
 import com.jcool.dev.travel.utils.DividerItemDecoration;
 import com.jcool.dev.travel.utils.ToastUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -110,7 +107,7 @@ public class TravelTabFragment extends BaseFragment implements HomeTabFragmentVi
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent intent = new Intent(getContext(), TravelInfoActivity.class);
+                Intent intent = new Intent(getContext(), TravelDefuiltActivity.class);
                 intent.putExtra("travelId", mList.get(position).getId());
                 getContext().startActivity(intent);
             }

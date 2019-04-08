@@ -7,19 +7,15 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.adapter.GirdDropDownAdapter;
-import com.jcool.dev.travel.adapter.TravelListAdapter;
 import com.jcool.dev.travel.adapter.VisaListAdapter;
 import com.jcool.dev.travel.base.BaseActivity;
 import com.jcool.dev.travel.bean.CallBackVo;
-import com.jcool.dev.travel.bean.TravelBean;
 import com.jcool.dev.travel.bean.VisaBean;
 import com.jcool.dev.travel.iactivityview.TravelViseActivityView;
 import com.jcool.dev.travel.persenter.TravelViseActivityPresenter;
@@ -147,7 +143,7 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
         mAdapterData.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent intent = new Intent(TravelViseActivity.this, VisaInfoActivity.class);
+                Intent intent = new Intent(TravelViseActivity.this, VisaDefuiltActivity.class);
                 intent.putExtra("visaId", mAdapterData.getData().get(position).getId());
                 startActivity(intent);
             }

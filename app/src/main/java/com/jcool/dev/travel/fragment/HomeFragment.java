@@ -27,7 +27,7 @@ import com.jcool.dev.travel.bean.InfoColumn;
 import com.jcool.dev.travel.iactivityview.HomeFragmentView;
 import com.jcool.dev.travel.persenter.HomeFragmentPresenter;
 import com.jcool.dev.travel.ui.CityPickerActivity;
-import com.jcool.dev.travel.ui.TravelInfoActivity;
+import com.jcool.dev.travel.ui.TravelDefuiltActivity;
 import com.jcool.dev.travel.ui.TravelListActivity;
 import com.jcool.dev.travel.ui.TravelViseActivity;
 import com.jcool.dev.travel.utils.AppConfigStatic;
@@ -180,7 +180,7 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
         fixedGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), TravelInfoActivity.class);
+                Intent intent = new Intent(getContext(), TravelDefuiltActivity.class);
                 intent.putExtra("travelId", goodsList.get(position).getId());
                 getContext().startActivity(intent);
             }
