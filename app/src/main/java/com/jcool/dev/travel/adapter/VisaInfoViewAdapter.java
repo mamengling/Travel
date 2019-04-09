@@ -1,6 +1,7 @@
 package com.jcool.dev.travel.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -8,8 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.bean.VisaInfoBeanView;
 import com.jcool.dev.travel.utils.ImageLoaderUtils;
@@ -69,23 +74,90 @@ public class VisaInfoViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     }
 
+    public List<VisaInfoBeanView> getList() {
+        return mList;
+    }
+
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, final int i) {
         if (getItemViewType(i) == 101) {
-            ImageLoaderUtils.showImageViewToRoundedCorners(mContext, mList.get(i).getmCallBackVo().getData().getVisaImage(), ((ViewInfoHolder)viewHolder).image_goods, R.mipmap.icon_home_banner, R.mipmap.icon_home_banner);
-            ((ViewInfoHolder)viewHolder).tv_goods_title.setText(mList.get(i).getmCallBackVo().getData().getVisaName());
-            ((ViewInfoHolder)viewHolder).tv_money.setText("¥" + mList.get(i).getmCallBackVo().getData().getVisaPrice());
-            ((ViewInfoHolder)viewHolder).tv_persone.setText("已办理" + mList.get(i).getmCallBackVo().getData().getSalesVolume() + "人");
-            ((ViewInfoHolder)viewHolder).tv_time.setText(mList.get(i).getmCallBackVo().getData().getHandleTime());
-            ((ViewInfoHolder)viewHolder).tv_place.setText(mList.get(i).getmCallBackVo().getData().getCommonPlace());
-            ((ViewInfoHolder)viewHolder).tv_days.setText(mList.get(i).getmCallBackVo().getData().getValidityDate() + "天");
-            ((ViewInfoHolder)viewHolder).tv_stay_days.setText(mList.get(i).getmCallBackVo().getData().getStayDays() + "天");
-            ((ViewInfoHolder)viewHolder).tv_entry_count.setText(mList.get(i).getmCallBackVo().getData().getEntryCount() + "次");
-            ((ViewInfoHolder)viewHolder).tv_faces.setText(TextUtils.equals("02", mList.get(i).getmCallBackVo().getData().getIsMeet()) ? "不需要面试" : "需要面试");
+            ImageLoaderUtils.showImageViewToRoundedCorners(mContext, mList.get(i).getmCallBackVo().getData().getVisaImage(), ((ViewInfoHolder) viewHolder).image_goods, R.mipmap.icon_home_banner, R.mipmap.icon_home_banner);
+            ((ViewInfoHolder) viewHolder).tv_goods_title.setText(mList.get(i).getmCallBackVo().getData().getVisaName());
+            ((ViewInfoHolder) viewHolder).tv_money.setText("¥" + mList.get(i).getmCallBackVo().getData().getVisaPrice());
+            ((ViewInfoHolder) viewHolder).tv_persone.setText("已办理" + mList.get(i).getmCallBackVo().getData().getSalesVolume() + "人");
+            ((ViewInfoHolder) viewHolder).tv_time.setText(mList.get(i).getmCallBackVo().getData().getHandleTime());
+            ((ViewInfoHolder) viewHolder).tv_place.setText(mList.get(i).getmCallBackVo().getData().getCommonPlace());
+            ((ViewInfoHolder) viewHolder).tv_days.setText(mList.get(i).getmCallBackVo().getData().getValidityDate() + "天");
+            ((ViewInfoHolder) viewHolder).tv_stay_days.setText(mList.get(i).getmCallBackVo().getData().getStayDays() + "天");
+            ((ViewInfoHolder) viewHolder).tv_entry_count.setText(mList.get(i).getmCallBackVo().getData().getEntryCount() + "次");
+            ((ViewInfoHolder) viewHolder).tv_renyuan_number.setText("共需" + mList.get(i).getmCallBackVo().getData().getWorkingDataList().size() + "项材料");
+            ((ViewInfoHolder) viewHolder).tv_zhiye_number.setText("共需" + mList.get(i).getmCallBackVo().getData().getFreeDataList().size() + "项材料");
+            ((ViewInfoHolder) viewHolder).tv_xuesheng_number.setText("共需" + 0 + "项材料");
+            ((ViewInfoHolder) viewHolder).tv_tuixiu_number.setText("共需" + 0 + "项材料");
+            ((ViewInfoHolder) viewHolder).tv_ertong_number.setText("共需" + 0 + "项材料");
+            ((ViewInfoHolder) viewHolder).acceptRange.setText(mList.get(i).getmCallBackVo().getData().getAcceptRange());
+            ((ViewInfoHolder) viewHolder).tv_faces.setText(TextUtils.equals("02", mList.get(i).getmCallBackVo().getData().getIsMeet()) ? "不需要面试" : "需要面试");
+            ((ViewInfoHolder) viewHolder).radiogroup_full.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    switch (checkedId) {
+                        case R.id.radiobutton0:
+                            mOnItemClickListener.clickItem(null, i, 0, 1, null);
+                            break;
+                        case R.id.radiobutton1:
+                            mOnItemClickListener.clickItem(null, i, 1, 1, null);
+                            break;
+                        case R.id.radiobutton2:
+                            mOnItemClickListener.clickItem(null, i, 2, 1, null);
+                            break;
+                        case R.id.radiobutton3:
+                            mOnItemClickListener.clickItem(null, i, 3, 1, null);
+                            break;
+                    }
+                }
+            });
+            ((ViewInfoHolder) viewHolder).tv_renyuan_number.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(null, i, 0, 2, null);
+                }
+            });
+            ((ViewInfoHolder) viewHolder).tv_zhiye_number.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(null, i, 1, 2, null);
+                }
+            });
+            ((ViewInfoHolder) viewHolder).tv_xuesheng_number.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(null, i, 2, 2, null);
+                }
+            });
+            ((ViewInfoHolder) viewHolder).tv_tuixiu_number.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(null, i, 3, 2, null);
+                }
+            });
+            ((ViewInfoHolder) viewHolder).tv_ertong_number.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(null, i, 4, 2, null);
+                }
+            });
         } else if (getItemViewType(i) == 102) {
             ((ViewTitleHolder) viewHolder).tvTitle.setText(mList.get(i).getTitle());
         } else {
-//            ImageLoaderUtils.showImageViewToRoundedCorners(mContext, mList.get(i).getItemImage().getFileUrl(), ((ViewImageHolder) viewHolder).image_city_head, R.mipmap.icon_home_banner, R.mipmap.icon_home_banner);
+            Glide.with(mContext)
+                    .load(mList.get(i).getImageUrl())
+                    .asBitmap()
+                    .into(new SimpleTarget<Bitmap>() {
+                        @Override
+                        public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                            ((ViewImageHolder) viewHolder).image_city_head.setImageBitmap(resource);
+                        }
+                    });
         }
     }
 
@@ -125,8 +197,22 @@ public class VisaInfoViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         TextView tv_faces;
         @BindView(R.id.tv_entry_count)
         TextView tv_entry_count;
+        @BindView(R.id.tv_ertong_number)
+        TextView tv_ertong_number;
+        @BindView(R.id.tv_tuixiu_number)
+        TextView tv_tuixiu_number;
+        @BindView(R.id.tv_xuesheng_number)
+        TextView tv_xuesheng_number;
+        @BindView(R.id.tv_zhiye_number)
+        TextView tv_zhiye_number;
+        @BindView(R.id.tv_renyuan_number)
+        TextView tv_renyuan_number;
+        @BindView(R.id.acceptRange)
+        TextView acceptRange;
         @BindView(R.id.image_goods)
         ImageView image_goods;
+        @BindView(R.id.radiogroup_full)
+        RadioGroup radiogroup_full;
 
         public ViewInfoHolder(@NonNull View itemView) {
             super(itemView);

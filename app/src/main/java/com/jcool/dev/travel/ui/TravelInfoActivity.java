@@ -197,7 +197,7 @@ public class TravelInfoActivity extends BaseActivity implements View.OnClickList
     }
 
     @Override
-    public void excuteSuccessCallBack(CallBackVo<TravelInfoBean> mCallBackVo, CallBackVo<TravelInfoBean.LinesBean> mCallBackVoLine) {
+    public void excuteSuccessCallBack(CallBackVo<TravelInfoBean> mCallBackVo, CallBackVo<TravelInfoBean.LinesBean> mCallBackVoLine, CallBackVo mCallCollect) {
         if (mCallBackVo != null && mCallBackVo.getData() != null) {
             tv_info.setText(mCallBackVo.getData().getName());
             tv_money.setText("¥" + mCallBackVo.getData().getMinPrice());
@@ -244,4 +244,5 @@ public class TravelInfoActivity extends BaseActivity implements View.OnClickList
         }
         refreshLayout.finishRefresh();
     }
+
 }

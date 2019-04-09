@@ -90,6 +90,12 @@ public class TravelInfoViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
                 }
             });
+            ((ViewInfoHolder) viewHolder).tv_more.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(null, i, 0, 2, null);
+                }
+            });
             if (mList.get(i).getmCallBackVo().getData().getBanner() != null) {
                 mPagerAdapter.onReference(mList.get(i).getmCallBackVo().getData().getBanner());
             }
@@ -106,7 +112,6 @@ public class TravelInfoViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                             // 滚动到指定位置
 //                        mRecyclerView.scrollToPosition(position);
                             // 平滑滚动到指定位置
-
                             mOnItemClickListener.clickItem(null, i, 0, 1, null);
                             break;
                         case R.id.radiobutton1:
@@ -149,6 +154,8 @@ public class TravelInfoViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         TextView tv_money;
         @BindView(R.id.tv_number)
         TextView tv_number;
+        @BindView(R.id.tv_more)
+        TextView tv_more;
         @BindView(R.id.recyclerView)
         RecyclerView mRecyclerView;
         @BindView(R.id.fixedGridView)

@@ -1,5 +1,11 @@
 package com.jcool.dev.travel.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class VisaInfoBean {
 
     /**
@@ -63,6 +69,9 @@ public class VisaInfoBean {
     private String targetPlace2;
     private String visaSpec;
     private String placeId;
+    private ArrayList<VisaSpecBean> workingDataList;
+    private ArrayList<VisaSpecBean> visaSpecList;
+    private ArrayList<VisaSpecBean> freeDataList;
 
     public String getId() {
         return id;
@@ -294,5 +303,126 @@ public class VisaInfoBean {
 
     public void setPlaceId(String placeId) {
         this.placeId = placeId;
+    }
+
+    public ArrayList<VisaSpecBean> getWorkingDataList() {
+        return workingDataList;
+    }
+
+    public void setWorkingDataList(ArrayList<VisaSpecBean> workingDataList) {
+        this.workingDataList = workingDataList;
+    }
+
+    public ArrayList<VisaSpecBean> getVisaSpecList() {
+        return visaSpecList;
+    }
+
+    public void setVisaSpecList(ArrayList<VisaSpecBean> visaSpecList) {
+        this.visaSpecList = visaSpecList;
+    }
+
+    public ArrayList<VisaSpecBean> getFreeDataList() {
+        return freeDataList;
+    }
+
+    public void setFreeDataList(ArrayList<VisaSpecBean> freeDataList) {
+        this.freeDataList = freeDataList;
+    }
+
+    public static class VisaSpecBean implements Parcelable {
+        private String name;
+        private String price;
+        private String content;
+        private String index;
+        private int type;
+        private String initRowIndex;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getPrice() {
+            return price;
+        }
+
+        public void setPrice(String price) {
+            this.price = price;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
+
+        public String getIndex() {
+            return index;
+        }
+
+        public void setIndex(String index) {
+            this.index = index;
+        }
+
+        public String getInitRowIndex() {
+            return initRowIndex;
+        }
+
+        public void setInitRowIndex(String initRowIndex) {
+            this.initRowIndex = initRowIndex;
+        }
+
+        public int getType() {
+            return type;
+        }
+
+        public void setType(int type) {
+            this.type = type;
+        }
+
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.name);
+            dest.writeString(this.price);
+            dest.writeString(this.content);
+            dest.writeString(this.index);
+            dest.writeInt(this.type);
+            dest.writeString(this.initRowIndex);
+        }
+
+        public VisaSpecBean() {
+        }
+
+        protected VisaSpecBean(Parcel in) {
+            this.name = in.readString();
+            this.price = in.readString();
+            this.content = in.readString();
+            this.index = in.readString();
+            this.type = in.readInt();
+            this.initRowIndex = in.readString();
+        }
+
+        public static final Creator<VisaSpecBean> CREATOR = new Creator<VisaSpecBean>() {
+            @Override
+            public VisaSpecBean createFromParcel(Parcel source) {
+                return new VisaSpecBean(source);
+            }
+
+            @Override
+            public VisaSpecBean[] newArray(int size) {
+                return new VisaSpecBean[size];
+            }
+        };
     }
 }

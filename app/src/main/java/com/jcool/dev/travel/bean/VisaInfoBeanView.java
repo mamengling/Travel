@@ -11,6 +11,7 @@ public class VisaInfoBeanView {
     private CallBackVo<VisaInfoBean> mCallBackVo;
     private VisaInfoBean visaInfoBean;
     private String title;
+    private String imageUrl;
 
     public int getViewType() {
         return viewType;
@@ -42,5 +43,13 @@ public class VisaInfoBeanView {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

@@ -1,5 +1,6 @@
 package com.jcool.dev.travel.ui;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,6 +19,7 @@ import com.jcool.dev.travel.bean.VisaInfoBeanView;
 import com.jcool.dev.travel.iactivityview.VisaInfoActivityView;
 import com.jcool.dev.travel.persenter.VisaInfoActivityPresenter;
 import com.jcool.dev.travel.utils.StatusBarUtil;
+import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 import com.jcool.dev.travel.view.group.GroupItemDecoration;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -32,7 +34,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class VisaDefuiltActivity extends BaseActivity implements View.OnClickListener, VisaInfoActivityView {
-    VisaInfoActivityPresenter mPresenter;
+
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
     @BindView(R.id.icon_title_back)
@@ -43,6 +45,7 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
     TextView icon_right;
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
+    private VisaInfoActivityPresenter mPresenter;
     private String visaId;
     private VisaInfoViewAdapter mAdapter;
     private List<VisaInfoBeanView> data = new ArrayList<>();
@@ -85,6 +88,41 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
         mRecyclerView.addItemDecoration(new GroupItemDecoration<String, TravelInfoBean.LinesBean.CharacteristicBean>());
         mAdapter = new VisaInfoViewAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(new ConstmOnItemOnclickListener() {
+            @Override
+            public void clickItem(View view, int position, int positionChild, int ClickType, Object content) {
+                switch (ClickType) {
+                    case 1:
+                        if (positionChild == 0) {
+                            mRecyclerView.smoothScrollToPosition(a);
+                        } else if (positionChild == 1) {
+                            mRecyclerView.smoothScrollToPosition(b);
+                        } else if (positionChild == 2) {
+                            mRecyclerView.smoothScrollToPosition(c);
+                        } else {
+                            mRecyclerView.smoothScrollToPosition(d);
+                        }
+                        break;
+                    case 2:
+                        if (positionChild == 0) {
+                            Intent intent = new Intent(VisaDefuiltActivity.this, VisaDataActivity.class);
+                            intent.putParcelableArrayListExtra("list", mAdapter.getList().get(position).getmCallBackVo().getData().getWorkingDataList());
+                            startActivity(intent);
+                        } else if (positionChild == 1) {
+                            Intent intent = new Intent(VisaDefuiltActivity.this, VisaDataActivity.class);
+                            intent.putParcelableArrayListExtra("list", mAdapter.getList().get(position).getmCallBackVo().getData().getFreeDataList());
+                            startActivity(intent);
+                        } else if (positionChild == 2) {
+
+                        } else if (positionChild == 3) {
+
+                        } else {
+
+                        }
+                        break;
+                }
+            }
+        });
     }
 
     @Override
@@ -125,7 +163,7 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void excuteFailedCallBack(CallBackVo mCallBackVo) {
-
+        refreshLayout.finishRefresh();
     }
 
     @Override
@@ -144,41 +182,41 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
         itemBean.setTitle("所需材料");
         data.add(itemBean);
         a = 1;
-//        if (mCallBackVoLine.getData().getCharacteristic() != null) {
-//            for (int i = 0; i < mCallBackVoLine.getData().getCharacteristic().size(); i++) {
-//                TravelInfoBeanView itemBeanChara = new TravelInfoBeanView();
-//                itemBeanChara.setViewType(103);
-//                itemBeanChara.setItemImage(mCallBackVoLine.getData().getCharacteristic().get(i));
-//                data.add(itemBeanChara);
-//            }
-//        }
+
         b = data.size() + 1;
         VisaInfoBeanView itemBean1 = new VisaInfoBeanView();
-        TravelInfoBean.LinesBean.CharacteristicBean item1 = new TravelInfoBean.LinesBean.CharacteristicBean();
         itemBean1.setViewType(102);
         itemBean1.setTitle("产品说明");
+        itemBean1.setImageUrl(mCallBackVo.getData().getVisaExplainImage());
         data.add(itemBean1);
-//        if (mCallBackVoLine.getData().getSynopsis() != null) {
-//            for (int i = 0; i < mCallBackVoLine.getData().getSynopsis().size(); i++) {
-//                TravelInfoBeanView itemBeanChara = new TravelInfoBeanView();
-//                itemBeanChara.setViewType(103);
-//                itemBeanChara.setItemImage(mCallBackVoLine.getData().getSynopsis().get(i));
-//                data.add(itemBeanChara);
-//            }
-//        }
+
+        VisaInfoBeanView itemBean11 = new VisaInfoBeanView();
+        itemBean11.setViewType(103);
+        itemBean11.setImageUrl(mCallBackVo.getData().getVisaExplainImage());
+        data.add(itemBean11);
+
         c = data.size() + 1;
         VisaInfoBeanView itemBean2 = new VisaInfoBeanView();
-        TravelInfoBean.LinesBean.CharacteristicBean item2 = new TravelInfoBean.LinesBean.CharacteristicBean();
         itemBean2.setViewType(102);
         itemBean2.setTitle("购买须知");
         data.add(itemBean2);
 
+        VisaInfoBeanView itemBean21 = new VisaInfoBeanView();
+        itemBean21.setViewType(103);
+        itemBean21.setImageUrl(mCallBackVo.getData().getVisaNoticeImage());
+        data.add(itemBean21);
+
         d = data.size() + 1;
         VisaInfoBeanView itemBean3 = new VisaInfoBeanView();
-        TravelInfoBean.LinesBean.CharacteristicBean item3 = new TravelInfoBean.LinesBean.CharacteristicBean();
         itemBean3.setViewType(102);
         itemBean3.setTitle("产品详情");
+        itemBean3.setImageUrl(mCallBackVo.getData().getVisaDeatilImage());
         data.add(itemBean3);
+
+        VisaInfoBeanView itemBean31 = new VisaInfoBeanView();
+        itemBean31.setViewType(103);
+        itemBean31.setImageUrl(mCallBackVo.getData().getVisaDeatilImage());
+        data.add(itemBean31);
 //        if (mCallBackVoLine.getData().getNotice() != null) {
 //            for (int i = 0; i < mCallBackVoLine.getData().getNotice().size(); i++) {
 //                TravelInfoBeanView itemBeanChara = new TravelInfoBeanView();

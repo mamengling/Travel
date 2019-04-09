@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/root_bg_color1" />
+
+    <ImageView
+        android:layout_below="@+id/view"
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_home_banne01" />
+
+    <TextView
+        android:id="@+id/tv_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_two"
+        android:layout_alignLeft="@+id/image"
+        android:layout_alignRight="@+id/image"
+        android:paddingLeft="10dp"
+        android:text="其他渠道签证资料提交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_6"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/image"
+        android:layout_alignRight="@+id/image"
+        android:layout_alignBottom="@+id/image"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="淘宝，京东等店铺签证订单资料提交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_5" />
+</RelativeLayout>

@@ -27,6 +27,8 @@ import com.jcool.dev.travel.bean.InfoColumn;
 import com.jcool.dev.travel.iactivityview.HomeFragmentView;
 import com.jcool.dev.travel.persenter.HomeFragmentPresenter;
 import com.jcool.dev.travel.ui.CityPickerActivity;
+import com.jcool.dev.travel.ui.CompanyVipActivity;
+import com.jcool.dev.travel.ui.PersonVipActivity;
 import com.jcool.dev.travel.ui.TravelDefuiltActivity;
 import com.jcool.dev.travel.ui.TravelListActivity;
 import com.jcool.dev.travel.ui.TravelViseActivity;
@@ -243,8 +245,12 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
                 startActivity(intent4);
                 break;
             case R.id.btn_company:
+                Intent intent5 = new Intent(getContext(), CompanyVipActivity.class);
+                startActivity(intent5);
                 break;
             case R.id.btn_user:
+                Intent intent6 = new Intent(getContext(), PersonVipActivity.class);
+                startActivity(intent6);
                 break;
 
         }

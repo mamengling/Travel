@@ -40,4 +40,16 @@ public class Constants {
      * 获取旅游商品路线
      */
     public static final String APP_HOME_API_JOURNEY_GOODSSLINE_INFO = "api/journeyGoods/journeyGoodsLine/get/";
+    /**
+     * 添加收藏(旅游商品)
+     */
+    public static final String APP_HOME_API_JOURNEY_COLLECT_TRAVEL = "api/collection/collectionInfo/journey/add";
+    /**
+     * 新增定制旅游
+     */
+    public static final String APP_HOME_API_JOURNEY_ADD = "api/customized/personalTailor/add";
+    /**
+     * 前端签证大厅数据获取
+     */
+    public static final String APP_HOME_API_JOURNEY_VISA_VISAINFO_QUERY_SORT_REGION = "api/visa/visaInfo/querySortRegion";
 }

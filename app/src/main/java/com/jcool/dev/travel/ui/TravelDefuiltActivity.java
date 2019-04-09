@@ -1,5 +1,6 @@
 package com.jcool.dev.travel.ui;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,6 +24,7 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -104,11 +106,17 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
                     case 1:
                         if (positionChild == 0) {
                             mRecyclerView.smoothScrollToPosition(a);
-                        }else if(positionChild==1){
+                        } else if (positionChild == 1) {
                             mRecyclerView.smoothScrollToPosition(b);
-                        }else {
+                        } else {
                             mRecyclerView.smoothScrollToPosition(c);
                         }
+                        break;
+                    case 2:
+                        Intent intent = new Intent(TravelDefuiltActivity.this, CalendarActivity.class);
+                        intent.putExtra("", "");
+                        intent.putExtra("", "");
+                        startActivity(intent);
                         break;
                 }
             }
@@ -134,14 +142,20 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
             case R.id.icon_right:
                 break;
             case R.id.tv_collect:
-                mRecyclerView.scrollToPosition(5);
+                mPresenter.journeyTravelCollect();
                 break;
         }
     }
 
     @Override
     public JSONObject getParamenters() {
-        return null;
+        JSONObject object=new JSONObject();
+        try {
+            object.put("goodsId",travelId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object;
     }
 
     @Override
@@ -160,7 +174,7 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
     }
 
     @Override
-    public void excuteSuccessCallBack(CallBackVo<TravelInfoBean> mCallBackVo, CallBackVo<TravelInfoBean.LinesBean> mCallBackVoLine) {
+    public void excuteSuccessCallBack(CallBackVo<TravelInfoBean> mCallBackVo, CallBackVo<TravelInfoBean.LinesBean> mCallBackVoLine, CallBackVo mCallCollect) {
         if (mCallBackVo != null && mCallBackVo.getData() != null) {
             data.clear();
             TravelInfoBeanView itemBean = new TravelInfoBeanView();
