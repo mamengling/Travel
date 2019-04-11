@@ -52,4 +52,28 @@ public class Constants {
      * 前端签证大厅数据获取
      */
     public static final String APP_HOME_API_JOURNEY_VISA_VISAINFO_QUERY_SORT_REGION = "api/visa/visaInfo/querySortRegion";
+    /**
+     * 查询目的地一级分类
+     */
+    public static final String APP_HOME_API_JOURNEY_VISA_TARGET_PLAACE_QUERY_FIRST_SORT = "api/place/targetPlace/queryFirstSort";
+    /**
+     * 根据目的地id获取签证下拉列表
+     */
+    public static final String APP_HOME_API_JOURNEY_VISA_INFO_BY_PLACE = "api/visa/visaInfo/queryVisaByPlaceId";
+    /**
+     * 获取旅客信息-需登录
+     */
+    public static final String APP_HOME_API_COSTOMERINFO_GETCUSTOMERBY = "api/customer/customerInfo/getCustomerBy";
+    /**
+     * 登录
+     */
+    public static final String APP_HOME_API_LOGIN = "api/front/login";
+    /**
+     * 验证码登录
+     */
+    public static final String APP_HOME_API_LOGIN_CODE = "api/front/login/byPhone";
+    /**
+     * 通过ID获取用户信息
+     */
+    public static final String APP_HOME_API_USER_INFO = "api/user/";
 }

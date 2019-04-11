@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    android:scaleType="centerInside">
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:fitsSystemWindows="true">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -56,6 +56,20 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             android:text="18888888888"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/textsize_6"
+                            android:visibility="gone" />
+
+
+                        <TextView
+                            android:id="@+id/tv_login"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/image_head"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            android:text="请先登录"
+                            android:visibility="visible"
                             android:textColor="@color/white"
                             android:textSize="@dimen/textsize_6" />
 
@@ -129,4 +143,4 @@
         </RelativeLayout>
 
     </RelativeLayout>
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

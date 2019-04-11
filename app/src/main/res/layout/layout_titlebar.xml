@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="40dp"
     android:background="#ffffff"
     android:contentInsetStart="0dp"
     android:contentInsetLeft="0dp"
@@ -40,7 +40,7 @@
             android:gravity="center"
             android:text="标题"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/textsize_7" />
+            android:textSize="@dimen/textsize_8" />
 
         <TextView
             android:id="@+id/icon_right"

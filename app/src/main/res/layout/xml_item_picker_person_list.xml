@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/textsize_6" />
+
+
+        <ImageView
+            android:id="@+id/image_bianji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/tv_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_dashboard_black_24dp" />
+
+
+        <TextView
+            android:id="@+id/tv_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginTop="10dp"
+            android:text="女"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/textsize_6" />
+
+        <TextView
+            android:id="@+id/tv_person_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/tv_sex"
+            android:text="成人"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/textsize_6" />
+
+        <TextView
+            android:id="@+id/tv_work_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/tv_person_type"
+            android:text="在职"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/textsize_6" />
+
+        <ImageView
+            android:id="@+id/check_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icon_check_unsel" />
+    </RelativeLayout>
+</LinearLayout>

@@ -34,7 +34,7 @@
             android:gravity="center"
             android:text="标题"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/textsize_7" />
+            android:textSize="@dimen/textsize_8" />
 
         <TextView
             android:id="@+id/icon_right"

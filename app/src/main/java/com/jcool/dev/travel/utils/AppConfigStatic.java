@@ -2,6 +2,58 @@ package com.jcool.dev.travel.utils;
 
 public class AppConfigStatic {
     /**
+     * 用户id
+     */
+    public final static String USER_ID = "userId";
+    /**
+     * 用户名
+     */
+    public final static String USER_NAME = "username";
+    /**
+     * 秘钥
+     */
+    public final static String USER_TOKEN = "access-token-user";
+    /**
+     * 秘钥
+     */
+    public final static String USER_TOKEN_KEY = "access-token";
+    /**
+     * 密码
+     */
+    public final static String PASSWORD = "password";
+    /**
+     * 昵称
+     */
+    public final static String NICK_NAME = "nickname";
+    /**
+     * 手机号
+     */
+    public final static String PHONE = "phone";
+    /**
+     * 用户类型
+     */
+    public final static String USER_TYPE = "userType";
+    /**
+     * 微信id
+     */
+    public final static String WX_OPEN_ID = "wxOpenid";
+    /**
+     * qq id
+     */
+    public final static String QQ_OPEN_ID = "qqOpenid";
+    /**
+     * 性别
+     */
+    public final static String USER_SEX = "sex";
+    /**
+     * city
+     */
+    public final static String USER_CITY = "city";
+    /**
+     * login status
+     */
+    public final static String IS_LOGIN = "is_login_status";
+    /**
      * 签证点击事件
      */
     public final static int HOME_VIEW_VISE = 1;

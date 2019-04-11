@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.bean.VisaInfoDtoList;
 import com.jcool.dev.travel.utils.ImageLoaderUtils;
+import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ import butterknife.ButterKnife;
 public class VisaListViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<VisaInfoDtoList.VisaInfoDtoListBean> mList = new ArrayList<>();
     private Context mContext;
+    private ConstmOnItemOnclickListener<VisaInfoDtoList.VisaInfoDtoListBean> mOnItemClickListener;
 
     public VisaListViewAdapter(Context mContext) {
         this.mContext = mContext;
@@ -60,15 +62,34 @@ public class VisaListViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, final int i) {
         if (getItemViewType(i) == 101) {
             ((ViewTitleHolder) viewHolder).tvTitle.setText(mList.get(i).getVisaSortName());
+            ((ViewTitleHolder) viewHolder).tv_more.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(((ViewTitleHolder) viewHolder).tv_more, i, 0, 0, mList.get(i));
+                }
+            });
         } else if (getItemViewType(i) == 102) {
 
+            ((ViewImageBHolder) viewHolder).image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(((ViewImageBHolder) viewHolder).image, i, 0, 1, mList.get(i));
+                }
+            });
         } else {
             ((ViewImageHolder) viewHolder).tvTitle.setText("¥" + mList.get(i).getVisaPrice());
             ((ViewImageHolder) viewHolder).tv_name.setText(mList.get(i).getVisaName());
             ImageLoaderUtils.showImageViewToRoundedCorners(mContext, mList.get(i).getVisaImage(), ((ViewImageHolder) viewHolder).image_goods_visa, R.mipmap.icon_home_banner, R.mipmap.icon_home_banner);
+            ((ViewImageHolder) viewHolder).image_goods_visa.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(((ViewImageHolder) viewHolder).image_goods_visa, i, 0, 2, mList.get(i));
+                }
+            });
+
         }
     }
 
@@ -81,6 +102,8 @@ public class VisaListViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public class ViewTitleHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.tv_title)
         TextView tvTitle;
+        @BindView(R.id.tv_more)
+        TextView tv_more;
 
 
         public ViewTitleHolder(@NonNull View itemView) {
@@ -105,10 +128,16 @@ public class VisaListViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     public class ViewImageBHolder extends RecyclerView.ViewHolder {
-
+        @BindView(R.id.image)
+        ImageView image;
         public ViewImageBHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+    }
+
+
+    public void setOnItemClickListener(ConstmOnItemOnclickListener<VisaInfoDtoList.VisaInfoDtoListBean> listener) {
+        this.mOnItemClickListener = listener;
     }
 }

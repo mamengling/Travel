@@ -553,7 +553,6 @@ public class BuyTimePicker implements View.OnClickListener, PickerView.OnSelectL
      */
     public void setCancelable(boolean cancelable) {
         if (!canShow()) return;
-
         mPickerDialog.setCancelable(cancelable);
     }
 

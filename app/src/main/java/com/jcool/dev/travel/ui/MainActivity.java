@@ -15,25 +15,30 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
-import com.amap.api.location.AMapLocationClient;
-import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.adapter.MyFragmentAdapter;
 import com.jcool.dev.travel.base.BaseActivity;
+import com.jcool.dev.travel.bean.CallBackVo;
+import com.jcool.dev.travel.bean.UserInfo;
 import com.jcool.dev.travel.fragment.DestinationFragment;
 import com.jcool.dev.travel.fragment.HomeFragment;
 import com.jcool.dev.travel.fragment.UserFragment;
 import com.jcool.dev.travel.fragment.VisaFragment;
+import com.jcool.dev.travel.iactivityview.UserInfoGetView;
+import com.jcool.dev.travel.persenter.UserInfoGetPresenter;
 import com.jcool.dev.travel.utils.AppConfigStatic;
 import com.jcool.dev.travel.utils.AppTravelLocation;
-import com.jcool.dev.travel.utils.StatusBarUtil;
-import com.jcool.dev.travel.utils.StatusBarUtils;
+import com.jcool.dev.travel.utils.ToastUtils;
 import com.jcool.dev.travel.utils.log.LogUtil;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener, AMapLocationListener {
+public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener, AMapLocationListener, UserInfoGetView {
+    private UserInfoGetPresenter mPresenter;
     //设置要用到的变量的引用
     private ViewPager viewPager;
     private ArrayList<Fragment> fragmentList;
@@ -43,7 +48,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 
     @Override
     protected int getContentViewId() {
-        StatusBarUtil.setColor(this, Color.parseColor("#FFD665"));
+//        StatusBarUtil.setColor(this, Color.parseColor("#FFD665"));
         return R.layout.activity_main;
     }
 
@@ -77,6 +82,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 
     @Override
     protected void initTools() {
+        mPresenter = new UserInfoGetPresenter(this, this);
         //判断是否为android6.0系统版本，如果是，需要动态添加权限
         if (Build.VERSION.SDK_INT >= 23) {
             showContacts();
@@ -87,7 +93,8 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 
     @Override
     protected void initData() {
-
+        if (isLogin() && getUserId() != null)
+            mPresenter.getUserInfo(getUserId() + "");
     }
 
     @Override
@@ -183,6 +190,39 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_PHONE_STATE}, BAIDU_READ_PHONE_STATE);
         } else {
             AppTravelLocation.getInstance(MainActivity.this).InitLocation(this);
+        }
+    }
+
+    @Override
+    public JSONObject getParamenters() {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("", "");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object;
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void closeProgress() {
+
+    }
+
+    @Override
+    public void excuteFailedCallBack(CallBackVo mCallBackVo) {
+        ToastUtils.showShortToast("失败：" + mCallBackVo.getMsg());
+    }
+
+    @Override
+    public void excuteSuccessUserCallBack(CallBackVo<UserInfo> mCallBackVo) {
+        if (mCallBackVo != null && mCallBackVo.getData() != null && mCallBackVo.getData().getUserInfo() != null && mCallBackVo.getData().getUserInfo().getSysUser() != null) {
+            setUserInfo(mCallBackVo.getData());
         }
     }
 }

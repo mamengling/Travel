@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -37,6 +41,7 @@ import java.util.List;
 public class TravelViseActivity extends BaseActivity implements View.OnClickListener, TravelViseActivityView {
     private TravelViseActivityPresenter mPresenter;
     private DropDownMenu mDropDownMenu;
+    private EditText edt_search;
     private String headers[] = {"综合排序", "常用送签地"};
     private List<View> popupViews = new ArrayList<>();
     private String topArr[] = {"综合排序", "近期销量最高", "价格从高到低", "价格从低到高"};
@@ -54,6 +59,7 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
     private String commonPlace = "";
     private int intNumber = 0;
     private int intHandler = 101;
+    private String keyName = "";
 
     @Override
     protected int getContentViewId() {
@@ -63,16 +69,18 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void getExtra() {
-
+        keyName = getIntent().getStringExtra("keyName");
     }
 
     @Override
     protected void initView() {
         mDropDownMenu = findViewById(R.id.dropDownMenu);
+        edt_search = findViewById(R.id.edt_search);
     }
 
     @Override
     protected void initTools() {
+        edt_search.setText(keyName);
         mPresenter = new TravelViseActivityPresenter(this, this);
         final ListView listView = new ListView(this);
         mAdapter = new GirdDropDownAdapter(this, Arrays.asList(topArr));
@@ -155,6 +163,25 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void setListener() {
         findViewById(R.id.icon_back).setOnClickListener(this);
+        edt_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                keyName = edt_search.getText().toString().trim();
+                if (!TextUtils.isEmpty(keyName)) {
+                    mPresenter.journeyGoodsSales();
+                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     @Override
@@ -183,7 +210,7 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
             object.put("pageIndex", intNumber);
             object.put("pageSize", 10);
             object.put("regionSort", "");//目的地id
-            object.put("targetPlace", "");//目的地名称
+            object.put("targetPlace", keyName);//目的地名称
             object.put("commonPlace", commonPlace);//常用送签地
             object.put("sort", sort);//排序（01：销量；02价格由高到低；03价格由低到高）
         } catch (JSONException e) {

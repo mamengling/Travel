@@ -53,8 +53,7 @@ public class StatusBarUtils {
             window.getDecorView().setSystemUiVisibility(option);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             if (useThemeColor) {
-                activity.getWindow()
-                        .setStatusBarColor(AppUtils.getColor(activity, R.color.colorPrimaryDark));
+                activity.getWindow().setStatusBarColor(AppUtils.getColor(activity, R.color.colorPrimaryDark));
             } else {
                 activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
             }
@@ -186,6 +185,7 @@ public class StatusBarUtils {
      * @param activity  activity
      */
     public static void setStatusTextColor(boolean useDart, Activity activity) {
+        setStatusBar(activity,true,true);
         if (isFlyme()) {
             processFlyme(activity, useDart);
         } else if (isMIUI()) {

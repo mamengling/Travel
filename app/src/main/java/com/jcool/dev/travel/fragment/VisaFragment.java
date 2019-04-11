@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,7 +16,12 @@ import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.VisaInfoDtoList;
 import com.jcool.dev.travel.iactivityview.VisaFragmentView;
 import com.jcool.dev.travel.persenter.VisaFragmentPresenter;
+import com.jcool.dev.travel.ui.TravelViseActivity;
+import com.jcool.dev.travel.ui.VisaCommitActivity;
+import com.jcool.dev.travel.ui.VisaDataActivity;
+import com.jcool.dev.travel.ui.VisaDefuiltActivity;
 import com.jcool.dev.travel.ui.VisaHotActivity;
+import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -103,6 +109,31 @@ public class VisaFragment extends BaseFragment implements View.OnClickListener, 
     @Override
     protected void setListener() {
         tv_visa_hot.setOnClickListener(this);
+        mAdapter.setOnItemClickListener(new ConstmOnItemOnclickListener<VisaInfoDtoList.VisaInfoDtoListBean>() {
+            @Override
+            public void clickItem(View view, int position, int positionChild, int ClickType, VisaInfoDtoList.VisaInfoDtoListBean content) {
+                switch (ClickType) {
+                    case 0:
+                        Intent intent = new Intent(getContext(), TravelViseActivity.class);
+                        String keyName = "";
+                        if (!TextUtils.isEmpty(content.getVisaSortName())) {
+                            keyName = content.getVisaSortName().replace("热门", "");
+                        }
+                        intent.putExtra("keyName", keyName);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        Intent intentCommit=new Intent(getContext(),VisaCommitActivity.class);
+                        startActivity(intentCommit);
+                        break;
+                    case 2:
+                        Intent intentInfo = new Intent(getContext(), VisaDefuiltActivity.class);
+                        intentInfo.putExtra("visaId", content.getId());
+                        startActivity(intentInfo);
+                        break;
+                }
+            }
+        });
     }
 
     @Override

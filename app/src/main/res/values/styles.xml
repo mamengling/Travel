@@ -97,7 +97,7 @@
         <item name="android:scaleType">centerInside</item>
     </style>
     <style name="TabLayoutTextStyle">
-        <item name="android:textSize">@dimen/textsize_8</item>
+        <item name="android:textSize">@dimen/textsize_7</item>
     </style>
 
     <style name="AppTheme.MainTheme"></style>

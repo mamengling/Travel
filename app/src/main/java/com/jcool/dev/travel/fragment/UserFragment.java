@@ -12,6 +12,7 @@ import com.jcool.dev.travel.adapter.IconAdapter;
 import com.jcool.dev.travel.adapter.ListIconAdapter;
 import com.jcool.dev.travel.base.BaseFragment;
 import com.jcool.dev.travel.bean.HomeIconBean;
+import com.jcool.dev.travel.ui.LoginActivity;
 import com.jcool.dev.travel.ui.SettingActivity;
 import com.jcool.dev.travel.ui.UserInfoActivity;
 import com.jcool.dev.travel.utils.ImageLoaderUtils;
@@ -38,6 +39,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
     private ItemListView itemListView;
     private SmartRefreshLayout refreshLayout;
     private TextView tv_user_name;
+    private TextView tv_login;
     private ImageView image_head;
     private TextView icon_back;
     private TextView icon_right;
@@ -72,6 +74,8 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         icon_back = view.findViewById(R.id.icon_back);
         icon_right = view.findViewById(R.id.icon_right);
         tv_title = view.findViewById(R.id.tv_title);
+        tv_login = view.findViewById(R.id.tv_login);
+
     }
 
     @Override
@@ -114,6 +118,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         icon_right.setOnClickListener(this);
         image_head.setOnClickListener(this);
         tv_user_name.setOnClickListener(this);
+        tv_login.setOnClickListener(this);
         fixedGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -136,6 +141,11 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
                 Intent intentSet = new Intent(getContext(), SettingActivity.class);
                 intentSet.putExtra("", "");
                 getContext().startActivity(intentSet);
+                break;
+            case R.id.tv_login:
+                Intent intentLogin = new Intent(getContext(), LoginActivity.class);
+                intentLogin.putExtra("", "");
+                getContext().startActivity(intentLogin);
                 break;
             case R.id.image_head:
             case R.id.tv_user_name:

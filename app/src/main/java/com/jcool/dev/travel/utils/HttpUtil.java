@@ -14,6 +14,9 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 
+import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.HeaderElement;
+import cz.msebera.android.httpclient.ParseException;
 import cz.msebera.android.httpclient.entity.ByteArrayEntity;
 import cz.msebera.android.httpclient.message.BasicHeader;
 import cz.msebera.android.httpclient.protocol.HTTP;
@@ -28,13 +31,20 @@ public class HttpUtil {
     static {
         httpclient.setTimeout(6000 * 10);
         httpclient.addHeader("Content-Type", "application/json");
-
     }
 
     public static void get(String urlString, AsyncHttpResponseHandler res) // 用一个完整url获取一个string对象
 
     {
         LogUtil.i(urlString);
+        httpclient.get(urlString, res);
+    }
+
+    public static void get(String urlString,String token, AsyncHttpResponseHandler res) // 用一个完整url获取一个string对象
+
+    {
+        LogUtil.i(urlString);
+        httpclient.addHeader(AppConfigStatic.USER_TOKEN_KEY, token);
         httpclient.get(urlString, res);
     }
 
@@ -87,6 +97,30 @@ public class HttpUtil {
      * @param params
      * @param res
      */
+    public static void post(Context mContext, String uString,String token, JSONObject params,
+                            AsyncHttpResponseHandler res) // post数据使用，返回普通的手
+    {
+        LogUtil.i(uString + "?" + params.toString());
+        //创建ByteArrayEntity对象
+        ByteArrayEntity entity = null;
+        try {
+            entity = new ByteArrayEntity(params.toString().getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        httpclient.addHeader(AppConfigStatic.USER_TOKEN_KEY, token);
+        httpclient.post(mContext, uString, entity, "application/json", res);
+    }
+
+
+    /**
+     * 请求体
+     *
+     * @param mContext
+     * @param uString
+     * @param params
+     * @param res
+     */
     public static void post(Context mContext, String uString, JSONObject params,
                             AsyncHttpResponseHandler res) // post数据使用，返回普通的手
     {
@@ -111,7 +145,7 @@ public class HttpUtil {
      * @param res
      */
     public static void get(Context mContext, String uString, JSONObject params,
-                            AsyncHttpResponseHandler res) // post数据使用，返回普通的手
+                           AsyncHttpResponseHandler res) // post数据使用，返回普通的手
     {
         LogUtil.i(uString + "?" + params.toString());
         //创建ByteArrayEntity对象
@@ -121,6 +155,30 @@ public class HttpUtil {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        httpclient.addHeader("access-token", "d19575c9-0aad-4876-8549-b359e4f193d6");
+        httpclient.get(mContext, uString, entity, "application/json", res);
+    }
+
+    /**
+     * 请求体
+     *
+     * @param mContext
+     * @param uString
+     * @param params
+     * @param res
+     */
+    public static void get(Context mContext, String uString, String token, JSONObject params,
+                           AsyncHttpResponseHandler res) // post数据使用，返回普通的手
+    {
+        LogUtil.i(uString + "?" + params.toString());
+        //创建ByteArrayEntity对象
+        ByteArrayEntity entity = null;
+        try {
+            entity = new ByteArrayEntity(params.toString().getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        httpclient.addHeader(AppConfigStatic.USER_TOKEN_KEY, token);
         httpclient.get(mContext, uString, entity, "application/json", res);
     }
 
