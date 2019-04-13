@@ -19,10 +19,10 @@ public class VisaTargetInfo {
     private String placeName;
     private String placeImage;
     private String placeType;
-    private Object sortId;
-    private Object createdBy;
+    private int sortId;
+    private String createdBy;
     private long createdTime;
-    private Object secondPlace;
+    private String secondPlace;
 
     public String getId() {
         return id;
@@ -64,19 +64,19 @@ public class VisaTargetInfo {
         this.placeType = placeType;
     }
 
-    public Object getSortId() {
+    public int getSortId() {
         return sortId;
     }
 
-    public void setSortId(Object sortId) {
+    public void setSortId(int sortId) {
         this.sortId = sortId;
     }
 
-    public Object getCreatedBy() {
+    public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(Object createdBy) {
+    public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
 
@@ -88,11 +88,11 @@ public class VisaTargetInfo {
         this.createdTime = createdTime;
     }
 
-    public Object getSecondPlace() {
+    public String getSecondPlace() {
         return secondPlace;
     }
 
-    public void setSecondPlace(Object secondPlace) {
+    public void setSecondPlace(String secondPlace) {
         this.secondPlace = secondPlace;
     }
 }

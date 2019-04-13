@@ -185,7 +185,7 @@ public class StatusBarUtils {
      * @param activity  activity
      */
     public static void setStatusTextColor(boolean useDart, Activity activity) {
-        setStatusBar(activity,true,true);
+        setStatusBar(activity,true,false);
         if (isFlyme()) {
             processFlyme(activity, useDart);
         } else if (isMIUI()) {

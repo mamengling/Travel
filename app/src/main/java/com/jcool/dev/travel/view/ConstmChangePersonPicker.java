@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.adapter.PersonListAdapter;
 import com.jcool.dev.travel.bean.PersonInfoBean;
+import com.jcool.dev.travel.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +72,12 @@ public class ConstmChangePersonPicker implements View.OnClickListener {
                                 mStr.add(mAdapter.getList().get(i));
                             }
                         }
-                        mCallback.onSelected(mStr);
+                        if (mStr.size() > 0) {
+                            mCallback.onSelected(mStr);
+                        } else {
+                            ToastUtils.showShortToast("请选择出行人");
+                            mCallback.onSelected(null);
+                        }
                     } else {
                         mCallback.onSelected(null);
                     }

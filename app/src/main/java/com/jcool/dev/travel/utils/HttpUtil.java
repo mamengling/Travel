@@ -10,6 +10,7 @@ import com.loopj.android.http.BinaryHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
@@ -85,7 +86,6 @@ public class HttpUtil {
     public static void post(String uString, RequestParams params,
                             AsyncHttpResponseHandler res) // post数据使用，返回普通的手
     {
-
         httpclient.post(uString, params, res);
     }
 
@@ -98,6 +98,29 @@ public class HttpUtil {
      * @param res
      */
     public static void post(Context mContext, String uString,String token, JSONObject params,
+                            AsyncHttpResponseHandler res) // post数据使用，返回普通的手
+    {
+        LogUtil.i(uString + "?" + params.toString());
+        //创建ByteArrayEntity对象
+        ByteArrayEntity entity = null;
+        try {
+            entity = new ByteArrayEntity(params.toString().getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        httpclient.addHeader(AppConfigStatic.USER_TOKEN_KEY, token);
+        httpclient.post(mContext, uString, entity, "application/json", res);
+    }
+
+    /**
+     * 请求体
+     *
+     * @param mContext
+     * @param uString
+     * @param params
+     * @param res
+     */
+    public static void post(Context mContext, String uString,String token, JSONArray params,
                             AsyncHttpResponseHandler res) // post数据使用，返回普通的手
     {
         LogUtil.i(uString + "?" + params.toString());

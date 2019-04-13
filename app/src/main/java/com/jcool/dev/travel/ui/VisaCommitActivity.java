@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
@@ -18,6 +20,7 @@ import com.jcool.dev.travel.bean.VisaTargetInfo;
 import com.jcool.dev.travel.iactivityview.VisaCommitActivityView;
 import com.jcool.dev.travel.persenter.VisaCommitActivityPresenter;
 import com.jcool.dev.travel.utils.StatusBarUtil;
+import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
 import com.jcool.dev.travel.view.ConstmChangePersonPicker;
 import com.jcool.dev.travel.view.VisaChangeInputPicker;
@@ -57,6 +60,8 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
     EditText edt_email;
     @BindView(R.id.btn_commit)
     Button btn_commit;
+    @BindView(R.id.person_list)
+    LinearLayout person_list;
     private VisaChangeInputPicker placePicker;
     private VisaChangeInputPicker goodsPicker;
     private VisaChangeInputPicker buyPicker;
@@ -71,9 +76,20 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
     private String[] shopType = {"国旅-淘宝", "中青国际-淘宝", "国旅-京东", "中青国际-京东", "签证直客"};
     private String placeId = "";
     private String visaId = "";
+    private String shopTypeName = "";
+    private String orderNumber = "";
+    private String placeName = "";
+    private String visaName = "";
+    private String custIds = "";
+    private String linkName = "";
+    private String phoneNumber = "";
+    private String emailNumber = "";
+    private int peopleCount = 0;
+    private View personViews;
 
     @Override
     protected int getContentViewId() {
+        StatusBarUtils.setStatusTextColor(true,this);
         StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_commit_visa;
     }
@@ -103,6 +119,7 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
         icon_right.setOnClickListener(this);
         edt_goods_name.setOnClickListener(this);
         tv_change_person.setOnClickListener(this);
+        btn_commit.setOnClickListener(this);
     }
 
     @Override
@@ -149,7 +166,60 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
             case R.id.tv_change_person:
                 initPersonPicker();
                 break;
+            case R.id.btn_commit:
+                inputSuccess();
+                break;
         }
+    }
+
+    private void inputSuccess() {
+        shopTypeName = tv_shop_type.getText().toString().trim();
+        orderNumber = tv_order_number.getText().toString().trim();
+        placeName = tv_tag_place.getText().toString().trim();
+        phoneNumber = edt_phone.getText().toString().trim();
+        linkName = edt_user_name.getText().toString().trim();
+        emailNumber = edt_email.getText().toString().trim();
+        if (TextUtils.isEmpty(shopTypeName)) {
+            ToastUtils.showShortToast("请选择店铺类型");
+            return;
+        }
+        if (TextUtils.isEmpty(orderNumber)) {
+            ToastUtils.showShortToast("请输入订单号");
+            return;
+        }
+        if (TextUtils.isEmpty(placeName) || TextUtils.isEmpty(placeId)) {
+            ToastUtils.showShortToast("请选择目的地");
+            return;
+        }
+        if (TextUtils.isEmpty(placeName) || TextUtils.isEmpty(placeId)) {
+            ToastUtils.showShortToast("请选择目的地");
+            return;
+        }
+        if (TextUtils.isEmpty(visaId) || TextUtils.isEmpty(visaName)) {
+            ToastUtils.showShortToast("请选择商品名称");
+            return;
+        }
+        if (TextUtils.isEmpty(custIds) || peopleCount == 0) {
+            ToastUtils.showShortToast("请选择申请人");
+            return;
+        }
+        if (TextUtils.isEmpty(custIds) || peopleCount == 0) {
+            ToastUtils.showShortToast("请选择申请人");
+            return;
+        }
+        if (TextUtils.isEmpty(linkName)) {
+            ToastUtils.showShortToast("请输入联系人姓名");
+            return;
+        }
+        if (TextUtils.isEmpty(phoneNumber)) {
+            ToastUtils.showShortToast("请输入手机号");
+            return;
+        }
+        if (TextUtils.isEmpty(emailNumber)) {
+            ToastUtils.showShortToast("请输入电子邮箱");
+            return;
+        }
+        mPresenter.journeyVisaAdd(getToken());
     }
 
     private void initDatePicker() {
@@ -203,6 +273,7 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
                 for (int i = 0; i < visaList.size(); i++) {
                     if (TextUtils.equals(tamp, visaList.get(i).getVisaName())) {
                         visaId = visaList.get(i).getId();
+                        visaName = visaList.get(i).getVisaName();
                     }
                 }
             }
@@ -222,7 +293,46 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
         personPicker = new ConstmChangePersonPicker(this, new ConstmChangePersonPicker.Callback() {
             @Override
             public void onSelected(List<PersonInfoBean> tamp) {
+                person_list.removeAllViews();
+                custIds = "";
+                peopleCount = 0;
+                if (tamp != null && tamp.size() > 0) {
+                    for (int i = 0; i < tamp.size(); i++) {
+                        personViews = LayoutInflater.from(VisaCommitActivity.this).inflate(R.layout.x_item_person, null);
+                        TextView tv_name = personViews.findViewById(R.id.tv_name);
+                        TextView tv_sex = personViews.findViewById(R.id.tv_sex);
+                        TextView tv_person_type = personViews.findViewById(R.id.tv_person_type);
+                        TextView tv_work_type = personViews.findViewById(R.id.tv_work_type);
 
+                        custIds += tamp.get(i).getId() + ",";
+                        peopleCount += 1;
+                        tv_name.setText(tamp.get(i).getCustName());
+                        if (TextUtils.equals("girl", tamp.get(i).getCustSex())) {//旅客性别(boy,girl)
+                            tv_sex.setText("女");
+                        } else {
+                            tv_sex.setText("男");
+                        }
+
+                        //客户类型(01:在职；02：在校学生；03：退休；04：学龄儿童)
+                        if (TextUtils.equals("01", tamp.get(i).getCertType())) {
+                            tv_work_type.setText("在职");
+                        } else if (TextUtils.equals("02", tamp.get(i).getCertType())) {
+                            tv_work_type.setText("在校学生");
+                        } else if (TextUtils.equals("03", tamp.get(i).getCertType())) {
+                            tv_work_type.setText("退休");
+                        } else {
+                            tv_work_type.setText("学龄儿童");
+                        }
+
+                        //旅客年龄段(01:0-12周岁；02：儿童；03：成人)
+                        if (TextUtils.equals("3", tamp.get(i).getCustAge())) {
+                            tv_work_type.setText("在职");
+                        } else {
+                            tv_work_type.setText("儿童");
+                        }
+                        person_list.addView(personViews);
+                    }
+                }
             }
 
             @Override
@@ -242,6 +352,16 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
         JSONObject object = new JSONObject();
         try {
             object.put("placeId", placeId);
+            object.put("shopType", shopTypeName);
+            object.put("orderId", orderNumber);
+            object.put("place", placeName);
+            object.put("visaName", visaName);
+            object.put("custIds", custIds);
+            object.put("linkName", linkName);
+            object.put("phone", phoneNumber);
+            object.put("email", emailNumber);
+            object.put("peopleCount", peopleCount);
+            object.put("visaId", visaId);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -293,5 +413,12 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
                 mGoodsUnits.add(mCallBackVoGoods.getData().get(i).getVisaName());
             }
         }
+    }
+
+    @Override
+    public void excuteSuccessAddCallBack(CallBackVo<String> mCallBackVo) {
+        Intent intent=new Intent(this,VisaOrderDetailActivity.class);
+        intent.putExtra("orderId",mCallBackVo.getData());
+        startActivity(intent);
     }
 }

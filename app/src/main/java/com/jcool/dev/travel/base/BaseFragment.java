@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,40 +85,103 @@ public abstract class BaseFragment extends Fragment {
      *
      * @param info
      */
-    protected void setUserInfo(UserInfo info) {
+    protected void setUserInfo(UserInfo.UserInfoBean.SysUserBean info) {
         SharePreferenceUtil.setValue(getContext(), AppConfigStatic.IS_LOGIN, true);
-        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_ID, info.getUserInfo().getSysUser().getUserId()+"");
-        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_NAME, info.getUserInfo().getSysUser().getUsername());
-        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.PASSWORD, info.getUserInfo().getSysUser().getPassword());
-        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.NICK_NAME, info.getUserInfo().getSysUser().getNickname());
-        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.PHONE, info.getUserInfo().getSysUser().getPhone());
-        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_TYPE, info.getUserInfo().getSysUser().getUserType());
-        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.WX_OPEN_ID, info.getUserInfo().getSysUser().getWxOpenid());
-        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.QQ_OPEN_ID, info.getUserInfo().getSysUser().getQqOpenid());
-        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_SEX, info.getUserInfo().getSysUser().getSex());
-        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_CITY, info.getUserInfo().getSysUser().getCity());
-        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_TOKEN, info.getAccesstoken());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_ID, info.getUserId()+"");
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_NAME, info.getUsername());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.PASSWORD, info.getPassword());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.NICK_NAME, info.getNickname());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.PHONE, info.getPhone());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_TYPE, info.getUserType());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.WX_OPEN_ID, info.getWxOpenid());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.QQ_OPEN_ID, info.getQqOpenid());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_SEX, info.getSex());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_CITY, info.getCity());
+
+    }
+    protected void setToken(String token){
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_TOKEN, token);
+    }
+    protected String getUserId() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_ID, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_ID, "");
+        } else {
+            return null;
+        }
     }
 
-    /**
-     * 获取用户信息
-     *
-     * @return userinfo
-     */
-    protected UserInfo.UserInfoBean.SysUserBean getUserInfo() {
-        UserInfo.UserInfoBean.SysUserBean userBean = new UserInfo.UserInfoBean().getSysUser();
-        userBean.setUserId(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_ID, ""));
-        userBean.setUsername(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_NAME, ""));
-        userBean.setPassword(SharePreferenceUtil.getString(getContext(), AppConfigStatic.PASSWORD, ""));
-        userBean.setNickname(SharePreferenceUtil.getString(getContext(), AppConfigStatic.NICK_NAME, ""));
-        userBean.setPhone(SharePreferenceUtil.getString(getContext(), AppConfigStatic.PHONE, ""));
-        userBean.setUserType(SharePreferenceUtil.getInt(getContext(), AppConfigStatic.PHONE, 0));
-        userBean.setSex(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_SEX, ""));
-        userBean.setCity(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_CITY, ""));
-        userBean.setQqOpenid(SharePreferenceUtil.getString(getContext(), AppConfigStatic.QQ_OPEN_ID, ""));
-        userBean.setWxOpenid(SharePreferenceUtil.getString(getContext(), AppConfigStatic.WX_OPEN_ID, ""));
-        return userBean;
+    protected String getUsername() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_NAME, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_NAME, "");
+        } else {
+            return null;
+        }
     }
+
+    protected String getPassword() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.PASSWORD, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.PASSWORD, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getNickname() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.NICK_NAME, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.NICK_NAME, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getUserPhone() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.PHONE, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.PHONE, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected int getUserType() {
+        if (SharePreferenceUtil.getInt(getContext(), AppConfigStatic.USER_TYPE, 0) == 0) {
+            return SharePreferenceUtil.getInt(getContext(), AppConfigStatic.USER_TYPE, 0);
+        } else {
+            return 0;
+        }
+    }
+
+    protected String getSex() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_SEX, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_SEX, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getCity() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_CITY, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_CITY, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getQqOpenid() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.QQ_OPEN_ID, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.QQ_OPEN_ID, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getWxOpenid() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.WX_OPEN_ID, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.WX_OPEN_ID, "");
+        } else {
+            return null;
+        }
+    }
+
 
     /**
      * 获取token

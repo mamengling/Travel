@@ -122,7 +122,7 @@ public class UserInfo {
                 this.password = password;
             }
 
-            public Object getNickname() {
+            public String getNickname() {
                 return nickname;
             }
 

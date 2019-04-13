@@ -32,7 +32,7 @@ public class VisaCommitActivityPresenter {
 
     public void journeyVisaInfo() {
         mVisaCommitActivityView.showProgress();
-        HttpUtil.post(Constants.BASE_URL + Constants.APP_HOME_API_JOURNEY_VISA_TARGET_PLAACE_QUERY_FIRST_SORT, new AsyncHttpResponseHandler() {
+        HttpUtil.get(Constants.BASE_URL + Constants.APP_HOME_API_JOURNEY_VISA_TARGET_PLAACE_QUERY_SECOND_SORT, new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -56,6 +56,48 @@ public class VisaCommitActivityPresenter {
                 }.getType());
                 if (mCallBackVo.isSuccess()) {
                     mVisaCommitActivityView.excuteSuccessCallBack(mCallBackVo);
+                } else {
+                    mVisaCommitActivityView.excuteFailedCallBack(mCallBackVo);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mVisaCommitActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mVisaCommitActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
+    public void journeyVisaAdd(String token) {
+        mVisaCommitActivityView.showProgress();
+        HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_JOURNEY_VISA_OTHER_ORDER_DATA_ADD,token, mVisaCommitActivityView.getParamenters(), new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mVisaCommitActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mVisaCommitActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mVisaCommitActivityView.closeProgress();
+                Gson gson = new Gson();
+                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                }.getType());
+                if (mCallBackVo.isSuccess()) {
+                    mVisaCommitActivityView.excuteSuccessAddCallBack(mCallBackVo);
                 } else {
                     mVisaCommitActivityView.excuteFailedCallBack(mCallBackVo);
                 }

@@ -115,6 +115,10 @@ public class AppConfigStatic {
      */
     public static double APP_AMAP_LONGITUDE = 0;
     /**
+     * 上传图片
+     */
+    public final static int UPLOAD_IMAGE = 1000;
+    /**
      * 获取城市
      */
     public static String APP_AMAP_CITY = "济南市";

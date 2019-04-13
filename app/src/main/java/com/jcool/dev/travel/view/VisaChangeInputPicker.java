@@ -92,6 +92,7 @@ public class VisaChangeInputPicker implements View.OnClickListener, PickerView.O
 
     private void initDateUnits() {
         dpv_content.setDataList(mStrUnits);
+        textChange = mStrUnits.get(0);
         dpv_content.setSelected(0);
         setCanScroll();
     }

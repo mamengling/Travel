@@ -149,7 +149,8 @@ public class LoginAccFragment extends BaseFragment implements View.OnClickListen
     public void excuteSuccessGoodsCallBack(CallBackVo<UserInfo> mCallBackVo) {
         ToastUtils.showShortToast("登录成功");
         if (mCallBackVo != null && mCallBackVo.getData() != null) {
-            setUserInfo(mCallBackVo.getData());
+            setUserInfo(mCallBackVo.getData().getUserInfo().getSysUser());
+            setToken(mCallBackVo.getData().getAccesstoken());
         }
         if (isAdded()) {
             getActivity().finish();

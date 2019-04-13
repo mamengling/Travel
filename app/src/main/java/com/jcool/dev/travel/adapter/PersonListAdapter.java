@@ -35,6 +35,7 @@ public class PersonListAdapter extends BaseAdapter {
         this.mList = mList;
         for (int i = 0; i < mList.size(); i++) {
             mImage_bs.add(false);
+            mList.get(i).setCheck(false);
         }
     }
 
@@ -128,15 +129,16 @@ public class PersonListAdapter extends BaseAdapter {
         // 多选时
         if (multiChoose == true) {
             mImage_bs.setElementAt(!mImage_bs.elementAt(position), position); // 直接取反即可
+            if (mList != null) {
+                mList.get(position).setCheck(!mList.get(position).isCheck());
+            }
         }
         // 单选时
         else {
             if (lastPosition != -1) {
                 mImage_bs.setElementAt(false, lastPosition);// 取消上一次的选中状态
-                mList.get(position).setCheck(false);
             }
             mImage_bs.setElementAt(!mImage_bs.elementAt(position), position); // 直接取反即可
-            mList.get(position).setCheck(!mList.get(position).isCheck());
             lastPosition = position; // 记录本次选中的位置
         }
         notifyDataSetChanged(); // 通知适配器进行更新

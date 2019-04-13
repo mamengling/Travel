@@ -3,7 +3,8 @@ package com.jcool.dev.travel.utils;
 public class Constants {
     public static final String BASE_ROOT = "mock/14/";
     //服务器ip地址
-    public static final String BASE_URL = "http://39.98.51.93/";
+//    public static final String BASE_URL = "http://39.98.51.93/";
+    public static final String BASE_URL = "http://192.168.0.121:1025/";
     /**
      * 获取首页banner
      */
@@ -49,6 +50,10 @@ public class Constants {
      */
     public static final String APP_HOME_API_JOURNEY_ADD = "api/customized/personalTailor/add";
     /**
+     * 新增旅客信息
+     */
+    public static final String APP_HOME_API_COSTOMER_PERSON_ADD = "api/customer/customerInfo/add";
+    /**
      * 前端签证大厅数据获取
      */
     public static final String APP_HOME_API_JOURNEY_VISA_VISAINFO_QUERY_SORT_REGION = "api/visa/visaInfo/querySortRegion";
@@ -56,6 +61,14 @@ public class Constants {
      * 查询目的地一级分类
      */
     public static final String APP_HOME_API_JOURNEY_VISA_TARGET_PLAACE_QUERY_FIRST_SORT = "api/place/targetPlace/queryFirstSort";
+    /**
+     * 查询目的地二级分类
+     */
+    public static final String APP_HOME_API_JOURNEY_VISA_TARGET_PLAACE_QUERY_SECOND_SORT = "api/place/targetPlace/querySecond";
+    /**
+     * 前端其它渠道提交签证审核资料
+     */
+    public static final String APP_HOME_API_JOURNEY_VISA_OTHER_ORDER_DATA_ADD = "api/visa/otherOrderData/add";
     /**
      * 根据目的地id获取签证下拉列表
      */
@@ -76,4 +89,32 @@ public class Constants {
      * 通过ID获取用户信息
      */
     public static final String APP_HOME_API_USER_INFO = "api/user/";
+    /**
+     * 获取签证订单主表
+     */
+    public static final String APP_HOME_API_GET_ORDER_VISA_INFO = "api/visa/visaOrder/get/";
+    /**
+     * 前端根据订单id获取其它渠道资料上传所需数据（一步到位有所需材料）
+     */
+    public static final String APP_HOME_API_GET_OTHER_ORDER_VISA_INFO = "api/visa/otherOrderData/getOtherOrderInfo/";
+    /**
+     * 提交记录查询
+     */
+    public static final String APP_HOME_API_GET_OTHER_ORDER_VISA_LIST = "api/visa/otherOrderData/commitRecords";
+    /**
+     * 上传图片 单个上传
+     */
+    public static final String APP_HOME_API_UPLOAD_IMAGE = "attachment/upload/image";
+    /**
+     * 上传附件 单个上传
+     */
+    public static final String APP_HOME_API_UPLOAD_FILES = "attachment/upload";
+    /**
+     * 其它途径订单资料提交和驳回再提交（测试集合中有实例；修改时加id字段）
+     */
+    public static final String APP_HOME_API_VISA_OTHER_ORDER_COMMIT_DATA = "api/visa/otherOrderData/commitData";
+    /**
+     * 【APP】查询我的订单
+     */
+    public static final String APP_HOME_API_VISA_ORDER_JOURNEY_GOODS_FORM_QUERY_APP = "api/journeyForm/journeyGoodsForm/query/app";
 }

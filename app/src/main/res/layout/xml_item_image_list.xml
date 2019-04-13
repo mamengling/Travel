@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="75dp"
+    android:layout_height="75dp">
+
+    <ImageView
+        android:id="@+id/image_show"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="5dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/bg_add" />
+
+    <ImageView
+        android:id="@+id/image_close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:padding="5dp"
+        android:src="@mipmap/construct_record_dele"
+        android:visibility="visible" />
+</RelativeLayout>

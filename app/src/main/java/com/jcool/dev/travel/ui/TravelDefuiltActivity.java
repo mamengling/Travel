@@ -54,8 +54,8 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
 
     @Override
     protected int getContentViewId() {
+        StatusBarUtils.setStatusTextColor(true,this);
         StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
-        StatusBarUtils.setStatusTextColor(true, this);
         return R.layout.activity_travel_defulit;
     }
 

@@ -2,6 +2,7 @@ package com.jcool.dev.travel.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -11,14 +12,22 @@ import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.adapter.IconAdapter;
 import com.jcool.dev.travel.adapter.ListIconAdapter;
 import com.jcool.dev.travel.base.BaseFragment;
+import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.HomeIconBean;
+import com.jcool.dev.travel.bean.UserInfo;
+import com.jcool.dev.travel.iactivityview.UserInfoGetView;
+import com.jcool.dev.travel.persenter.UserInfoGetPresenter;
 import com.jcool.dev.travel.ui.LoginActivity;
+import com.jcool.dev.travel.ui.OrderTabActivity;
 import com.jcool.dev.travel.ui.SettingActivity;
 import com.jcool.dev.travel.ui.UserInfoActivity;
 import com.jcool.dev.travel.utils.ImageLoaderUtils;
+import com.jcool.dev.travel.utils.ToastUtils;
 import com.jcool.dev.travel.view.FixedGridView;
 import com.jcool.dev.travel.view.ItemListView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +35,8 @@ import java.util.List;
 /**
  * 个人中心
  */
-public class UserFragment extends BaseFragment implements View.OnClickListener {
+public class UserFragment extends BaseFragment implements View.OnClickListener, UserInfoGetView {
+    private UserInfoGetPresenter mPresenter;
     private IconAdapter mAdapterIcon;
     private ListIconAdapter mAdapterIconList;
     private String iconArr[] = {"全部订单", "待付款", "待出行", "待评价"};
@@ -55,6 +65,23 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
     }
 
     @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (hidden) {
+            //隐藏时所作的事情
+        } else {
+            if (isLogin() && getUserId() != null) {
+                tv_login.setVisibility(View.GONE);
+                tv_user_name.setVisibility(View.VISIBLE);
+                mPresenter.getUserInfo(getUserId() + "");
+            } else {
+                tv_user_name.setVisibility(View.GONE);
+                tv_login.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    @Override
     protected int getContentViewId() {
         return R.layout.fragment_user;
     }
@@ -80,13 +107,13 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected void initTools() {
+        mPresenter = new UserInfoGetPresenter(this, getContext());
         tv_title.setText("个人中心");
         icon_back.setVisibility(View.GONE);
-
         if (isAdded()) {
             icon_right.setCompoundDrawablesWithIntrinsicBounds(null, null, getContext().getResources().getDrawable(R.mipmap.icon_home_zuan), null);
         }
-        ImageLoaderUtils.showImageViewToCircle(getContext(), "http://img5.duitang.com/uploads/item/201512/18/20151218165511_AQW4B.jpeg", image_head, R.mipmap.icon_default_head);
+//        ImageLoaderUtils.showImageViewToCircle(getContext(), "http://img5.duitang.com/uploads/item/201512/18/20151218165511_AQW4B.jpeg", image_head, R.mipmap.icon_default_head);
         refreshLayout.setEnableRefresh(false);
         mListIcon = new ArrayList<>();
         for (int i = 0; i < iconArr.length; i++) {
@@ -110,7 +137,14 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected void initData() {
-
+        if (isLogin() && getUserId() != null) {
+            tv_login.setVisibility(View.GONE);
+            tv_user_name.setVisibility(View.VISIBLE);
+            mPresenter.getUserInfo(getUserId() + "");
+        } else {
+            tv_user_name.setVisibility(View.GONE);
+            tv_login.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -122,7 +156,9 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         fixedGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(getContext(), OrderTabActivity.class);
+                intent.putExtra("number", position);
+                startActivity(intent);
             }
         });
         itemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -155,6 +191,40 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
                 break;
             default:
                 break;
+        }
+    }
+
+
+    @Override
+    public JSONObject getParamenters() {
+        return null;
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void closeProgress() {
+
+    }
+
+    @Override
+    public void excuteFailedCallBack(CallBackVo mCallBackVo) {
+        ToastUtils.showShortToast("失败：" + mCallBackVo.getMsg());
+    }
+
+    @Override
+    public void excuteSuccessUserCallBack(CallBackVo<UserInfo.UserInfoBean.SysUserBean> mCallBackVo) {
+        if (mCallBackVo != null && mCallBackVo.getData() != null) {
+            setUserInfo(mCallBackVo.getData());
+            if (TextUtils.isEmpty(mCallBackVo.getData().getNickname())) {
+                tv_user_name.setText(mCallBackVo.getData().getUsername());
+            } else {
+                tv_user_name.setText(mCallBackVo.getData().getNickname());
+            }
+            ImageLoaderUtils.showImageViewToCircle(getContext(), mCallBackVo.getData().getAvatar(), image_head, R.mipmap.icon_gif);
         }
     }
 }

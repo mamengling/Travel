@@ -19,6 +19,7 @@ import com.jcool.dev.travel.bean.VisaInfoBeanView;
 import com.jcool.dev.travel.iactivityview.VisaInfoActivityView;
 import com.jcool.dev.travel.persenter.VisaInfoActivityPresenter;
 import com.jcool.dev.travel.utils.StatusBarUtil;
+import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 import com.jcool.dev.travel.view.group.GroupItemDecoration;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -53,6 +54,7 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     protected int getContentViewId() {
+        StatusBarUtils.setStatusTextColor(true, this);
         StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_visa_defulit;
     }

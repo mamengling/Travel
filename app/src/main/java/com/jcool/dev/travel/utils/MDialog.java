@@ -58,6 +58,7 @@ public class MDialog {
      */
     public void showProgressDialog() {
         closeProgressDialog();
+        mProgressDialog = CustomProgressDialog.createDialog(mContext);
         showProgressDialog(mContext, mProgressDialog);
     }
 

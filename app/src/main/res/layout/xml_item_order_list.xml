@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/root_bg_color1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/x_edt_bg_rootcolor06">
+
+        <TextView
+            android:id="@+id/tv_data_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="提交日期："
+            android:textColor="@color/text_black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_data_title"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="2019-09-09"
+            android:textColor="@color/text_black"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/tv_shop_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_data_title"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text="店铺类型"
+            android:textColor="@color/text_black"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_shop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_data_title"
+            android:layout_toRightOf="@+id/tv_name_title"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="淘宝"
+            android:textColor="@color/text_black"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_order_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_shop_title"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text="订单号"
+            android:textColor="@color/text_black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_order_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_shop_title"
+            android:layout_toRightOf="@+id/tv_name_title"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="123344566777"
+            android:textColor="@color/text_black"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:id="@+id/tv_name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_order_title"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:text="申请人姓名"
+            android:textColor="@color/text_black"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_order_title"
+            android:layout_toRightOf="@+id/tv_name_title"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="张三"
+            android:textColor="@color/text_black"
+            android:textSize="13sp" />
+
+
+        <TextView
+            android:id="@+id/tv_order_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:text="待审核"
+            android:textColor="@color/red_money"
+            android:textSize="13sp" />
+    </RelativeLayout>
+</LinearLayout>

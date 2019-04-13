@@ -113,21 +113,23 @@ public abstract class BaseActivity extends AppCompatActivity {
         return SharePreferenceUtil.getBoolean(this, AppConfigStatic.IS_LOGIN, false);
     }
 
-    protected void setUserInfo(UserInfo info) {
+    protected void setUserInfo(UserInfo.UserInfoBean.SysUserBean info) {
         SharePreferenceUtil.setValue(this, AppConfigStatic.IS_LOGIN, true);
-        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_ID, info.getUserInfo().getSysUser().getUserId() + "");
-        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_NAME, info.getUserInfo().getSysUser().getUsername());
-        SharePreferenceUtil.setValue(this, AppConfigStatic.PASSWORD, info.getUserInfo().getSysUser().getPassword());
-        SharePreferenceUtil.setValue(this, AppConfigStatic.NICK_NAME, info.getUserInfo().getSysUser().getNickname());
-        SharePreferenceUtil.setValue(this, AppConfigStatic.PHONE, info.getUserInfo().getSysUser().getPhone());
-        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_TYPE, info.getUserInfo().getSysUser().getUserType());
-        SharePreferenceUtil.setValue(this, AppConfigStatic.WX_OPEN_ID, info.getUserInfo().getSysUser().getWxOpenid());
-        SharePreferenceUtil.setValue(this, AppConfigStatic.QQ_OPEN_ID, info.getUserInfo().getSysUser().getQqOpenid());
-        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_SEX, info.getUserInfo().getSysUser().getSex());
-        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_CITY, info.getUserInfo().getSysUser().getCity());
-        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_TOKEN, info.getAccesstoken());
-    }
+        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_ID, info.getUserId() + "");
+        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_NAME, info.getUsername());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.PASSWORD, info.getPassword());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.NICK_NAME, info.getNickname());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.PHONE, info.getPhone());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_TYPE, info.getUserType());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.WX_OPEN_ID, info.getWxOpenid());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.QQ_OPEN_ID, info.getQqOpenid());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_SEX, info.getSex());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_CITY, info.getCity());
 
+    }
+    protected void setToken(String token){
+        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_TOKEN, token);
+    }
     protected String getUserId() {
         if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.USER_ID, ""))) {
             return SharePreferenceUtil.getString(this, AppConfigStatic.USER_ID, "");

@@ -13,4 +13,6 @@ public interface VisaCommitActivityView extends IBaseActView {
     void excuteSuccessPersonCallBack(CallBackVo<List<PersonInfoBean>> mCallBackVo);
 
     void excuteSuccessGoodsCallBack(CallBackVo<List<VisaInfoDtoList.VisaInfoDtoListBean>> mCallBackVoGoods);
+
+    void excuteSuccessAddCallBack(CallBackVo<String> mCallBackVo);
 }

@@ -47,7 +47,7 @@ public class UserInfoGetPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mUserInfoGetView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<UserInfo> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<UserInfo>>() {
+                CallBackVo<UserInfo.UserInfoBean.SysUserBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<UserInfo.UserInfoBean.SysUserBean>>() {
                 }.getType());
                 if (mCallBackVo.isSuccess()) {
                     mUserInfoGetView.excuteSuccessUserCallBack(mCallBackVo);

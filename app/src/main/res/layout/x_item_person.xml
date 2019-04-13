@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/textsize_6" />
+
+
+    <TextView
+        android:id="@+id/tv_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginLeft="10dp"
+        android:text="女"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/textsize_6" />
+
+    <TextView
+        android:id="@+id/tv_person_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/tv_sex"
+        android:text="成人"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/textsize_6" />
+
+    <TextView
+        android:id="@+id/tv_work_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/tv_person_type"
+        android:text="在职"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/textsize_6" />
+
+</LinearLayout>

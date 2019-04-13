@@ -220,8 +220,8 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     }
 
     @Override
-    public void excuteSuccessUserCallBack(CallBackVo<UserInfo> mCallBackVo) {
-        if (mCallBackVo != null && mCallBackVo.getData() != null && mCallBackVo.getData().getUserInfo() != null && mCallBackVo.getData().getUserInfo().getSysUser() != null) {
+    public void excuteSuccessUserCallBack(CallBackVo<UserInfo.UserInfoBean.SysUserBean> mCallBackVo) {
+        if (mCallBackVo != null && mCallBackVo.getData() != null) {
             setUserInfo(mCallBackVo.getData());
         }
     }

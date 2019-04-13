@@ -1,7 +1,7 @@
 package com.jcool.dev.travel.bean;
 
 public class PersonInfoBean {
-    private boolean check;
+    private boolean check = false;
     /**
      * id : 1115819200304562177
      * userId : 16
