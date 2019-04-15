@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface OtherTravelTabFragmentView extends IBaseActView {
     void excuteSuccessCallBack(CallBackVo<OrderTravelInfoBean> mCallBackVo);
+
+    void excuteSuccessOrderCallBack(CallBackVo<String> mCallBackVo);
 }

@@ -160,9 +160,13 @@ dependencies {
     implementation 'com.amap.api:3dmap:latest.integration'
     //折叠textview
     implementation 'com.ms-square:expandableTextView:0.1.4'
+    //支付宝
+    implementation (name: 'alipaySdk-15.6.0-20190226104053', ext: 'aar')
     //2D
     //bugly
     implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    //微信支付
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
     //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
     implementation 'com.tencent.bugly:nativecrashreport:latest.release'
     implementation 'com.yinglan.alphatabs:library:1.0.8'

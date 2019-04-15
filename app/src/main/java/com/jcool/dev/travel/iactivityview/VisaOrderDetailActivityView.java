@@ -6,4 +6,6 @@ import com.jcool.dev.travel.bean.VisaOrderInfo;
 
 public interface VisaOrderDetailActivityView extends IBaseActView {
     void excuteSuccessCallBack(CallBackVo<VisaOrderInfo> mCallBackVo);
+
+    void excuteSuccessOrderCallBack(CallBackVo<String> mCallBackVo);
 }

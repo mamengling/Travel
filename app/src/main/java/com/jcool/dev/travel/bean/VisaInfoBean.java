@@ -330,12 +330,21 @@ public class VisaInfoBean {
     }
 
     public static class VisaSpecBean implements Parcelable {
+        private boolean check = false;
         private String name;
         private String price;
         private String content;
         private String index;
         private int type;
         private String initRowIndex;
+
+        public boolean isCheck() {
+            return check;
+        }
+
+        public void setCheck(boolean check) {
+            this.check = check;
+        }
 
         public String getName() {
             return name;

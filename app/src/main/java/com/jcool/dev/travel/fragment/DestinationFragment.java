@@ -8,6 +8,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,18 +17,23 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.adapter.ContextRightListAdapter;
 import com.jcool.dev.travel.adapter.TitleLiftListAdapter;
 import com.jcool.dev.travel.base.BaseFragment;
 import com.jcool.dev.travel.bean.CallBackVo;
+import com.jcool.dev.travel.bean.CityBean;
 import com.jcool.dev.travel.bean.DestinationBean;
 import com.jcool.dev.travel.iactivityview.DestinationFragmentView;
 import com.jcool.dev.travel.persenter.DestinationFragmentPresenter;
+import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.DividerItemDecoration;
 import com.jcool.dev.travel.utils.UiUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
 
 import org.json.JSONObject;
@@ -48,6 +54,7 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
     private ListView list_item;
     private RecyclerView recycler_view;
     private List<DestinationBean> mCallBackVo;
+    private List<DestinationBean> mGroupList = new ArrayList<>();
     private List<DestinationBean.SecondPlaceBean> mList = new ArrayList<>();
     private SmartRefreshLayout refreshLayout;
 
@@ -85,27 +92,28 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
         mPresenter = new DestinationFragmentPresenter(this, getContext());
         icon_back.setVisibility(View.GONE);
         refreshLayout.setEnableRefresh(true);
-        refreshLayout.setEnableLoadmore(true);
-        refreshLayout.setOnRefreshLoadmoreListener(new OnRefreshLoadmoreListener() {
-            @Override
-            public void onLoadmore(RefreshLayout refreshlayout) {
-
-            }
-
+        refreshLayout.setEnableLoadmore(false);
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-
+                refreshLayout.finishRefresh();
             }
         });
         mAdapterRight = new ContextRightListAdapter(getContext());
-        GridLayoutManager manager = new GridLayoutManager(getContext(), 3);
-//        int screenWidth = UiUtil.getScreenWidth(getContext());
-//        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-//            @Override
-//            public int getSpanSize(int position) {
-//                return (3 - position % 3);
-//            }
-//        });
+        GridLayoutManager manager = new GridLayoutManager(getContext(), 6);
+        int screenWidth = UiUtil.getScreenWidth(getContext());
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (TextUtils.equals("03", mList.get(position).getPlaceType())) {
+                    return 6;
+                } else if (TextUtils.equals("04", mList.get(position).getPlaceType())) {
+                    return 2;
+                } else {
+                    return 3;
+                }
+            }
+        });
 
         recycler_view.setLayoutManager(manager);
 
@@ -125,7 +133,14 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
                 if (mAdapter != null) {
                     mAdapter.changeState(position);
                     mList.clear();
-                    mList.addAll(mCallBackVo.get(position).getSecondPlace());
+                    if (position != 0) {
+                        DestinationBean.SecondPlaceBean bean = new DestinationBean.SecondPlaceBean();
+                        bean.setPlaceName("推荐");
+                        bean.setPlaceType("03");
+                        bean.setId("0");
+                        mList.add(bean);
+                    }
+                    mList.addAll(mGroupList.get(position).getSecondPlace());
                     mAdapterRight.onReference(mList);
                 }
             }
@@ -155,13 +170,17 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
 
     @Override
     public void excuteFailedCallBack(CallBackVo mCallBackVo) {
-
+        initOnlineData();
     }
 
     @Override
     public void excuteSuccessCallBack(List<DestinationBean> mCallBackVo) {
+        initOnlineData();
         this.mCallBackVo = mCallBackVo;
-        uiHandler.sendEmptyMessage(101);
+        if (mCallBackVo != null) {
+            mGroupList.addAll(mCallBackVo);
+            uiHandler.sendEmptyMessage(101);
+        }
     }
 
 
@@ -172,7 +191,7 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 101:
-                    mAdapter = new TitleLiftListAdapter(getContext(), mCallBackVo);
+                    mAdapter = new TitleLiftListAdapter(getContext(), mGroupList);
                     list_item.setAdapter(mAdapter);
                     break;
                 case 102:
@@ -182,4 +201,31 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
             }
         }
     };
+
+    private void initOnlineData() {
+        mGroupList.clear();
+        DestinationBean itemFirst = new DestinationBean();
+        itemFirst.setPlaceName("境内");
+        String cityStr = AppUtils.initJsonData(getContext(), "areaCity.json");
+        Gson gson = new Gson();
+        List<CityBean> mCityList = gson.fromJson(cityStr, new TypeToken<List<CityBean>>() {
+        }.getType());
+        List<DestinationBean.SecondPlaceBean> mListCityItem = new ArrayList<>();
+        for (int i = 0; i < mCityList.size(); i++) {
+            DestinationBean.SecondPlaceBean bean = new DestinationBean.SecondPlaceBean();
+            bean.setPlaceName(mCityList.get(i).getArea_name());
+            bean.setPlaceType("03");
+            bean.setId(mCityList.get(i).getArea_id() + "");
+            mListCityItem.add(bean);
+            for (int j = 0; j < mCityList.get(i).getSub().size(); j++) {
+                DestinationBean.SecondPlaceBean beanItem = new DestinationBean.SecondPlaceBean();
+                beanItem.setPlaceName(mCityList.get(i).getSub().get(j).getArea_name());
+                beanItem.setPlaceType("04");
+                beanItem.setId(mCityList.get(i).getSub().get(j).getArea_id() + "");
+                mListCityItem.add(beanItem);
+            }
+        }
+        itemFirst.setSecondPlace(mListCityItem);
+        mGroupList.add(itemFirst);
+    }
 }

@@ -14,7 +14,7 @@ import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.OrderInfoOthBean;
 import com.jcool.dev.travel.iactivityview.OtherTabFragmentView;
 import com.jcool.dev.travel.persenter.OtherTabFragmentPresenter;
-import com.jcool.dev.travel.ui.VisaOrderDetailActivity;
+import com.jcool.dev.travel.ui.OtherOrderDetailActivity;
 import com.jcool.dev.travel.utils.UiUtil;
 import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 import com.jcool.dev.travel.view.RecycleViewDivider;
@@ -78,7 +78,7 @@ public class OtherTabFragment extends BaseFragment implements OtherTabFragmentVi
         mAdapter.setOnItemClickListener(new ConstmOnItemOnclickListener<OrderInfoOthBean>() {
             @Override
             public void clickItem(View view, int position, int positionChild, int ClickType, OrderInfoOthBean content) {
-                Intent intent = new Intent(getContext(), VisaOrderDetailActivity.class);
+                Intent intent = new Intent(getContext(), OtherOrderDetailActivity.class);
                 intent.putExtra("orderId", content.getId());
                 startActivity(intent);
             }

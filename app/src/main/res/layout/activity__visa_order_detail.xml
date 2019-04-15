@@ -93,7 +93,7 @@
                         android:paddingTop="10dp"
                         android:paddingRight="10dp"
                         android:text="待审核"
-                        android:textColor="@color/red_money"
+                        android:textColor="@color/text_black"
                         android:textSize="14sp" />
 
                     <TextView
@@ -122,6 +122,17 @@
                         android:textSize="12sp" />
 
 
+                    <TextView
+                        android:id="@+id/tv_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="¥258"
+                        android:textColor="@color/red_money"
+                        android:textSize="@dimen/textsize_7" />
                 </RelativeLayout>
 
                 <View
@@ -239,6 +250,13 @@
                         android:textColor="@color/text_black"
                         android:textSize="13sp" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:drawableRight="@mipmap/icon_right_arrow" />
                 </RelativeLayout>
 
 
@@ -252,8 +270,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    android:background="@drawable/x_edt_bg_rootcolor06">
+                    android:background="@drawable/x_edt_bg_rootcolor06"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -337,15 +355,50 @@
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-    <Button
-        android:id="@+id/btn_commit"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/x_button_seleter_1"
-        android:text="提交资料"
-        android:textColor="@color/white" />
+        android:layout_height="45dp"
+        android:layout_below="@+id/line"
+        android:background="@color/white"
+        android:gravity="end|center_vertical">
+
+        <TextView
+            android:id="@+id/tv_btn_life"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/x_edt_bg_rootcolor08"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp"
+            android:text="取消"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_btn_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/x_edt_bg_rootcolor08"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp"
+            android:text="查看详情"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_btn_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/x_edt_bg_rootcolor09"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp"
+            android:text="查看详情"
+            android:textColor="@color/colorAccent" />
+    </LinearLayout>
 </LinearLayout>

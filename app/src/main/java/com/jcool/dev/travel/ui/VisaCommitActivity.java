@@ -417,7 +417,7 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void excuteSuccessAddCallBack(CallBackVo<String> mCallBackVo) {
-        Intent intent=new Intent(this,VisaOrderDetailActivity.class);
+        Intent intent=new Intent(this,OtherOrderDetailActivity.class);
         intent.putExtra("orderId",mCallBackVo.getData());
         startActivity(intent);
     }

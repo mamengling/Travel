@@ -96,8 +96,8 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_below="@+id/tv_money"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:background="@color/root_bg_color1" />
@@ -116,10 +116,23 @@
                 android:background="@drawable/x_edt_bg_rootcolor08"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:visibility="gone"
                 android:paddingRight="15dp"
                 android:paddingBottom="5dp"
-                android:text="取消" />
+                android:text="取消"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_btn_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/x_edt_bg_rootcolor08"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="5dp"
+                android:text="查看详情"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_btn_right"

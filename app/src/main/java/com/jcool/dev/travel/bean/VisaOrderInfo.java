@@ -43,11 +43,11 @@ public class VisaOrderInfo {
     private String validityDate;
     private int entryCount;
     private int stayDays;
-    private Object visaPlace;
+    private String visaPlace;
     private String visaName;
-    private Object visaImage;
-    private Object visaPrice;
-    private Object visaTotalamt;
+    private String visaImage;
+    private String visaPrice;
+    private String visaTotalamt;
     private int peopleCount;
     private String linkName;
     private String linkPhone;
@@ -109,11 +109,11 @@ public class VisaOrderInfo {
         this.stayDays = stayDays;
     }
 
-    public Object getVisaPlace() {
+    public String getVisaPlace() {
         return visaPlace;
     }
 
-    public void setVisaPlace(Object visaPlace) {
+    public void setVisaPlace(String visaPlace) {
         this.visaPlace = visaPlace;
     }
 
@@ -125,27 +125,27 @@ public class VisaOrderInfo {
         this.visaName = visaName;
     }
 
-    public Object getVisaImage() {
+    public String getVisaImage() {
         return visaImage;
     }
 
-    public void setVisaImage(Object visaImage) {
+    public void setVisaImage(String visaImage) {
         this.visaImage = visaImage;
     }
 
-    public Object getVisaPrice() {
+    public String getVisaPrice() {
         return visaPrice;
     }
 
-    public void setVisaPrice(Object visaPrice) {
+    public void setVisaPrice(String visaPrice) {
         this.visaPrice = visaPrice;
     }
 
-    public Object getVisaTotalamt() {
+    public String getVisaTotalamt() {
         return visaTotalamt;
     }
 
-    public void setVisaTotalamt(Object visaTotalamt) {
+    public void setVisaTotalamt(String visaTotalamt) {
         this.visaTotalamt = visaTotalamt;
     }
 

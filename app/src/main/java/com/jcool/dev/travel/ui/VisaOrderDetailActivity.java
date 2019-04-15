@@ -21,6 +21,7 @@ import com.jcool.dev.travel.bean.GroupBean;
 import com.jcool.dev.travel.bean.VisaOrderInfo;
 import com.jcool.dev.travel.iactivityview.VisaOrderDetailActivityView;
 import com.jcool.dev.travel.persenter.VisaOrderDetailActivityPresenter;
+import com.jcool.dev.travel.utils.Constants;
 import com.jcool.dev.travel.utils.StatusBarUtil;
 import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
@@ -67,13 +68,22 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
     TextView tv_link_email;
     @BindView(R.id.line_user)
     LinearLayout line_user;
-    @BindView(R.id.btn_commit)
-    Button btn_commit;
+    @BindView(R.id.tv_btn_right)
+    TextView tv_btn_right;
+    @BindView(R.id.tv_btn_life)
+    TextView tv_btn_life;
+    @BindView(R.id.tv_btn_center)
+    TextView tv_btn_center;
+    @BindView(R.id.tv_money)
+    TextView tv_money;
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
     private String orderId;
     private TextView tv_more;
     private List<VisaOrderInfo.CustomerBean> mList;
+    private String totalAmount;
+    private String goodsName;
+    private int typeOrder;
 
     @Override
     protected int getContentViewId() {
@@ -107,8 +117,10 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
 
     @Override
     protected void setListener() {
+        icon_right.setOnClickListener(this);
+        tv_btn_life.setOnClickListener(this);
+        tv_btn_center.setOnClickListener(this);
         icon_title_back.setOnClickListener(this);
-        btn_commit.setOnClickListener(this);
         if (tv_more != null) {
             tv_more.setOnClickListener(this);
         }
@@ -116,7 +128,7 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
 
     @Override
     protected void initData() {
-        mPresenter.getVisaOrderInfo(getToken(), orderId);
+        mPresenter.getVisaOrderInfoMian(getToken(), orderId);
     }
 
     @Override
@@ -130,7 +142,34 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
             case R.id.icon_title_back:
                 finish();
                 break;
-            case R.id.btn_commit:
+            case R.id.tv_btn_right:
+                switch (tv_btn_right.getText().toString()) {
+                    case "立即支付":
+                        Intent intent = new Intent(this, PayActivity.class);
+                        intent.putExtra("totalAmount", totalAmount + "");
+                        intent.putExtra("goodsName", goodsName + "");
+                        intent.putExtra("outOrderNo", orderId + "");
+                        intent.putExtra("productType", "02");
+                        startActivity(intent);
+                        break;
+                    case "确认出行":
+
+                        break;
+                }
+                break;
+            case R.id.tv_btn_life:
+                break;
+            case R.id.tv_btn_center:
+                switch (tv_btn_right.getText().toString()) {
+                    case "取消":
+                        typeOrder = 2;
+                        mPresenter.cancleVisaOrder(Constants.APP_HOME_API_VISA_VISA_ORDER_CANCLE, getToken());
+                        break;
+                    case "退款":
+                        typeOrder = 1;
+                        mPresenter.refundVisaOrder(Constants.APP_HOME_API_VISA_VISA_ORDER_REFUND, getToken());
+                        break;
+                }
                 break;
         }
     }
@@ -158,6 +197,7 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
 
     @Override
     public void excuteFailedCallBack(CallBackVo mCallBackVo) {
+        refreshLayout.finishRefresh();
         ToastUtils.showShortToast(mCallBackVo.getMsg());
     }
 
@@ -171,11 +211,58 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
             } else {
                 tv_order_status.setText("待审核");
             }
+            if (TextUtils.equals("13", mCallBackVo.getData().getOrderStatus())) {
+                tv_order_status.setText("已经取消");
+
+                tv_btn_life.setVisibility(View.GONE);
+                tv_btn_center.setVisibility(View.GONE);
+
+                tv_btn_right.setText("已经取消");
+            } else if (TextUtils.equals("07", mCallBackVo.getData().getOrderStatus())) {
+                tv_order_status.setText("退款中");
+
+                tv_btn_life.setVisibility(View.GONE);
+                tv_btn_center.setVisibility(View.GONE);
+
+                tv_btn_right.setText("退款中");
+            } else if (TextUtils.equals("10", mCallBackVo.getData().getOrderStatus())) {
+                tv_order_status.setText("资料待审核");
+
+                tv_btn_life.setVisibility(View.GONE);
+                tv_btn_center.setVisibility(View.GONE);
+
+                tv_btn_right.setText("资料待审核");
+            } else if (TextUtils.equals("03", mCallBackVo.getData().getOrderStatus())) {
+                tv_order_status.setText("待提交资料");
+
+                tv_btn_life.setVisibility(View.GONE);
+                tv_btn_center.setVisibility(View.GONE);
+
+                tv_btn_right.setText("退款");
+            } else if (TextUtils.equals("01", mCallBackVo.getData().getOrderStatus())) {
+                tv_order_status.setText("待付款");
+
+                tv_btn_life.setVisibility(View.GONE);
+                tv_btn_center.setVisibility(View.VISIBLE);
+
+                tv_btn_center.setText("取消");
+                tv_btn_right.setText("立即支付");
+            } else if (TextUtils.equals("11", mCallBackVo.getData().getOrderStatus())) {
+                tv_order_status.setText("资料审核驳回");
+
+                tv_btn_life.setVisibility(View.GONE);
+                tv_btn_center.setVisibility(View.GONE);
+
+                tv_btn_right.setText("资料审核驳回");
+            }
+            totalAmount = mCallBackVo.getData().getVisaTotalamt();
+            goodsName = mCallBackVo.getData().getVisaName();
             tv_order_number.setText(mCallBackVo.getData().getId());
             tv_visa_name.setText(mCallBackVo.getData().getVisaName());
             tv_visa_time.setText(mCallBackVo.getData().getValidityDate() + "天");
             tv_count.setText(mCallBackVo.getData().getEntryCount() + "次");
             tv_days.setText(mCallBackVo.getData().getStayDays() + "天");
+            tv_money.setText("¥" + mCallBackVo.getData().getVisaTotalamt());
             tv_link_name.setText(TextUtils.isEmpty(mCallBackVo.getData().getLinkName()) ? "" : mCallBackVo.getData().getLinkName());
             tv_link_phone.setText(TextUtils.isEmpty(mCallBackVo.getData().getLinkPhone()) ? "" : mCallBackVo.getData().getLinkPhone());
             tv_link_email.setText(TextUtils.isEmpty(mCallBackVo.getData().getLinkEmail()) ? "" : mCallBackVo.getData().getLinkEmail());
@@ -214,11 +301,11 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
                         tv_user_sex.setText("男");
                     }
                     //客户类型(01:在职；02：在校学生；03：退休；04：学龄儿童)
-                    if (TextUtils.equals("01", mCallBackVo.getData().getCustomer().get(i).getCertType())) {
+                    if (TextUtils.equals("01", mCallBackVo.getData().getCustomer().get(i).getCustType())) {
                         tv_user_type.setText("在职");
-                    } else if (TextUtils.equals("02", mCallBackVo.getData().getCustomer().get(i).getCertType())) {
+                    } else if (TextUtils.equals("02", mCallBackVo.getData().getCustomer().get(i).getCustType())) {
                         tv_user_type.setText("在校学生");
-                    } else if (TextUtils.equals("03", mCallBackVo.getData().getCustomer().get(i).getCertType())) {
+                    } else if (TextUtils.equals("03", mCallBackVo.getData().getCustomer().get(i).getCustType())) {
                         tv_user_type.setText("退休");
                     } else {
                         tv_user_type.setText("学龄儿童");
@@ -229,13 +316,14 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
                     } else {
                         tv_card_type.setText("护照");
                     }
+
                     tv_card_number.setText(mCallBackVo.getData().getCustomer().get(i).getCustCert());
 
 
                     //循环 证件信息
                     if (mCallBackVo.getData().getCustomer().get(i).getDataList() != null && mCallBackVo.getData().getCustomer().get(i).getDataList().size() > 0) {
                         for (int j = 0; j < mCallBackVo.getData().getCustomer().get(i).getDataList().size(); j++) {
-                            LogUtil.i("TAG 证件信息",mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).toString());
+                            LogUtil.i("TAG 证件信息", mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).toString());
                             View customerItem = LayoutInflater.from(VisaOrderDetailActivity.this).inflate(R.layout.xml_item_card, null);
                             final TextView tv_card_name = customerItem.findViewById(R.id.tv_card_name);//证件号码
                             final TextView tv_card_right = customerItem.findViewById(R.id.tv_card_right);//证件号码
@@ -254,7 +342,7 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
                             recyclerView_image.setLayoutManager(manager);
                             ImageSeleteAdapter mAdapter = new ImageSeleteAdapter(VisaOrderDetailActivity.this);
                             recyclerView_image.setAdapter(mAdapter);
-                            if (mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).getInfoList()!=null&&mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).getInfoList().size()>0){
+                            if (mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).getInfoList() != null && mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).getInfoList().size() > 0) {
                                 mAdapter.onReference(mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).getInfoList());
                             }
                             mAdapter.setOnItemClickListener(new ConstmOnItemOnclickListener() {
@@ -283,5 +371,17 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
             }
         }
         refreshLayout.finishRefresh();
+    }
+
+    @Override
+    public void excuteSuccessOrderCallBack(CallBackVo<String> mCallBackVo) {
+
+        // 订单状态(01:待付款；02：待发货；03；待提交资料；04；待收货；05：待评价；06：已完成；07：退款中；08：已退款；09：已关闭;10:资料待审核；11：资料审核驳回)
+        if (typeOrder == 1) {
+            ToastUtils.showShortToast(mCallBackVo.getMsg());
+        } else if (typeOrder == 2) {
+            ToastUtils.showShortToast("订单取消成功");
+        }
+        mPresenter.getVisaOrderInfoMian(getToken(), orderId);
     }
 }

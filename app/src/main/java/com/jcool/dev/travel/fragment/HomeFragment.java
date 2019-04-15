@@ -11,6 +11,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
@@ -24,16 +26,24 @@ import com.jcool.dev.travel.bean.BannerBean;
 import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.GoodsBean;
 import com.jcool.dev.travel.bean.InfoColumn;
+import com.jcool.dev.travel.bean.PersonInfoBean;
+import com.jcool.dev.travel.bean.StringBean;
 import com.jcool.dev.travel.iactivityview.HomeFragmentView;
 import com.jcool.dev.travel.persenter.HomeFragmentPresenter;
+import com.jcool.dev.travel.ui.AddPersonActivity;
 import com.jcool.dev.travel.ui.CityPickerActivity;
 import com.jcool.dev.travel.ui.CompanyVipActivity;
+import com.jcool.dev.travel.ui.MessageListActivity;
 import com.jcool.dev.travel.ui.PersonVipActivity;
 import com.jcool.dev.travel.ui.TravelDefuiltActivity;
 import com.jcool.dev.travel.ui.TravelListActivity;
 import com.jcool.dev.travel.ui.TravelViseActivity;
+import com.jcool.dev.travel.ui.VisaCommitActivity;
+import com.jcool.dev.travel.ui.WebviewDefulitActivity;
 import com.jcool.dev.travel.utils.AppConfigStatic;
 import com.jcool.dev.travel.utils.Constants;
+import com.jcool.dev.travel.view.ConstmChangePersonPicker;
+import com.jcool.dev.travel.view.ConstmChangeStringPicker;
 import com.jcool.dev.travel.view.FixedGridView;
 import com.jcool.dev.travel.view.rollviewpage.OnItemClickListener;
 import com.jcool.dev.travel.view.rollviewpage.RollPagerView;
@@ -78,6 +88,7 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
     private TextView icon_message;
     private TextView icon_phone;
 
+    private ConstmChangeStringPicker mPicker;
 
     public static HomeFragment newInstance() {
 
@@ -183,7 +194,7 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), TravelDefuiltActivity.class);
-                intent.putExtra("travelId", goodsList.get(position).getId());
+                intent.putExtra("travelId", goodsList.get(position).getGoodsId());
                 getContext().startActivity(intent);
             }
         });
@@ -214,9 +225,12 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
                 break;
             case R.id.icon_right:
                 // TODO: 2019/4/3 消息
+                Intent intentMess = new Intent(getContext(), MessageListActivity.class);
+                startActivity(intentMess);
                 break;
             case R.id.icon_back:
                 // TODO: 2019/4/3 打电话
+                initPersonPicker();
                 break;
             case R.id.btn_go_out:
                 Intent intent1 = new Intent(getContext(), TravelListActivity.class);
@@ -356,6 +370,46 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
             }
         });
 
+    }
+
+    private void initPersonPicker() {
+        List<StringBean> list = new ArrayList<>();
+        StringBean bean = new StringBean();
+        bean.setTypeId(1);
+        bean.setTitle("客服热线");
+        bean.setContent("400-666-6666");
+        list.add(bean);
+        StringBean bean2 = new StringBean();
+        bean2.setTypeId(2);
+        bean2.setTitle("在线客服");
+        bean2.setContent("服务时间：9:00-24:00");
+        list.add(bean2);
+        // 通过时间戳初始化日期，毫秒级别
+        mPicker = new ConstmChangeStringPicker(getContext(), new ConstmChangeStringPicker.Callback() {
+            @Override
+            public void onSelected(StringBean tamp) {
+                switch (tamp.getTypeId()) {
+                    case 1:
+                        callPhone(tamp.getContent());
+                        break;
+                    case 2:
+                        Intent intentMess = new Intent(getContext(), WebviewDefulitActivity.class);
+                        intentMess.putExtra("loadUrl", "http://p.qiao.baidu.com/cps/chatIndex");
+                        intentMess.putExtra("title", "在线客服");
+                        startActivity(intentMess);
+                        break;
+                }
+            }
+
+            @Override
+            public void onAdd(String mStrUnits) {
+
+            }
+        }, list);
+        // 不允许点击屏幕或物理返回键关闭
+        mPicker.setCancelable(true);
+        // 不允许滚动动画
+        mPicker.show();
     }
 
 

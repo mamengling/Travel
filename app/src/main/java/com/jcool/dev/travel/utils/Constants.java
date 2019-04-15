@@ -98,6 +98,10 @@ public class Constants {
      */
     public static final String APP_HOME_API_GET_OTHER_ORDER_VISA_INFO = "api/visa/otherOrderData/getOtherOrderInfo/";
     /**
+     * 前端根据订单id获取其它渠道资料上传所需数据（一步到位有所需材料）
+     */
+    public static final String APP_HOME_API_GET_OTHER_ORDER_VISA_INFO_MAIN = "api/visa/visaOrder/getOrderInfo/";
+    /**
      * 提交记录查询
      */
     public static final String APP_HOME_API_GET_OTHER_ORDER_VISA_LIST = "api/visa/otherOrderData/commitRecords";
@@ -117,4 +121,40 @@ public class Constants {
      * 【APP】查询我的订单
      */
     public static final String APP_HOME_API_VISA_ORDER_JOURNEY_GOODS_FORM_QUERY_APP = "api/journeyForm/journeyGoodsForm/query/app";
+    /**
+     * 订单详情 旅游订单详情
+     */
+    public static final String APP_HOME_API_TRAVEL_ORDER_JOURNEY_GOODS_FORM_QUERY_APP = "api/journeyForm/journeyGoodsForm/get/";
+    /**
+     * 创建支付宝预订单
+     */
+    public static final String APP_HOME_API_ALIPAY_CREATE_PRE_ORDER = "api/pay/alipay/createPreOrder";
+    /**
+     * 创建微信预订单
+     */
+    public static final String APP_HOME_API_WX_CREATE_PRE_ORDER = "api/pay/wxpay/createPreOrder";
+    /**
+     * 前端分页查询个人签证订单
+     */
+    public static final String APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL = "api/visa/visaOrder/queryPersonal";
+    /**
+     * 取消订单 签证订单
+     */
+    public static final String APP_HOME_API_VISA_VISA_ORDER_CANCLE = "api/visa/visaOrder/cancleOrder";
+    /**
+     * 退款接口 签证订单
+     */
+    public static final String APP_HOME_API_VISA_VISA_ORDER_REFUND = "api/visa/visaOrder/refund";
+    /**
+     * 取消订单 旅游订单
+     */
+    public static final String APP_HOME_API_TRAVEL_ORDER_CANCLE = "api/journeyForm/journeyGoodsForm/close";
+    /**
+     * 退款接口 旅游订单
+     */
+    public static final String APP_HOME_API_TRAVEL_ORDER_REFUND = "api/journeyForm/journeyGoodsForm/refund";
+    /**
+     * 出行接口 旅游订单
+     */
+    public static final String APP_HOME_API_TRAVEL_ORDER_FORM = "api/journeyForm/journeyGoodsForm/used";
 }

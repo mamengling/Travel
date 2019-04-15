@@ -120,4 +120,177 @@ public class VisaOrderDetailActivityPresenter {
         });
     }
 
+
+    public void cancleVisaOrder(String url,String token) {
+        mVisaOrderDetailActivityView.showProgress();
+        HttpUtil.post(mContext, Constants.BASE_URL + url,token ,mVisaOrderDetailActivityView.getParamenters(), new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mVisaOrderDetailActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mVisaOrderDetailActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mVisaOrderDetailActivityView.closeProgress();
+                Gson gson = new Gson();
+                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                }.getType());
+                if (mCallBackVo.isSuccess()) {
+                    mVisaOrderDetailActivityView.excuteSuccessOrderCallBack(mCallBackVo);
+                } else {
+                    mVisaOrderDetailActivityView.excuteFailedCallBack(mCallBackVo);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mVisaOrderDetailActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mVisaOrderDetailActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
+    public void refundVisaOrder(String url,String token) {
+        mVisaOrderDetailActivityView.showProgress();
+        HttpUtil.post(mContext, Constants.BASE_URL + url,token ,mVisaOrderDetailActivityView.getParamenters(), new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mVisaOrderDetailActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mVisaOrderDetailActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mVisaOrderDetailActivityView.closeProgress();
+                Gson gson = new Gson();
+                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                }.getType());
+                if (mCallBackVo.isSuccess()) {
+                    mVisaOrderDetailActivityView.excuteSuccessOrderCallBack(mCallBackVo);
+                } else {
+                    mVisaOrderDetailActivityView.excuteFailedCallBack(mCallBackVo);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mVisaOrderDetailActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mVisaOrderDetailActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
+
+
+
+
+    public void getVisaOrderInfoMian(String token, String orderId) {
+        mVisaOrderDetailActivityView.showProgress();
+        HttpUtil.get(Constants.BASE_URL + Constants.APP_HOME_API_GET_OTHER_ORDER_VISA_INFO_MAIN + orderId, token, new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mVisaOrderDetailActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mVisaOrderDetailActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mVisaOrderDetailActivityView.closeProgress();
+                Gson gson = new Gson();
+                CallBackVo<VisaOrderInfo> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<VisaOrderInfo>>() {
+                }.getType());
+                if (mCallBackVo.isSuccess()) {
+                    if (mCallBackVo.getData() != null && mCallBackVo.getData().getCustomer() != null) {
+                        for (int i = 0; i < mCallBackVo.getData().getCustomer().size(); i++) {
+                            ArrayList<GroupBean> list = new ArrayList<>();
+                            try {
+                                JSONArray array = new JSONArray(mCallBackVo.getData().getCustomer().get(i).getData());
+                                for (int j = 0; j < array.length(); j++) {
+                                    JSONObject object = array.getJSONObject(j);
+                                    GroupBean item = new GroupBean();
+                                    item.setTitle(object.optString("name"));
+                                    item.setContent(object.optString("content"));
+                                    item.setIndex(object.optString("index"));
+                                    item.setType(object.optString("type"));
+                                    item.setInitRowIndex(object.optString("initRowIndex"));
+
+                                    if (mCallBackVo.getData().getCustomer().get(i).getVisaOrderData() != null && mCallBackVo.getData().getCustomer().get(i).getVisaOrderData().size() > 0) {
+                                        List<String> itemList = new ArrayList<>();
+                                        for (int k = 0; k < mCallBackVo.getData().getCustomer().get(i).getVisaOrderData().size(); k++) {
+                                            if (TextUtils.equals(mCallBackVo.getData().getCustomer().get(i).getVisaOrderData().get(k).getDataName(), item.getTitle())) {
+                                                String imageArr[] = null;
+                                                if (!TextUtils.isEmpty(mCallBackVo.getData().getCustomer().get(i).getVisaOrderData().get(k).getDataImage()) && mCallBackVo.getData().getCustomer().get(i).getVisaOrderData().get(k).getDataImage().length() > 10) {
+                                                    String image = mCallBackVo.getData().getCustomer().get(i).getVisaOrderData().get(k).getDataImage().substring(0, (mCallBackVo.getData().getCustomer().get(i).getVisaOrderData().get(k).getDataImage().length() - 1));
+                                                    imageArr = image.split(",");
+                                                    for (int l = 0; l < imageArr.length; l++) {
+                                                        itemList.add(imageArr[l]);
+                                                    }
+                                                }
+                                                item.setInfoList(itemList);
+                                                item.setDataInfo(mCallBackVo.getData().getCustomer().get(i).getVisaOrderData().get(k));
+                                            }
+                                        }
+                                        item.setInfoList(itemList);
+                                    }
+                                    list.add(item);
+                                }
+                                mCallBackVo.getData().getCustomer().get(i).setDataList(list);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                    }
+
+                    mVisaOrderDetailActivityView.excuteSuccessCallBack(mCallBackVo);
+                } else {
+                    mVisaOrderDetailActivityView.excuteFailedCallBack(mCallBackVo);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mVisaOrderDetailActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mVisaOrderDetailActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
 }

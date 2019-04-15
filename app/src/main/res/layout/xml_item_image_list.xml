@@ -18,5 +18,5 @@
         android:layout_alignParentRight="true"
         android:padding="5dp"
         android:src="@mipmap/construct_record_dele"
-        android:visibility="visible" />
+        android:visibility="gone" />
 </RelativeLayout>

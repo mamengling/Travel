@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jcool.dev.travel.R;
@@ -15,7 +16,9 @@ import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.OrderTravelInfoBean;
 import com.jcool.dev.travel.iactivityview.OtherTravelTabFragmentView;
 import com.jcool.dev.travel.persenter.OtherTravelTabFragmentPresenter;
+import com.jcool.dev.travel.ui.PayActivity;
 import com.jcool.dev.travel.ui.TravelOrderDetailActivity;
+import com.jcool.dev.travel.utils.Constants;
 import com.jcool.dev.travel.utils.ToastUtils;
 import com.jcool.dev.travel.utils.UiUtil;
 import com.jcool.dev.travel.view.RecycleViewDivider;
@@ -39,6 +42,9 @@ public class OtherTravelTabFragment extends BaseFragment implements OtherTravelT
     private int intNumber = 0;
     private int intHandler = 101;
     private OrderTravelListAdapter mAdapter;
+    private int positionP;
+    private String orderId;
+    private int typeOrder;
 
     public static OtherTravelTabFragment newInstance(String url, String orderStatus) {
         Bundle args = new Bundle();
@@ -97,9 +103,57 @@ public class OtherTravelTabFragment extends BaseFragment implements OtherTravelT
         mAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent intent = new Intent(getContext(), TravelOrderDetailActivity.class);
-                intent.putExtra("orderId", mAdapter.getData().get(position).getId());
-                startActivity(intent);
+                switch (view.getId()) {
+                    case R.id.tv_btn_right:
+                        switch ((String) adapter.getViewByPosition(position, R.id.tv_btn_right).getTag()) {
+                            case "立即支付":
+                                Intent intent = new Intent(getContext(), PayActivity.class);
+                                intent.putExtra("totalAmount", mAdapter.getData().get(position).getPayMoney() + "");
+                                intent.putExtra("goodsName", mAdapter.getData().get(position).getGoodsName() + "");
+                                intent.putExtra("outOrderNo", mAdapter.getData().get(position).getId() + "");
+                                intent.putExtra("productType", "01");
+                                getContext().startActivity(intent);
+                                break;
+                            case "查看详情":
+                                Intent intentInfo = new Intent(getContext(), TravelOrderDetailActivity.class);
+                                intentInfo.putExtra("orderId", mAdapter.getData().get(position).getId());
+                                getContext().startActivity(intentInfo);
+                                break;
+                            case "确认出行":
+                                positionP = position;
+                                orderId = mList.get(position).getId();
+                                typeOrder = 3;
+                                mPresenter.formVisaOrder(Constants.APP_HOME_API_TRAVEL_ORDER_FORM, getToken());
+                                break;
+                        }
+
+                        break;
+                    case R.id.tv_btn_center:
+                        switch ((String) adapter.getViewByPosition(position, R.id.tv_btn_center).getTag()) {
+                            case "查看详情":
+                                Intent intentInfo = new Intent(getContext(), TravelOrderDetailActivity.class);
+                                intentInfo.putExtra("orderId", mAdapter.getData().get(position).getId());
+                                getContext().startActivity(intentInfo);
+                                break;
+                        }
+                        break;
+                    case R.id.tv_btn_life:
+                        switch ((String) adapter.getViewByPosition(position, R.id.tv_btn_life).getTag()) {
+                            case "取消":
+                                positionP = position;
+                                orderId = mList.get(position).getId();
+                                typeOrder = 2;
+                                mPresenter.cancleVisaOrder(Constants.APP_HOME_API_TRAVEL_ORDER_CANCLE, getToken());
+                                break;
+                            case "退款":
+                                orderId = mList.get(position).getId();
+                                typeOrder = 1;
+                                positionP = position;
+                                mPresenter.refundVisaOrder(Constants.APP_HOME_API_TRAVEL_ORDER_REFUND, getToken());
+                                break;
+                        }
+                        break;
+                }
             }
         });
     }
@@ -118,9 +172,18 @@ public class OtherTravelTabFragment extends BaseFragment implements OtherTravelT
     public JSONObject getParamenters() {
         JSONObject object = new JSONObject();
         try {
-            object.put("state", orderStatus);
-            object.put("pageIndex", intNumber);
-            object.put("pageSize", 10);
+            if (typeOrder == 0) {
+                object.put("state", orderStatus);
+                object.put("pageIndex", intNumber);
+                object.put("pageSize", 10);
+            } else if (typeOrder == 1) {//退款
+                object.put("id", orderId);
+            } else if (typeOrder == 2) {//取消
+                object.put("id", orderId);
+            } else if (typeOrder == 3) {//出行
+                object.put("id", orderId);
+            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -153,20 +216,6 @@ public class OtherTravelTabFragment extends BaseFragment implements OtherTravelT
 
     @Override
     public void excuteSuccessCallBack(CallBackVo<OrderTravelInfoBean> mCallBackVo) {
-//        switch (intHandler) {
-//            case 101:
-//                if (mCallBackVo.getData() != null && mCallBackVo.getData().getRecords()!=null&&mCallBackVo.getData().getRecords().size() > 0) {
-//                    mAdapter.onReference(mCallBackVo.getData().getRecords());
-//                }
-//                refreshLayout.finishRefresh();
-//                break;
-//            case 102:
-//                if (mCallBackVo.getData() != null && mCallBackVo.getData().getRecords()!=null&&mCallBackVo.getData().getRecords().size() > 0) {
-//                    mAdapter.addOnReference(mCallBackVo.getData().getRecords());
-//                }
-////                refreshLayout.finishLoadmore();
-//                break;
-//        }
         switch (intHandler) {
             case 101:
                 mAdapter.replaceData(mCallBackVo.getData().getRecords());
@@ -190,6 +239,24 @@ public class OtherTravelTabFragment extends BaseFragment implements OtherTravelT
                     mAdapter.setEnableLoadMore(false);
                 }
                 break;
+        }
+    }
+
+    @Override
+    public void excuteSuccessOrderCallBack(CallBackVo<String> mCallBackVo) {
+        // （可多个，用逗号隔开）CREATE订单已经提交;PAY订单已经支付;REFUNDING退款中;REFUNDED已退款;USED订单已经出行;EVALUATE订单已经评价;CLOSE订单取消或是关闭
+        if (typeOrder == 1) {
+            ToastUtils.showShortToast("订单退款成功");
+            mList.get(positionP).setState("REFUNDING");
+            mAdapter.notifyDataSetChanged();
+        } else if (typeOrder == 2) {
+            ToastUtils.showShortToast("订单取消成功");
+            mList.get(positionP).setState("CLOSE");
+            mAdapter.notifyDataSetChanged();
+        } else if (typeOrder == 3) {
+            ToastUtils.showShortToast("订单已经出行成功");
+            mList.get(positionP).setState("USED");
+            mAdapter.notifyDataSetChanged();
         }
     }
 }

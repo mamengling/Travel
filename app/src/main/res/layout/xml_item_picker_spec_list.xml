@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="规格一"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/textsize_6" />
+
+        <TextView
+            android:id="@+id/tv_show"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@+id/tv_money"
+            android:drawableRight="@mipmap/icon_home_arrow_down_black"
+            android:drawablePadding="10dp"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/textsize_6" />
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@+id/btn_to_pay_money"
+            android:drawablePadding="10dp"
+            android:text="¥258"
+            android:textColor="@color/red_money"
+            android:textSize="@dimen/textsize_6" />
+
+        <TextView
+            android:id="@+id/btn_to_pay_money"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/x_button_seleter_1"
+            android:drawablePadding="10dp"
+            android:text="预定"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_5" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="描述"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/textsize_6" />
+</LinearLayout>

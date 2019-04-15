@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderVisaFragment extends BaseFragment {
-    private String tabTitle[] = {"全部", "待提交资料", "已审核", "已退审"};
+    private String tabTitle[] = {"全部", "待提交资料", "待付款", "待发货", "待收货", "待评价", "已完成", "退款中", "已退款", "已关闭", "资料待审核", "资料审核驳回"};
     private List<InfoColumn> infoColumnList;
     private List<Fragment> fragmentList;
     private ViewPagerFragmentAdapter viewPagerFragmentAdapter;
@@ -65,11 +65,20 @@ public class OrderVisaFragment extends BaseFragment {
             infoColumnList.add(infoColumn);
         }
 
-        fragmentList = new ArrayList<>();//订单总状态（01：通过；02：驳回；03：待审核）
-        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_GET_OTHER_ORDER_VISA_LIST, ""));
-        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_GET_OTHER_ORDER_VISA_LIST, "03"));
-        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_GET_OTHER_ORDER_VISA_LIST, "01"));
-        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_GET_OTHER_ORDER_VISA_LIST, "02"));
+        fragmentList = new ArrayList<>();//"全部", "待提交资料", "待付款", "待发货", "待收货", "待评价", "已完成", "退款中", "已退款", "已关闭", "资料待审核", "资料审核驳回"
+        // 订单状态(01:待付款；02：待发货；03；待提交资料；04；待收货；05：待评价；06：已完成；07：退款中；08：已退款；09：已关闭;10:资料待审核；11：资料审核驳回)
+        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL, ""));//全部
+        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL, "03"));//待提交资料
+        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL, "01"));//待付款
+        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL, "02"));//待发货
+        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL, "04"));//待收货
+        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL, "05"));//待评价
+        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL, "06"));//已完成
+        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL, "07"));//退款中
+        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL, "08"));//已退款
+        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL, "09"));//已关闭
+        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL, "10"));//资料待审核
+        fragmentList.add(OtherVisaTabFragment.newInstance(Constants.APP_HOME_API_VISA_VISA_ORDER_QUERY_PERSONAL, "11"));//资料审核驳回
         viewPagerFragmentAdapter = new ViewPagerFragmentAdapter(getChildFragmentManager());
         viewpager.setAdapter(viewPagerFragmentAdapter);
         tlMainTabtop.setupWithViewPager(viewpager);
@@ -77,7 +86,7 @@ public class OrderVisaFragment extends BaseFragment {
         viewPagerFragmentAdapter.setList(infoColumnList);
         viewPagerFragmentAdapter.setListData(fragmentList);
 //        app:tabMode="fixed"
-        tlMainTabtop.setTabMode(TabLayout.MODE_FIXED);
+        tlMainTabtop.setTabMode(TabLayout.MODE_SCROLLABLE);
         viewpager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tlMainTabtop));
         tlMainTabtop.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

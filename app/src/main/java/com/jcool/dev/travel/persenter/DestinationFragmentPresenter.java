@@ -52,14 +52,14 @@ public class DestinationFragmentPresenter {
                 Gson gson = new Gson();
                 CallBackVo callBackVo = gson.fromJson(result, CallBackVo.class);
                 if (callBackVo.isSuccess()) {
-                    List<DestinationBean> list = new ArrayList<>();
-                    DestinationBean itemFirst = new DestinationBean();
-                    itemFirst.setPlaceName("境内");
-                    list.add(itemFirst);
+//                    List<DestinationBean> list = new ArrayList<>();
+//                    DestinationBean itemFirst = new DestinationBean();
+//                    itemFirst.setPlaceName("境内");
+//                    list.add(itemFirst);
                     CallBackVo<List<DestinationBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<DestinationBean>>>() {
                     }.getType());
-                    list.addAll(mCallBackVo.getData());
-                    mDestinationFragmentView.excuteSuccessCallBack(list);
+//                    list.addAll(mCallBackVo.getData());
+                    mDestinationFragmentView.excuteSuccessCallBack(mCallBackVo.getData());
                 } else {
                     mDestinationFragmentView.excuteFailedCallBack(callBackVo);
                 }

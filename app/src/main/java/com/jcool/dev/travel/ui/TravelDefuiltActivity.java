@@ -187,7 +187,7 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
                 }
             }
         }
-        if (mCallBackVoLine != null && mCallBackVoLine.getData() != null) {
+//        if (mCallBackVoLine != null && mCallBackVoLine.getData() != null) {
 
             TravelInfoBeanView itemBean = new TravelInfoBeanView();
             TravelInfoBean.LinesBean.CharacteristicBean item = new TravelInfoBean.LinesBean.CharacteristicBean();
@@ -196,7 +196,7 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
             itemBean.setItemImage(item);
             data.add(itemBean);
             a = 1;
-            if (mCallBackVoLine.getData().getCharacteristic() != null) {
+            if (mCallBackVoLine != null && mCallBackVoLine.getData() != null&&mCallBackVoLine.getData().getCharacteristic() != null) {
                 for (int i = 0; i < mCallBackVoLine.getData().getCharacteristic().size(); i++) {
                     TravelInfoBeanView itemBeanChara = new TravelInfoBeanView();
                     itemBeanChara.setViewType(103);
@@ -211,7 +211,7 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
             item1.setTitle("行程介绍");
             itemBean1.setItemImage(item1);
             data.add(itemBean1);
-            if (mCallBackVoLine.getData().getSynopsis() != null) {
+            if (mCallBackVoLine != null && mCallBackVoLine.getData() != null&&mCallBackVoLine.getData().getSynopsis() != null) {
                 for (int i = 0; i < mCallBackVoLine.getData().getSynopsis().size(); i++) {
                     TravelInfoBeanView itemBeanChara = new TravelInfoBeanView();
                     itemBeanChara.setViewType(103);
@@ -226,7 +226,7 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
             item2.setTitle("预订须知");
             itemBean2.setItemImage(item2);
             data.add(itemBean2);
-            if (mCallBackVoLine.getData().getNotice() != null) {
+            if (mCallBackVoLine != null && mCallBackVoLine.getData() != null&&mCallBackVoLine.getData().getNotice() != null) {
                 for (int i = 0; i < mCallBackVoLine.getData().getNotice().size(); i++) {
                     TravelInfoBeanView itemBeanChara = new TravelInfoBeanView();
                     itemBeanChara.setViewType(103);
@@ -235,7 +235,7 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
                 }
             }
 
-        }
+//        }
         mAdapter.onReference(data);
         refreshLayout.finishRefresh();
     }

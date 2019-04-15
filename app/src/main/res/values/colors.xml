@@ -7,14 +7,14 @@
     <color name="gray">#eae7e8</color>
     <color name="gray_bg">#d6d6d6</color>
     <color name="qianhui">#F4F4F4</color>
-    <color name="root_bg_color1">#F1F1F1</color>
+    <color name="root_bg_color1">#EEEEEE</color>
     <color name="root_bg_color2">#FFF8EE</color>
     <color name="root_bg_color">#EFEFEF</color>
     <color name="gray_shen">#9c999a</color>
     <color name="shenhui">#80797b</color>
     <color name="gray_bg_light">#F1F1F1</color>
     <color name="black">#000000</color>
-    <color name="white">#ffffff</color>
+    <color name="white">#FFFFFF</color>
     <color name="orange">#f1bd10</color>
     <color name="orange_more">#FD8B06</color>
     <color name="orange_wallet">#FF9A2E</color>

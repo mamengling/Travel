@@ -7,12 +7,15 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.adapter.VisaInfoViewAdapter;
 import com.jcool.dev.travel.base.BaseActivity;
 import com.jcool.dev.travel.bean.CallBackVo;
+import com.jcool.dev.travel.bean.PersonInfoBean;
+import com.jcool.dev.travel.bean.StringBean;
 import com.jcool.dev.travel.bean.TravelInfoBean;
 import com.jcool.dev.travel.bean.VisaInfoBean;
 import com.jcool.dev.travel.bean.VisaInfoBeanView;
@@ -20,6 +23,8 @@ import com.jcool.dev.travel.iactivityview.VisaInfoActivityView;
 import com.jcool.dev.travel.persenter.VisaInfoActivityPresenter;
 import com.jcool.dev.travel.utils.StatusBarUtil;
 import com.jcool.dev.travel.utils.StatusBarUtils;
+import com.jcool.dev.travel.view.ConstmChangeSpecPicker;
+import com.jcool.dev.travel.view.ConstmChangeStringPicker;
 import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 import com.jcool.dev.travel.view.group.GroupItemDecoration;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -44,13 +49,17 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
     TextView icon_title;
     @BindView(R.id.icon_right)
     TextView icon_right;
+    @BindView(R.id.btn_to_pay)
+    Button btn_to_pay;
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
     private VisaInfoActivityPresenter mPresenter;
     private String visaId;
     private VisaInfoViewAdapter mAdapter;
     private List<VisaInfoBeanView> data = new ArrayList<>();
+    private CallBackVo<VisaInfoBean> mCallBackVo;
     private int a, b, c, d;
+    private ConstmChangeSpecPicker mPicker;
 
     @Override
     protected int getContentViewId() {
@@ -80,6 +89,7 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
     protected void setListener() {
         icon_title_back.setOnClickListener(this);
         icon_right.setOnClickListener(this);
+        btn_to_pay.setOnClickListener(this);
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
@@ -145,6 +155,9 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
                 break;
             case R.id.icon_right:
                 break;
+            case R.id.btn_to_pay:
+                initPersonPicker();
+                break;
         }
     }
 
@@ -171,6 +184,7 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
     @Override
     public void excuteSuccessCallBack(CallBackVo<VisaInfoBean> mCallBackVo) {
         if (mCallBackVo != null && mCallBackVo.getData() != null) {
+            this.mCallBackVo = mCallBackVo;
             data.clear();
             VisaInfoBeanView infoBeanView = new VisaInfoBeanView();
             infoBeanView.setViewType(101);
@@ -231,5 +245,25 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
 //        }
         mAdapter.onReference(data);
         refreshLayout.finishRefresh();
+    }
+
+
+    private void initPersonPicker() {
+        // 通过时间戳初始化日期，毫秒级别
+        mPicker = new ConstmChangeSpecPicker(this, new ConstmChangeSpecPicker.Callback() {
+            @Override
+            public void onSelected(List<PersonInfoBean> mStrUnits) {
+
+            }
+
+            @Override
+            public void onAdd(String mStrUnits) {
+
+            }
+        }, mCallBackVo.getData().getVisaSpecList());
+        // 不允许点击屏幕或物理返回键关闭
+        mPicker.setCancelable(true);
+        // 不允许滚动动画
+        mPicker.show();
     }
 }

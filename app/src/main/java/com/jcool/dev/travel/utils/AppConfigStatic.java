@@ -126,4 +126,8 @@ public class AppConfigStatic {
      * bugly key
      */
     public final static String APP_BUGLY_APP_KEY = "a6c8d79eda";
+    /**
+     * bugly key
+     */
+    public final static String APP_ID = "wxd31e1a84a800e3ae";
 }
