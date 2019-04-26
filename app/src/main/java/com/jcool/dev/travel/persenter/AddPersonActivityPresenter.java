@@ -69,4 +69,46 @@ public class AddPersonActivityPresenter {
             }
         });
     }
+
+    public void updatePerson(String token) {
+        mAddPersonActivityView.showProgress();
+        HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_COSTOMERINFO_GETCUSTOMERBY_UPDATE, token, mAddPersonActivityView.getParamenters(), new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mAddPersonActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mAddPersonActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mAddPersonActivityView.closeProgress();
+                Gson gson = new Gson();
+                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                }.getType());
+                if (mCallBackVo.isSuccess()) {
+                    mAddPersonActivityView.excuteSuccessCallBack(mCallBackVo);
+                } else {
+                    mAddPersonActivityView.excuteFailedCallBack(mCallBackVo);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mAddPersonActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mAddPersonActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
 }

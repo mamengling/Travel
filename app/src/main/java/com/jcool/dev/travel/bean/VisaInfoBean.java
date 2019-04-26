@@ -332,7 +332,7 @@ public class VisaInfoBean {
     public static class VisaSpecBean implements Parcelable {
         private boolean check = false;
         private String name;
-        private String price;
+        private double price;
         private String content;
         private String index;
         private int type;
@@ -354,11 +354,11 @@ public class VisaInfoBean {
             this.name = name;
         }
 
-        public String getPrice() {
+        public double getPrice() {
             return price;
         }
 
-        public void setPrice(String price) {
+        public void setPrice(double price) {
             this.price = price;
         }
 
@@ -403,7 +403,7 @@ public class VisaInfoBean {
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeString(this.name);
-            dest.writeString(this.price);
+            dest.writeDouble(this.price);
             dest.writeString(this.content);
             dest.writeString(this.index);
             dest.writeInt(this.type);
@@ -415,7 +415,7 @@ public class VisaInfoBean {
 
         protected VisaSpecBean(Parcel in) {
             this.name = in.readString();
-            this.price = in.readString();
+            this.price = in.readDouble();
             this.content = in.readString();
             this.index = in.readString();
             this.type = in.readInt();

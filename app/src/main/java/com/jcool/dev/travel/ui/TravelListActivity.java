@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
@@ -33,6 +34,7 @@ public class TravelListActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected int getContentViewId() {
+        StatusBarUtils.setStatusTextColor(true, this);
         StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_list_travel;
     }
@@ -47,6 +49,7 @@ public class TravelListActivity extends BaseActivity implements View.OnClickList
         viewpager = findViewById(R.id.viewpager);
         icon_back = findViewById(R.id.icon_back);
         tlMainTabtop = findViewById(R.id.tl_main_tabtop);
+
     }
 
     @Override

@@ -15,6 +15,7 @@ import com.jcool.dev.travel.bean.InfoColumn;
 import com.jcool.dev.travel.fragment.LoginAccFragment;
 import com.jcool.dev.travel.fragment.LoginCodeFragment;
 import com.jcool.dev.travel.utils.StatusBarUtil;
+import com.jcool.dev.travel.utils.StatusBarUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     protected int getContentViewId() {
+        StatusBarUtils.setStatusTextColor(true, this);
         StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_login;
     }

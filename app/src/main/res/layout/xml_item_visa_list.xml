@@ -10,7 +10,7 @@
         <ImageView
             android:id="@+id/image_goods"
             android:layout_width="90dp"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:layout_margin="10dp"
             android:scaleType="centerCrop"
             android:src="@mipmap/icon_home_banner" />
@@ -26,7 +26,7 @@
             android:maxLines="2"
             android:text="特惠秒杀"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/textsize_7" />
+            android:textSize="@dimen/textsize_6" />
 
         <TextView
             android:id="@+id/tv_goods_day"

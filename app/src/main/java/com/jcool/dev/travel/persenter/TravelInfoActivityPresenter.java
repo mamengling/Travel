@@ -14,6 +14,10 @@ import com.jcool.dev.travel.utils.log.LogUtil;
 import com.jcool.dev.travel.utils.log.klog.JsonLog;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
+import org.json.JSONArray;
+
+import java.util.List;
+
 import cz.msebera.android.httpclient.Header;
 
 public class TravelInfoActivityPresenter {
@@ -50,7 +54,7 @@ public class TravelInfoActivityPresenter {
                 CallBackVo<TravelInfoBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<TravelInfoBean>>() {
                 }.getType());
                 if (mCallBackVo.isSuccess()) {
-                    mTravelInfoActivityView.excuteSuccessCallBack(mCallBackVo, null, null);
+                    mTravelInfoActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
                     mTravelInfoActivityView.excuteFailedCallBack(mCallBackVo);
                 }
@@ -92,7 +96,7 @@ public class TravelInfoActivityPresenter {
                 CallBackVo<TravelInfoBean.LinesBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<TravelInfoBean.LinesBean>>() {
                 }.getType());
                 if (mCallBackVo.isSuccess()) {
-                    mTravelInfoActivityView.excuteSuccessCallBack(null, mCallBackVo, null);
+                    mTravelInfoActivityView.excuteSuccessLineCallBack(mCallBackVo);
                 } else {
                     mTravelInfoActivityView.excuteFailedCallBack(mCallBackVo);
                 }
@@ -109,9 +113,93 @@ public class TravelInfoActivityPresenter {
         });
     }
 
-    public void journeyTravelCollect() {
+    public void getCollectStatus(String id, String token) {
         mTravelInfoActivityView.showProgress();
-        HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_JOURNEY_COLLECT_TRAVEL, mTravelInfoActivityView.getParamenters(), new AsyncHttpResponseHandler() {
+        HttpUtil.get(Constants.BASE_URL + Constants.APP_HOME_API_JOURNEY_GET_COLLECT_STATUS + id, token, new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mTravelInfoActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mTravelInfoActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mTravelInfoActivityView.closeProgress();
+                Gson gson = new Gson();
+                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                }.getType());
+                if (mCallBackVo.isSuccess()) {
+                    mTravelInfoActivityView.excuteSuccessCollectCallBack(mCallBackVo);
+                } else {
+                    mTravelInfoActivityView.excuteFailedCallBack(mCallBackVo);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mTravelInfoActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mTravelInfoActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
+    public void journeyTravelTimeList(String id) {
+        mTravelInfoActivityView.showProgress();
+        HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_TRAVEL_TIME_LIST, mTravelInfoActivityView.getParamenters(), new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mTravelInfoActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mTravelInfoActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mTravelInfoActivityView.closeProgress();
+                Gson gson = new Gson();
+                CallBackVo<List<TravelInfoBean.GoodsAndDateBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<TravelInfoBean.GoodsAndDateBean>>>() {
+                }.getType());
+                if (mCallBackVo.isSuccess()) {
+                    mTravelInfoActivityView.excuteSuccessGoodsCallBack(mCallBackVo);
+                } else {
+                    mTravelInfoActivityView.excuteFailedCallBack(mCallBackVo);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mTravelInfoActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mTravelInfoActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
+    public void journeyTravelCollect(String token) {
+        mTravelInfoActivityView.showProgress();
+        HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_JOURNEY_COLLECT_TRAVEL, token, mTravelInfoActivityView.getParamenters(), new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -133,7 +221,48 @@ public class TravelInfoActivityPresenter {
                 Gson gson = new Gson();
                 CallBackVo mCallBackVo = gson.fromJson(result, CallBackVo.class);
                 if (mCallBackVo.isSuccess()) {
-                    mTravelInfoActivityView.excuteSuccessCallBack(null, null, mCallBackVo);
+                    mTravelInfoActivityView.excuteSuccessAddCollectCallBack(mCallBackVo);
+                } else {
+                    mTravelInfoActivityView.excuteFailedCallBack(mCallBackVo);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mTravelInfoActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mTravelInfoActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
+    public void journeyTravelCollectDelete(JSONArray array, String token) {
+        mTravelInfoActivityView.showProgress();
+        HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_JOURNEY_COLLECT_DELETE, token, array, new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mTravelInfoActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mTravelInfoActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mTravelInfoActivityView.closeProgress();
+                Gson gson = new Gson();
+                CallBackVo mCallBackVo = gson.fromJson(result, CallBackVo.class);
+                if (mCallBackVo.isSuccess()) {
+                    mTravelInfoActivityView.excuteSuccessDelCollectCallBack(mCallBackVo);
                 } else {
                     mTravelInfoActivityView.excuteFailedCallBack(mCallBackVo);
                 }

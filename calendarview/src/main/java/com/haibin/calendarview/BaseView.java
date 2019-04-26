@@ -20,7 +20,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -50,6 +49,7 @@ public abstract class BaseView extends View implements View.OnClickListener, Vie
      * 当前月份农历文本颜色
      */
     protected Paint mCurMonthLunarTextPaint = new Paint();
+
 
     /**
      * 当前月份农历文本颜色
@@ -256,47 +256,7 @@ public abstract class BaseView extends View implements View.OnClickListener, Vie
 
         this.mSelectedPaint.setStyle(Paint.Style.FILL);
         this.mSelectedPaint.setColor(delegate.getSelectedThemeColor());
-
-        updateItemHeight();
-    }
-
-    void updateItemHeight() {
-        this.mItemHeight = mDelegate.getCalendarItemHeight();
-        Paint.FontMetrics metrics = mCurMonthTextPaint.getFontMetrics();
-        mTextBaseLine = mItemHeight / 2 - metrics.descent + (metrics.bottom - metrics.top) / 2;
-    }
-
-
-    /**
-     * 移除事件
-     */
-    final void removeSchemes() {
-        for (Calendar a : mItems) {
-            a.setScheme("");
-            a.setSchemeColor(0);
-            a.setSchemes(null);
-        }
-    }
-
-    /**
-     * 添加事件标记，来自Map
-     */
-    final void addSchemesFromMap() {
-        if (mDelegate.mSchemeDatesMap == null || mDelegate.mSchemeDatesMap.size() == 0) {
-            return;
-        }
-        for (Calendar a : mItems) {
-            if (mDelegate.mSchemeDatesMap.containsKey(a.toString())) {
-                Calendar d = mDelegate.mSchemeDatesMap.get(a.toString());
-                a.setScheme(TextUtils.isEmpty(d.getScheme()) ? mDelegate.getSchemeText() : d.getScheme());
-                a.setSchemeColor(d.getSchemeColor());
-                a.setSchemes(d.getSchemes());
-            } else {
-                a.setScheme("");
-                a.setSchemeColor(0);
-                a.setSchemes(null);
-            }
-        }
+        setItemHeight(delegate.getCalendarItemHeight());
     }
 
 
@@ -338,6 +298,19 @@ public abstract class BaseView extends View implements View.OnClickListener, Vie
         // TODO: 2017/11/16
     }
 
+
+    /**
+     * 设置高度
+     *
+     * @param itemHeight itemHeight
+     */
+    private void setItemHeight(int itemHeight) {
+        this.mItemHeight = itemHeight;
+        Paint.FontMetrics metrics = mCurMonthTextPaint.getFontMetrics();
+        mTextBaseLine = mItemHeight / 2 - metrics.descent + (metrics.bottom - metrics.top) / 2;
+    }
+
+
     /**
      * 是否是选中的
      *
@@ -348,48 +321,7 @@ public abstract class BaseView extends View implements View.OnClickListener, Vie
         return mItems != null && mItems.indexOf(calendar) == mCurrentItem;
     }
 
-    /**
-     * 更新事件
-     */
-    final void update() {
-        if (mDelegate.mSchemeDatesMap == null || mDelegate.mSchemeDatesMap.size() == 0) {//清空操作
-            removeSchemes();
-            invalidate();
-            return;
-        }
-        addSchemesFromMap();
-        invalidate();
-    }
+    abstract void update();
 
-
-    /**
-     * 是否拦截日期，此设置续设置mCalendarInterceptListener
-     *
-     * @param calendar calendar
-     * @return 是否拦截日期
-     */
-    protected final boolean onCalendarIntercept(Calendar calendar) {
-        return mDelegate.mCalendarInterceptListener != null &&
-                mDelegate.mCalendarInterceptListener.onCalendarIntercept(calendar);
-    }
-
-    /**
-     * 是否在日期范围内
-     *
-     * @param calendar calendar
-     * @return 是否在日期范围内
-     */
-    protected final boolean isInRange(Calendar calendar) {
-        return mDelegate != null && CalendarUtil.isCalendarInRange(calendar, mDelegate);
-    }
-
-    /**
-     * 跟新当前日期
-     */
     abstract void updateCurrentDate();
-
-    /**
-     * 销毁
-     */
-    protected abstract void onDestroy();
 }

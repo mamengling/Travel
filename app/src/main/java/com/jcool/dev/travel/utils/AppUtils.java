@@ -135,7 +135,29 @@ public class AppUtils {
 
         return str;
     }
+    /**
+     * 获取当前时间
+     *
+     * @return
+     */
+    public static String getTimeAtt(String pattern) {
+        SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+        Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
+        String str = formatter.format(curDate);
 
+        return str;
+    }
+
+    //天数计算
+    public static String dayAdd(int days) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date dd = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(dd);
+        calendar.add(Calendar.DATE, days);
+        String T1 = format.format(calendar.getTime());
+        return T1;
+    }
     /**
      * 时间戳转换成字符串
      *
@@ -279,6 +301,12 @@ public class AppUtils {
             e.printStackTrace();
         }
         return 1;
+    }
+    // 获取当前应用的版本号
+    public static String getPhoneCode(String phone) {
+        String phoneNumber = phone.replaceAll("(\\d{3})\\d{4}(\\d{4})","$1****$2");
+        System.out.println("正则phone中4*：" + phoneNumber);
+        return phoneNumber;
     }
 
     /**

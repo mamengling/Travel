@@ -16,6 +16,14 @@ public class AppConfigStatic {
     /**
      * 秘钥
      */
+    public final static String USER_KEY = "access-key-user";
+    /**
+     * 头像
+     */
+    public final static String USER_AVATAR = "avatar";
+    /**
+     * 秘钥
+     */
     public final static String USER_TOKEN_KEY = "access-token";
     /**
      * 密码

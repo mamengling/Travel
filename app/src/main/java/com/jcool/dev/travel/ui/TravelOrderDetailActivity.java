@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
@@ -71,12 +72,15 @@ public class TravelOrderDetailActivity extends BaseActivity implements TravelOrd
     TextView tv_btn_center;
     @BindView(R.id.line_user)
     LinearLayout line_user;
+    @BindView(R.id.rela_travel_info)
+    RelativeLayout rela_travel_info;
     private String orderId;
     private String phoneNumber;
     private int totalAmount;
     private String goodsName;
     private String outOrderNo;
     private int typeOrder;
+    private String goodsId;
 
     @Override
     protected int getContentViewId() {
@@ -109,6 +113,7 @@ public class TravelOrderDetailActivity extends BaseActivity implements TravelOrd
         tv_btn_life.setOnClickListener(this);
         tv_btn_center.setOnClickListener(this);
         tv_btn_right.setOnClickListener(this);
+        rela_travel_info.setOnClickListener(this);
     }
 
     @Override
@@ -123,9 +128,9 @@ public class TravelOrderDetailActivity extends BaseActivity implements TravelOrd
 
     @Override
     public JSONObject getParamenters() {
-        JSONObject object=new JSONObject();
+        JSONObject object = new JSONObject();
         try {
-            object.put("id",orderId);
+            object.put("id", orderId);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -149,6 +154,7 @@ public class TravelOrderDetailActivity extends BaseActivity implements TravelOrd
 
     @Override
     public void excuteSuccessCallBack(CallBackVo<TravelOrderInfo> mCallBackVo) {
+        goodsId = mCallBackVo.getData().getGoodsId();
         totalAmount = mCallBackVo.getData().getTotalMoney();
         goodsName = mCallBackVo.getData().getGoodsName();
         outOrderNo = mCallBackVo.getData().getId();
@@ -275,6 +281,11 @@ public class TravelOrderDetailActivity extends BaseActivity implements TravelOrd
                 break;
             case R.id.icon_title_back:
                 finish();
+                break;
+            case R.id.rela_travel_info:
+                Intent intentInfo = new Intent(this, TravelDefuiltActivity.class);
+                intentInfo.putExtra("travelId", goodsId);
+                startActivity(intentInfo);
                 break;
             case R.id.tv_btn_life:
                 switch (tv_btn_life.getText().toString()) {

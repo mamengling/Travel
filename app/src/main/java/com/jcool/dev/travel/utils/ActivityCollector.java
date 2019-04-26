@@ -23,12 +23,21 @@ public class ActivityCollector {
     }
 
     private Set<Activity> allActivities;
+    private Set<Activity> allExitActivities;
 
     public void addActivity(Activity act) {
         if (allActivities == null) {
             allActivities = new HashSet<>();
         }
         allActivities.add(act);
+    }
+
+
+    public void flagActivity(Activity act) {
+        if (allExitActivities == null) {
+            allExitActivities = new HashSet<>();
+        }
+        allExitActivities.add(act);
     }
 
     public void removeActivity(Activity act) {
@@ -53,6 +62,16 @@ public class ActivityCollector {
         if (allActivities != null) {
             synchronized (allActivities) {
                 for (Activity act : allActivities) {
+                    act.finish();
+                }
+            }
+        }
+    }
+
+    public void finishFlagActivities() {
+        if (allExitActivities != null) {
+            synchronized (allExitActivities) {
+                for (Activity act : allExitActivities) {
                     act.finish();
                 }
             }

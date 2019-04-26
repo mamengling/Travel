@@ -35,6 +35,7 @@ import com.jcool.dev.travel.ui.CityPickerActivity;
 import com.jcool.dev.travel.ui.CompanyVipActivity;
 import com.jcool.dev.travel.ui.MessageListActivity;
 import com.jcool.dev.travel.ui.PersonVipActivity;
+import com.jcool.dev.travel.ui.SearchTravelActivity;
 import com.jcool.dev.travel.ui.TravelDefuiltActivity;
 import com.jcool.dev.travel.ui.TravelListActivity;
 import com.jcool.dev.travel.ui.TravelViseActivity;
@@ -238,6 +239,8 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
                 startActivity(intent1);
                 break;
             case R.id.btn_search:
+                Intent intentS = new Intent(getContext(), SearchTravelActivity.class);
+                startActivity(intentS);
                 break;
             case R.id.btn_vise:
                 Intent intentV = new Intent(getContext(), TravelViseActivity.class);

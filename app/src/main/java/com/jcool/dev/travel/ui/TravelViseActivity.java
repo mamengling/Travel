@@ -9,10 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jcool.dev.travel.R;
@@ -23,9 +27,12 @@ import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.VisaBean;
 import com.jcool.dev.travel.iactivityview.TravelViseActivityView;
 import com.jcool.dev.travel.persenter.TravelViseActivityPresenter;
+import com.jcool.dev.travel.utils.Constants;
 import com.jcool.dev.travel.utils.DividerItemDecoration;
 import com.jcool.dev.travel.utils.StatusBarUtil;
+import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
+import com.jcool.dev.travel.utils.ZxSharedPre;
 import com.jcool.dev.travel.view.DropDownMenu;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -42,6 +49,7 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
     private TravelViseActivityPresenter mPresenter;
     private DropDownMenu mDropDownMenu;
     private EditText edt_search;
+    private RelativeLayout relative_no;
     private String headers[] = {"综合排序", "常用送签地"};
     private List<View> popupViews = new ArrayList<>();
     private String topArr[] = {"综合排序", "近期销量最高", "价格从高到低", "价格从低到高"};
@@ -63,6 +71,7 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected int getContentViewId() {
+        StatusBarUtils.setStatusTextColor(true, this);
         StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_vise_travel;
     }
@@ -124,6 +133,7 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
         constellationView = getLayoutInflater().inflate(R.layout.travel_custom_layout, null);
         contentView = constellationView.findViewById(R.id.mRecyclerView);
         refreshLayout = constellationView.findViewById(R.id.refreshLayout);
+        relative_no = constellationView.findViewById(R.id.relative_no);
         contentView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
         contentView.setLayoutManager(new LinearLayoutManager(this));
         mAdapterData = new VisaListAdapter(this, R.layout.xml_item_visa_list, mList);
@@ -156,8 +166,53 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
                 startActivity(intent);
             }
         });
+
+        edt_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                keyName = edt_search.getText().toString();
+                if (TextUtils.isEmpty(keyName)) {
+                    keyName="";
+                    mPresenter.journeyGoodsSales();
+                }else {
+                    intNumber = 0;
+                    intHandler = 101;
+                    contentView.setVisibility(View.VISIBLE);
+                    mPresenter.journeyGoodsSales();
+                }
+            }
+        });
+        edt_search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {//EditorInfo.IME_ACTION_SEARCH、EditorInfo.IME_ACTION_SEND等分别对应EditText的imeOptions属性
+                    if (!TextUtils.isEmpty(keyName)) {
+                        intNumber = 0;
+                        intHandler = 101;
+                        contentView.setVisibility(View.VISIBLE);
+                        mPresenter.journeyGoodsSales();
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
         //init dropdownview
         mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popupViews, constellationView);
+
+
     }
 
     @Override
@@ -238,13 +293,20 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
     public void excuteSuccessCallBack(CallBackVo<VisaBean> mCallBackVo) {
         switch (intHandler) {
             case 101:
-                mAdapterData.replaceData(mCallBackVo.getData().getRecords());
-                if (mAdapterData.getData().size() < mCallBackVo.getData().getTotal()) {
-                    mAdapterData.setEnableLoadMore(true);
-                    mAdapterData.openLoadAnimation();
-                } else {
-                    ToastUtils.showShortToast("数据全部加载完毕");
-                    mAdapterData.setEnableLoadMore(false);
+                if (mCallBackVo != null && mCallBackVo.getData() != null && mCallBackVo.getData().getRecords() != null && mCallBackVo.getData().getRecords().size() > 0) {
+                    mAdapterData.replaceData(mCallBackVo.getData().getRecords());
+                    if (mAdapterData.getData().size() < mCallBackVo.getData().getTotal()) {
+                        mAdapterData.setEnableLoadMore(true);
+                        mAdapterData.openLoadAnimation();
+                    } else {
+                        ToastUtils.showShortToast("数据全部加载完毕");
+                        mAdapterData.setEnableLoadMore(false);
+                    }
+                    relative_no.setVisibility(View.GONE);
+                    contentView.setVisibility(View.VISIBLE);
+                }else {
+                    relative_no.setVisibility(View.VISIBLE);
+                    contentView.setVisibility(View.GONE);
                 }
                 refreshLayout.finishRefresh();
                 break;

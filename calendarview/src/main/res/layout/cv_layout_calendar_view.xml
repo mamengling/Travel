@@ -13,7 +13,7 @@
         android:visibility="visible">
 
         <com.haibin.calendarview.MonthViewPager
-            android:id="@+id/vp_month"
+            android:id="@+id/vp_calendar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="41dp" />
@@ -36,7 +36,7 @@
 
     </FrameLayout>
 
-    <com.haibin.calendarview.YearViewSelectLayout
+    <com.haibin.calendarview.YearSelectLayout
         android:id="@+id/selectLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -1,5 +1,7 @@
 package com.jcool.dev.travel.ui;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +9,9 @@ import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.base.BaseActivity;
+import com.jcool.dev.travel.utils.ActivityCollector;
+import com.jcool.dev.travel.utils.StatusBarUtil;
+import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
 
 import butterknife.BindView;
@@ -24,6 +29,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected int getContentViewId() {
+        StatusBarUtils.setStatusTextColor(true, this);
+        StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_setting;
     }
 
@@ -39,7 +46,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initTools() {
-
+        ActivityCollector.getInstance().flagActivity(this);
     }
 
     @Override
@@ -72,8 +79,11 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 finish();
                 break;
             case R.id.tv_acc:
+                Intent intent = new Intent(this, AccMangerActivity.class);
+                startActivity(intent);
                 break;
             case R.id.tv_clear:
+                ToastUtils.showShortToast("操作成功");
                 break;
         }
     }

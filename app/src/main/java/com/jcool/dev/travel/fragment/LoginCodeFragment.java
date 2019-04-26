@@ -1,6 +1,7 @@
 package com.jcool.dev.travel.fragment;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -10,10 +11,13 @@ import android.widget.TextView;
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.base.BaseFragment;
 import com.jcool.dev.travel.bean.CallBackVo;
+import com.jcool.dev.travel.bean.CodeBean;
 import com.jcool.dev.travel.bean.UserInfo;
 import com.jcool.dev.travel.iactivityview.LoginFragmentView;
 import com.jcool.dev.travel.persenter.LoginFragmentPresenter;
+import com.jcool.dev.travel.ui.InputCodeActivity;
 import com.jcool.dev.travel.utils.ToastUtils;
+import com.loopj.android.http.RequestParams;
 
 import org.json.JSONObject;
 
@@ -35,9 +39,14 @@ public class LoginCodeFragment extends BaseFragment implements View.OnClickListe
     TextView find_psw;
     @BindView(R.id.btn_commit)
     Button btn_commit;
+    @BindView(R.id.btn_code)
+    Button btn_code;
 
     private String mPhone;
     private String mCode;
+    private String mStrCode;
+
+    private TimeCount time;
 
     public static LoginCodeFragment newInstance(String userName, String password, String userID) {
 
@@ -68,10 +77,12 @@ public class LoginCodeFragment extends BaseFragment implements View.OnClickListe
     @Override
     protected void setListener() {
         btn_commit.setOnClickListener(this);
+        btn_code.setOnClickListener(this);
     }
 
     @Override
     protected void initTools() {
+        time = new TimeCount(60000, 1000);//构造CountDownTimer对象
         mPresenter = new LoginFragmentPresenter(this, getContext());
     }
 
@@ -83,12 +94,22 @@ public class LoginCodeFragment extends BaseFragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.btn_code:
+                inputSuccessCode();
+                break;
             case R.id.btn_commit:
                 inputSuccess();
                 break;
         }
     }
-
+    private void inputSuccessCode() {
+        mPhone = edt_phone.getText().toString().trim();
+        if (TextUtils.isEmpty(mPhone)) {
+            ToastUtils.showShortToast("请输入手机号");
+            return;
+        }
+        mPresenter.loginGetCode(mPhone);
+    }
     private void inputSuccess() {
         mPhone = edt_phone.getText().toString().trim();
         mCode = edt_code.getText().toString().trim();
@@ -100,6 +121,15 @@ public class LoginCodeFragment extends BaseFragment implements View.OnClickListe
             ToastUtils.showShortToast("请输入验证码");
             return;
         }
+
+
+        RequestParams params=new RequestParams();
+        params.put("code",mCode);
+        params.put("phone",mPhone);
+        params.put("token",getKey());
+
+
+        mPresenter.loginCode(params);
     }
 
     @Override
@@ -119,11 +149,48 @@ public class LoginCodeFragment extends BaseFragment implements View.OnClickListe
 
     @Override
     public void excuteFailedCallBack(CallBackVo mCallBackVo) {
-
+        ToastUtils.showShortToast(mCallBackVo.getMsg());
     }
 
     @Override
-    public void excuteSuccessGoodsCallBack(CallBackVo<UserInfo> mCallBackVo) {
-
+    public void excuteSuccessCallBack(CallBackVo<UserInfo> mCallBackVo) {
+        ToastUtils.showShortToast("登录成功");
+        if (mCallBackVo != null && mCallBackVo.getData() != null) {
+            setUserInfo(mCallBackVo.getData().getUserInfo().getSysUser());
+            setToken(mCallBackVo.getData().getAccesstoken());
+        }
+        if (isAdded()) {
+            getActivity().finish();
+        }
     }
+
+    @Override
+    public void excuteSuccessCodeCallBack(CallBackVo<CodeBean> mCallBackVo) {
+        setKey(mCallBackVo.getData().getToken());
+        ToastUtils.showShortToast("验证码发送成功");
+        time.start();
+    }
+
+    /**
+     * 计时器
+     */
+    class TimeCount extends CountDownTimer {
+        public TimeCount(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
+        }
+
+        @Override
+        public void onFinish() {//计时完毕时触发
+            btn_code.setText("重新获取");
+            btn_code.setClickable(true);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {//计时过程显示
+            btn_code.setClickable(false);
+            btn_code.setText(millisUntilFinished / 1000 + "秒" + "后重发");
+        }
+    }
+
+
 }

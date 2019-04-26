@@ -16,6 +16,7 @@ import com.jcool.dev.travel.persenter.CompanyVipActivityPresenter;
 import com.jcool.dev.travel.utils.BuyTimePicker;
 import com.jcool.dev.travel.utils.DateFormatUtils;
 import com.jcool.dev.travel.utils.StatusBarUtil;
+import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
 
 import org.json.JSONException;
@@ -65,6 +66,7 @@ public class PersonVipActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     protected int getContentViewId() {
+        StatusBarUtils.setStatusTextColor(true, this);
         StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_vip_person;
     }

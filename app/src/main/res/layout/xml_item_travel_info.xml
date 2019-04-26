@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@color/blue"
-        app:rollviewpager_play_delay="3000"/>
+        app:rollviewpager_play_delay="3000" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/textsize_6"/>
+            android:textSize="@dimen/textsize_6" />
 
         <TextView
             android:id="@+id/tv_money"
@@ -37,7 +36,7 @@
             android:paddingTop="5dp"
             android:text="¥999"
             android:textColor="@color/red"
-            android:textSize="@dimen/textsize_6"/>
+            android:textSize="@dimen/textsize_6" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,7 +47,7 @@
             android:paddingTop="5dp"
             android:text="起"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/textsize_5"/>
+            android:textSize="@dimen/textsize_5" />
 
 
         <TextView
@@ -61,18 +60,96 @@
             android:paddingTop="5dp"
             android:text="99人一起出游"
             android:textColor="@color/text_grey"
-            android:textSize="@dimen/textsize_5"/>
+            android:textSize="@dimen/textsize_5" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tv_more"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/bg_seachr"
-        android:gravity="center"
-        android:text="更多班期"
-        android:textSize="@dimen/textsize_6"/>
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/line_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/x_edt_bg_rootcolor02"
+            android:gravity="center"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_more_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/textsize_5"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_more_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/red_money"
+                android:textSize="@dimen/textsize_5"
+                android:visibility="visible" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/line_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/x_edt_bg_rootcolor02"
+            android:gravity="center"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_more_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/textsize_5"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_more_02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/red_money"
+                android:textSize="@dimen/textsize_5"
+                android:visibility="visible" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/x_edt_bg_rootcolor02"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/text_black"
+            android:paddingBottom="5dp"
+            android:text="更多班期"
+            android:textSize="@dimen/textsize_6" />
+    </LinearLayout>
+
 
     <RadioGroup
         android:id="@+id/radiogroup_full"
@@ -87,21 +164,21 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="10dp"
             android:checked="true"
-            android:text="产品特色"/>
+            android:text="产品特色" />
 
         <RadioButton
             android:id="@+id/radiobutton1"
             style="@style/tab_line_style_new"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="行程介绍"/>
+            android:text="行程介绍" />
 
         <RadioButton
             android:id="@+id/radiobutton2"
             style="@style/tab_line_style_new"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="20dp"
-            android:text="预订须知"/>
+            android:text="预订须知" />
     </RadioGroup>
 
     <com.jcool.dev.travel.view.FixedGridView
@@ -110,14 +187,14 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:listSelector="@color/white"
-        android:numColumns="4"/>
+        android:numColumns="4" />
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"/>
+        android:visibility="visible" />
 
 
 </LinearLayout>

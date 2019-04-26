@@ -46,7 +46,6 @@ public class WeekBar extends LinearLayout {
             setTextSize(mDelegate.getWeekTextSize());
             setTextColor(delegate.getWeekTextColor());
             setBackgroundColor(delegate.getWeekBackground());
-            setPadding(delegate.getCalendarPadding(), 0, delegate.getCalendarPadding(), 0);
         }
     }
 
@@ -91,9 +90,6 @@ public class WeekBar extends LinearLayout {
      * @param weekStart 周起始
      */
     protected void onWeekStartChange(int weekStart) {
-        if (!"com.haibin.calendarview.WeekBar".equalsIgnoreCase(getClass().getName())) {
-            return;
-        }
         for (int i = 0; i < getChildCount(); i++) {
             ((TextView) getChildAt(i)).setText(getWeekString(i, weekStart));
         }
@@ -109,29 +105,22 @@ public class WeekBar extends LinearLayout {
      */
     protected int getViewIndexByCalendar(Calendar calendar, int weekStart) {
         int week = calendar.getWeek() + 1;
-        if (weekStart == CalendarViewDelegate.WEEK_START_WITH_SUN) {
+        if (weekStart == 1) {
             return week - 1;
         }
-        if (weekStart == CalendarViewDelegate.WEEK_START_WITH_MON) {
-            return week == CalendarViewDelegate.WEEK_START_WITH_SUN ? 6 : week - 2;
+        if (weekStart == 2) {
+            return week == 1 ? 6 : week - 2;
         }
-        return week == CalendarViewDelegate.WEEK_START_WITH_SAT ? 0 : week;
+        return week == 7 ? 0 : week;
     }
 
-    /**
-     * 或者周文本，这个方法仅供父类使用
-     *
-     * @param index     index
-     * @param weekStart weekStart
-     * @return 或者周文本
-     */
     private String getWeekString(int index, int weekStart) {
         String[] weeks = getContext().getResources().getStringArray(R.array.week_string_array);
 
-        if (weekStart == CalendarViewDelegate.WEEK_START_WITH_SUN) {
+        if (weekStart == 1) {
             return weeks[index];
         }
-        if (weekStart == CalendarViewDelegate.WEEK_START_WITH_MON) {
+        if (weekStart == 2) {
             return weeks[index == 6 ? 0 : index + 1];
         }
         return weeks[index == 0 ? 6 : index - 1];

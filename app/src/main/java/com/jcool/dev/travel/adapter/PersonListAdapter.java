@@ -80,11 +80,11 @@ public class PersonListAdapter extends BaseAdapter {
         }
 
         //客户类型(01:在职；02：在校学生；03：退休；04：学龄儿童)
-        if (TextUtils.equals("01", mList.get(position).getCertType())) {
+        if (TextUtils.equals("01", mList.get(position).getCustType())) {
             viewHolder.tv_work_type.setText("在职");
-        } else if (TextUtils.equals("02", mList.get(position).getCertType())) {
+        } else if (TextUtils.equals("02", mList.get(position).getCustType())) {
             viewHolder.tv_work_type.setText("在校学生");
-        } else if (TextUtils.equals("03", mList.get(position).getCertType())) {
+        } else if (TextUtils.equals("03", mList.get(position).getCustType())) {
             viewHolder.tv_work_type.setText("退休");
         } else {
             viewHolder.tv_work_type.setText("学龄儿童");

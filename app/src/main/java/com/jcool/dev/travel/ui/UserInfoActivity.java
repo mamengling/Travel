@@ -3,21 +3,31 @@ package com.jcool.dev.travel.ui;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.base.BaseActivity;
+import com.jcool.dev.travel.bean.CallBackVo;
+import com.jcool.dev.travel.bean.UserInfo;
+import com.jcool.dev.travel.iactivityview.UserInfoGetView;
+import com.jcool.dev.travel.persenter.UserInfoGetPresenter;
+import com.jcool.dev.travel.utils.ImageLoaderUtils;
 import com.jcool.dev.travel.utils.StatusBarUtil;
+import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
+import org.json.JSONObject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class UserInfoActivity extends BaseActivity implements View.OnClickListener {
+public class UserInfoActivity extends BaseActivity implements View.OnClickListener, UserInfoGetView {
+    private UserInfoGetPresenter mPresenter;
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
     @BindView(R.id.icon_title_back)
@@ -43,6 +53,7 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected int getContentViewId() {
+        StatusBarUtils.setStatusTextColor(true, this);
         StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_user_info;
     }
@@ -59,8 +70,14 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void initTools() {
+        mPresenter = new UserInfoGetPresenter(this, this);
         icon_right.setVisibility(View.GONE);
         icon_title.setText("个人信息");
+        if (isLogin()) {
+            tv_user_name.setText(TextUtils.isEmpty(getNickname()) ? getUsername() : getNickname());
+            tv_phone.setText(getUserPhone());
+            ImageLoaderUtils.showImageViewToCircle(this, getAvatar(), image_head, R.mipmap.icon_default_head);
+        }
     }
 
     @Override
@@ -83,7 +100,7 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void initData() {
-
+        mPresenter.getUserInfo(getUserId());
     }
 
     @Override
@@ -117,5 +134,39 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
                 // TODO: 2019/4/3
                 break;
         }
+    }
+
+    @Override
+    public void excuteSuccessUserCallBack(CallBackVo<UserInfo.UserInfoBean.SysUserBean> mCallBackVo) {
+        if (mCallBackVo != null && mCallBackVo.getData() != null) {
+            setUserInfo(mCallBackVo.getData());
+            if (TextUtils.isEmpty(mCallBackVo.getData().getNickname())) {
+                tv_user_name.setText(mCallBackVo.getData().getUsername());
+            } else {
+                tv_user_name.setText(mCallBackVo.getData().getNickname());
+            }
+            tv_phone.setText(mCallBackVo.getData().getPhone());
+            ImageLoaderUtils.showImageViewToCircle(this, mCallBackVo.getData().getAvatar(), image_head, R.mipmap.icon_default_head);
+        }
+    }
+
+    @Override
+    public JSONObject getParamenters() {
+        return null;
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void closeProgress() {
+
+    }
+
+    @Override
+    public void excuteFailedCallBack(CallBackVo mCallBackVo) {
+
     }
 }

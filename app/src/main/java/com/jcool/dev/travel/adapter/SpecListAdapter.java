@@ -17,6 +17,7 @@ import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.bean.PersonInfoBean;
 import com.jcool.dev.travel.bean.VisaInfoBean;
 import com.jcool.dev.travel.ui.CreateVisaOrderActivity;
+import com.jcool.dev.travel.view.ConstmChangeSpecPicker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,19 +26,28 @@ import java.util.Vector;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SpecListAdapter extends BaseAdapter implements View.OnClickListener {
+public class SpecListAdapter extends BaseAdapter {
     private ArrayList<VisaInfoBean.VisaSpecBean> mList;
     private Context mContext;
     private Vector<Boolean> mImage_bs = new Vector<Boolean>();// 定义一个向量作为选中与否容器
     private int lastPosition = -1;// 记录上一次选中的图片位置，-1表示未选中任何图片
     private boolean multiChoose = true;// 表示当前适配器是否允许多选
+    private Callback mCallback;
 
-    public SpecListAdapter(Context mContext, ArrayList<VisaInfoBean.VisaSpecBean> mList) {
+    /**
+     * 时间选择结果回调接口
+     */
+    public interface Callback {
+        void setClick(View v, int position);
+    }
+
+    public SpecListAdapter(Context mContext, ArrayList<VisaInfoBean.VisaSpecBean> mList, Callback callback) {
         this.mContext = mContext;
         this.mList = mList;
+        this.mCallback = callback;
         for (int i = 0; i < mList.size(); i++) {
             mImage_bs.add(false);
-//            mList.get(i).setCheck(false);
+//            mList.get(i).setClick(false);
         }
     }
 
@@ -74,21 +84,21 @@ public class SpecListAdapter extends BaseAdapter implements View.OnClickListener
             viewHolder.tv_content.setVisibility(View.GONE);
         }
         viewHolder.tv_name.setText(mList.get(position).getName());
-        viewHolder.tv_money.setText("¥"+mList.get(position).getPrice());
-        viewHolder.tv_content.setText("¥"+mList.get(position).getContent());
-//        viewHolder.tv_show.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                changeState(position);
-//            }
-//        });
+        viewHolder.tv_money.setText("¥" + mList.get(position).getPrice());
+        viewHolder.tv_content.setText(mList.get(position).getContent());
+        viewHolder.tv_show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCallback.setClick(v, position);
+            }
+        });
 
-//        viewHolder.btn_to_pay_money.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        viewHolder.btn_to_pay_money.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCallback.setClick(v, position);
+            }
+        });
         return convertView;
     }
 
@@ -96,10 +106,6 @@ public class SpecListAdapter extends BaseAdapter implements View.OnClickListener
         return mList;
     }
 
-    @Override
-    public void onClick(View v) {
-
-    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.tv_name)

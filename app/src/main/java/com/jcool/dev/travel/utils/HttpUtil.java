@@ -41,7 +41,7 @@ public class HttpUtil {
         httpclient.get(urlString, res);
     }
 
-    public static void get(String urlString,String token, AsyncHttpResponseHandler res) // 用一个完整url获取一个string对象
+    public static void get(String urlString, String token, AsyncHttpResponseHandler res) // 用一个完整url获取一个string对象
 
     {
         LogUtil.i(urlString);
@@ -67,6 +67,14 @@ public class HttpUtil {
                            JsonHttpResponseHandler res) // 带参数，获取json对象或者数组
     {
         LogUtil.i(urlString + "?" + params.toString());
+        httpclient.get(urlString, params, res);
+    }
+
+    public static void get(String urlString, String token, RequestParams params,
+                           AsyncHttpResponseHandler res) // 带参数，获取json对象或者数组
+    {
+        LogUtil.i(urlString + "?" + params.toString());
+        httpclient.addHeader(AppConfigStatic.USER_TOKEN_KEY, token);
         httpclient.get(urlString, params, res);
     }
 
@@ -97,7 +105,7 @@ public class HttpUtil {
      * @param params
      * @param res
      */
-    public static void post(Context mContext, String uString,String token, JSONObject params,
+    public static void post(Context mContext, String uString, String token, JSONObject params,
                             AsyncHttpResponseHandler res) // post数据使用，返回普通的手
     {
         LogUtil.i(uString + "?" + params.toString());
@@ -120,7 +128,7 @@ public class HttpUtil {
      * @param params
      * @param res
      */
-    public static void post(Context mContext, String uString,String token, JSONArray params,
+    public static void post(Context mContext, String uString, String token, JSONArray params,
                             AsyncHttpResponseHandler res) // post数据使用，返回普通的手
     {
         LogUtil.i(uString + "?" + params.toString());
@@ -203,6 +211,29 @@ public class HttpUtil {
         }
         httpclient.addHeader(AppConfigStatic.USER_TOKEN_KEY, token);
         httpclient.get(mContext, uString, entity, "application/json", res);
+    }
+
+    /**
+     * 请求体
+     *
+     * @param mContext
+     * @param uString
+     * @param params
+     * @param res
+     */
+    public static void put(Context mContext, String uString, String token, JSONObject params,
+                           AsyncHttpResponseHandler res) // post数据使用，返回普通的手
+    {
+        LogUtil.i(uString + "?" + params.toString() + token);
+        //创建ByteArrayEntity对象
+        ByteArrayEntity entity = null;
+        try {
+            entity = new ByteArrayEntity(params.toString().getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        httpclient.addHeader(AppConfigStatic.USER_TOKEN_KEY, token);
+        httpclient.put(mContext, uString, entity, "application/json", res);
     }
 
 

@@ -1,6 +1,8 @@
 package com.jcool.dev.travel.bean;
 
-public class PersonInfoBean {
+import java.io.Serializable;
+
+public class PersonInfoBean implements Serializable {
     private boolean check = false;
     /**
      * id : 1115819200304562177

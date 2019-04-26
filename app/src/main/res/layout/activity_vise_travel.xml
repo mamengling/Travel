@@ -40,8 +40,12 @@
                 android:background="@color/root_bg_color"
                 android:drawableLeft="@mipmap/icon_search_edt_right"
                 android:drawablePadding="10dp"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:singleLine="true"
                 android:gravity="left|center_vertical"
-                android:hint="请输入您的关键字"
+                android:hint="请输入签证国家或地区"
                 android:textColor="#8D8D8D"
                 android:textSize="12sp" />
         </LinearLayout>

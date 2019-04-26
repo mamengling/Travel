@@ -1,5 +1,6 @@
 package com.jcool.dev.travel.ui;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,8 +13,10 @@ import android.widget.TextView;
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.base.BaseActivity;
 import com.jcool.dev.travel.bean.CallBackVo;
+import com.jcool.dev.travel.bean.PersonInfoBean;
 import com.jcool.dev.travel.iactivityview.AddPersonActivityView;
 import com.jcool.dev.travel.persenter.AddPersonActivityPresenter;
+import com.jcool.dev.travel.utils.StatusBarUtil;
 import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
 import com.jcool.dev.travel.view.MianChangeInputPicker;
@@ -72,6 +75,7 @@ public class AddPersonActivity extends BaseActivity implements View.OnClickListe
     private MianChangeInputPicker cardPicker;
     private List<String> mCardUnits = new ArrayList<>();
     private String[] cardType = {"身份证", "护照"};
+    private PersonInfoBean bean;
 
     private String custName = "";
     private String custSex = "";
@@ -83,12 +87,13 @@ public class AddPersonActivity extends BaseActivity implements View.OnClickListe
     @Override
     protected int getContentViewId() {
         StatusBarUtils.setStatusTextColor(true, this);
+        StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_person_add;
     }
 
     @Override
     protected void getExtra() {
-
+        bean = (PersonInfoBean) getIntent().getSerializableExtra("info");
     }
 
     @Override
@@ -98,6 +103,52 @@ public class AddPersonActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     protected void initTools() {
+        if (bean != null) {
+            edt_china_name.setText(bean.getCustName());
+            if (TextUtils.equals("boy", bean.getCustSex())) {
+                radiobutton0.setChecked(true);
+                radiobutton1.setChecked(false);
+                custSex = "boy";
+            } else {
+                custSex = "girl";
+                radiobutton0.setChecked(false);
+                radiobutton1.setChecked(true);
+            }
+
+            if (TextUtils.equals("01", bean.getCustAge())) {
+                tv_age.setText("0-12周岁儿童");
+                custAge = "01";
+            } else if (TextUtils.equals("02", bean.getCustAge())) {
+                tv_age.setText("儿童");
+                custAge = "02";
+            } else {
+                tv_age.setText("成人");
+                custAge = "03";
+            }
+
+            if (TextUtils.equals("01", bean.getCustType())) {
+                custType = "01";
+                tv_person_type.setText("在职");
+            } else if (TextUtils.equals("02", bean.getCustType())) {
+                custType = "02";
+                tv_person_type.setText("在校学生");
+            } else if (TextUtils.equals("03", bean.getCustType())) {
+                custType = "03";
+                tv_person_type.setText("退休");
+            } else if (TextUtils.equals("04", bean.getCustType())) {
+                custType = "04";
+                tv_person_type.setText("学龄儿童");
+            }
+            if (TextUtils.equals("PASSPORT", bean.getCertType())) {
+                certType = "PASSPORT";
+                tv_card_type.setText("护照");
+            } else if (TextUtils.equals("ID", bean.getCertType())) {
+                certType = "ID";
+                tv_card_type.setText("身份证");
+            }
+
+            edt_code_number.setText(bean.getCustCert());
+        }
         mPresenter = new AddPersonActivityPresenter(this, this);
     }
 
@@ -187,13 +238,20 @@ public class AddPersonActivity extends BaseActivity implements View.OnClickListe
             return;
         }
 
-        mPresenter.addPerson(getToken());
+        if (bean != null) {
+            mPresenter.updatePerson(getToken());
+        }else {
+            mPresenter.addPerson(getToken());
+        }
     }
 
     @Override
     public JSONObject getParamenters() {
         JSONObject object = new JSONObject();
         try {
+            if (bean != null) {
+                object.put("id", bean.getId());//旅客性别(boy,girl)
+            }
             object.put("custName", custName);//旅客性别(boy,girl)
             object.put("custSex", custSex);//旅客性别(boy,girl)
             object.put("custAge", custAge);//旅客年龄段(01:0-12周岁；02：儿童；03：成人)

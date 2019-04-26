@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:ns1="http://schemas.android.com/tools">
+<resources>
     <string-array name="lunar_first_of_month">
         <item>春节</item>
         <item>二月</item>
@@ -60,14 +60,13 @@
         <item>NOV</item>
         <item>DEC</item>
     </string-array>
-    <string-array name="solar_festival" ns1:ignore="InconsistentArrays">
+    <string-array name="solar_festival">
         <item>0101元旦</item>
         <item>0214情人节</item>
         <item>0308妇女节</item>
         <item>0312植树节</item>
         <item>0315消权日</item>
         <item>0401愚人节</item>
-        <item>0422地球日</item>
         <item>0501劳动节</item>
         <item>0504青年节</item>
         <item>0601儿童节</item>
@@ -109,7 +108,6 @@
     <string-array name="special_festivals">
         <item>母亲节</item>
         <item>父亲节</item>
-        <item>感恩节</item>
     </string-array>
     <string-array name="tradition_festival">
         <item>除夕</item>
@@ -121,7 +119,7 @@
         <item>0909重阳</item>
     </string-array>
     <string-array name="week_string_array">
-        <item>Sun</item>
+        <item>sun</item>
         <item>Mon</item>
         <item>Tue</item>
         <item>Wed</item>
@@ -129,130 +127,23 @@
         <item>Fri</item>
         <item>Sat</item>
     </string-array>
-    <string-array name="year_view_week_string_array">
-        <item>S</item>
-        <item>M</item>
-        <item>T</item>
-        <item>W</item>
-        <item>T</item>
-        <item>F</item>
-        <item>S</item>
-    </string-array>
-    <declare-styleable name="CalendarLayout">
-        <attr name="default_status">
+    <declare-styleable name="CalendarLayout"><attr name="default_status">
             <enum name="expand" value="0"/>
             <enum name="shrink" value="1"/>
-        </attr>
-
-
-        <!-- 手势模式 -->
-        <attr name="gesture_mode">
-            <enum name="default_mode" value="0"/>
-            <!--<enum name="only_calendar" value="1" />-->
-            <enum name="disabled" value="2"/>
-        </attr>
-
-        <attr name="calendar_show_mode">
+        </attr><attr name="calendar_show_mode">
             <enum name="both_month_week_view" value="0"/>
             <enum name="only_week_view" value="1"/>
             <enum name="only_month_view" value="2"/>
-        </attr>
-
-        <attr format="integer" name="calendar_content_view_id"/>
-    </declare-styleable>
-    <declare-styleable name="CalendarView">
-
-        <attr format="dimension" name="calendar_padding"/><!--日历内部左右padding-->
-
-        <attr format="color" name="week_background"/><!--周背景-->
-        <attr format="color" name="week_line_background"/><!--线条颜色-->
-        <attr format="color" name="week_text_color"/><!--周栏字体颜色-->
-        <attr format="dimension" name="week_text_size"/><!--周栏字体大小-->
-        <attr format="dimension" name="week_line_margin"/><!--线条margin-->
-
-        <attr format="string" name="month_view"/><!--完全自定义月视图-->
-        <attr format="string" name="week_view"/> <!--完全自定义周视图-->
-        <attr format="string" name="year_view"/> <!--完全自定义年视图-->
-        <attr format="dimension" name="week_bar_height"/> <!--星期栏的高度-->
-        <attr format="string" name="week_bar_view"/> <!--如果需要的话使用自定义星期栏-->
-
-        <attr format="string" name="scheme_text"/>
-        <attr format="dimension" name="day_text_size"/>
-        <attr format="dimension" name="lunar_text_size"/>
-        <attr format="dimension" name="calendar_height"/>
-        <attr format="color" name="scheme_text_color"/>
-        <attr format="color" name="scheme_month_text_color"/>
-        <attr format="color" name="scheme_lunar_text_color"/>
-        <attr format="color" name="scheme_theme_color"/>
-
-        <attr format="color" name="selected_theme_color"/>
-        <attr format="color" name="selected_text_color"/>
-        <attr format="color" name="selected_lunar_text_color"/>
-
-        <attr format="color" name="current_day_text_color"/>
-        <attr format="color" name="current_day_lunar_text_color"/>
-        <attr format="color" name="current_month_text_color"/>
-        <attr format="color" name="other_month_text_color"/>
-        <attr format="color" name="current_month_lunar_text_color"/>
-        <attr format="color" name="other_month_lunar_text_color"/>
-
-
-        <!-- 年视图相关 -->
-        <attr format="dimension" name="year_view_month_text_size"/>
-        <attr format="dimension" name="year_view_day_text_size"/>
-        <attr format="color" name="year_view_month_text_color"/>
-        <attr format="color" name="year_view_day_text_color"/>
-        <attr format="color" name="year_view_scheme_color"/>
-        <attr format="color" name="year_view_background"/>
-        <attr format="dimension" name="year_view_month_height"/>
-        <attr format="dimension" name="year_view_week_height"/>
-        <attr format="dimension" name="year_view_week_text_size"/>
-        <attr format="color" name="year_view_week_text_color"/>
-        <attr format="dimension" name="year_view_padding"/>
-        <attr format="dimension" name="year_view_month_margin_top"/>
-        <attr format="dimension" name="year_view_month_margin_bottom"/>
-
-        <!--日期范围-->
-        <attr format="integer" name="min_year"/>
-        <attr format="integer" name="max_year"/>
-        <attr format="integer" name="min_year_month"/>
-        <attr format="integer" name="max_year_month"/>
-        <attr format="integer" name="min_year_day"/>
-        <attr format="integer" name="max_year_day"/>
-
-
-        <!--月视图是否可滚动-->
-        <attr format="boolean" name="month_view_scrollable"/>
-        <!--周视图是否可滚动-->
-        <attr format="boolean" name="week_view_scrollable"/>
-        <!--年视图是否可滚动-->
-        <attr format="boolean" name="year_view_scrollable"/>
-
-        <!-- 月份显示模式 -->
-        <attr name="month_view_show_mode">
+        </attr><attr format="integer" name="calendar_content_view_id"/></declare-styleable>
+    <declare-styleable name="CalendarView"><attr format="color" name="week_background"/><attr format="color" name="week_line_background"/><attr format="color" name="week_text_color"/><attr format="dimension" name="week_text_size"/><attr format="string" name="month_view"/><attr format="string" name="week_view"/><attr format="dimension" name="week_bar_height"/><attr format="string" name="week_bar_view"/><attr format="string" name="scheme_text"/><attr format="dimension" name="day_text_size"/><attr format="dimension" name="lunar_text_size"/><attr format="dimension" name="calendar_height"/><attr format="color" name="scheme_text_color"/><attr format="color" name="scheme_month_text_color"/><attr format="color" name="scheme_lunar_text_color"/><attr format="color" name="scheme_theme_color"/><attr format="color" name="selected_theme_color"/><attr format="color" name="selected_text_color"/><attr format="color" name="selected_lunar_text_color"/><attr format="color" name="current_day_text_color"/><attr format="color" name="current_day_lunar_text_color"/><attr format="color" name="current_month_text_color"/><attr format="color" name="other_month_text_color"/><attr format="color" name="current_month_lunar_text_color"/><attr format="color" name="other_month_lunar_text_color"/><attr format="dimension" name="year_view_month_text_size"/><attr format="dimension" name="year_view_day_text_size"/><attr format="color" name="year_view_month_text_color"/><attr format="color" name="year_view_day_text_color"/><attr format="color" name="year_view_scheme_color"/><attr format="color" name="year_view_background"/><attr format="integer" name="min_year"/><attr format="integer" name="max_year"/><attr format="integer" name="min_year_month"/><attr format="integer" name="max_year_month"/><attr format="boolean" name="month_view_scrollable"/><attr format="boolean" name="week_view_scrollable"/><attr format="boolean" name="year_view_scrollable"/><attr name="month_view_show_mode">
             <enum name="mode_all" value="0"/>
             <enum name="mode_only_current" value="1"/>
             <enum name="mode_fix" value="2"/>
-        </attr>
-
-        <!-- 自定义周起始 -->
-        <attr name="week_start_with">
+        </attr><attr name="week_start_with">
             <enum name="sun" value="1"/>
             <enum name="mon" value="2"/>
             <enum name="sat" value="7"/>
-        </attr>
-
-        <!-- 自定义选择模式 -->
-        <attr name="select_mode">
-            <enum name="default_mode" value="0"/>
-            <enum name="single_mode" value="1"/>
-            <enum name="range_mode" value="2"/>
-        </attr>
-
-        <!-- when select_mode=range_mode -->
-        <attr format="integer" name="min_select_range"/>
-        <attr format="integer" name="max_select_range"/>
-    </declare-styleable>
+        </attr></declare-styleable>
     <string name="cv_app_name">CalendarView</string>
     <string name="fri">Fri</string>
     <string name="mon">Mon</string>

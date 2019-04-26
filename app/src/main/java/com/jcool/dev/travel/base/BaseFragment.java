@@ -106,6 +106,15 @@ public abstract class BaseFragment extends Fragment {
     protected void setToken(String token){
         SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_TOKEN, token);
     }
+
+
+
+    protected void setKey(String token) {
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_KEY, token);
+    }
+
+
+
     protected String getUserId() {
         if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_ID, ""))) {
             return SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_ID, "");
@@ -197,7 +206,13 @@ public abstract class BaseFragment extends Fragment {
     }
 
 
-
+    protected String getKey() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_KEY, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_KEY, "");
+        } else {
+            return null;
+        }
+    }
 
 
     /**

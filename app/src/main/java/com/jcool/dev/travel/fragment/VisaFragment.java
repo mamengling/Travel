@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
@@ -16,6 +17,8 @@ import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.VisaInfoDtoList;
 import com.jcool.dev.travel.iactivityview.VisaFragmentView;
 import com.jcool.dev.travel.persenter.VisaFragmentPresenter;
+import com.jcool.dev.travel.ui.SearchKeyActivity;
+import com.jcool.dev.travel.ui.SearchTravelActivity;
 import com.jcool.dev.travel.ui.TravelViseActivity;
 import com.jcool.dev.travel.ui.VisaCommitActivity;
 import com.jcool.dev.travel.ui.VisaDataActivity;
@@ -39,6 +42,8 @@ import butterknife.ButterKnife;
  */
 public class VisaFragment extends BaseFragment implements View.OnClickListener, VisaFragmentView {
     private VisaFragmentPresenter mPresenter;
+    @BindView(R.id.edt_search)
+    TextView edt_search;
     @BindView(R.id.tv_visa_hot)
     TextView tv_visa_hot;
     @BindView(R.id.refreshLayout)
@@ -142,6 +147,10 @@ public class VisaFragment extends BaseFragment implements View.OnClickListener, 
             case R.id.tv_visa_hot:
                 Intent intent = new Intent(getContext(), VisaHotActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.edt_search:
+                Intent intentSear = new Intent(getContext(), SearchKeyActivity.class);
+                startActivity(intentSear);
                 break;
         }
     }

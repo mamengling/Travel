@@ -153,4 +153,19 @@ public class VisaInfoActivity extends BaseActivity implements View.OnClickListen
             tv_faces.setText(TextUtils.equals("02", mCallBackVo.getData().getIsMeet()) ? "不需要面试" : "需要面试");
         }
     }
+
+    @Override
+    public void excuteSuccessCollectCallBack(CallBackVo<String> mCallBackVo) {
+
+    }
+
+    @Override
+    public void excuteSuccessAddCollectCallBack(CallBackVo mCallBackVo) {
+
+    }
+
+    @Override
+    public void excuteSuccessDelCollectCallBack(CallBackVo mCallBackVo) {
+
+    }
 }

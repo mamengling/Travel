@@ -49,6 +49,7 @@ public class TravelInfoBean {
     private Object dates;
     private List<BannerBean> banner;
     private List<LinesBean> lines;
+    private List<GoodsAndDateBean> dataAndGoods;
 
     public String getId() {
         return id;
@@ -206,6 +207,14 @@ public class TravelInfoBean {
         return banner;
     }
 
+    public List<GoodsAndDateBean> getDataAndGoods() {
+        return dataAndGoods;
+    }
+
+    public void setDataAndGoods(List<GoodsAndDateBean> dataAndGoods) {
+        this.dataAndGoods = dataAndGoods;
+    }
+
     public void setBanner(List<BannerBean> banner) {
         this.banner = banner;
     }
@@ -285,6 +294,7 @@ public class TravelInfoBean {
          * notice : null
          */
 
+        private boolean check;
         private String id;
         private String goodsId;
         private String lineName;
@@ -292,6 +302,14 @@ public class TravelInfoBean {
         private List<CharacteristicBean> characteristic;
         private List<CharacteristicBean> synopsis;
         private List<CharacteristicBean> notice;
+
+        public boolean isCheck() {
+            return check;
+        }
+
+        public void setCheck(boolean check) {
+            this.check = check;
+        }
 
         public String getId() {
             return id;
@@ -423,6 +441,72 @@ public class TravelInfoBean {
             public void setSortIndex(int sortIndex) {
                 this.sortIndex = sortIndex;
             }
+        }
+    }
+
+    public static class GoodsAndDateBean {
+        private String id;
+        private String goodsId;
+        private String yearVal;
+        private String monthVal;
+        private String goodsDate;
+        private String priceOld;
+        private String priceNow;
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getGoodsId() {
+            return goodsId;
+        }
+
+        public void setGoodsId(String goodsId) {
+            this.goodsId = goodsId;
+        }
+
+        public String getYearVal() {
+            return yearVal;
+        }
+
+        public void setYearVal(String yearVal) {
+            this.yearVal = yearVal;
+        }
+
+        public String getMonthVal() {
+            return monthVal;
+        }
+
+        public void setMonthVal(String monthVal) {
+            this.monthVal = monthVal;
+        }
+
+        public String getGoodsDate() {
+            return goodsDate;
+        }
+
+        public void setGoodsDate(String goodsDate) {
+            this.goodsDate = goodsDate;
+        }
+
+        public String getPriceOld() {
+            return priceOld;
+        }
+
+        public void setPriceOld(String priceOld) {
+            this.priceOld = priceOld;
+        }
+
+        public String getPriceNow() {
+            return priceNow;
+        }
+
+        public void setPriceNow(String priceNow) {
+            this.priceNow = priceNow;
         }
     }
 }

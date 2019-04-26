@@ -65,7 +65,6 @@
         <item>0312植树节</item>
         <item>0315消权日</item>
         <item>0401愚人节</item>
-        <item>0422地球日</item>
         <item>0501劳动节</item>
         <item>0504青年节</item>
         <item>0601儿童节</item>
@@ -109,7 +108,6 @@
     <string-array name="special_festivals">
         <item>母亲节</item>
         <item>父亲节</item>
-        <item>感恩节</item>
     </string-array>
 
     <string name="sun">日</string>
@@ -122,16 +120,6 @@
 
 
     <string-array name="week_string_array">
-        <item>日</item>
-        <item>一</item>
-        <item>二</item>
-        <item>三</item>
-        <item>四</item>
-        <item>五</item>
-        <item>六</item>
-    </string-array>
-
-    <string-array name="year_view_week_string_array">
         <item>日</item>
         <item>一</item>
         <item>二</item>

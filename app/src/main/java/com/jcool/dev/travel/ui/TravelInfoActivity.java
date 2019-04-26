@@ -196,53 +196,82 @@ public class TravelInfoActivity extends BaseActivity implements View.OnClickList
         refreshLayout.finishRefresh();
     }
 
+//    @Override
+//    public void excuteSuccessCallBack(CallBackVo<TravelInfoBean> mCallBackVo) {
+//        if (mCallBackVo != null && mCallBackVo.getData() != null) {
+//            tv_info.setText(mCallBackVo.getData().getName());
+//            tv_money.setText("¥" + mCallBackVo.getData().getMinPrice());
+//            tv_number.setText(mCallBackVo.getData().getDefaultSellNumber() + "人一起出游");
+//            if (mCallBackVo.getData().getLines() != null) {
+//                mLineAdapter.onReference(mCallBackVo.getData().getLines());
+//                if (mCallBackVo.getData().getLines().size() > 0) {
+//                    mPresenter.journeyTravelLineInfo(mCallBackVo.getData().getLines().get(0).getId());
+//                }
+//            }
+//            if (mCallBackVo.getData().getBanner() != null) {
+//                mPagerAdapter.onReference(mCallBackVo.getData().getBanner());
+//            }
+//
+//        }
+//        if (mCallBackVoLine != null && mCallBackVoLine.getData() != null) {
+//            data.clear();
+//            TravelInfoBean.LinesBean.CharacteristicBean item = new TravelInfoBean.LinesBean.CharacteristicBean();
+//            item.setViewType(101);
+//            item.setTitle("产品特色");
+//            data.add(item);
+//            a = 0;
+//            if (mCallBackVoLine.getData().getCharacteristic() != null) {
+//                data.addAll(mCallBackVoLine.getData().getCharacteristic());
+//            }
+//            b = data.size();
+//            TravelInfoBean.LinesBean.CharacteristicBean item1 = new TravelInfoBean.LinesBean.CharacteristicBean();
+//            item1.setViewType(101);
+//            item1.setTitle("行程介绍");
+//            data.add(item1);
+//            if (mCallBackVoLine.getData().getSynopsis() != null) {
+//                data.addAll(mCallBackVoLine.getData().getSynopsis());
+//            }
+//            c = data.size();
+//            TravelInfoBean.LinesBean.CharacteristicBean item2 = new TravelInfoBean.LinesBean.CharacteristicBean();
+//            item2.setViewType(101);
+//            item2.setTitle("预订须知");
+//            data.add(item2);
+//            if (mCallBackVoLine.getData().getNotice() != null) {
+//                data.addAll(mCallBackVoLine.getData().getNotice());
+//            }
+//
+//            imageAdapter.onReference(data);
+//        }
+//        refreshLayout.finishRefresh();
+//    }
+
     @Override
-    public void excuteSuccessCallBack(CallBackVo<TravelInfoBean> mCallBackVo, CallBackVo<TravelInfoBean.LinesBean> mCallBackVoLine, CallBackVo mCallCollect) {
-        if (mCallBackVo != null && mCallBackVo.getData() != null) {
-            tv_info.setText(mCallBackVo.getData().getName());
-            tv_money.setText("¥" + mCallBackVo.getData().getMinPrice());
-            tv_number.setText(mCallBackVo.getData().getDefaultSellNumber() + "人一起出游");
-            if (mCallBackVo.getData().getLines() != null) {
-                mLineAdapter.onReference(mCallBackVo.getData().getLines());
-                if (mCallBackVo.getData().getLines().size() > 0) {
-                    mPresenter.journeyTravelLineInfo(mCallBackVo.getData().getLines().get(0).getId());
-                }
-            }
-            if (mCallBackVo.getData().getBanner() != null) {
-                mPagerAdapter.onReference(mCallBackVo.getData().getBanner());
-            }
+    public void excuteSuccessCallBack(CallBackVo<TravelInfoBean> mCallBackVo) {
 
-        }
-        if (mCallBackVoLine != null && mCallBackVoLine.getData() != null) {
-            data.clear();
-            TravelInfoBean.LinesBean.CharacteristicBean item = new TravelInfoBean.LinesBean.CharacteristicBean();
-            item.setViewType(101);
-            item.setTitle("产品特色");
-            data.add(item);
-            a = 0;
-            if (mCallBackVoLine.getData().getCharacteristic() != null) {
-                data.addAll(mCallBackVoLine.getData().getCharacteristic());
-            }
-            b = data.size();
-            TravelInfoBean.LinesBean.CharacteristicBean item1 = new TravelInfoBean.LinesBean.CharacteristicBean();
-            item1.setViewType(101);
-            item1.setTitle("行程介绍");
-            data.add(item1);
-            if (mCallBackVoLine.getData().getSynopsis() != null) {
-                data.addAll(mCallBackVoLine.getData().getSynopsis());
-            }
-            c = data.size();
-            TravelInfoBean.LinesBean.CharacteristicBean item2 = new TravelInfoBean.LinesBean.CharacteristicBean();
-            item2.setViewType(101);
-            item2.setTitle("预订须知");
-            data.add(item2);
-            if (mCallBackVoLine.getData().getNotice() != null) {
-                data.addAll(mCallBackVoLine.getData().getNotice());
-            }
-
-            imageAdapter.onReference(data);
-        }
-        refreshLayout.finishRefresh();
     }
 
+    @Override
+    public void excuteSuccessLineCallBack(CallBackVo<TravelInfoBean.LinesBean> mCallBackVo) {
+
+    }
+
+    @Override
+    public void excuteSuccessCollectCallBack(CallBackVo mCallBackVo) {
+
+    }
+
+    @Override
+    public void excuteSuccessGoodsCallBack(CallBackVo<List<TravelInfoBean.GoodsAndDateBean>> mCallBackVo) {
+
+    }
+
+    @Override
+    public void excuteSuccessDelCollectCallBack(CallBackVo mCallBackVo) {
+
+    }
+
+    @Override
+    public void excuteSuccessAddCollectCallBack(CallBackVo mCallBackVo) {
+
+    }
 }

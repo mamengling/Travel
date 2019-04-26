@@ -129,11 +129,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         SharePreferenceUtil.setValue(this, AppConfigStatic.QQ_OPEN_ID, info.getQqOpenid());
         SharePreferenceUtil.setValue(this, AppConfigStatic.USER_SEX, info.getSex());
         SharePreferenceUtil.setValue(this, AppConfigStatic.USER_CITY, info.getCity());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_AVATAR, info.getAvatar());
 
     }
 
     protected void setToken(String token) {
         SharePreferenceUtil.setValue(this, AppConfigStatic.USER_TOKEN, token);
+    }
+
+    protected void setKey(String token) {
+        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_KEY, token);
+    }
+
+    protected void setUserPhone(String phone) {
+        SharePreferenceUtil.setValue(this, AppConfigStatic.PHONE, phone);
     }
 
     protected String getUserId() {
@@ -147,6 +156,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected String getUsername() {
         if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.USER_NAME, ""))) {
             return SharePreferenceUtil.getString(this, AppConfigStatic.USER_NAME, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getAvatar() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.USER_AVATAR, ""))) {
+            return SharePreferenceUtil.getString(this, AppConfigStatic.USER_AVATAR, "");
         } else {
             return null;
         }
@@ -234,6 +251,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected String getToken() {
         if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.USER_TOKEN, ""))) {
             return SharePreferenceUtil.getString(this, AppConfigStatic.USER_TOKEN, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getKey() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.USER_KEY, ""))) {
+            return SharePreferenceUtil.getString(this, AppConfigStatic.USER_KEY, "");
         } else {
             return null;
         }

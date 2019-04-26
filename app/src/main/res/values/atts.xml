@@ -12,10 +12,10 @@
             <enum name="center" value="1" />
             <enum name="right" value="2" />
         </attr>
-        <attr name="rollviewpager_hint_paddingRight" format="dimension"/>
-        <attr name="rollviewpager_hint_paddingLeft" format="dimension"/>
-        <attr name="rollviewpager_hint_paddingTop" format="dimension"/>
-        <attr name="rollviewpager_hint_paddingBottom" format="dimension"/>
+        <attr name="rollviewpager_hint_paddingRight" format="dimension" />
+        <attr name="rollviewpager_hint_paddingLeft" format="dimension" />
+        <attr name="rollviewpager_hint_paddingTop" format="dimension" />
+        <attr name="rollviewpager_hint_paddingBottom" format="dimension" />
 
         <attr name="rollviewpager_play_delay" format="integer" />
         <attr name="rollviewpager_hint_color" format="color" />
@@ -23,29 +23,28 @@
     </declare-styleable>
 
     <declare-styleable name="CircularProgressBar">
-        <attr name="cpbStyle" format="reference"/>
-        <attr name="cpb_color" format="color"/>
-        <attr name="cpb_colors" format="reference"/>
-        <attr name="cpb_stroke_width" format="dimension"/>
-        <attr name="cpb_min_sweep_angle" format="integer"/>
-        <attr name="cpb_max_sweep_angle" format="integer"/>
-        <attr name="cpb_sweep_speed" format="float"/>
-        <attr name="cpb_rotation_speed" format="float"/>
+        <attr name="cpbStyle" format="reference" />
+        <attr name="cpb_color" format="color" />
+        <attr name="cpb_colors" format="reference" />
+        <attr name="cpb_stroke_width" format="dimension" />
+        <attr name="cpb_min_sweep_angle" format="integer" />
+        <attr name="cpb_max_sweep_angle" format="integer" />
+        <attr name="cpb_sweep_speed" format="float" />
+        <attr name="cpb_rotation_speed" format="float" />
     </declare-styleable>
     <declare-styleable name="DropDownMenu">
 
-        <attr name="ddunderlineColor" format="color"/>
-        <attr name="dddividerColor" format="color"/>
-        <attr name="ddtextSelectedColor" format="color"/>
-        <attr name="ddtextUnselectedColor" format="color"/>
-        <attr name="ddmenuBackgroundColor" format="color"/>
-        <attr name="ddmaskColor" format="color"/>
-        <attr name="ddmenuTextSize" format="dimension"/>
-        <attr name="ddmenuSelectedIcon" format="reference"/>
-        <attr name="ddmenuUnselectedIcon" format="reference"/>
-        <attr name="ddmenuMenuHeightPercent" format="float"/>
+        <attr name="ddunderlineColor" format="color" />
+        <attr name="dddividerColor" format="color" />
+        <attr name="ddtextSelectedColor" format="color" />
+        <attr name="ddtextUnselectedColor" format="color" />
+        <attr name="ddmenuBackgroundColor" format="color" />
+        <attr name="ddmaskColor" format="color" />
+        <attr name="ddmenuTextSize" format="dimension" />
+        <attr name="ddmenuSelectedIcon" format="reference" />
+        <attr name="ddmenuUnselectedIcon" format="reference" />
+        <attr name="ddmenuMenuHeightPercent" format="float" />
     </declare-styleable>
-
 
 
     <declare-styleable name="GroupRecyclerView">
@@ -59,5 +58,9 @@
         <attr name="group_padding_right" format="dimension" />
         <attr name="group_has_header" format="boolean" />
     </declare-styleable>
-
+    <declare-styleable name="MyRecyclerViewItem">
+        <attr name="left_width" format="integer" />
+        <attr name="right_width" format="integer" />
+        <attr name="move_range" format="integer" />
+    </declare-styleable>
 </resources>

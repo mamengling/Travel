@@ -89,7 +89,7 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected int getContentViewId() {
-        StatusBarUtils.setStatusTextColor(true,this);
+        StatusBarUtils.setStatusTextColor(true, this);
         StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_commit_visa;
     }
@@ -158,6 +158,8 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
                 if (!TextUtils.isEmpty(tv_tag_place.getText())) {
                     if (mGoodsUnits != null && mGoodsUnits.size() > 0) {
                         initGoodsPicker();
+                    } else {
+                        ToastUtils.showShortToast("该目的地没有相关商品");
                     }
                 } else {
                     ToastUtils.showShortToast("请选择目的地");
@@ -246,6 +248,9 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onSelected(String tamp, int index) {
                 tv_tag_place.setText(tamp);
+                edt_goods_name.setText("");
+                visaId = "";
+                visaName = "";
                 for (int i = 0; i < placeList.size(); i++) {
                     if (TextUtils.equals(tamp, placeList.get(i).getPlaceName())) {
                         placeId = placeList.get(i).getId();
@@ -405,6 +410,7 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void excuteSuccessGoodsCallBack(CallBackVo<List<VisaInfoDtoList.VisaInfoDtoListBean>> mCallBackVoGoods) {
+        mGoodsUnits.clear();
         if (mCallBackVoGoods != null && mCallBackVoGoods.getData() != null && mCallBackVoGoods.getData().size() > 0) {
             mGoodsUnits.clear();
             visaList.clear();
@@ -417,8 +423,8 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void excuteSuccessAddCallBack(CallBackVo<String> mCallBackVo) {
-        Intent intent=new Intent(this,OtherOrderDetailActivity.class);
-        intent.putExtra("orderId",mCallBackVo.getData());
+        Intent intent = new Intent(this, OtherOrderDetailActivity.class);
+        intent.putExtra("orderId", mCallBackVo.getData());
         startActivity(intent);
     }
 }

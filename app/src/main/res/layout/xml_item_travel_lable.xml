@@ -9,8 +9,13 @@
         android:id="@+id/tv_line_lable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@drawable/bg_seachr"
+        android:background="@drawable/x_edt_bg_rootcolor02"
         android:gravity="center"
-        android:text="路线" />
+        android:layout_margin="10dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
+        android:text="路线"
+        android:textSize="@dimen/textsize_6" />
 </LinearLayout>

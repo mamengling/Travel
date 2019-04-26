@@ -41,6 +41,7 @@
             android:layout_width="30dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
+            android:drawableRight="@mipmap/icon_share_visa_info_right"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp" />
     </RelativeLayout>
@@ -80,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_tag_faces_black_24dp"
+            android:drawableTop="@mipmap/icon_collect_unsel"
             android:drawablePadding="5dp"
             android:gravity="center"
             android:padding="5dp"
@@ -89,10 +90,11 @@
             android:textSize="@dimen/textsize_5" />
 
         <TextView
+            android:id="@+id/tv_call_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_phone_forwarded_black_24dp"
+            android:drawableTop="@mipmap/icon_phone_info"
             android:drawablePadding="5dp"
             android:gravity="center"
             android:padding="5dp"
@@ -101,10 +103,11 @@
             android:textSize="@dimen/textsize_5" />
 
         <TextView
+            android:id="@+id/tv_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_message_black_24dp"
+            android:drawableTop="@mipmap/icon_travel_info_help"
             android:drawablePadding="5dp"
             android:gravity="center"
             android:padding="5dp"

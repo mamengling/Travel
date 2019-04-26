@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jcool.dev.travel.view.MyRecyclerViewItem xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/myRecyclerViewItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    app:move_range="20"
+    app:right_width="200">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="name"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/textsize_6" />
+
+
+            <ImageView
+                android:id="@+id/image_bianji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/tv_name"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/icon_person_writh" />
+
+
+            <TextView
+                android:id="@+id/tv_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginTop="10dp"
+                android:text="女"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/textsize_6" />
+
+            <TextView
+                android:id="@+id/tv_person_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/tv_sex"
+                android:text="成人"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/textsize_6" />
+
+            <TextView
+                android:id="@+id/tv_work_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/tv_person_type"
+                android:text="在职"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/textsize_6" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/rightLayout"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@id/content_layout"
+            android:layout_alignBottom="@id/content_layout"
+            android:layout_toRightOf="@id/content_layout"
+            android:background="@color/red"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <!--自定义侧边菜单布局-->
+
+            <TextView
+                android:id="@+id/click"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="删除"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+
+            <!--自定义侧边菜单布局结束-->
+
+        </LinearLayout>
+    </RelativeLayout>
+</com.jcool.dev.travel.view.MyRecyclerViewItem>

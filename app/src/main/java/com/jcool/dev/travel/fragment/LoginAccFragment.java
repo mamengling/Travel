@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.base.BaseFragment;
 import com.jcool.dev.travel.bean.CallBackVo;
+import com.jcool.dev.travel.bean.CodeBean;
 import com.jcool.dev.travel.bean.UserInfo;
 import com.jcool.dev.travel.iactivityview.LoginFragmentView;
 import com.jcool.dev.travel.persenter.LoginFragmentPresenter;
@@ -146,7 +147,7 @@ public class LoginAccFragment extends BaseFragment implements View.OnClickListen
     }
 
     @Override
-    public void excuteSuccessGoodsCallBack(CallBackVo<UserInfo> mCallBackVo) {
+    public void excuteSuccessCallBack(CallBackVo<UserInfo> mCallBackVo) {
         ToastUtils.showShortToast("登录成功");
         if (mCallBackVo != null && mCallBackVo.getData() != null) {
             setUserInfo(mCallBackVo.getData().getUserInfo().getSysUser());
@@ -155,5 +156,10 @@ public class LoginAccFragment extends BaseFragment implements View.OnClickListen
         if (isAdded()) {
             getActivity().finish();
         }
+    }
+
+    @Override
+    public void excuteSuccessCodeCallBack(CallBackVo<CodeBean> mCallBackVo) {
+
     }
 }

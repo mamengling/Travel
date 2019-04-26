@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 
     @Override
     protected int getContentViewId() {
-//        StatusBarUtil.setColor(this, Color.parseColor("#FFD665"));
+        
         return R.layout.activity_main;
     }
 

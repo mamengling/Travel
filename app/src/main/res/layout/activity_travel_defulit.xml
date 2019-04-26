@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:fitsSystemWindows="true"
-              android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,18 +22,18 @@
             <com.scwang.smartrefresh.layout.header.ClassicsHeader
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srlAccentColor="@color/text_black"/>
+                app:srlAccentColor="@color/text_black" />
 
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="visible"/>
+                android:visibility="visible" />
 
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-        <include layout="@layout/layout_toobar"/>
+        <include layout="@layout/layout_toobar" />
 
     </RelativeLayout>
 
@@ -49,39 +49,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawableTop="@mipmap/icon_collect_unsel"
             android:drawablePadding="5dp"
-            android:drawableTop="@drawable/ic_tag_faces_black_24dp"
             android:gravity="center"
             android:padding="5dp"
             android:text="收藏"
             android:textColor="@color/home_color_content_title"
-            android:textSize="@dimen/textsize_5"/>
+            android:textSize="@dimen/textsize_5" />
 
         <TextView
+            android:id="@+id/tv_call_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawableTop="@mipmap/icon_phone_info"
             android:drawablePadding="5dp"
-            android:drawableTop="@drawable/ic_phone_forwarded_black_24dp"
             android:gravity="center"
             android:padding="5dp"
             android:text="电话"
             android:textColor="@color/home_color_content_title"
-            android:textSize="@dimen/textsize_5"/>
+            android:textSize="@dimen/textsize_5" />
 
         <TextView
+            android:id="@+id/tv_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawableTop="@mipmap/icon_travel_info_help"
             android:drawablePadding="5dp"
-            android:drawableTop="@drawable/ic_message_black_24dp"
             android:gravity="center"
             android:padding="5dp"
             android:text="在线"
             android:textColor="@color/home_color_content_title"
-            android:textSize="@dimen/textsize_5"/>
+            android:textSize="@dimen/textsize_5" />
 
         <TextView
+            android:id="@+id/tv_buy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -91,6 +94,6 @@
             android:gravity="center"
             android:padding="5dp"
             android:text="立即订购"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
     </LinearLayout>
 </LinearLayout>

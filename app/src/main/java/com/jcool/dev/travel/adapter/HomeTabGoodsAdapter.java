@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.bean.HomeViewBean;
 import com.jcool.dev.travel.bean.TravelBean;
+import com.jcool.dev.travel.utils.ImageLoaderUtils;
 import com.jcool.dev.travel.view.rollviewpage.OnItemClickListener;
 
 import java.util.ArrayList;
@@ -58,7 +59,7 @@ public class HomeTabGoodsAdapter extends RecyclerView.Adapter<HomeTabGoodsAdapte
         TravelBean.RecordsBean item = mList.get(i);
         viewHolder.tvTitle.setText(item.getName());
         viewHolder.tv_money.setText("¥" + item.getMinPrice() + "起");
-        Glide.with(mContext).load(item.getHeadImg()).error(R.mipmap.icon_home_banne03).into(viewHolder.givImage);
+        ImageLoaderUtils.showImageViewToRoundedCorners(mContext, item.getHeadImg(), viewHolder.givImage, R.mipmap.icon_home_banner, R.mipmap.icon_home_banner);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

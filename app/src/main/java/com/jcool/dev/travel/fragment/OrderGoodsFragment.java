@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderGoodsFragment extends BaseFragment {
-    private String tabTitle[] = {"全部", "待付款", "待出行", "待评价", "已完成"};
+    private String tabTitle[] = {"全部", "待付款", "待出行", "待评价", "已完成","已退款"};
     private List<InfoColumn> infoColumnList;
     private List<Fragment> fragmentList;
     private ViewPagerFragmentAdapter viewPagerFragmentAdapter;
@@ -52,7 +52,7 @@ public class OrderGoodsFragment extends BaseFragment {
     @Override
     protected void setListener() {
         getFragmentData();
-//        isView(number);
+        isView(number);
     }
 
     @Override
@@ -84,6 +84,7 @@ public class OrderGoodsFragment extends BaseFragment {
         fragmentList.add(OtherTravelTabFragment.newInstance(Constants.APP_HOME_API_VISA_ORDER_JOURNEY_GOODS_FORM_QUERY_APP, "PAY"));//待出行
         fragmentList.add(OtherTravelTabFragment.newInstance(Constants.APP_HOME_API_VISA_ORDER_JOURNEY_GOODS_FORM_QUERY_APP, "USED"));//待评价
         fragmentList.add(OtherTravelTabFragment.newInstance(Constants.APP_HOME_API_VISA_ORDER_JOURNEY_GOODS_FORM_QUERY_APP, "EVALUATE"));//已完成
+        fragmentList.add(OtherTravelTabFragment.newInstance(Constants.APP_HOME_API_VISA_ORDER_JOURNEY_GOODS_FORM_QUERY_APP, "REFUNDED"));//已退款
         viewPagerFragmentAdapter = new ViewPagerFragmentAdapter(getChildFragmentManager());
         viewpagerOrderTravel.setAdapter(viewPagerFragmentAdapter);
         tlMainTabtopOrderTravel.setupWithViewPager(viewpagerOrderTravel);
@@ -91,7 +92,7 @@ public class OrderGoodsFragment extends BaseFragment {
         viewPagerFragmentAdapter.setList(infoColumnList);
         viewPagerFragmentAdapter.setListData(fragmentList);
 //        app:tabMode="fixed"
-        tlMainTabtopOrderTravel.setTabMode(TabLayout.MODE_FIXED);
+        tlMainTabtopOrderTravel.setTabMode(TabLayout.MODE_SCROLLABLE);
         viewpagerOrderTravel.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tlMainTabtopOrderTravel));
         tlMainTabtopOrderTravel.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -128,7 +129,7 @@ public class OrderGoodsFragment extends BaseFragment {
                 viewpagerOrderTravel.setCurrentItem(4, true);
                 break;
             case 5:
-                viewpagerOrderTravel.setCurrentItem(0, true);
+                viewpagerOrderTravel.setCurrentItem(5, true);
                 break;
             default:
                 viewpagerOrderTravel.setCurrentItem(0);

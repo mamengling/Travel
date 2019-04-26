@@ -33,7 +33,7 @@
             android:layout_marginLeft="10dp"
             android:drawablePadding="10dp"
             android:gravity="center"
-            android:text="标题"
+            android:text="选择班期和人数"
             android:textColor="@color/text_black"
             android:textSize="@dimen/textsize_8" />
 
@@ -94,43 +94,36 @@
         app:calendar_content_view_id="@+id/nestedScrollView"
         app:default_status="expand">
 
+
         <com.haibin.calendarview.CalendarView
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#fff"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            app:current_day_lunar_text_color="#ff0000"
-            app:current_day_text_color="#ff0000"
-            app:current_month_lunar_text_color="#CFCFCF"
             app:current_month_text_color="#333333"
-            app:lunar_text_size="10sp"
-            app:max_year="2022"
-            app:max_year_month="12"
-            app:min_year="2016"
-            app:min_year_month="9"
-            app:month_view_show_mode="mode_only_current"
-            app:other_month_lunar_text_color="#e1e1e1"
+            app:current_month_lunar_text_color="#CFCFCF"
+            app:min_year="2004"
+            app:max_year="2020"
             app:other_month_text_color="#e1e1e1"
-            app:scheme_lunar_text_color="#CFCFCF"
+            app:other_month_lunar_text_color="#e1e1e1"
             app:scheme_text="假"
             app:scheme_text_color="#333"
             app:scheme_theme_color="#128c4b"
-            app:selected_lunar_text_color="#128c4b"
-            app:selected_text_color="#128c4b"
-            app:selected_theme_color="#80cfcfcf"
+            app:selected_lunar_text_color="#CFCFCF"
+            app:month_view="com.jcool.dev.travel.view.MeiZuMonthView"
+            app:week_view="com.jcool.dev.travel.view.MeizuWeekView"
+            app:selected_text_color="#333"
+            app:selected_theme_color="#FFD665"
             app:week_background="#fff"
-            app:week_bar_height="46dp"
-            app:week_line_background="#00000000"
-            app:week_start_with="mon"
-            app:week_text_size="10sp"
-            app:year_view_background="#f6f6f6"
+            app:week_text_color="#111111"
+            app:week_start_with="sat"
+            app:week_view_scrollable="true"
             app:year_view_day_text_color="#333333"
             app:year_view_day_text_size="9sp"
             app:year_view_month_text_color="#ff0000"
             app:year_view_month_text_size="20sp"
-            app:year_view_scheme_color="#f17706" />
+            app:month_view_show_mode="mode_only_current"
+            app:year_view_scheme_color="#f17706"/>
 
 
         <android.support.v4.widget.NestedScrollView

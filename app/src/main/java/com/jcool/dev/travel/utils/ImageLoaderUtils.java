@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.signature.StringSignature;
@@ -402,11 +403,11 @@ public class ImageLoaderUtils {
         Glide.with(context).load(url)
                 .placeholder(loadingImg)
                 .error(errorimg)// 设置错误图片
-//                .transform(new GlideRoundTransform(context,10))
-                .bitmapTransform(new RoundedCornersTransformation(context, 30, 0,
-                        RoundedCornersTransformation.CornerType.ALL))// 设置矩形圆角
-                .crossFade(1000)
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)// 缓存修改过的图片
+                .transform(new CenterCrop(context), new GlideRoundTransform(context))
+//                .bitmapTransform(new RoundedCornersTransformation(context, 30, 5,
+//                        RoundedCornersTransformation.CornerType.ALL))// 设置矩形圆角
+                .crossFade()
+//                .diskCacheStrategy(DiskCacheStrategy.RESULT)// 缓存修改过的图片
                 .into(imgeview);
 
 

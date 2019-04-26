@@ -20,12 +20,10 @@ import com.jcool.dev.travel.utils.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConstmChangeSpecPicker implements View.OnClickListener {
+public class ConstmChangeSpecPicker {
     private Context mContext;
     private Dialog mPickerDialog;
     private Callback mCallback;
-    private TextView tv_title;
-    private TextView tv_change_person;
     private ListView recyclerView;
     private ArrayList<VisaInfoBean.VisaSpecBean> mStrUnits = new ArrayList<>();
     private boolean mCanDialogShow;
@@ -38,9 +36,7 @@ public class ConstmChangeSpecPicker implements View.OnClickListener {
      * 时间选择结果回调接口
      */
     public interface Callback {
-        void onSelected(List<PersonInfoBean> mStrUnits);
-
-        void onAdd(String mStrUnits);
+        void onSelected(VisaInfoBean.VisaSpecBean mStrUnits);
     }
 
     public ConstmChangeSpecPicker(Context mContext, Callback callback, ArrayList<VisaInfoBean.VisaSpecBean> mStrUnits) {
@@ -53,32 +49,10 @@ public class ConstmChangeSpecPicker implements View.OnClickListener {
 
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.tv_change_person:
-                mCallback.onAdd("");
-                break;
-            case R.id.tv_cancel:
-                mCallback.onSelected(null);
-                break;
-            case R.id.tv_confirm:
-                if (mCallback != null) {
-                    
-                }
-                break;
-        }
-
-        if (mPickerDialog != null && mPickerDialog.isShowing()) {
-            mPickerDialog.dismiss();
-        }
-    }
-
-
     private void initView() {
         mPickerDialog = new Dialog(mContext, R.style.date_picker_dialog);
         mPickerDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        mPickerDialog.setContentView(R.layout.dialog_person_picker);
+        mPickerDialog.setContentView(R.layout.dialog_spec_picker);
         Window window = mPickerDialog.getWindow();
         if (window != null) {
             WindowManager.LayoutParams lp = window.getAttributes();
@@ -87,31 +61,27 @@ public class ConstmChangeSpecPicker implements View.OnClickListener {
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
             window.setAttributes(lp);
         }
-        mPickerDialog.findViewById(R.id.tv_cancel).setOnClickListener(this);
-        mPickerDialog.findViewById(R.id.tv_confirm).setOnClickListener(this);
-        mPickerDialog.findViewById(R.id.tv_change_person).setOnClickListener(this);
-        tv_title = mPickerDialog.findViewById(R.id.tv_title);
         recyclerView = mPickerDialog.findViewById(R.id.recyclerView);
-        recyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (view.getId()) {
-                    case R.id.tv_show:
-                        ToastUtils.showShortToast("展开");
-                        break;
-                    case R.id.btn_to_pay_money:
-                        ToastUtils.showShortToast("预定");
-                        break;
-                }
-//                if (mAdapter != null) {
-//                    mAdapter.changeState(position);
-//                }
-            }
-        });
     }
 
     private void initData() {
-        mAdapter = new SpecListAdapter(mContext, mStrUnits);
+        mAdapter = new SpecListAdapter(mContext, mStrUnits, new SpecListAdapter.Callback() {
+            @Override
+            public void setClick(View view, int position) {
+                switch (view.getId()) {
+                    case R.id.tv_show:
+                        mAdapter.changeState(position);
+                        break;
+                    case R.id.btn_to_pay_money:
+                        mCallback.onSelected(mStrUnits.get(position));
+                        break;
+                }
+
+                if (mPickerDialog != null && mPickerDialog.isShowing()) {
+                    mPickerDialog.dismiss();
+                }
+            }
+        });
         recyclerView.setAdapter(mAdapter);
     }
 

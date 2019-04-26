@@ -17,10 +17,16 @@ import com.jcool.dev.travel.bean.HomeIconBean;
 import com.jcool.dev.travel.bean.UserInfo;
 import com.jcool.dev.travel.iactivityview.UserInfoGetView;
 import com.jcool.dev.travel.persenter.UserInfoGetPresenter;
+import com.jcool.dev.travel.ui.CollectionActivity;
 import com.jcool.dev.travel.ui.LoginActivity;
+import com.jcool.dev.travel.ui.MianhisToryActivity;
 import com.jcool.dev.travel.ui.OrderTabActivity;
+import com.jcool.dev.travel.ui.PeopleListActivity;
 import com.jcool.dev.travel.ui.SettingActivity;
 import com.jcool.dev.travel.ui.UserInfoActivity;
+import com.jcool.dev.travel.ui.VisaCommitActivity;
+import com.jcool.dev.travel.ui.WebviewDefulitActivity;
+import com.jcool.dev.travel.ui.YijianDefulitActivity;
 import com.jcool.dev.travel.utils.ImageLoaderUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
 import com.jcool.dev.travel.view.FixedGridView;
@@ -41,7 +47,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
     private ListIconAdapter mAdapterIconList;
     private String iconArr[] = {"全部订单", "待付款", "待出行", "待评价"};
     private String listArr[] = {"常用联系人", "我的收藏", "浏览历史", "关于我们", "意见反馈", "其他渠道签证资料提交"};
-    private int iconImage[] = {R.mipmap.icon_home_wriht, R.mipmap.icon_home_wriht, R.mipmap.icon_home_wriht, R.mipmap.icon_home_wriht};
+    private int iconImage[] = {R.mipmap.icon_order_logo_all, R.mipmap.icon_order_logo_dfk, R.mipmap.icon_order_logo_dcx, R.mipmap.icon_order_logo_dpj};
     private int iconBg[] = {R.drawable.x_image_icon_bg_round_yellow, R.drawable.x_image_icon_bg_round_red, R.drawable.x_image_icon_bg_round_green, R.drawable.x_image_icon_bg_round_blue};
     private List<HomeIconBean> mListIcon;
     private List<HomeIconBean> mListIconList;
@@ -111,7 +117,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
         tv_title.setText("个人中心");
         icon_back.setVisibility(View.GONE);
         if (isAdded()) {
-            icon_right.setCompoundDrawablesWithIntrinsicBounds(null, null, getContext().getResources().getDrawable(R.mipmap.icon_home_zuan), null);
+            icon_right.setCompoundDrawablesWithIntrinsicBounds(null, null, getContext().getResources().getDrawable(R.mipmap.icon_user_info_set), null);
         }
 //        ImageLoaderUtils.showImageViewToCircle(getContext(), "http://img5.duitang.com/uploads/item/201512/18/20151218165511_AQW4B.jpeg", image_head, R.mipmap.icon_default_head);
         refreshLayout.setEnableRefresh(false);
@@ -144,6 +150,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
         } else {
             tv_user_name.setVisibility(View.GONE);
             tv_login.setVisibility(View.VISIBLE);
+            image_head.setImageResource(R.mipmap.icon_default_head);
         }
     }
 
@@ -164,7 +171,34 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
         itemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                switch (position) {
+                    case 0:
+                        Intent intent = new Intent(getContext(), PeopleListActivity.class);//联系人
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        Intent intentColloct = new Intent(getContext(), CollectionActivity.class);//收藏
+                        startActivity(intentColloct);
+                        break;
+                    case 2:
+                        Intent intentH = new Intent(getContext(), MianhisToryActivity.class);//浏览历史
+                        startActivity(intentH);
+                        break;
+                    case 3:
+                        Intent intentYj = new Intent(getContext(), WebviewDefulitActivity.class);
+                        intentYj.putExtra("loadUrl", "http://www.baidu.com");
+                        intentYj.putExtra("title", "意见反馈");
+                        startActivity(intentYj);
+                        break;
+                    case 4:
+                        Intent intentMess = new Intent(getContext(), YijianDefulitActivity.class);//意见反馈
+                        startActivity(intentMess);
+                        break;
+                    case 5:
+                        Intent intentCommit = new Intent(getContext(), VisaCommitActivity.class);//其他渠道
+                        startActivity(intentCommit);
+                        break;
+                }
             }
         });
     }
@@ -224,7 +258,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
             } else {
                 tv_user_name.setText(mCallBackVo.getData().getNickname());
             }
-            ImageLoaderUtils.showImageViewToCircle(getContext(), mCallBackVo.getData().getAvatar(), image_head, R.mipmap.icon_gif);
+            ImageLoaderUtils.showImageViewToCircle(getContext(), mCallBackVo.getData().getAvatar(), image_head, R.mipmap.icon_default_head);
         }
     }
 }

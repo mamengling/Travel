@@ -4,6 +4,8 @@
     <string name="title_dashboard">目的地</string>
     <string name="title_notifications">签证</string>
     <string name="title_user">我的</string>
+
+
     <item name="main_content_recursion_limit" type="id" />
     <item name="statusbarutil_fake_status_bar_view" type="id" />
     <item name="statusbarutil_translucent_view" type="id" />

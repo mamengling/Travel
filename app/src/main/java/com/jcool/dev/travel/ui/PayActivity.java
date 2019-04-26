@@ -26,6 +26,7 @@ import com.jcool.dev.travel.persenter.PayActivityPresenter;
 import com.jcool.dev.travel.utils.AppConfigStatic;
 import com.jcool.dev.travel.utils.ToastUtils;
 import com.jcool.dev.travel.utils.alipay.PayResult;
+import com.jcool.dev.travel.view.CustomButtonDialog;
 import com.tencent.mm.opensdk.constants.Build;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
@@ -167,7 +168,28 @@ public class PayActivity extends BaseActivity implements View.OnClickListener, P
                 }
                 break;
             case R.id.icon_title_back:
-                finish();
+                final CustomButtonDialog dialog = new CustomButtonDialog(this);
+                dialog.setText("放弃支付？");
+                dialog.setLeftButtonText("取消");
+                dialog.setLeftButtonTextColor(R.color.text_black);
+                dialog.setRightButtonText("确定");
+                dialog.setRightButtonTextColor(R.color.colorAccent);
+                dialog.setButtonListener(new CustomButtonDialog.OnButtonListener() {
+                    @Override
+                    public void onLeftButtonClick(CustomButtonDialog var1) {
+                        dialog.cancel();
+
+                    }
+
+                    @Override
+                    public void onRightButtonClick(CustomButtonDialog var1) {
+                        dialog.cancel();
+                        Intent intent = new Intent(PayActivity.this, OrderTabActivity.class);
+                        intent.putExtra("number", 1);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
                 break;
         }
     }

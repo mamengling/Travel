@@ -45,7 +45,7 @@ public class HomeGoodsSalesAdapter extends BaseListAdapter<GoodsBean.RecordsBean
 
         }
         holder.tv_money.setText("¥" + app.getSalesPrice());
-        ImageLoaderUtils.loadImageViewLoding(mContext, app.getGoodsDate(), holder.givImage, R.mipmap.icon_home_banner, R.mipmap.icon_home_banner);
+        ImageLoaderUtils.showImageViewToRoundedCorners(mContext, "http://cyitsapp.oss-cn-beijing.aliyuncs.com/51c88ca8b3e84db6982a9b2ce530de70.jpg", holder.givImage, R.mipmap.icon_home_banner, R.mipmap.icon_home_banner);
         return convertView;
     }
 

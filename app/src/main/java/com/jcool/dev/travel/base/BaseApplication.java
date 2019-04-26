@@ -12,6 +12,7 @@ import com.jcool.dev.travel.ui.MainActivity;
 import com.jcool.dev.travel.utils.AppConfigStatic;
 import com.jcool.dev.travel.utils.CrashCapture;
 import com.jcool.dev.travel.utils.ToastUtils;
+import com.mob.MobSDK;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
 
@@ -35,7 +36,7 @@ public class BaseApplication extends MultiDexApplication {
         Log.e(TAG, "*****UfoSDK.init(this)*****");
         ToastUtils.init(false);
         CrashCapture.getInstance().init(this);
-//        MobSDK.init(this);
+        MobSDK.init(this);
         initBugly();
     }
 

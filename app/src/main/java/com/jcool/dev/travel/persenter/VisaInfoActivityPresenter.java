@@ -94,7 +94,7 @@ public class VisaInfoActivityPresenter {
                             item.setContent(obj.optString("content"));
                             item.setIndex(obj.optString("index"));
                             item.setInitRowIndex(obj.optString("initRowIndex"));
-                            item.setPrice(obj.optString("price"));
+                            item.setPrice(obj.optDouble("price"));
                             visaSpecList.add(item);
                         }
                         mCallBackVo.getData().setVisaSpecList(visaSpecList);
@@ -102,6 +102,130 @@ public class VisaInfoActivityPresenter {
                         e.printStackTrace();
                     }
                     mVisaInfoActivityView.excuteSuccessCallBack(mCallBackVo);
+                } else {
+                    mVisaInfoActivityView.excuteFailedCallBack(mCallBackVo);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mVisaInfoActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mVisaInfoActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
+    public void getCollectStatus(String id, String token) {
+        mVisaInfoActivityView.showProgress();
+        HttpUtil.get(Constants.BASE_URL + Constants.APP_HOME_API_JOURNEY_GET_COLLECT_STATUS + id, token, new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mVisaInfoActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mVisaInfoActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mVisaInfoActivityView.closeProgress();
+                Gson gson = new Gson();
+                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                }.getType());
+                if (mCallBackVo.isSuccess()) {
+                    mVisaInfoActivityView.excuteSuccessCollectCallBack(mCallBackVo);
+                } else {
+                    mVisaInfoActivityView.excuteFailedCallBack(mCallBackVo);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mVisaInfoActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mVisaInfoActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
+    public void journeyTravelCollect(String token) {
+        mVisaInfoActivityView.showProgress();
+        HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_JOURNEY_COLLECT_VISA, token, mVisaInfoActivityView.getParamenters(), new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mVisaInfoActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mVisaInfoActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mVisaInfoActivityView.closeProgress();
+                Gson gson = new Gson();
+                CallBackVo mCallBackVo = gson.fromJson(result, CallBackVo.class);
+                if (mCallBackVo.isSuccess()) {
+                    mVisaInfoActivityView.excuteSuccessAddCollectCallBack(mCallBackVo);
+                } else {
+                    mVisaInfoActivityView.excuteFailedCallBack(mCallBackVo);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mVisaInfoActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mVisaInfoActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
+    public void journeyTravelCollectDelete(JSONArray array, String token) {
+        mVisaInfoActivityView.showProgress();
+        HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_JOURNEY_COLLECT_DELETE, token, array, new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mVisaInfoActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mVisaInfoActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mVisaInfoActivityView.closeProgress();
+                Gson gson = new Gson();
+                CallBackVo mCallBackVo = gson.fromJson(result, CallBackVo.class);
+                if (mCallBackVo.isSuccess()) {
+                    mVisaInfoActivityView.excuteSuccessDelCollectCallBack(mCallBackVo);
                 } else {
                     mVisaInfoActivityView.excuteFailedCallBack(mCallBackVo);
                 }

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'com.mob.sdk'
+apply plugin: 'com.mob.sdk'
+
 def getProductName() {
     return "TravelApp"
 }
@@ -26,6 +27,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         flavorDimensions "versionCode"
+        multiDexEnabled true
         ndk {
             //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
             abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
@@ -161,7 +163,7 @@ dependencies {
     //折叠textview
     implementation 'com.ms-square:expandableTextView:0.1.4'
     //支付宝
-    implementation (name: 'alipaySdk-15.6.0-20190226104053', ext: 'aar')
+    implementation(name: 'alipaySdk-15.6.0-20190226104053', ext: 'aar')
     //2D
     //bugly
     implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
@@ -173,44 +175,41 @@ dependencies {
     //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版
     implementation project(':calendarview')
     implementation project(':imagepicker')
+    implementation project(':flexbox')
 }
-//MobSDK {
-//    appKey "2aaec8d30608a"
-//    appSecret "460d5a6ebee7e37b8951fd77e5d895dd"
-//    ShareSDK {
-//        devInfo {
-//            SinaWeibo {
-//                appKey "568898243"
-//                appSecret "38a4f8204cc784f81f9f0daaf31e02e3"
-//                callbackUri "http://www.sharesdk.cn"
-//            }
-//            TencentWeibo {
-//                appKey "801307650"
-//                appSecret "ae36f4ee3946e1cbb98d6965b0b2ff5c"
-//                callbackUri "http://www.sharesdk.cn"
-//            }
-//            ShortMessage {}
-//            Wechat {
-//                appId "wx4868b35061f87885"
-//                appSecret "64020361b8ec4c99936c0e3999a9f249"
-//                userName "gh_afb25ac019c9"
-//                path "pages/index/index.html?id=1"
-//                withShareTicket true
-//                miniprogramType 2
-//            }
-//            QQ {
-//                appId "100371282"
-//                appKey "aed9b0303e3ed1e27bae87c33761161d"
-//            }
-//            WechatMoments {
-//                appId "wx4868b35061f87885"
-//                appSecret "64020361b8ec4c99936c0e3999a9f249"
-//            }
-//            WechatFavorite {
-//                appId "wx4868b35061f87885"
-//                appSecret "64020361b8ec4c99936c0e3999a9f249"
-//            }
-//        }
-//    }
-//}
+MobSDK {
+    appKey "2aaec8d30608a"
+    appSecret "460d5a6ebee7e37b8951fd77e5d895dd"
+    ShareSDK {
+        devInfo {
+
+            Wechat {
+                appId "wxd31e1a84a800e3ae"
+                appSecret "47e3afc9b98462983fe753ab6820635a"
+                userName "gh_afb25ac019c9"
+                path "pages/index/index.html?id=1"
+                withShareTicket true
+                miniprogramType 2
+            }
+            QQ {
+                appId "101551149"
+                appKey "aed9b0303e3ed1e27bae87c33761161d"
+            }
+            QZone {
+                id 3
+                sortId 3
+                appId "101551149"
+                appKey "aed9b0303e3ed1e27bae87c33761161d"
+                shareByAppClient true
+                bypassApproval false
+                enable true
+            }
+            WechatMoments {
+                appId "wxd31e1a84a800e3ae"
+                appSecret "47e3afc9b98462983fe753ab6820635a"
+            }
+
+        }
+    }
+}
 

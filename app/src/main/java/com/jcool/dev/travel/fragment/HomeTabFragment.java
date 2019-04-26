@@ -70,7 +70,6 @@ public class HomeTabFragment extends BaseFragment implements HomeTabFragmentView
         mPresenter = new HomeTabFragmentPresenter(this, getContext());
 
         mList.clear();
-        recycler_view_tab.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
         recycler_view_tab.setLayoutManager(new LinearLayoutManager(getActivity()));
         mAdapter = new HomeTabGoodsAdapter(getActivity());
         //设置adapter

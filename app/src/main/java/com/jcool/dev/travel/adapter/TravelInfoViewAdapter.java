@@ -7,12 +7,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.bean.TravelInfoBeanView;
+import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.ImageLoaderUtils;
 import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 import com.jcool.dev.travel.view.FixedGridView;
@@ -52,6 +55,13 @@ public class TravelInfoViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
     }
 
+    public void addOnReference(List<TravelInfoBeanView> list1) {
+        if (list1 != null) {
+            mList.addAll(list1);
+            notifyDataSetChanged();
+        }
+    }
+
     @Override
     public int getItemViewType(int position) {
         return mList.get(position).getViewType();
@@ -80,6 +90,35 @@ public class TravelInfoViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             ((ViewInfoHolder) viewHolder).tv_info.setText(mList.get(i).getmCallBackVo().getData().getName());
             ((ViewInfoHolder) viewHolder).tv_money.setText("¥" + mList.get(i).getmCallBackVo().getData().getMinPrice());
             ((ViewInfoHolder) viewHolder).tv_number.setText(mList.get(i).getmCallBackVo().getData().getDefaultSellNumber() + "人一起出游");
+            ((ViewInfoHolder) viewHolder).line_01.setVisibility(View.GONE);
+            ((ViewInfoHolder) viewHolder).line_02.setVisibility(View.GONE);
+            if (mList.get(i).getmCallBackVo().getData().getDataAndGoods() != null && mList.get(i).getmCallBackVo().getData().getDataAndGoods().size() > 0) {
+                ((ViewInfoHolder) viewHolder).line_01.setVisibility(View.VISIBLE);
+                ((ViewInfoHolder) viewHolder).tv_more_1.setText(AppUtils.getDate2String(AppUtils.getString2Date(mList.get(i).getmCallBackVo().getData().getDataAndGoods().get(0).getGoodsDate(), "yyyy-MM-dd"), "MM-dd"));
+                ((ViewInfoHolder) viewHolder).tv_more_01.setText("¥" + mList.get(i).getmCallBackVo().getData().getDataAndGoods().get(0).getPriceNow());
+            }
+            if (mList.get(i).getmCallBackVo().getData().getDataAndGoods() != null && mList.get(i).getmCallBackVo().getData().getDataAndGoods().size() > 1) {
+                ((ViewInfoHolder) viewHolder).line_01.setVisibility(View.VISIBLE);
+                ((ViewInfoHolder) viewHolder).line_02.setVisibility(View.VISIBLE);
+                ((ViewInfoHolder) viewHolder).tv_more_1.setText(AppUtils.getDate2String(AppUtils.getString2Date(mList.get(i).getmCallBackVo().getData().getDataAndGoods().get(0).getGoodsDate(), "yyyy-MM-dd"), "MM-dd"));
+                ((ViewInfoHolder) viewHolder).tv_more_01.setText("¥" + mList.get(i).getmCallBackVo().getData().getDataAndGoods().get(0).getPriceNow());
+
+                ((ViewInfoHolder) viewHolder).tv_more_2.setText(AppUtils.getDate2String(AppUtils.getString2Date(mList.get(i).getmCallBackVo().getData().getDataAndGoods().get(1).getGoodsDate(), "yyyy-MM-dd"), "MM-dd"));
+
+                ((ViewInfoHolder) viewHolder).tv_more_02.setText("¥" + mList.get(i).getmCallBackVo().getData().getDataAndGoods().get(1).getPriceNow());
+            }
+            ((ViewInfoHolder) viewHolder).line_01.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(null, i, 1, 4, null);
+                }
+            });
+            ((ViewInfoHolder) viewHolder).line_02.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(null, i, 2, 4, null);
+                }
+            });
             TravelInfoBannerAdapter mPagerAdapter = new TravelInfoBannerAdapter(mContext);
             ((ViewInfoHolder) viewHolder).rollPagerView.setPlayDelay(3000);
             ((ViewInfoHolder) viewHolder).rollPagerView.setAdapter(mPagerAdapter);
@@ -99,11 +138,24 @@ public class TravelInfoViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             if (mList.get(i).getmCallBackVo().getData().getBanner() != null) {
                 mPagerAdapter.onReference(mList.get(i).getmCallBackVo().getData().getBanner());
             }
-            TravelInfoLineAdapter mLineAdapter = new TravelInfoLineAdapter(mContext);
+            final TravelInfoLineAdapter mLineAdapter = new TravelInfoLineAdapter(mContext);
             ((ViewInfoHolder) viewHolder).fixedGridView.setAdapter(mLineAdapter);
             if (mList.get(i).getmCallBackVo().getData().getLines() != null) {
                 mLineAdapter.onReference(mList.get(i).getmCallBackVo().getData().getLines());
             }
+            ((ViewInfoHolder) viewHolder).fixedGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    mList.get(i).getmCallBackVo().getData().getLines().get(position).setCheck(!mList.get(i).getmCallBackVo().getData().getLines().get(position).isCheck());
+                    for (int j = 0; j < mList.get(i).getmCallBackVo().getData().getLines().size(); j++) {
+                        if (j != position && mList.get(i).getmCallBackVo().getData().getLines().get(position).isCheck()) {
+                            mList.get(i).getmCallBackVo().getData().getLines().get(j).setCheck(false);
+                        }
+                    }
+                    mLineAdapter.notifyDataSetChanged();
+                    mOnItemClickListener.clickItem(null, i, position, 3, null);
+                }
+            });
             ((ViewInfoHolder) viewHolder).radiogroup_full.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -135,6 +187,10 @@ public class TravelInfoViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return mList.size();
     }
 
+    public List<TravelInfoBeanView> getList() {
+        return mList;
+    }
+
     public class ViewTitleHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.tv_title)
         TextView tvTitle;
@@ -154,6 +210,18 @@ public class TravelInfoViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         TextView tv_money;
         @BindView(R.id.tv_number)
         TextView tv_number;
+        @BindView(R.id.tv_more_1)
+        TextView tv_more_1;
+        @BindView(R.id.tv_more_01)
+        TextView tv_more_01;
+        @BindView(R.id.tv_more_2)
+        TextView tv_more_2;
+        @BindView(R.id.tv_more_02)
+        TextView tv_more_02;
+        @BindView(R.id.line_01)
+        LinearLayout line_01;
+        @BindView(R.id.line_02)
+        LinearLayout line_02;
         @BindView(R.id.tv_more)
         TextView tv_more;
         @BindView(R.id.recyclerView)
