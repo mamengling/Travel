@@ -388,7 +388,7 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
         Platform platform = ShareSDK.getPlatform(type);
         Platform.ShareParams shareParams = new Platform.ShareParams();
         shareParams.setText("中青国旅");
-        shareParams.setTitle("哈哈");
+        shareParams.setTitle("中青国旅");
         shareParams.setUrl("http://www.baidu.com");
         shareParams.setShareType(Platform.SHARE_WEBPAGE);
         platform.setPlatformActionListener(this);

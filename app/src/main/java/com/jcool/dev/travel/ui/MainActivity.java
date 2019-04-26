@@ -29,6 +29,8 @@ import com.jcool.dev.travel.iactivityview.UserInfoGetView;
 import com.jcool.dev.travel.persenter.UserInfoGetPresenter;
 import com.jcool.dev.travel.utils.AppConfigStatic;
 import com.jcool.dev.travel.utils.AppTravelLocation;
+import com.jcool.dev.travel.utils.StatusBarUtil;
+import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
 import com.jcool.dev.travel.utils.log.LogUtil;
 
@@ -48,7 +50,8 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 
     @Override
     protected int getContentViewId() {
-        
+        StatusBarUtils.setStatusTextColor(true, this);
+        StatusBarUtil.setTranslucent(this, 0);
         return R.layout.activity_main;
     }
 

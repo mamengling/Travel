@@ -182,7 +182,7 @@ public class CalendarActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.tv_jian_da:
                 int jian = Integer.parseInt(tv_number_da.getText().toString());
-                if (jian > 1) {
+                if (jian > 0) {
                     jian -= 1;
                     tv_number_da.setText(jian + "");
                 }
@@ -196,7 +196,7 @@ public class CalendarActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.tv_jian:
                 int jianxiao = Integer.parseInt(tv_number_xiaohai.getText().toString());
-                if (jianxiao > 1) {
+                if (jianxiao > 0) {
                     jianxiao -= 1;
                     tv_number_xiaohai.setText(jianxiao + "");
                 }

@@ -5,8 +5,8 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/transparent"
+    android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
     <android.support.v4.view.ViewPager
@@ -15,9 +15,65 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:overScrollMode="never"
-        android:scrollbars="none">
+        android:scrollbars="none" />
 
-    </android.support.v4.view.ViewPager>
+
+    <!--<com.yinglan.alphatabs.AlphaTabsIndicator-->
+    <!--android:id="@+id/alphaIndicator"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="48dp"-->
+    <!--android:background="@color/white"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<com.yinglan.alphatabs.AlphaTabView-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:padding="3dp"-->
+    <!--app:tabIconNormal="@mipmap/icon_home_index_un"-->
+    <!--app:tabIconSelected="@mipmap/icon_home_index"-->
+    <!--app:tabText="扫一扫"-->
+    <!--app:tabTextSize="@dimen/textsize_6"-->
+    <!--app:textColorNormal="#9CA8C4"-->
+    <!--app:textColorSelected="@color/colorAccent" />-->
+
+    <!--<com.yinglan.alphatabs.AlphaTabView-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:padding="3dp"-->
+    <!--app:tabIconNormal="@mipmap/icon_home_location_un"-->
+    <!--app:tabIconSelected="@mipmap/icon_home_location"-->
+    <!--app:tabText="考勤记录"-->
+    <!--app:tabTextSize="@dimen/textsize_6"-->
+    <!--app:textColorNormal="#9CA8C4"-->
+    <!--app:textColorSelected="@color/colorAccent" />-->
+
+    <!--<com.yinglan.alphatabs.AlphaTabView-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:padding="3dp"-->
+    <!--app:tabIconNormal="@mipmap/icon_home_vise_un"-->
+    <!--app:tabIconSelected="@mipmap/icon_home_vise"-->
+    <!--app:tabText="消息"-->
+    <!--app:tabTextSize="@dimen/textsize_6"-->
+    <!--app:textColorNormal="#9CA8C4"-->
+    <!--app:textColorSelected="@color/colorAccent" />-->
+
+
+    <!--<com.yinglan.alphatabs.AlphaTabView-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:padding="3dp"-->
+    <!--app:tabIconNormal="@mipmap/icon_home_user_un"-->
+    <!--app:tabIconSelected="@mipmap/icon_home_user"-->
+    <!--app:tabText="我的"-->
+    <!--app:tabTextSize="@dimen/textsize_6"-->
+    <!--app:textColorNormal="#9CA8C4"-->
+    <!--app:textColorSelected="@color/colorAccent" />-->
+    <!--</com.yinglan.alphatabs.AlphaTabsIndicator>-->
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

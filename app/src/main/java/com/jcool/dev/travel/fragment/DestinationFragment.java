@@ -79,7 +79,6 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
 
     @Override
     protected void initView(View view) {
-        icon_back = view.findViewById(R.id.icon_back);
         edt_search = view.findViewById(R.id.edt_search);
         image_top = view.findViewById(R.id.image_top);
         list_item = view.findViewById(R.id.list_item);
@@ -90,7 +89,6 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
     @Override
     protected void initTools() {
         mPresenter = new DestinationFragmentPresenter(this, getContext());
-        icon_back.setVisibility(View.GONE);
         refreshLayout.setEnableRefresh(true);
         refreshLayout.setEnableLoadmore(false);
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {

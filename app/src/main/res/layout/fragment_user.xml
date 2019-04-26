@@ -68,9 +68,9 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             android:text="请先登录"
-                            android:visibility="visible"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/textsize_6" />
+                            android:textSize="@dimen/textsize_6"
+                            android:visibility="visible" />
 
                     </RelativeLayout>
 
@@ -104,19 +104,20 @@
         <!--layout_collapseMode toolbar折叠后固定于顶部 -->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="@dimen/title_height"
+            android:gravity="bottom">
 
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:drawablePadding="5dp"
                 android:ellipsize="marquee"
                 android:focusable="true"
+                android:layout_alignBottom="@+id/icon_right"
                 android:gravity="center"
-                android:marqueeRepeatLimit="marquee_forever"
                 android:singleLine="true"
-                android:text=""
+                android:text="11111111"
                 android:textColor="@color/white"
                 android:textIsSelectable="true"
                 android:textSize="16sp" />
@@ -124,7 +125,7 @@
             <TextView
                 android:id="@+id/icon_back"
                 android:layout_width="30dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
@@ -134,7 +135,7 @@
             <TextView
                 android:id="@+id/icon_right"
                 android:layout_width="30dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"

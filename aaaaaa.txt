@@ -1,220 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true">
 
-    <RelativeLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:fitsSystemWindows="true"
+        app:theme="@style/ToolbarTheme">
 
-        <android.support.v4.widget.NestedScrollView
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:scrollbars="none">
+            app:contentScrim="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <include layout="@layout/layout_search_toobar" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+        <!--tablayout在收缩的时候不会消失，所以这里放在appBarLayout里面，appBarLayout是LinearLayout的子类，所以不影响上面的toolbar-->
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tl_main_tabtop"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            app:tabIndicatorColor="@color/colorAccent"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/colorAccent"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
+            app:tabTextColor="@color/home_color_tab_divider" />
 
-                <com.scwang.smartrefresh.layout.SmartRefreshLayout
-                    android:id="@+id/refreshLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:descendantFocusability="blocksDescendants"
-                    app:srlEnablePreviewInEditMode="false">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/root_bg_color" />
+    </android.support.design.widget.AppBarLayout>
 
-                    <com.scwang.smartrefresh.layout.header.ClassicsHeader
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srlAccentColor="@color/text_black" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:orientation="vertical">
-                        <!--↓ banner-->
-                        <com.jcool.dev.travel.view.rollviewpage.RollPagerView
-                            android:id="@+id/normal_view_pager"
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp"
-                            android:background="@color/colorAccent"
-                            app:rollviewpager_play_delay="3000" />
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="10dp">
-
-                            <TextView
-                                android:id="@+id/tv_info"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情这是详情"
-                                android:textColor="@color/text_black"
-                                android:textSize="@dimen/textsize_6" />
-
-                            <TextView
-                                android:id="@+id/tv_money"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/tv_info"
-                                android:layout_toRightOf="@+id/image_goods"
-                                android:gravity="bottom"
-                                android:paddingTop="5dp"
-                                android:text="¥999"
-                                android:textColor="@color/red"
-                                android:textSize="@dimen/textsize_6" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignBottom="@+id/tv_money"
-                                android:layout_toRightOf="@+id/tv_money"
-                                android:gravity="bottom"
-                                android:paddingTop="5dp"
-                                android:text="起"
-                                android:textColor="@color/text_black"
-                                android:textSize="@dimen/textsize_5" />
-
-
-                            <TextView
-                                android:id="@+id/tv_number"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignBottom="@+id/tv_money"
-                                android:layout_centerHorizontal="true"
-                                android:gravity="bottom"
-                                android:paddingTop="5dp"
-                                android:text="99人一起出游"
-                                android:textColor="@color/text_grey"
-                                android:textSize="@dimen/textsize_5" />
-                        </RelativeLayout>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:background="@drawable/bg_seachr"
-                            android:gravity="center"
-                            android:text="更多班期"
-                            android:textSize="@dimen/textsize_6" />
-
-                        <RadioGroup
-                            android:id="@+id/radiogroup_full"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/root_bg_color1"
-                            android:orientation="horizontal">
-
-                            <RadioButton
-                                android:id="@+id/redio1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="产品特色" />
-
-                            <RadioButton
-                                android:id="@+id/redio2"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="行程介绍" />
-
-                            <RadioButton
-                                android:id="@+id/redio3"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="预订须知" />
-                        </RadioGroup>
-
-
-                        <com.jcool.dev.travel.view.FixedGridView
-                            android:id="@+id/fixedGridView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:listSelector="@null"
-                            android:numColumns="4" />
-                    </LinearLayout>
-
-
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/recyclerView"
-                        android:visibility="gone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.scwang.smartrefresh.layout.SmartRefreshLayout>
-            </LinearLayout>
-
-        </android.support.v4.widget.NestedScrollView>
-
-        <include layout="@layout/layout_toobar" />
-
-    </RelativeLayout>
-
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nsv"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="bottom"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/tv_collect"
-            android:layout_width="wrap_content"
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_tag_faces_black_24dp"
-            android:drawablePadding="5dp"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="收藏"
-            android:textColor="@color/home_color_content_title"
-            android:textSize="@dimen/textsize_5" />
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </android.support.v4.widget.NestedScrollView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_phone_forwarded_black_24dp"
-            android:drawablePadding="5dp"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="电话"
-            android:textColor="@color/home_color_content_title"
-            android:textSize="@dimen/textsize_5" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_message_black_24dp"
-            android:drawablePadding="5dp"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="在线"
-            android:textColor="@color/home_color_content_title"
-            android:textSize="@dimen/textsize_5" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:background="@color/colorAccent"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="立即订购"
-            android:textColor="@color/white" />
-    </LinearLayout>
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

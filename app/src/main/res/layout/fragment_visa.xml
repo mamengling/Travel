@@ -8,15 +8,15 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/title_height"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp">
+        android:gravity="bottom">
 
         <LinearLayout
             android:id="@+id/btn_search"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_centerVertical="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_toRightOf="@+id/icon_back"

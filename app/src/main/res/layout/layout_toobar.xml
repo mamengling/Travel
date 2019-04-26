@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_height="@dimen/title_height"
     android:background="#00ffffff"
     android:contentInsetStart="0dp"
     android:contentInsetLeft="0dp"
@@ -18,12 +18,13 @@
     <!--layout_collapseMode toolbar折叠后固定于顶部 -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:gravity="bottom">
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:drawablePadding="5dp"
             android:ellipsize="marquee"
@@ -39,7 +40,7 @@
         <TextView
             android:id="@+id/icon_back"
             android:layout_width="30dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
@@ -49,7 +50,7 @@
         <TextView
             android:id="@+id/icon_right"
             android:layout_width="30dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
