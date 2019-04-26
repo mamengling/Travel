@@ -50,82 +50,82 @@ android {
         }
     }
     // 多渠道
-    productFlavors {
-        xiaomi {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
-        }
-        huawei {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei"]
-        }
-        yy360 {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yy360"]
-        }
-        anzhi {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "anzhi"]
-        }
-        qq {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qq"]
-        }
-        baidu {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
-        }
-        wandoujia {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
-        }
-        oppo {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "oppo"]
-        }
-        sogou {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "sogou"]
-        }
-        wo {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wo"]
-        }
-        yingyonghui {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yingyonghui"]
-        }
-        jifeng {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "jifeng"]
-        }
-        mumayi {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "mumayi"]
-        }
-        chuizi {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "chuizi"]
-        }
-        nduo {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "nduo"]
-        }
-        zhougang {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "zhougang"]
-        }
-    }
-
-    // 多渠道批量替换
-    productFlavors.all { flavor ->
-        //批量修改Manifest占位符替换
-        //在Manifest使用`${UMENG_CHANNEL_VALUE}`,`LEANCLOUD_CHANNEL_VALUE`,打包时将替换成渠道名，例如UMENG_CHANNEL_VALUE="anzhi";
-        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name, LEANCLOUD_CHANNEL_VALUE: name]
-        //        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
-        if (project.hasProperty('_myAPPBuildVersionName')) {
-            defaultConfig.versionName = _myAPPBuildVersionName
-        }
-    }
-    // 批量打包
-    applicationVariants.all { variant ->
-        variant.outputs.all { output ->  // each 改为 all
-            def fileName
-            if (variant.buildType.name.equals("release")) {
-                fileName = getProductName() + "_v${variant.versionName}" + "_" + "${releaseTime()}" + "_release.apk"
-            } else {
-                fileName = getProductName() + "_v${variant.versionName}" + "_" + "${releaseTime()}" + "debug.apk"
-            }
-            def outFile = output.outputFile
-            if (outFile != null && outFile.name.endsWith('.apk')) {
-                outputFileName = fileName  //  output.outputFile 改为 outputFileName
-            }
-        }
-    }
+//    productFlavors {
+//        xiaomi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+//        }
+//        huawei {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei"]
+//        }
+//        yy360 {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yy360"]
+//        }
+//        anzhi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "anzhi"]
+//        }
+//        qq {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qq"]
+//        }
+//        baidu {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+//        }
+//        wandoujia {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+//        }
+//        oppo {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "oppo"]
+//        }
+//        sogou {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "sogou"]
+//        }
+//        wo {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wo"]
+//        }
+//        yingyonghui {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yingyonghui"]
+//        }
+//        jifeng {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "jifeng"]
+//        }
+//        mumayi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "mumayi"]
+//        }
+//        chuizi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "chuizi"]
+//        }
+//        nduo {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "nduo"]
+//        }
+//        zhougang {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "zhougang"]
+//        }
+//    }
+//
+//    // 多渠道批量替换
+//    productFlavors.all { flavor ->
+//        //批量修改Manifest占位符替换
+//        //在Manifest使用`${UMENG_CHANNEL_VALUE}`,`LEANCLOUD_CHANNEL_VALUE`,打包时将替换成渠道名，例如UMENG_CHANNEL_VALUE="anzhi";
+//        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name, LEANCLOUD_CHANNEL_VALUE: name]
+//        //        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+//        if (project.hasProperty('_myAPPBuildVersionName')) {
+//            defaultConfig.versionName = _myAPPBuildVersionName
+//        }
+//    }
+//    // 批量打包
+//    applicationVariants.all { variant ->
+//        variant.outputs.all { output ->  // each 改为 all
+//            def fileName
+//            if (variant.buildType.name.equals("release")) {
+//                fileName = getProductName() + "_v${variant.versionName}" + "_" + "${releaseTime()}" + "_release.apk"
+//            } else {
+//                fileName = getProductName() + "_v${variant.versionName}" + "_" + "${releaseTime()}" + "debug.apk"
+//            }
+//            def outFile = output.outputFile
+//            if (outFile != null && outFile.name.endsWith('.apk')) {
+//                outputFileName = fileName  //  output.outputFile 改为 outputFileName
+//            }
+//        }
+//    }
 }
 
 dependencies {

@@ -240,7 +240,7 @@ public class AddPersonActivity extends BaseActivity implements View.OnClickListe
 
         if (bean != null) {
             mPresenter.updatePerson(getToken());
-        }else {
+        } else {
             mPresenter.addPerson(getToken());
         }
     }
@@ -281,7 +281,11 @@ public class AddPersonActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void excuteSuccessCallBack(CallBackVo<String> mCallBackVo) {
-        ToastUtils.showShortToast("添加成功");
+        if (bean != null) {
+            ToastUtils.showShortToast("修改成功");
+        } else {
+            ToastUtils.showShortToast("添加成功");
+        }
         finish();
     }
 

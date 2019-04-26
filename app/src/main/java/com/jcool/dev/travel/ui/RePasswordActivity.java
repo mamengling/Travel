@@ -1,6 +1,7 @@
 package com.jcool.dev.travel.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +15,8 @@ import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.iactivityview.RePasswordActivityView;
 import com.jcool.dev.travel.persenter.RePasswordActivityPrensenter;
 import com.jcool.dev.travel.utils.ActivityCollector;
+import com.jcool.dev.travel.utils.StatusBarUtil;
+import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
 import com.loopj.android.http.RequestParams;
 
@@ -39,6 +42,8 @@ public class RePasswordActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected int getContentViewId() {
+        StatusBarUtils.setStatusTextColor(true, this);
+        StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_re_password;
     }
 
