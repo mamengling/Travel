@@ -17,7 +17,7 @@
         android:layout_below="@+id/view"
         android:layout_margin="10dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/icon_home_banne01" />
+        android:src="@mipmap/icon_visa_commit_other" />
 
     <TextView
         android:id="@+id/tv_one"
@@ -30,7 +30,8 @@
         android:text="其他渠道签证资料提交"
         android:textColor="@color/white"
         android:textSize="@dimen/textsize_6"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_two"
@@ -44,5 +45,6 @@
         android:paddingBottom="5dp"
         android:text="淘宝，京东等店铺签证订单资料提交"
         android:textColor="@color/white"
-        android:textSize="@dimen/textsize_5" />
+        android:textSize="@dimen/textsize_5"
+        android:visibility="gone" />
 </RelativeLayout>

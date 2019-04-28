@@ -1,5 +1,6 @@
 package com.jcool.dev.travel.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
@@ -15,7 +16,8 @@ import com.jcool.dev.travel.bean.CodeBean;
 import com.jcool.dev.travel.bean.UserInfo;
 import com.jcool.dev.travel.iactivityview.LoginFragmentView;
 import com.jcool.dev.travel.persenter.LoginFragmentPresenter;
-import com.jcool.dev.travel.ui.InputCodeActivity;
+import com.jcool.dev.travel.ui.FindPswActivity;
+import com.jcool.dev.travel.ui.RegisterActivity;
 import com.jcool.dev.travel.utils.ToastUtils;
 import com.loopj.android.http.RequestParams;
 
@@ -78,6 +80,8 @@ public class LoginCodeFragment extends BaseFragment implements View.OnClickListe
     protected void setListener() {
         btn_commit.setOnClickListener(this);
         btn_code.setOnClickListener(this);
+        tv_register.setOnClickListener(this);
+        find_psw.setOnClickListener(this);
     }
 
     @Override
@@ -94,6 +98,14 @@ public class LoginCodeFragment extends BaseFragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.tv_register:
+                Intent intentReg = new Intent(getContext(), RegisterActivity.class);
+                startActivity(intentReg);
+                break;
+            case R.id.find_psw:
+                Intent intentFind = new Intent(getContext(), FindPswActivity.class);
+                startActivity(intentFind);
+                break;
             case R.id.btn_code:
                 inputSuccessCode();
                 break;

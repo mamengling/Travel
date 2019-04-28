@@ -14,6 +14,7 @@ import com.jcool.dev.travel.base.BaseActivity;
 import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.iactivityview.CompanyVipActivityView;
 import com.jcool.dev.travel.persenter.CompanyVipActivityPresenter;
+import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.BuyTimePicker;
 import com.jcool.dev.travel.utils.DateFormatUtils;
 import com.jcool.dev.travel.utils.StatusBarUtil;
@@ -196,8 +197,17 @@ public class CompanyVipActivity extends BaseActivity implements View.OnClickList
             ToastUtils.showShortToast("请输入手机号");
             return;
         }
+        if (!AppUtils.isMobile(phone)) {
+            ToastUtils.showShortToast("请输入正确手机号");
+            return;
+        }
         if (TextUtils.isEmpty(email)) {
             ToastUtils.showShortToast("请输入邮箱");
+            return;
+        }
+
+        if (!AppUtils.isEmail(email)) {
+            ToastUtils.showShortToast("请输入正确邮箱");
             return;
         }
         if (TextUtils.isEmpty(companyName)) {

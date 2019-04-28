@@ -59,6 +59,7 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
     protected void getExtra() {
 
     }
+
     @Override
     protected void initView() {
         tv_dingwei = findViewById(R.id.tv_dingwei);
@@ -129,6 +130,7 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onItemClick(View v, int originalPosition, int currentPosition, UserEntity entity) {
                 if (originalPosition >= 0) {
+                    setCityApp(entity.getNick());
                     Intent intent = new Intent();
                     intent.putExtra("city", entity.getNick());
                     setResult(RESULT_OK, intent);
@@ -144,6 +146,7 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_dingwei:
+                setCityApp(tv_dingwei.getText().toString());
                 Intent intent = new Intent();
                 intent.putExtra("city", tv_dingwei.getText().toString());
                 setResult(RESULT_OK, intent);
@@ -160,6 +163,7 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 101 && resultCode == RESULT_OK) {
+            setCityApp(data.getStringExtra("city"));
             Intent intent = new Intent();
             intent.putExtra("city", data.getStringExtra("city"));
             setResult(RESULT_OK, intent);
@@ -203,6 +207,7 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
             vh.head_home_change_city_gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    setCityApp(list.get(position));
                     Intent intent = new Intent();
                     intent.putExtra("city", list.get(position));
                     setResult(RESULT_OK, intent);

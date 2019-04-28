@@ -12,7 +12,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationListener;
@@ -231,5 +230,10 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         if (mCallBackVo != null && mCallBackVo.getData() != null) {
             setUserInfo(mCallBackVo.getData());
         }
+    }
+
+    @Override
+    public void excuteSuccessUpdateCallBack(CallBackVo mCallBackVo) {
+
     }
 }

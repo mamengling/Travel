@@ -3,21 +3,19 @@ package com.jcool.dev.travel.ui;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.adapter.ImageSeleteAdapter;
 import com.jcool.dev.travel.base.BaseActivity;
 import com.jcool.dev.travel.bean.CallBackVo;
-import com.jcool.dev.travel.bean.GroupBean;
 import com.jcool.dev.travel.bean.VisaOrderInfo;
 import com.jcool.dev.travel.iactivityview.VisaOrderDetailActivityView;
 import com.jcool.dev.travel.persenter.VisaOrderDetailActivityPresenter;
@@ -34,7 +32,6 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -68,6 +65,8 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
     TextView tv_link_email;
     @BindView(R.id.line_user)
     LinearLayout line_user;
+    @BindView(R.id.visa_info)
+    RelativeLayout visa_info;
     @BindView(R.id.tv_btn_right)
     TextView tv_btn_right;
     @BindView(R.id.tv_btn_life)
@@ -84,6 +83,7 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
     private String totalAmount;
     private String goodsName;
     private int typeOrder;
+    private String visaId;
 
     @Override
     protected int getContentViewId() {
@@ -121,6 +121,7 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
         tv_btn_life.setOnClickListener(this);
         tv_btn_center.setOnClickListener(this);
         icon_title_back.setOnClickListener(this);
+        visa_info.setOnClickListener(this);
         if (tv_more != null) {
             tv_more.setOnClickListener(this);
         }
@@ -171,6 +172,11 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
                         break;
                 }
                 break;
+            case R.id.edt_other:
+                Intent intent = new Intent(VisaOrderDetailActivity.this, VisaDefuiltActivity.class);
+                intent.putExtra("visaId", visaId);
+                startActivity(intent);
+                break;
         }
     }
 
@@ -204,6 +210,7 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
     @Override
     public void excuteSuccessCallBack(CallBackVo<VisaOrderInfo> mCallBackVo) {
         if (mCallBackVo.getData() != null) {
+            visaId = mCallBackVo.getData().getVisaId();
             if (TextUtils.equals("01", mCallBackVo.getData().getOrderStatus())) {
                 tv_order_status.setText("已审核");
             } else if (TextUtils.equals("02", mCallBackVo.getData().getOrderStatus())) {

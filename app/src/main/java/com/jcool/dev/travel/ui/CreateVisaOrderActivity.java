@@ -1,13 +1,10 @@
 package com.jcool.dev.travel.ui;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +15,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.base.BaseActivity;
@@ -26,7 +22,6 @@ import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.PersonInfoBean;
 import com.jcool.dev.travel.iactivityview.CreateVisaOrderActivityView;
 import com.jcool.dev.travel.persenter.CreateVisaOrderActivityPresenter;
-import com.jcool.dev.travel.utils.AppTravelLocation;
 import com.jcool.dev.travel.utils.BuyTimePicker;
 import com.jcool.dev.travel.utils.DateFormatUtils;
 import com.jcool.dev.travel.utils.StatusBarUtil;
@@ -377,10 +372,10 @@ public class CreateVisaOrderActivity extends BaseActivity implements View.OnClic
                         }
 
                         //旅客年龄段(01:0-12周岁；02：儿童；03：成人)
-                        if (TextUtils.equals("3", tamp.get(i).getCustAge())) {
-                            tv_work_type.setText("在职");
+                        if (TextUtils.equals("3", tamp.get(i).getCustAge())||TextUtils.equals("03", tamp.get(i).getCustAge())) {
+                            tv_person_type.setText("成人");
                         } else {
-                            tv_work_type.setText("儿童");
+                            tv_person_type.setText("儿童");
                         }
                         person_list.addView(personViews);
                     }

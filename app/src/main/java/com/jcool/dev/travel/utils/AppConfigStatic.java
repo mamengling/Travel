@@ -58,6 +58,10 @@ public class AppConfigStatic {
      */
     public final static String USER_CITY = "city";
     /**
+     * city
+     */
+    public final static String USER_CITY_APP = "city_app";
+    /**
      * login status
      */
     public final static String IS_LOGIN = "is_login_status";

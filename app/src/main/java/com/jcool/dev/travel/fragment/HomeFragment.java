@@ -12,7 +12,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
@@ -26,24 +25,19 @@ import com.jcool.dev.travel.bean.BannerBean;
 import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.GoodsBean;
 import com.jcool.dev.travel.bean.InfoColumn;
-import com.jcool.dev.travel.bean.PersonInfoBean;
 import com.jcool.dev.travel.bean.StringBean;
 import com.jcool.dev.travel.iactivityview.HomeFragmentView;
 import com.jcool.dev.travel.persenter.HomeFragmentPresenter;
-import com.jcool.dev.travel.ui.AddPersonActivity;
 import com.jcool.dev.travel.ui.CityPickerActivity;
 import com.jcool.dev.travel.ui.CompanyVipActivity;
-import com.jcool.dev.travel.ui.MessageListActivity;
 import com.jcool.dev.travel.ui.PersonVipActivity;
 import com.jcool.dev.travel.ui.SearchTravelActivity;
 import com.jcool.dev.travel.ui.TravelDefuiltActivity;
 import com.jcool.dev.travel.ui.TravelListActivity;
 import com.jcool.dev.travel.ui.TravelViseActivity;
-import com.jcool.dev.travel.ui.VisaCommitActivity;
 import com.jcool.dev.travel.ui.WebviewDefulitActivity;
 import com.jcool.dev.travel.utils.AppConfigStatic;
 import com.jcool.dev.travel.utils.Constants;
-import com.jcool.dev.travel.view.ConstmChangePersonPicker;
 import com.jcool.dev.travel.view.ConstmChangeStringPicker;
 import com.jcool.dev.travel.view.FixedGridView;
 import com.jcool.dev.travel.view.rollviewpage.OnItemClickListener;
@@ -141,7 +135,8 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
         if (isAdded()) {
             tv_city.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.mipmap.icon_home_arrow_down), null);
         }
-        tv_city.setText("济南");
+
+
         mPresenter = new HomeFragmentPresenter(this, getContext());
         mPagerAdapter = new ViewpagerAdapter(getContext());
         rollPagerView.setPlayDelay(3000);
@@ -203,6 +198,18 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if (!TextUtils.isEmpty(getCityApp())) {
+            tv_city.setText(getCityApp());
+        } else if (!TextUtils.isEmpty(getCity())) {
+            tv_city.setText(getCity());
+        } else {
+            tv_city.setText("济南");
+        }
+    }
+
+    @Override
     protected void initData() {
         mPresenter.getBanner();
         mPresenter.journeyGoodsSales();
@@ -226,8 +233,12 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
                 break;
             case R.id.icon_right:
                 // TODO: 2019/4/3 消息
-                Intent intentMess = new Intent(getContext(), MessageListActivity.class);
-                startActivity(intentMess);
+//                Intent intentMess = new Intent(getContext(), MessageListActivity.class);
+//                startActivity(intentMess);
+                Intent intentChat = new Intent(getContext(), WebviewDefulitActivity.class);
+                intentChat.putExtra("loadUrl", "http://p.qiao.baidu.com/cps/chatIndex");
+                intentChat.putExtra("title", "在线客服");
+                startActivity(intentChat);
                 break;
             case R.id.icon_back:
                 // TODO: 2019/4/3 打电话

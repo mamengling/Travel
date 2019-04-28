@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/pic_photo"
+        style="@style/text_order_title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:text="男"
+        android:textColor="@color/colorAccent" />
+
+    <View style="@style/hezi_line" />
+
+    <TextView
+        android:id="@+id/pic_tuku"
+        style="@style/text_order_title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:text="女"
+        android:textColor="@color/colorAccent" />
+
+    <View style="@style/hezi_line" />
+
+    <TextView
+        android:id="@+id/pic_cancel"
+        style="@style/text_order_title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:text="取消"
+        android:textColor="@color/colorAccent" />
+
+</LinearLayout>

@@ -3,12 +3,8 @@ package com.jcool.dev.travel.persenter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.jcool.dev.travel.bean.CallBackVo;
-import com.jcool.dev.travel.bean.OrderInfoOthBean;
 import com.jcool.dev.travel.iactivityview.UploadImageFilesView;
 import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.Constants;
@@ -16,16 +12,13 @@ import com.jcool.dev.travel.utils.HttpUtil;
 import com.jcool.dev.travel.utils.log.LogUtil;
 import com.jcool.dev.travel.utils.log.klog.JsonLog;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -33,6 +26,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.UUID;
 import java.util.concurrent.Executors;
+
+import cz.msebera.android.httpclient.Header;
 
 public class UploadImageFilesPresenter {
     private Context mContext;
@@ -186,4 +181,68 @@ public class UploadImageFilesPresenter {
 
         return URLCode;
     }
+
+
+    public void uploadFiles(String path) {
+
+        JSONObject params = new JSONObject();
+        File file = new File(path);
+        try {
+            params.put("filename", file);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        mDatumCommitActivityView.showProgress();
+        HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_UPLOAD_IMAGE, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mDatumCommitActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mDatumCommitActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mDatumCommitActivityView.closeProgress();
+                JSONObject job = null;
+                try {
+                    job = new JSONObject(result);
+                    CallBackVo<String> mCall = new CallBackVo<>();
+                    if (job.getBoolean("success")) {
+                        String uploadPath = job.optString("data");
+                        mCall.setData(uploadPath);
+                        mCall.setSuccess(true);
+                        mCall.setMsg(job.optString("msg"));
+                        mDatumCommitActivityView.excuteSuccessUploadCallBack(mCall);
+                    } else {
+                        mCall.setData("");
+                        mCall.setSuccess(false);
+                        mCall.setMsg(job.optString("msg"));
+                        mDatumCommitActivityView.excuteFailedCallBack(mCall);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mDatumCommitActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mDatumCommitActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
 }

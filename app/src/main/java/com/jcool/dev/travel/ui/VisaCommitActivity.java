@@ -19,6 +19,7 @@ import com.jcool.dev.travel.bean.VisaInfoDtoList;
 import com.jcool.dev.travel.bean.VisaTargetInfo;
 import com.jcool.dev.travel.iactivityview.VisaCommitActivityView;
 import com.jcool.dev.travel.persenter.VisaCommitActivityPresenter;
+import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.StatusBarUtil;
 import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
@@ -217,8 +218,16 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
             ToastUtils.showShortToast("请输入手机号");
             return;
         }
+        if (!AppUtils.isMobile(phoneNumber)) {
+            ToastUtils.showShortToast("请输入正确手机号");
+            return;
+        }
         if (TextUtils.isEmpty(emailNumber)) {
             ToastUtils.showShortToast("请输入电子邮箱");
+            return;
+        }
+        if (!AppUtils.isEmail(emailNumber)) {
+            ToastUtils.showShortToast("请输入正确邮箱");
             return;
         }
         mPresenter.journeyVisaAdd(getToken());
@@ -331,9 +340,9 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
 
                         //旅客年龄段(01:0-12周岁；02：儿童；03：成人)
                         if (TextUtils.equals("3", tamp.get(i).getCustAge())) {
-                            tv_work_type.setText("在职");
+                            tv_person_type.setText("成人");
                         } else {
-                            tv_work_type.setText("儿童");
+                            tv_person_type.setText("儿童");
                         }
                         person_list.addView(personViews);
                     }

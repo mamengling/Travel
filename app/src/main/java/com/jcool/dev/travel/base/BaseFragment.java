@@ -91,7 +91,7 @@ public abstract class BaseFragment extends Fragment {
      */
     protected void setUserInfo(UserInfo.UserInfoBean.SysUserBean info) {
         SharePreferenceUtil.setValue(getContext(), AppConfigStatic.IS_LOGIN, true);
-        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_ID, info.getUserId()+"");
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_ID, info.getUserId() + "");
         SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_NAME, info.getUsername());
         SharePreferenceUtil.setValue(getContext(), AppConfigStatic.PASSWORD, info.getPassword());
         SharePreferenceUtil.setValue(getContext(), AppConfigStatic.NICK_NAME, info.getNickname());
@@ -103,16 +103,20 @@ public abstract class BaseFragment extends Fragment {
         SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_CITY, info.getCity());
 
     }
-    protected void setToken(String token){
+
+    protected void setToken(String token) {
         SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_TOKEN, token);
     }
-
 
 
     protected void setKey(String token) {
         SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_KEY, token);
     }
 
+
+    protected void setCityApp(String cityApp) {
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_CITY_APP, cityApp);
+    }
 
 
     protected String getUserId() {
@@ -174,6 +178,14 @@ public abstract class BaseFragment extends Fragment {
     protected String getCity() {
         if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_CITY, ""))) {
             return SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_CITY, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getCityApp() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_CITY_APP, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_CITY_APP, "");
         } else {
             return null;
         }
@@ -247,6 +259,7 @@ public abstract class BaseFragment extends Fragment {
             }
         });
     }
+
     /**
      * 拨打电话（跳转到拨号界面，用户手动点击拨打）
      *

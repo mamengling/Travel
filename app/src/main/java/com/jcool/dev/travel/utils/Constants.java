@@ -3,8 +3,8 @@ package com.jcool.dev.travel.utils;
 public class Constants {
     public static final String BASE_ROOT = "mock/14/";
     //服务器ip地址
-    public static final String BASE_URL = "http://39.98.51.93/";
-//    public static final String BASE_URL = "http://192.168.0.121:1025/";
+//    public static final String BASE_URL = "http://39.98.51.93/";
+    public static final String BASE_URL = "http://192.168.0.121:1025/";
     /**
      * 获取首页banner
      */
@@ -123,6 +123,10 @@ public class Constants {
     public static final String APP_HOME_API_USER_INFO = "api/user/";
     /**
      * 通过ID获取用户信息
+     */
+    public static final String APP_HOME_API_USER_INFO_2 = "api/user/info";
+    /**
+     * 更新用户信息
      */
     public static final String APP_HOME_API_USER_INFO_UPDATE = "api/user/update";
     /**

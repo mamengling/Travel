@@ -89,7 +89,7 @@ public class TravelInfoViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         if (getItemViewType(i) == 101) {
             ((ViewInfoHolder) viewHolder).tv_info.setText(mList.get(i).getmCallBackVo().getData().getName());
             ((ViewInfoHolder) viewHolder).tv_money.setText("¥" + mList.get(i).getmCallBackVo().getData().getMinPrice());
-            ((ViewInfoHolder) viewHolder).tv_number.setText(mList.get(i).getmCallBackVo().getData().getDefaultSellNumber() + "人一起出游");
+            ((ViewInfoHolder) viewHolder).tv_number.setText(mList.get(i).getmCallBackVo().getData().getDefaultSellNumber() + "人出游");
             ((ViewInfoHolder) viewHolder).line_01.setVisibility(View.GONE);
             ((ViewInfoHolder) viewHolder).line_02.setVisibility(View.GONE);
             if (mList.get(i).getmCallBackVo().getData().getDataAndGoods() != null && mList.get(i).getmCallBackVo().getData().getDataAndGoods().size() > 0) {

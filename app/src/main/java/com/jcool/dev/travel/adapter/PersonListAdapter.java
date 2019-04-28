@@ -1,6 +1,7 @@
 package com.jcool.dev.travel.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -13,10 +14,8 @@ import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.bean.PersonInfoBean;
-import com.jcool.dev.travel.bean.VisaInfoDtoList;
-import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
+import com.jcool.dev.travel.ui.AddPersonActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -57,7 +56,7 @@ public class PersonListAdapter extends BaseAdapter {
 
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         final ViewHolder viewHolder;
         if (convertView != null) {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -90,11 +89,19 @@ public class PersonListAdapter extends BaseAdapter {
             viewHolder.tv_work_type.setText("学龄儿童");
         }
 
+        viewHolder.image_bianji.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, AddPersonActivity.class);
+                intent.putExtra("info", mList.get(position));
+                mContext.startActivity(intent);
+            }
+        });
         //旅客年龄段(01:0-12周岁；02：儿童；03：成人)
-        if (TextUtils.equals("3", mList.get(position).getCustAge())) {
-            viewHolder.tv_work_type.setText("在职");
+        if (TextUtils.equals("3", mList.get(position).getCustAge()) || TextUtils.equals("03", mList.get(position).getCustAge())) {
+            viewHolder.tv_person_type.setText("成人");
         } else {
-            viewHolder.tv_work_type.setText("儿童");
+            viewHolder.tv_person_type.setText("儿童");
         }
         return convertView;
     }

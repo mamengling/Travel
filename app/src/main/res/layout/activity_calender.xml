@@ -165,7 +165,7 @@
                             android:id="@+id/tv_jian_da"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:background="@color/root_bg_color1"
+                            android:background="@drawable/x_image_icon_bg_round_hui"
                             android:gravity="center"
                             android:text="-" />
 
@@ -174,13 +174,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:minEms="2"
                             android:text="1" />
 
                         <TextView
                             android:id="@+id/tv_jia_da"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:background="@color/colorAccent"
+                            android:background="@drawable/x_image_icon_bg_round_yellow"
                             android:gravity="center"
                             android:text="+" />
                     </LinearLayout>
@@ -209,7 +211,7 @@
                             android:id="@+id/tv_jian"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:background="@color/root_bg_color1"
+                            android:background="@drawable/x_image_icon_bg_round_hui"
                             android:gravity="center"
                             android:text="-" />
 
@@ -218,13 +220,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
+                            android:minEms="2"
+                            android:gravity="center"
                             android:text="1" />
 
                         <TextView
                             android:id="@+id/tv_jia"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:background="@color/colorAccent"
+                            android:background="@drawable/x_image_icon_bg_round_yellow"
                             android:gravity="center"
                             android:text="+" />
                     </LinearLayout>
@@ -259,7 +263,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_phone_forwarded_black_24dp"
+            android:drawableTop="@mipmap/icon_phone_info"
             android:drawablePadding="5dp"
             android:gravity="center"
             android:padding="5dp"
@@ -272,7 +276,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_message_black_24dp"
+            android:drawableTop="@mipmap/icon_travel_info_help"
             android:drawablePadding="5dp"
             android:gravity="center"
             android:padding="5dp"

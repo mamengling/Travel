@@ -1,16 +1,12 @@
 package com.jcool.dev.travel.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -29,12 +25,10 @@ import com.jcool.dev.travel.bean.DestinationBean;
 import com.jcool.dev.travel.iactivityview.DestinationFragmentView;
 import com.jcool.dev.travel.persenter.DestinationFragmentPresenter;
 import com.jcool.dev.travel.utils.AppUtils;
-import com.jcool.dev.travel.utils.DividerItemDecoration;
 import com.jcool.dev.travel.utils.UiUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
 
 import org.json.JSONObject;
 
@@ -173,7 +167,7 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
 
     @Override
     public void excuteSuccessCallBack(List<DestinationBean> mCallBackVo) {
-        initOnlineData();
+//        initOnlineData();
         this.mCallBackVo = mCallBackVo;
         if (mCallBackVo != null) {
             mGroupList.addAll(mCallBackVo);

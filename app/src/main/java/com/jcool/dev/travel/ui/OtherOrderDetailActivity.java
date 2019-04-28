@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
@@ -64,6 +65,8 @@ public class OtherOrderDetailActivity extends BaseActivity implements View.OnCli
     TextView tv_link_email;
     @BindView(R.id.line_user)
     LinearLayout line_user;
+    @BindView(R.id.visa_info)
+    RelativeLayout visa_info;
     @BindView(R.id.btn_commit)
     Button btn_commit;
     @BindView(R.id.refreshLayout)
@@ -71,6 +74,7 @@ public class OtherOrderDetailActivity extends BaseActivity implements View.OnCli
     private String orderId;
     private TextView tv_more;
     private List<VisaOrderInfo.CustomerBean> mList;
+    private String visaId;
 
     @Override
     protected int getContentViewId() {
@@ -105,6 +109,7 @@ public class OtherOrderDetailActivity extends BaseActivity implements View.OnCli
     @Override
     protected void setListener() {
         icon_title_back.setOnClickListener(this);
+        visa_info.setOnClickListener(this);
         btn_commit.setOnClickListener(this);
         if (tv_more != null) {
             tv_more.setOnClickListener(this);
@@ -128,6 +133,11 @@ public class OtherOrderDetailActivity extends BaseActivity implements View.OnCli
                 finish();
                 break;
             case R.id.btn_commit:
+                break;
+            case R.id.visa_info:
+                Intent intent = new Intent(OtherOrderDetailActivity.this, VisaDefuiltActivity.class);
+                intent.putExtra("visaId", visaId);
+                startActivity(intent);
                 break;
         }
     }
@@ -169,6 +179,7 @@ public class OtherOrderDetailActivity extends BaseActivity implements View.OnCli
             } else {
                 tv_order_status.setText("待审核");
             }
+            visaId = mCallBackVo.getData().getVisaId();
             tv_order_number.setText(mCallBackVo.getData().getId());
             tv_visa_name.setText(mCallBackVo.getData().getVisaName());
             tv_visa_time.setText(mCallBackVo.getData().getValidityDate() + "天");
@@ -234,7 +245,7 @@ public class OtherOrderDetailActivity extends BaseActivity implements View.OnCli
                     //循环 证件信息
                     if (mCallBackVo.getData().getCustomer().get(i).getDataList() != null && mCallBackVo.getData().getCustomer().get(i).getDataList().size() > 0) {
                         for (int j = 0; j < mCallBackVo.getData().getCustomer().get(i).getDataList().size(); j++) {
-                            LogUtil.i("TAG 证件信息",mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).toString());
+                            LogUtil.i("TAG 证件信息", mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).toString());
                             View customerItem = LayoutInflater.from(OtherOrderDetailActivity.this).inflate(R.layout.xml_item_card, null);
                             final TextView tv_card_name = customerItem.findViewById(R.id.tv_card_name);//证件号码
                             final TextView tv_card_right = customerItem.findViewById(R.id.tv_card_right);//证件号码
@@ -253,7 +264,7 @@ public class OtherOrderDetailActivity extends BaseActivity implements View.OnCli
                             recyclerView_image.setLayoutManager(manager);
                             ImageSeleteAdapter mAdapter = new ImageSeleteAdapter(OtherOrderDetailActivity.this);
                             recyclerView_image.setAdapter(mAdapter);
-                            if (mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).getInfoList()!=null&&mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).getInfoList().size()>0){
+                            if (mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).getInfoList() != null && mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).getInfoList().size() > 0) {
                                 mAdapter.onReference(mCallBackVo.getData().getCustomer().get(i).getDataList().get(j).getInfoList());
                             }
                             mAdapter.setOnItemClickListener(new ConstmOnItemOnclickListener() {

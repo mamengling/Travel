@@ -66,9 +66,10 @@ public class UserInfoGetPresenter {
             }
         });
     }
-    public void getUserUpdate(String userId) {
+
+    public void getUserInfoToken(String token) {
         mUserInfoGetView.showProgress();
-        HttpUtil.get(Constants.BASE_URL + Constants.APP_HOME_API_USER_INFO_UPDATE + userId, new AsyncHttpResponseHandler() {
+        HttpUtil.get(Constants.BASE_URL + Constants.APP_HOME_API_USER_INFO_2, token, new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -92,6 +93,47 @@ public class UserInfoGetPresenter {
                 }.getType());
                 if (mCallBackVo.isSuccess()) {
                     mUserInfoGetView.excuteSuccessUserCallBack(mCallBackVo);
+                } else {
+                    mUserInfoGetView.excuteFailedCallBack(mCallBackVo);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mUserInfoGetView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mUserInfoGetView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
+    public void getUserUpdate(String token) {
+        mUserInfoGetView.showProgress();
+        HttpUtil.put(mContext, Constants.BASE_URL + Constants.APP_HOME_API_USER_INFO_UPDATE, token, mUserInfoGetView.getParamenters(), new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mUserInfoGetView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mUserInfoGetView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mUserInfoGetView.closeProgress();
+                Gson gson = new Gson();
+                CallBackVo mCallBackVo = gson.fromJson(result, CallBackVo.class);
+                if (mCallBackVo.isSuccess()) {
+                    mUserInfoGetView.excuteSuccessUpdateCallBack(mCallBackVo);
                 } else {
                     mUserInfoGetView.excuteFailedCallBack(mCallBackVo);
                 }

@@ -7,21 +7,16 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
-import com.jcool.dev.travel.bean.GroupBean;
-import com.jcool.dev.travel.bean.OrderInfoOthBean;
 import com.jcool.dev.travel.bean.PersonInfoBean;
-import com.jcool.dev.travel.bean.TravelBean;
 import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 import com.jcool.dev.travel.view.MyRecyclerViewItem;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -76,10 +71,10 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
         }
 
         //旅客年龄段(01:0-12周岁；02：儿童；03：成人)
-        if (TextUtils.equals("3", mList.get(position).getCustAge())) {
-            viewHolder.tv_work_type.setText("在职");
+        if (TextUtils.equals("3", mList.get(position).getCustAge())||TextUtils.equals("03", mList.get(position).getCustAge())) {
+            viewHolder.tv_person_type.setText("成人");
         } else {
-            viewHolder.tv_work_type.setText("儿童");
+            viewHolder.tv_person_type.setText("儿童");
         }
         viewHolder.image_bianji.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -261,4 +261,9 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
             ImageLoaderUtils.showImageViewToCircle(getContext(), mCallBackVo.getData().getAvatar(), image_head, R.mipmap.icon_default_head);
         }
     }
+
+    @Override
+    public void excuteSuccessUpdateCallBack(CallBackVo mCallBackVo) {
+
+    }
 }

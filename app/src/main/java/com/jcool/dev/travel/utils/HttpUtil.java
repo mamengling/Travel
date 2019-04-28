@@ -15,12 +15,7 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 
-import cz.msebera.android.httpclient.Header;
-import cz.msebera.android.httpclient.HeaderElement;
-import cz.msebera.android.httpclient.ParseException;
 import cz.msebera.android.httpclient.entity.ByteArrayEntity;
-import cz.msebera.android.httpclient.message.BasicHeader;
-import cz.msebera.android.httpclient.protocol.HTTP;
 
 /**
  * Created by MLing on 2016/7/20.
@@ -166,6 +161,28 @@ public class HttpUtil {
         httpclient.post(mContext, uString, entity, "application/json", res);
     }
 
+    /**
+     * 请求体
+     *
+     * @param mContext
+     * @param uString
+     * @param params
+     * @param res
+     */
+    public static void upload(Context mContext, String uString, JSONObject params,
+                            AsyncHttpResponseHandler res) // post数据使用，返回普通的手
+    {
+        LogUtil.i(uString + "?" + params.toString());
+        //创建ByteArrayEntity对象
+        ByteArrayEntity entity = null;
+        try {
+            entity = new ByteArrayEntity(params.toString().getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        httpclient.post(mContext, uString, entity, "application/json", res);
+    }
+
 
     /**
      * 请求体
@@ -186,7 +203,6 @@ public class HttpUtil {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        httpclient.addHeader("access-token", "d19575c9-0aad-4876-8549-b359e4f193d6");
         httpclient.get(mContext, uString, entity, "application/json", res);
     }
 

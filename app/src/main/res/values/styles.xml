@@ -22,7 +22,19 @@
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
     </style>
-
+    <style name="text_order_title_text_view">
+        <item name="android:textColor">@color/root_bg_color1</item>
+        <item name="android:textSize">@dimen/textsize_7</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!--通用分割线-->
+    <style name="hezi_line" parent="android:Widget">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/root_bg_color</item>
+    </style>
 
     <style name="AppThemeApp" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->

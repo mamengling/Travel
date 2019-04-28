@@ -145,6 +145,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         SharePreferenceUtil.setValue(this, AppConfigStatic.PHONE, phone);
     }
 
+    protected void setCityApp(String cityApp) {
+        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_CITY_APP, cityApp);
+    }
+
+
+    protected String getCityApp() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.USER_CITY_APP, ""))) {
+            return SharePreferenceUtil.getString(this, AppConfigStatic.USER_CITY_APP, "");
+        } else {
+            return null;
+        }
+    }
+
+
     protected String getUserId() {
         if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.USER_ID, ""))) {
             return SharePreferenceUtil.getString(this, AppConfigStatic.USER_ID, "");

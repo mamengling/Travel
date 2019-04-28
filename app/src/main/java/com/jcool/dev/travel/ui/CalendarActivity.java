@@ -131,6 +131,8 @@ public class CalendarActivity extends BaseActivity implements View.OnClickListen
         tv_jia_da.setOnClickListener(this);
         tv_jian.setOnClickListener(this);
         tv_jia.setOnClickListener(this);
+        tv_phone.setOnClickListener(this);
+        tv_message.setOnClickListener(this);
         calendarView.setOnDateSelectedListener(this);
         radiogroup_full.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -208,6 +210,15 @@ public class CalendarActivity extends BaseActivity implements View.OnClickListen
                 tv_number_xiaohai.setText(xiaojia + "");
                 getMoney();
                 break;
+            case R.id.tv_call_phone:
+                callPhone(getUserPhone());
+                break;
+            case R.id.tv_chat:
+                Intent intentChat = new Intent(this, WebviewDefulitActivity.class);
+                intentChat.putExtra("loadUrl", "http://p.qiao.baidu.com/cps/chatIndex");
+                intentChat.putExtra("title", "在线客服");
+                startActivity(intentChat);
+                break;
         }
     }
 
@@ -257,6 +268,9 @@ public class CalendarActivity extends BaseActivity implements View.OnClickListen
         if (mCallBackVo != null && mCallBackVo.getData() != null && mCallBackVo.getData().size() > 0) {
             priceOne = Double.parseDouble(mCallBackVo.getData().get(0).getPriceNow());
             goodsDate = mCallBackVo.getData().get(0).getId();
+            getMoney();
+        } else {
+            priceOne = 0;
             getMoney();
         }
 
