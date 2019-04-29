@@ -64,6 +64,7 @@
             android:background="@color/white"
             android:hint="请输入验证码"
             android:padding="5dp"
+            android:inputType="number"
             android:textColor="@color/text_black"
             android:textSize="@dimen/textsize_7" />
 

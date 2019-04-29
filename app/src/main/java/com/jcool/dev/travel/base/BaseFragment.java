@@ -101,6 +101,11 @@ public abstract class BaseFragment extends Fragment {
         SharePreferenceUtil.setValue(getContext(), AppConfigStatic.QQ_OPEN_ID, info.getQqOpenid());
         SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_SEX, info.getSex());
         SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_CITY, info.getCity());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.QQ_AVATAR, info.getQqAvatar());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.WX_AVATAR, info.getWxAvatar());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.USER_ABOUT, info.getAboutUrl());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.VISA_SHARE, info.getShareVisa());
+        SharePreferenceUtil.setValue(getContext(), AppConfigStatic.TRAVEL_SHARE, info.getShareGoods());
 
     }
 
@@ -207,7 +212,45 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
+    protected String getQqAvatar() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.QQ_AVATAR ,""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.QQ_AVATAR, "");
+        } else {
+            return null;
+        }
+    }
 
+    protected String getWxAvatar() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.WX_AVATAR, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.WX_AVATAR, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getShareVisa() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.VISA_SHARE, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.VISA_SHARE, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getShareGoods() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.TRAVEL_SHARE, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.TRAVEL_SHARE, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getAboutUrl() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_ABOUT, ""))) {
+            return SharePreferenceUtil.getString(getContext(), AppConfigStatic.USER_ABOUT, "");
+        } else {
+            return null;
+        }
+    }
     /**
      * 获取token
      *

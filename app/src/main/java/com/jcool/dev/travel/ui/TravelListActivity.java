@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -13,16 +16,17 @@ import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.adapter.ViewPagerFragmentAdapter;
 import com.jcool.dev.travel.base.BaseActivity;
 import com.jcool.dev.travel.bean.InfoColumn;
-import com.jcool.dev.travel.fragment.HomeTabFragment;
 import com.jcool.dev.travel.fragment.TravelTabFragment;
 import com.jcool.dev.travel.utils.Constants;
 import com.jcool.dev.travel.utils.StatusBarUtil;
 import com.jcool.dev.travel.utils.StatusBarUtils;
+import com.jcool.dev.travel.utils.log.LogUtil;
+import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TravelListActivity extends BaseActivity implements View.OnClickListener {
+public class TravelListActivity extends BaseActivity implements View.OnClickListener, TravelTabFragment.CallBackFlag {
     private String tabTitle[] = {"全部", "出境游", "国内游", "周边游", "自由行"};
     private List<InfoColumn> infoColumnList;
     private List<Fragment> fragmentList;
@@ -30,7 +34,10 @@ public class TravelListActivity extends BaseActivity implements View.OnClickList
     private ViewPager viewpager;
     private TabLayout tlMainTabtop;
     private TextView icon_back;
+    private EditText edt_search;
     private int number;
+    private String sendFlag;
+    private ConstmOnItemOnclickListener<String> mOnItemClickListener;
 
     @Override
     protected int getContentViewId() {
@@ -38,6 +45,7 @@ public class TravelListActivity extends BaseActivity implements View.OnClickList
         StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_list_travel;
     }
+
 
     @Override
     protected void getExtra() {
@@ -48,6 +56,7 @@ public class TravelListActivity extends BaseActivity implements View.OnClickList
     protected void initView() {
         viewpager = findViewById(R.id.viewpager);
         icon_back = findViewById(R.id.icon_back);
+        edt_search = findViewById(R.id.edt_search);
         tlMainTabtop = findViewById(R.id.tl_main_tabtop);
 
     }
@@ -60,6 +69,7 @@ public class TravelListActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void setListener() {
         icon_back.setOnClickListener(this);
+        edt_search.setOnEditorActionListener(new mEditorActionListener());
         isView(number);
     }
 
@@ -103,6 +113,9 @@ public class TravelListActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewpager.setCurrentItem(tab.getPosition(), false);
+                if (mOnItemClickListener != null)
+                    mOnItemClickListener.clickItem(null, 0, 0, 0, "");
+                edt_search.setText("");
             }
 
             @Override
@@ -148,6 +161,34 @@ public class TravelListActivity extends BaseActivity implements View.OnClickList
             default:
                 viewpager.setCurrentItem(0);
                 break;
+        }
+    }
+
+    @Override
+    public void setFlag(String flag) {
+        sendFlag = flag;
+    }
+
+
+    public void setOnItemClickListener(ConstmOnItemOnclickListener<String> listener) {
+        this.mOnItemClickListener = listener;
+    }
+
+    private class mEditorActionListener implements TextView.OnEditorActionListener {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            switch (v.getId()) {
+                case R.id.edt_search://搜索
+                    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                        if (!TextUtils.isEmpty(edt_search.getText().toString().trim())) {
+//                            EventBus.getDefault().post(new MessageEvent(edt_search.getText().toString().trim()));
+                            mOnItemClickListener.clickItem(null, 0, 0, 0, edt_search.getText().toString().trim());
+                        }
+                        LogUtil.i("aaaaaaa", edt_search.getText().toString().trim());
+                    }
+                    break;
+            }
+            return false;
         }
     }
 }

@@ -1,0 +1,3 @@
+# Referenced at F:\myGithubApps\Travel\app\build\intermediates\manifests\full\anzhi\debug\AndroidManifest.xml:15
+-keep class com.jcool.dev.travel.base.BaseApplication { <init>(...); }
+

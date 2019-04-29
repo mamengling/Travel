@@ -15,6 +15,7 @@ import com.jcool.dev.travel.utils.ToastUtils;
 import com.mob.MobSDK;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
+import com.unionpay.tsmservice.UPTsmAddon;
 
 /**
  * 作者： MLing
@@ -37,6 +38,7 @@ public class BaseApplication extends MultiDexApplication {
         ToastUtils.init(false);
         CrashCapture.getInstance().init(this);
         MobSDK.init(this);
+        UPTsmAddon.getInstance(mContext);
         initBugly();
     }
 

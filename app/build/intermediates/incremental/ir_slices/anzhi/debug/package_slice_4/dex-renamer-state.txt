@@ -1,0 +1,4 @@
+#Mon Apr 29 20:02:03 CST 2019
+base.0=F\:\\myGithubApps\\Travel\\app\\build\\intermediates\\transforms\\dexMerger\\anzhi\\debug\\4
+path.0=classes.dex
+renamed.0=classes.dex

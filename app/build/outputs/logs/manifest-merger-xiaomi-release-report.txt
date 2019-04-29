@@ -1,0 +1,1142 @@
+-- Merging decision tree log ---
+manifest
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:2:1-397:12
+INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:2:1-397:12
+INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:2:1-397:12
+INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:2:1-397:12
+MERGED from [:calendarview] F:\myGithubApps\Travel\calendarview\build\intermediates\manifests\full\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:2:1-38:12
+MERGED from [:flexbox] F:\myGithubApps\Travel\flexbox\build\intermediates\manifests\full\release\AndroidManifest.xml:2:1-17:12
+MERGED from [com.zhy:flowlayout-lib:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\flowlayout-lib-1.0.3.aar\29aba177bb25871d4dd07f261f8ab48c\AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.jdsjlzx:LRecyclerView:1.4.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\LRecyclerView-1.4.3.aar\012ec236064b62d6672963f97eb38831\AndroidManifest.xml:2:1-17:12
+MERGED from [com.yinglan.alphatabs:library:1.0.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\library-1.0.8.aar\9c562c9d7b748beef5303d6e555cc18d\AndroidManifest.xml:2:1-17:12
+MERGED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:2:1-37:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\7cbd2d950e3f2ebb3835c8df0c77220f\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\d7742736fe4aebda331e2ddd578a2d81\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\542e7aeeeb2bac7602713d922dc3c250\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\13b5e6e0a0ed4d7c010ec70eb2b994bf\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\ad4cc301b10bd08eced3b95c171a70fe\AndroidManifest.xml:17:1-22:12
+MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\butterknife-8.8.1.aar\f7b765df990cc0587c4987f71493bcdf\AndroidManifest.xml:2:1-7:12
+MERGED from [com.android.support:multidex:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\6f9c7d74eed6037adee3f60acd54103c\AndroidManifest.xml:17:1-22:12
+MERGED from [jp.wasabeef:glide-transformations:2.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\glide-transformations-2.0.2.aar\d18fdb56551b1ca7a97059ffdc97005c\AndroidManifest.xml:2:1-12:12
+MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshLayout-1.0.3.aar\8eafc7517400a23791c69d2e179aa444\AndroidManifest.xml:2:1-17:12
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\BaseRecyclerViewAdapterHelper-2.9.34.aar\0ea7ffdcf5643e8fe53b28dd3f9e82db\AndroidManifest.xml:2:1-11:12
+MERGED from [me.yokeyword:indexablerecyclerview:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\indexablerecyclerview-1.3.0.aar\ef725b459cec80eb3cc285b7c5917364\AndroidManifest.xml:2:1-15:12
+MERGED from [com.ms-square:expandableTextView:0.1.4] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\expandableTextView-0.1.4.aar\b38880c53274c568b0e214c75590b1e1\AndroidManifest.xml:2:1-11:12
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:2:1-54:12
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:2:1-46:12
+MERGED from [com.tencent.bugly:nativecrashreport:3.6.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\nativecrashreport-3.6.0.1.aar\eea8178e12a100997525ce3f0af05f66\AndroidManifest.xml:2:1-9:12
+MERGED from [cn.sharesdk:ShareSDK:3.5.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\ShareSDK-3.5.2.aar\27c3c967c3194dc852e67843b149005c\AndroidManifest.xml:2:1-11:12
+MERGED from [cn.sharesdk:OneKeyShare:3.5.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\OneKeyShare-3.5.2.aar\0c3af6dff6943ff9765018bb7c1f1e18\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android:flexbox:0.2.6] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\flexbox-0.2.6.aar\0c7de1ff5b8bce20bfe0671a61be7487\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\f4d96433fd93a995666f68a43505f9e9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\ee6a91b4269f1b30d26aca8183710fa7\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\6b1e78193af02aa8b75c841fb1132bee\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.chrisbanes:PhotoView:2.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\PhotoView-2.0.0.aar\e7788701df6ebc6a68ddcc8a20aa658c\AndroidManifest.xml:2:1-12:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\489a25c03b061cdac1a56eed9bb93333\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\8640d49425b2f5a685d82ef49346b7d2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\e0c06722e23e915046cf86ca550321a9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\7d6ee90797593d14948f0faccd0f9bd4\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\decdd190e6be0c320df390303f5b8283\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\ae4e434d7b0477e0cd97f37d7fe7a1c3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\20bfdbf7a9edf836d5e385b0bc05062c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\0b4a764a4a028a2d1f91d0e136cab042\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\dbe9f996342f3af1755e7818d0f7b062\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\65fc5d25c2a527e37f973b300eb75946\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\548a68dcf5d78b88e88141724122e8c5\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\80b6c296f0221ba73b6883ad814dab8d\AndroidManifest.xml:17:1-25:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\3af48ee3db82f8b9fe6a34f2968793d9\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\4aeec0396e1c1b90352439af8465fdfe\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\bf1e6d995cc48c316e6e1ff94602d20b\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\03394f83c8971046ce178836cdefcbe3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\ed6edb4f58f543f1531f99f97a7a9e59\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\86f0895dff29f81c9998c71dfae2bf3c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\8bf0861e50c2e391086f49745746dda9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\830857d833f4f19aba94a705f056ef4a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\bbac650660045fbff28e19ecd3ec609f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\aaf1140afd7ad8ff6b239857807a596e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\7028be96a1ec0fb13b83a19e21346373\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\tinypinyin-lexicons-android-cncity-2.0.3.aar\ba23a558da1c7f70abfa93f18f256a20\AndroidManifest.xml:2:1-14:12
+MERGED from [com.github.promeg:tinypinyin-android-asset-lexicons:2.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\tinypinyin-android-asset-lexicons-2.0.3.aar\d3e066d96f10c50cb7f288ff7835f19d\AndroidManifest.xml:2:1-14:12
+INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:2:1-397:12
+INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:2:1-397:12
+INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:2:1-397:12
+	package
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:4:5-35
+		INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+		INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:2:1-397:12
+		INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:2:1-397:12
+		INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:7:5-67
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:18:5-67
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:18:5-67
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:12:5-67
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:12:5-67
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:7:22-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:9:5-81
+MERGED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:12:5-81
+MERGED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:12:5-81
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:22:5-81
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:22:5-81
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:16:5-81
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:16:5-81
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:9:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:11:5-79
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:19:5-79
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:19:5-79
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:13:5-79
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:11:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:13:5-76
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:20:5-76
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:20:5-76
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:14:5-76
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:14:5-76
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:13:22-73
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:15:5-75
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:21:5-75
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:21:5-75
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:11:5-75
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:11:5-75
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:15:22-72
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:17:5-81
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:17:22-78
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:20:5-21:58
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:21:9-55
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:22:5-23:66
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:23:9-64
+uses-permission#org.simalliance.openmobileapi.SMARTCARD
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:24:5-25:66
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:25:9-63
+supports-screens
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:27:5-32:39
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:11:5-16:39
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:11:5-16:39
+	android:largeScreens
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:29:9-36
+	android:smallScreens
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:32:9-36
+	android:normalScreens
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:30:9-37
+	android:resizeable
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:31:9-34
+	android:anyDensity
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:28:9-34
+uses-permission#android.permission.READ_LOGS
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:34:5-36:47
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:15:5-68
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:15:5-68
+	tools:ignore
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:36:9-44
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:35:9-52
+uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:37:5-83
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:17:5-83
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:17:5-83
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:37:22-80
+application
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:39:5-394:19
+MERGED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:15:5-36:19
+MERGED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:15:5-36:19
+MERGED from [:flexbox] F:\myGithubApps\Travel\flexbox\build\intermediates\manifests\full\release\AndroidManifest.xml:11:5-15:19
+MERGED from [:flexbox] F:\myGithubApps\Travel\flexbox\build\intermediates\manifests\full\release\AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.jdsjlzx:LRecyclerView:1.4.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\LRecyclerView-1.4.3.aar\012ec236064b62d6672963f97eb38831\AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.jdsjlzx:LRecyclerView:1.4.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\LRecyclerView-1.4.3.aar\012ec236064b62d6672963f97eb38831\AndroidManifest.xml:11:5-15:19
+MERGED from [com.yinglan.alphatabs:library:1.0.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\library-1.0.8.aar\9c562c9d7b748beef5303d6e555cc18d\AndroidManifest.xml:11:5-15:19
+MERGED from [com.yinglan.alphatabs:library:1.0.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\library-1.0.8.aar\9c562c9d7b748beef5303d6e555cc18d\AndroidManifest.xml:11:5-15:19
+MERGED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:11:5-35:19
+MERGED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:11:5-35:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\7cbd2d950e3f2ebb3835c8df0c77220f\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\7cbd2d950e3f2ebb3835c8df0c77220f\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\542e7aeeeb2bac7602713d922dc3c250\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\542e7aeeeb2bac7602713d922dc3c250\AndroidManifest.xml:9:5-20
+MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshLayout-1.0.3.aar\8eafc7517400a23791c69d2e179aa444\AndroidManifest.xml:11:5-15:19
+MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshLayout-1.0.3.aar\8eafc7517400a23791c69d2e179aa444\AndroidManifest.xml:11:5-15:19
+MERGED from [me.yokeyword:indexablerecyclerview:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\indexablerecyclerview-1.3.0.aar\ef725b459cec80eb3cc285b7c5917364\AndroidManifest.xml:13:5-20
+MERGED from [me.yokeyword:indexablerecyclerview:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\indexablerecyclerview-1.3.0.aar\ef725b459cec80eb3cc285b7c5917364\AndroidManifest.xml:13:5-20
+MERGED from [com.ms-square:expandableTextView:0.1.4] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\expandableTextView-0.1.4.aar\b38880c53274c568b0e214c75590b1e1\AndroidManifest.xml:9:5-20
+MERGED from [com.ms-square:expandableTextView:0.1.4] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\expandableTextView-0.1.4.aar\b38880c53274c568b0e214c75590b1e1\AndroidManifest.xml:9:5-20
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:24:5-52:19
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:24:5-52:19
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:20:5-44:19
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:20:5-44:19
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\548a68dcf5d78b88e88141724122e8c5\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\548a68dcf5d78b88e88141724122e8c5\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\80b6c296f0221ba73b6883ad814dab8d\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\80b6c296f0221ba73b6883ad814dab8d\AndroidManifest.xml:22:5-23:19
+MERGED from [com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\tinypinyin-lexicons-android-cncity-2.0.3.aar\ba23a558da1c7f70abfa93f18f256a20\AndroidManifest.xml:11:5-12:19
+MERGED from [com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\tinypinyin-lexicons-android-cncity-2.0.3.aar\ba23a558da1c7f70abfa93f18f256a20\AndroidManifest.xml:11:5-12:19
+MERGED from [com.github.promeg:tinypinyin-android-asset-lexicons:2.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\tinypinyin-android-asset-lexicons-2.0.3.aar\d3e066d96f10c50cb7f288ff7835f19d\AndroidManifest.xml:11:5-12:19
+MERGED from [com.github.promeg:tinypinyin-android-asset-lexicons:2.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\tinypinyin-android-asset-lexicons-2.0.3.aar\d3e066d96f10c50cb7f288ff7835f19d\AndroidManifest.xml:11:5-12:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\548a68dcf5d78b88e88141724122e8c5\AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:45:9-35
+	android:label
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:43:9-41
+	android:roundIcon
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:44:9-50
+	android:icon
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:42:9-45
+	android:allowBackup
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:41:9-35
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:46:9-40
+	tools:replace
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:48:9-37
+	android:usesCleartextTraffic
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:47:9-44
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:40:9-65
+uses-library#org.simalliance.openmobileapi
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:50:9-94
+	android:required
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:50:68-92
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:50:23-67
+meta-data#com.amap.api.v2.apikey
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:56:9-58:64
+	android:value
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:58:13-61
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:57:13-50
+service#com.amap.api.location.APSService
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:59:9-76
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:59:18-65
+activity#com.jcool.dev.travel.ui.MainActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:61:9-71:20
+	android:label
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:63:13-45
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:64:13-56
+	tools:replace
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:65:13-41
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:62:13-44
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:66:13-70:29
+action#android.intent.action.MAIN
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:67:17-69
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:67:25-66
+category#android.intent.category.LAUNCHER
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:69:17-77
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:69:27-74
+activity#com.tencent.bugly.beta.ui.BetaActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:72:9-75:64
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:23:9-27:56
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:23:9-27:56
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:74:13-81
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:75:13-61
+	tools:replace
+		ADDED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:27:13-53
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:73:13-66
+activity#com.jcool.dev.travel.ui.CityPickerActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:77:9-82:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:80:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:82:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:79:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:81:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:78:13-50
+activity#com.jcool.dev.travel.ui.TravelListActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:83:9-88:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:86:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:88:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:85:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:87:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:84:13-50
+activity#com.jcool.dev.travel.ui.SearchAddressActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:89:9-94:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:92:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:94:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:91:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:93:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:90:13-53
+activity#com.jcool.dev.travel.ui.TravelViseActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:95:9-100:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:98:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:100:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:97:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:99:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:96:13-50
+activity#com.jcool.dev.travel.ui.VisaInfoActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:101:9-106:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:104:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:106:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:103:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:105:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:102:13-48
+activity#com.jcool.dev.travel.ui.TravelInfoActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:107:9-112:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:110:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:112:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:109:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:111:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:108:13-50
+activity#com.jcool.dev.travel.ui.SettingActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:113:9-118:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:116:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:118:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:115:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:117:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:114:13-47
+activity#com.jcool.dev.travel.ui.RegisterActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:119:9-124:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:122:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:124:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:121:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:123:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:120:13-48
+activity#com.jcool.dev.travel.ui.SetPasswordActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:125:9-130:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:128:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:130:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:127:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:129:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:126:13-51
+activity#com.jcool.dev.travel.ui.UserInfoActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:131:9-136:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:134:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:136:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:133:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:135:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:132:13-48
+activity#com.jcool.dev.travel.ui.EdtUserInfoActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:137:9-142:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:140:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:142:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:139:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:141:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:138:13-51
+activity#com.jcool.dev.travel.ui.FindPswActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:143:9-148:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:146:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:148:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:145:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:147:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:144:13-47
+activity#com.jcool.dev.travel.ui.FindPswCodeActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:149:9-154:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:152:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:154:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:151:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:153:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:150:13-51
+activity#com.jcool.dev.travel.ui.TravelDefuiltActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:155:9-160:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:158:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:160:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:157:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:159:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:156:13-53
+activity#com.jcool.dev.travel.ui.VisaDefuiltActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:161:9-166:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:164:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:166:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:163:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:165:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:162:13-51
+activity#com.jcool.dev.travel.ui.CalendarActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:167:9-172:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:170:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:172:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:169:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:171:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:168:13-48
+activity#com.jcool.dev.travel.ui.VisaDataActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:173:9-178:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:176:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:178:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:175:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:177:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:174:13-48
+activity#com.jcool.dev.travel.ui.CompanyVipActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:179:9-184:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:182:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:184:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:181:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:183:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:180:13-50
+activity#com.jcool.dev.travel.ui.PersonVipActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:185:9-190:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:188:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:190:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:187:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:189:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:186:13-49
+activity#com.jcool.dev.travel.ui.VisaHotActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:191:9-196:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:194:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:196:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:193:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:195:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:192:13-47
+activity#com.jcool.dev.travel.ui.VisaCommitActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:197:9-202:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:200:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:202:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:199:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:201:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:198:13-50
+activity#com.jcool.dev.travel.ui.HisToryVisaActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:203:9-208:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:206:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:208:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:205:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:207:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:204:13-51
+activity#com.jcool.dev.travel.ui.LoginActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:209:9-214:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:212:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:214:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:211:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:213:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:210:13-45
+activity#com.jcool.dev.travel.ui.AddPersonActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:215:9-220:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:218:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:220:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:217:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:219:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:216:13-49
+activity#com.jcool.dev.travel.ui.VisaOrderDetailActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:221:9-226:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:224:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:226:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:223:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:225:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:222:13-55
+activity#com.jcool.dev.travel.ui.OtherOrderDetailActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:227:9-232:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:230:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:232:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:229:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:231:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:228:13-56
+activity#com.jcool.dev.travel.ui.TravelOrderDetailActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:233:9-238:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:236:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:238:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:235:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:237:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:234:13-57
+activity#com.jcool.dev.travel.ui.DatumCommitActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:239:9-244:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:242:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:244:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:241:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:243:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:240:13-51
+activity#com.jcool.dev.travel.ui.OrderTabActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:245:9-250:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:248:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:250:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:247:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:249:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:246:13-48
+activity#com.jcool.dev.travel.ui.WebviewDefulitActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:251:9-256:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:254:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:256:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:253:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:255:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:252:13-54
+activity#com.jcool.dev.travel.ui.PayActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:257:9-262:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:260:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:262:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:259:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:261:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:258:13-43
+activity#com.jcool.dev.travel.ui.MessageListActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:263:9-268:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:266:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:268:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:265:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:267:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:264:13-51
+activity#com.jcool.dev.travel.ui.OrderEvaluateActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:269:9-274:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:272:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:274:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:271:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:273:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:270:13-53
+activity#com.jcool.dev.travel.ui.CreateVisaOrderActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:275:9-280:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:278:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:280:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:277:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:279:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:276:13-55
+activity#com.jcool.dev.travel.ui.CreateTravelOrderActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:281:9-286:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:284:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:286:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:283:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:285:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:282:13-57
+activity#com.jcool.dev.travel.ui.SearchLocationActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:287:9-292:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:290:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:292:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:289:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:291:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:288:13-54
+activity#com.jcool.dev.travel.ui.SearchTravelActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:293:9-298:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:296:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:298:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:295:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:297:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:294:13-52
+activity#com.jcool.dev.travel.ui.PeopleListActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:299:9-304:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:302:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:304:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:301:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:303:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:300:13-50
+activity#com.jcool.dev.travel.ui.CollectionActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:305:9-310:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:308:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:310:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:307:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:309:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:306:13-50
+activity#com.jcool.dev.travel.ui.MianhisToryActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:311:9-316:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:314:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:316:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:313:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:315:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:312:13-51
+activity#com.jcool.dev.travel.ui.YijianDefulitActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:317:9-322:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:320:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:322:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:319:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:321:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:318:13-53
+activity#com.jcool.dev.travel.ui.AccMangerActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:323:9-328:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:326:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:328:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:325:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:327:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:324:13-49
+activity#com.jcool.dev.travel.ui.SetPhoneActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:329:9-334:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:332:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:334:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:331:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:333:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:330:13-48
+activity#com.jcool.dev.travel.ui.InputPhoneActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:335:9-340:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:338:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:340:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:337:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:339:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:336:13-50
+activity#com.jcool.dev.travel.ui.InputCodeActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:341:9-346:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:344:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:346:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:343:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:345:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:342:13-49
+activity#com.jcool.dev.travel.ui.RePasswordActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:347:9-352:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:350:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:352:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:349:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:351:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:348:13-50
+activity#com.jcool.dev.travel.ui.SearchKeyActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:353:9-358:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:356:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:358:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:355:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:357:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:354:13-49
+activity#com.jcool.dev.travel.ui.TravelSalesActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:359:9-364:57
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:362:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:364:13-54
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:361:13-74
+	android:theme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:363:13-56
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:360:13-51
+activity#com.jcool.dev.travel.wxapi.WXPayEntryActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:366:9-375:20
+	android:launchMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:369:13-43
+	android:exported
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:368:13-36
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:367:13-53
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.DEFAULT+data:scheme:wx578788a34a385bc4
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:370:13-374:29
+action#android.intent.action.VIEW
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:371:17-69
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:371:25-66
+category#android.intent.category.DEFAULT
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:372:17-76
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:372:27-73
+data
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:373:17-61
+	android:scheme
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:373:23-58
+activity#com.unionpay.uppay.PayActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:379:9-385:58
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:384:13-49
+	android:label
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:383:13-45
+	android:excludeFromRecents
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:382:13-46
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:385:13-55
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:381:13-63
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:380:13-58
+activity#com.unionpay.UPPayWapActivity
+ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:387:9-391:67
+	android:screenOrientation
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:390:13-49
+	android:windowSoftInputMode
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:391:13-55
+	android:configChanges
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:389:13-73
+	android:name
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:388:13-57
+uses-sdk
+INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+MERGED from [:calendarview] F:\myGithubApps\Travel\calendarview\build\intermediates\manifests\full\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:calendarview] F:\myGithubApps\Travel\calendarview\build\intermediates\manifests\full\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:flexbox] F:\myGithubApps\Travel\flexbox\build\intermediates\manifests\full\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:flexbox] F:\myGithubApps\Travel\flexbox\build\intermediates\manifests\full\release\AndroidManifest.xml:7:5-9:41
+MERGED from [com.zhy:flowlayout-lib:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\flowlayout-lib-1.0.3.aar\29aba177bb25871d4dd07f261f8ab48c\AndroidManifest.xml:8:5-10:41
+MERGED from [com.zhy:flowlayout-lib:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\flowlayout-lib-1.0.3.aar\29aba177bb25871d4dd07f261f8ab48c\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.jdsjlzx:LRecyclerView:1.4.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\LRecyclerView-1.4.3.aar\012ec236064b62d6672963f97eb38831\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.jdsjlzx:LRecyclerView:1.4.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\LRecyclerView-1.4.3.aar\012ec236064b62d6672963f97eb38831\AndroidManifest.xml:7:5-9:41
+MERGED from [com.yinglan.alphatabs:library:1.0.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\library-1.0.8.aar\9c562c9d7b748beef5303d6e555cc18d\AndroidManifest.xml:7:5-9:41
+MERGED from [com.yinglan.alphatabs:library:1.0.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\library-1.0.8.aar\9c562c9d7b748beef5303d6e555cc18d\AndroidManifest.xml:7:5-9:41
+MERGED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:7:5-9:41
+MERGED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\7cbd2d950e3f2ebb3835c8df0c77220f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\7cbd2d950e3f2ebb3835c8df0c77220f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\d7742736fe4aebda331e2ddd578a2d81\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\d7742736fe4aebda331e2ddd578a2d81\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\542e7aeeeb2bac7602713d922dc3c250\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\542e7aeeeb2bac7602713d922dc3c250\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\13b5e6e0a0ed4d7c010ec70eb2b994bf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\13b5e6e0a0ed4d7c010ec70eb2b994bf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\ad4cc301b10bd08eced3b95c171a70fe\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\ad4cc301b10bd08eced3b95c171a70fe\AndroidManifest.xml:20:5-44
+MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\butterknife-8.8.1.aar\f7b765df990cc0587c4987f71493bcdf\AndroidManifest.xml:5:5-43
+MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\butterknife-8.8.1.aar\f7b765df990cc0587c4987f71493bcdf\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:multidex:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\6f9c7d74eed6037adee3f60acd54103c\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\6f9c7d74eed6037adee3f60acd54103c\AndroidManifest.xml:20:5-43
+MERGED from [jp.wasabeef:glide-transformations:2.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\glide-transformations-2.0.2.aar\d18fdb56551b1ca7a97059ffdc97005c\AndroidManifest.xml:8:5-10:41
+MERGED from [jp.wasabeef:glide-transformations:2.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\glide-transformations-2.0.2.aar\d18fdb56551b1ca7a97059ffdc97005c\AndroidManifest.xml:8:5-10:41
+MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshLayout-1.0.3.aar\8eafc7517400a23791c69d2e179aa444\AndroidManifest.xml:7:5-9:41
+MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\SmartRefreshLayout-1.0.3.aar\8eafc7517400a23791c69d2e179aa444\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\BaseRecyclerViewAdapterHelper-2.9.34.aar\0ea7ffdcf5643e8fe53b28dd3f9e82db\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\BaseRecyclerViewAdapterHelper-2.9.34.aar\0ea7ffdcf5643e8fe53b28dd3f9e82db\AndroidManifest.xml:7:5-9:41
+MERGED from [me.yokeyword:indexablerecyclerview:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\indexablerecyclerview-1.3.0.aar\ef725b459cec80eb3cc285b7c5917364\AndroidManifest.xml:8:5-11:140
+MERGED from [me.yokeyword:indexablerecyclerview:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\indexablerecyclerview-1.3.0.aar\ef725b459cec80eb3cc285b7c5917364\AndroidManifest.xml:8:5-11:140
+MERGED from [com.ms-square:expandableTextView:0.1.4] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\expandableTextView-0.1.4.aar\b38880c53274c568b0e214c75590b1e1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.ms-square:expandableTextView:0.1.4] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\expandableTextView-0.1.4.aar\b38880c53274c568b0e214c75590b1e1\AndroidManifest.xml:5:5-7:41
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:7:5-9:41
+MERGED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:7:5-9:41
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:6:5-8:41
+MERGED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:6:5-8:41
+MERGED from [com.tencent.bugly:nativecrashreport:3.6.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\nativecrashreport-3.6.0.1.aar\eea8178e12a100997525ce3f0af05f66\AndroidManifest.xml:5:5-7:41
+MERGED from [com.tencent.bugly:nativecrashreport:3.6.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\nativecrashreport-3.6.0.1.aar\eea8178e12a100997525ce3f0af05f66\AndroidManifest.xml:5:5-7:41
+MERGED from [cn.sharesdk:ShareSDK:3.5.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\ShareSDK-3.5.2.aar\27c3c967c3194dc852e67843b149005c\AndroidManifest.xml:7:5-9:41
+MERGED from [cn.sharesdk:ShareSDK:3.5.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\ShareSDK-3.5.2.aar\27c3c967c3194dc852e67843b149005c\AndroidManifest.xml:7:5-9:41
+MERGED from [cn.sharesdk:OneKeyShare:3.5.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\OneKeyShare-3.5.2.aar\0c3af6dff6943ff9765018bb7c1f1e18\AndroidManifest.xml:7:5-9:41
+MERGED from [cn.sharesdk:OneKeyShare:3.5.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\OneKeyShare-3.5.2.aar\0c3af6dff6943ff9765018bb7c1f1e18\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android:flexbox:0.2.6] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\flexbox-0.2.6.aar\0c7de1ff5b8bce20bfe0671a61be7487\AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android:flexbox:0.2.6] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\flexbox-0.2.6.aar\0c7de1ff5b8bce20bfe0671a61be7487\AndroidManifest.xml:23:5-25:41
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\f4d96433fd93a995666f68a43505f9e9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\f4d96433fd93a995666f68a43505f9e9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\ee6a91b4269f1b30d26aca8183710fa7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\ee6a91b4269f1b30d26aca8183710fa7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\6b1e78193af02aa8b75c841fb1132bee\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\6b1e78193af02aa8b75c841fb1132bee\AndroidManifest.xml:20:5-44
+MERGED from [com.github.chrisbanes:PhotoView:2.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\PhotoView-2.0.0.aar\e7788701df6ebc6a68ddcc8a20aa658c\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.chrisbanes:PhotoView:2.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\PhotoView-2.0.0.aar\e7788701df6ebc6a68ddcc8a20aa658c\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\489a25c03b061cdac1a56eed9bb93333\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\489a25c03b061cdac1a56eed9bb93333\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\8640d49425b2f5a685d82ef49346b7d2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\8640d49425b2f5a685d82ef49346b7d2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\e0c06722e23e915046cf86ca550321a9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\e0c06722e23e915046cf86ca550321a9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\7d6ee90797593d14948f0faccd0f9bd4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\7d6ee90797593d14948f0faccd0f9bd4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\decdd190e6be0c320df390303f5b8283\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\decdd190e6be0c320df390303f5b8283\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\ae4e434d7b0477e0cd97f37d7fe7a1c3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\ae4e434d7b0477e0cd97f37d7fe7a1c3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\20bfdbf7a9edf836d5e385b0bc05062c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\20bfdbf7a9edf836d5e385b0bc05062c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\0b4a764a4a028a2d1f91d0e136cab042\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\0b4a764a4a028a2d1f91d0e136cab042\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\dbe9f996342f3af1755e7818d0f7b062\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\dbe9f996342f3af1755e7818d0f7b062\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\65fc5d25c2a527e37f973b300eb75946\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\65fc5d25c2a527e37f973b300eb75946\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\548a68dcf5d78b88e88141724122e8c5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\548a68dcf5d78b88e88141724122e8c5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\80b6c296f0221ba73b6883ad814dab8d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\80b6c296f0221ba73b6883ad814dab8d\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\3af48ee3db82f8b9fe6a34f2968793d9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\3af48ee3db82f8b9fe6a34f2968793d9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\4aeec0396e1c1b90352439af8465fdfe\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\4aeec0396e1c1b90352439af8465fdfe\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\bf1e6d995cc48c316e6e1ff94602d20b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\bf1e6d995cc48c316e6e1ff94602d20b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\03394f83c8971046ce178836cdefcbe3\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\03394f83c8971046ce178836cdefcbe3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\ed6edb4f58f543f1531f99f97a7a9e59\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\ed6edb4f58f543f1531f99f97a7a9e59\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\86f0895dff29f81c9998c71dfae2bf3c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\86f0895dff29f81c9998c71dfae2bf3c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\8bf0861e50c2e391086f49745746dda9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\8bf0861e50c2e391086f49745746dda9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\830857d833f4f19aba94a705f056ef4a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\830857d833f4f19aba94a705f056ef4a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\bbac650660045fbff28e19ecd3ec609f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\bbac650660045fbff28e19ecd3ec609f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\aaf1140afd7ad8ff6b239857807a596e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\aaf1140afd7ad8ff6b239857807a596e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\7028be96a1ec0fb13b83a19e21346373\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\7028be96a1ec0fb13b83a19e21346373\AndroidManifest.xml:20:5-44
+MERGED from [com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\tinypinyin-lexicons-android-cncity-2.0.3.aar\ba23a558da1c7f70abfa93f18f256a20\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\tinypinyin-lexicons-android-cncity-2.0.3.aar\ba23a558da1c7f70abfa93f18f256a20\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.promeg:tinypinyin-android-asset-lexicons:2.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\tinypinyin-android-asset-lexicons-2.0.3.aar\d3e066d96f10c50cb7f288ff7835f19d\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.promeg:tinypinyin-android-asset-lexicons:2.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\tinypinyin-android-asset-lexicons-2.0.3.aar\d3e066d96f10c50cb7f288ff7835f19d\AndroidManifest.xml:7:5-9:41
+INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [me.yokeyword:indexablerecyclerview:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\indexablerecyclerview-1.3.0.aar\ef725b459cec80eb3cc285b7c5917364\AndroidManifest.xml:11:9-137
+	android:targetSdkVersion
+		INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+		INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+		ADDED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+		INJECTED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:11:5-80
+IMPLIED from F:\myGithubApps\Travel\app\src\main\AndroidManifest.xml:2:1-397:12 reason: com.lcw.library.imagepicker requested WRITE_EXTERNAL_STORAGE
+	android:name
+		ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:11:22-77
+uses-permission#android.permission.CAMERA
+ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:13:5-65
+	android:name
+		ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:13:22-62
+activity#com.lcw.library.imagepicker.activity.ImagePickerActivity
+ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:18:9-20:52
+	android:screenOrientation
+		ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:20:13-49
+	android:name
+		ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:19:13-84
+activity#com.lcw.library.imagepicker.activity.ImagePreActivity
+ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:22:9-24:52
+	android:screenOrientation
+		ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:24:13-49
+	android:name
+		ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:23:13-81
+provider#com.lcw.library.imagepicker.provider.ImagePickerProvider
+ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:27:9-35:20
+	android:grantUriPermissions
+		ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:31:13-47
+	android:authorities
+		ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:29:13-60
+	android:exported
+		ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:28:13-84
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:32:13-34:56
+	android:resource
+		ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:34:17-53
+	android:name
+		ADDED from [:imagepicker] F:\myGithubApps\Travel\imagepicker\build\intermediates\manifests\full\release\AndroidManifest.xml:33:17-67
+activity#com.lljjcoder.style.citylist.CityListSelectActivity
+ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:15:9-19:20
+	android:screenOrientation
+		ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:17:13-49
+	android:windowSoftInputMode
+		ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:18:13-71
+	android:name
+		ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:16:13-79
+activity#com.lljjcoder.style.citythreelist.ProvinceActivity
+ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:20:9-24:20
+	android:screenOrientation
+		ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:22:13-49
+	android:windowSoftInputMode
+		ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:23:13-71
+	android:name
+		ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:21:13-78
+activity#com.lljjcoder.style.citythreelist.CityActivity
+ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:25:9-29:20
+	android:screenOrientation
+		ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:27:13-49
+	android:windowSoftInputMode
+		ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:28:13-71
+	android:name
+		ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:26:13-74
+activity#com.lljjcoder.style.citythreelist.AreaActivity
+ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:30:9-34:20
+	android:screenOrientation
+		ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:32:13-49
+	android:windowSoftInputMode
+		ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:33:13-71
+	android:name
+		ADDED from [liji.library.dev:citypickerview:4.2.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\citypickerview-4.2.1.aar\a55d5e8e7232f6fa772f7d3d539ca3ae\AndroidManifest.xml:31:13-74
+uses-library#org.apache.http.legacy
+ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:26:13-50
+activity#com.alipay.sdk.app.H5PayActivity
+ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:29:9-34:20
+	android:screenOrientation
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:33:13-47
+	android:exported
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:32:13-37
+	android:configChanges
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:31:13-74
+	android:name
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:30:13-60
+activity#com.alipay.sdk.app.H5AuthActivity
+ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:35:9-40:20
+	android:screenOrientation
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:39:13-47
+	android:exported
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:38:13-37
+	android:configChanges
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:37:13-74
+	android:name
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:36:13-61
+activity#com.alipay.sdk.app.PayResultActivity
+ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:41:9-51:20
+	android:screenOrientation
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:46:13-49
+	android:launchMode
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:45:13-48
+	android:exported
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:44:13-36
+	android:configChanges
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:43:13-74
+	android:theme
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:47:13-72
+	android:name
+		ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:42:13-64
+intent-filter#category:name:android.intent.category.DEFAULT
+ADDED from [:alipaySdk-15.6.0-20190226104053:] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\alipaySdk-15.6.0-20190226104053.aar\079054466c6645f4a67449c4537be1f8\AndroidManifest.xml:48:13-50:29
+provider#com.tencent.bugly.beta.utils.BuglyFileProvider
+ADDED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:29:9-39:20
+	android:grantUriPermissions
+		ADDED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:33:13-47
+	android:authorities
+		ADDED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:31:13-64
+	android:exported
+		ADDED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:32:13-37
+	tools:replace
+		ADDED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:34:13-74
+	android:name
+		ADDED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:30:13-74
+service#com.tencent.bugly.beta.tinker.TinkerResultService
+ADDED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:41:9-43:40
+	android:exported
+		ADDED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:43:13-37
+	android:name
+		ADDED from [com.tencent.bugly:crashreport_upgrade:1.3.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport_upgrade-1.3.9.aar\49a173e3c94c2160e28b708b44484b29\AndroidManifest.xml:42:13-77

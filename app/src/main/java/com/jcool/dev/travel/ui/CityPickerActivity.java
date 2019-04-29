@@ -19,8 +19,10 @@ import com.jcool.dev.travel.adapter.CYBChangeCityGridViewAdapter;
 import com.jcool.dev.travel.adapter.ContactAdapter;
 import com.jcool.dev.travel.base.BaseActivity;
 import com.jcool.dev.travel.bean.UserEntity;
+import com.jcool.dev.travel.utils.AppConfigStatic;
 import com.jcool.dev.travel.utils.CityUtil;
 import com.jcool.dev.travel.utils.StatusBarUtil;
+import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
 import com.jcool.dev.travel.view.QGridView;
 
@@ -51,6 +53,7 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected int getContentViewId() {
+        StatusBarUtils.setStatusTextColor(true, this);
         StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_pick_contact;
     }
@@ -80,7 +83,7 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
     protected void setListener() {
         ll_dingwei.setOnClickListener(this);
         tv_search.setOnClickListener(this);
-        tv_dingwei.setText(getIntent().getStringExtra("city"));
+        tv_dingwei.setText(AppConfigStatic.APP_AMAP_CITY);
 
     }
 

@@ -89,6 +89,8 @@ public class GoodsBean{
         private long salesBeginTime;
         private String goodsDate;
         private String goodsName;
+        private String headImg;
+        private String state;
         private long salesEndTime;
 
         public int getStockSize() {
@@ -115,12 +117,28 @@ public class GoodsBean{
             this.salesPrice = salesPrice;
         }
 
+        public String getState() {
+            return state;
+        }
+
+        public void setState(String state) {
+            this.state = state;
+        }
+
         public String getIsOnline() {
             return isOnline;
         }
 
         public void setIsOnline(String isOnline) {
             this.isOnline = isOnline;
+        }
+
+        public String getHeadImg() {
+            return headImg;
+        }
+
+        public void setHeadImg(String headImg) {
+            this.headImg = headImg;
         }
 
         public String getId() {

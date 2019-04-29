@@ -18,6 +18,7 @@ import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.TravelInfoBean;
 import com.jcool.dev.travel.iactivityview.CalendarActivityView;
 import com.jcool.dev.travel.persenter.CalendarActivityPresenter;
+import com.jcool.dev.travel.utils.AppConfigStatic;
 import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.StatusBarUtil;
 import com.jcool.dev.travel.utils.StatusBarUtils;
@@ -210,10 +211,10 @@ public class CalendarActivity extends BaseActivity implements View.OnClickListen
                 tv_number_xiaohai.setText(xiaojia + "");
                 getMoney();
                 break;
-            case R.id.tv_call_phone:
-                callPhone(getUserPhone());
+            case R.id.tv_phone:
+                callPhone(AppConfigStatic.APP_SERVICE_PHONE);
                 break;
-            case R.id.tv_chat:
+            case R.id.tv_message:
                 Intent intentChat = new Intent(this, WebviewDefulitActivity.class);
                 intentChat.putExtra("loadUrl", "http://p.qiao.baidu.com/cps/chatIndex");
                 intentChat.putExtra("title", "在线客服");

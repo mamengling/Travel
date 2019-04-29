@@ -52,13 +52,15 @@ public class VisaCommitActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mVisaCommitActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<List<VisaTargetInfo>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<VisaTargetInfo>>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<List<VisaTargetInfo>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<VisaTargetInfo>>>() {
+                    }.getType());
                     mVisaCommitActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mVisaCommitActivityView.excuteFailedCallBack(mCallBackVo);
+                    mVisaCommitActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
             }
 
             @Override
@@ -94,12 +96,14 @@ public class VisaCommitActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mVisaCommitActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mVisaCommitActivityView.excuteSuccessAddCallBack(mCallBackVo);
                 } else {
-                    mVisaCommitActivityView.excuteFailedCallBack(mCallBackVo);
+                    mVisaCommitActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 

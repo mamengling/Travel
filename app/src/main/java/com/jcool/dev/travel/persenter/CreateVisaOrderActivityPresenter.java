@@ -50,13 +50,15 @@ public class CreateVisaOrderActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mCreateVisaOrderActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<List<PersonInfoBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<PersonInfoBean>>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<List<PersonInfoBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<PersonInfoBean>>>() {
+                    }.getType());
                     mCreateVisaOrderActivityView.excuteSuccessPersonCallBack(mCallBackVo);
                 } else {
-                    mCreateVisaOrderActivityView.excuteFailedCallBack(mCallBackVo);
+                    mCreateVisaOrderActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
             }
 
             @Override
@@ -92,13 +94,15 @@ public class CreateVisaOrderActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mCreateVisaOrderActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mCreateVisaOrderActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mCreateVisaOrderActivityView.excuteFailedCallBack(mCallBackVo);
+                    mCreateVisaOrderActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
             }
 
             @Override

@@ -46,12 +46,15 @@ public class SetPasswordActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mSetPasswordActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mSetPasswordActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mSetPasswordActivityView.excuteFailedCallBack(mCallBackVo);
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
+                    mSetPasswordActivityView.excuteFailedRegieterCallBack(mCallBackVo);
                 }
             }
 
@@ -89,12 +92,55 @@ public class SetPasswordActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mSetPasswordActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mSetPasswordActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mSetPasswordActivityView.excuteFailedCallBack(mCallBackVo);
+                    mSetPasswordActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mSetPasswordActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mSetPasswordActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+   public void setFindPasword() {
+        mSetPasswordActivityView.showProgress();
+        HttpUtil.post(mContext,Constants.BASE_URL + Constants.APP_HOME_API_USER_UPDATE_PASS_WORD_FIND_PASSWORD, mSetPasswordActivityView.getParamenters(), new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mSetPasswordActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mSetPasswordActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mSetPasswordActivityView.closeProgress();
+                Gson gson = new Gson();
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
+                    mSetPasswordActivityView.excuteSuccessCallBack(mCallBackVo);
+                } else {
+                    mSetPasswordActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 

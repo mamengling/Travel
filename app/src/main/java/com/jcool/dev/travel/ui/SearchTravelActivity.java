@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.adapter.HistoryAdapter;
-import com.jcool.dev.travel.adapter.HomeTabGoodsAdapter;
 import com.jcool.dev.travel.adapter.SearchTravelListAdapter;
 import com.jcool.dev.travel.base.BaseActivity;
 import com.jcool.dev.travel.bean.CallBackVo;
@@ -122,12 +121,19 @@ public class SearchTravelActivity extends BaseActivity implements View.OnClickLi
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+//                if (TextUtils.isEmpty(search_info)) {
+//                    setHistoryLayout();
+//                    recycler_view_history.setVisibility(View.VISIBLE);
+//                    recycler_view.setVisibility(View.GONE);
+//                    relative.setVisibility(View.VISIBLE);
+//                    line_history.setVisibility(View.VISIBLE);
+//                    relative_no.setVisibility(View.GONE);
+//                }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                search_info = title_bar1_edt.getText().toString();
+                search_info = title_bar1_edt.getText().toString().trim();
                 if (TextUtils.isEmpty(search_info)) {
                     setHistoryLayout();
                 } else {
@@ -136,6 +142,7 @@ public class SearchTravelActivity extends BaseActivity implements View.OnClickLi
                         list.add(search_info);
                         ZxSharedPre.getInstance(SearchTravelActivity.this).setListInfo(list, "searchHis");
                     }
+
                 }
             }
         });
@@ -152,6 +159,9 @@ public class SearchTravelActivity extends BaseActivity implements View.OnClickLi
                         line_history.setVisibility(View.GONE);
                         recycler_view.setVisibility(View.VISIBLE);
                         mPresenter.journeyGoodsSales(Constants.APP_HOME_API_JOURNEY_GOODS_QUERY);
+                    } else {
+                        ToastUtils.showShortToast("请输入搜索内容");
+
                     }
                     return true;
                 }

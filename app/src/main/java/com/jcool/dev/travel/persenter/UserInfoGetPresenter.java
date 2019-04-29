@@ -89,12 +89,12 @@ public class UserInfoGetPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mUserInfoGetView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<UserInfo.UserInfoBean.SysUserBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<UserInfo.UserInfoBean.SysUserBean>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<UserInfo.UserInfoBean.SysUserBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<UserInfo.UserInfoBean.SysUserBean>>() {
+                    }.getType());
                     mUserInfoGetView.excuteSuccessUserCallBack(mCallBackVo);
                 } else {
-                    mUserInfoGetView.excuteFailedCallBack(mCallBackVo);
+                    mUserInfoGetView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -131,11 +131,11 @@ public class UserInfoGetPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mUserInfoGetView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo mCallBackVo = gson.fromJson(result, CallBackVo.class);
-                if (mCallBackVo.isSuccess()) {
-                    mUserInfoGetView.excuteSuccessUpdateCallBack(mCallBackVo);
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+
+                    mUserInfoGetView.excuteSuccessUpdateCallBack(AppUtils.getFailure(gson, result));
                 } else {
-                    mUserInfoGetView.excuteFailedCallBack(mCallBackVo);
+                    mUserInfoGetView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 

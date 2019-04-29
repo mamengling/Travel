@@ -32,7 +32,6 @@ import com.jcool.dev.travel.ui.CityPickerActivity;
 import com.jcool.dev.travel.ui.CompanyVipActivity;
 import com.jcool.dev.travel.ui.PersonVipActivity;
 import com.jcool.dev.travel.ui.SearchTravelActivity;
-import com.jcool.dev.travel.ui.TravelDefuiltActivity;
 import com.jcool.dev.travel.ui.TravelListActivity;
 import com.jcool.dev.travel.ui.TravelViseActivity;
 import com.jcool.dev.travel.ui.WebviewDefulitActivity;
@@ -189,9 +188,9 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
         fixedGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), TravelDefuiltActivity.class);
-                intent.putExtra("travelId", goodsList.get(position).getGoodsId());
-                getContext().startActivity(intent);
+//                Intent intent = new Intent(getContext(), TravelDefuiltActivity.class);
+//                intent.putExtra("travelId", goodsList.get(position).getGoodsId());
+//                getContext().startActivity(intent);
             }
         });
 
@@ -232,7 +231,6 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
                 startActivity(intent);
                 break;
             case R.id.icon_right:
-                // TODO: 2019/4/3 消息
 //                Intent intentMess = new Intent(getContext(), MessageListActivity.class);
 //                startActivity(intentMess);
                 Intent intentChat = new Intent(getContext(), WebviewDefulitActivity.class);
@@ -241,7 +239,6 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
                 startActivity(intentChat);
                 break;
             case R.id.icon_back:
-                // TODO: 2019/4/3 打电话
                 initPersonPicker();
                 break;
             case R.id.btn_go_out:
@@ -391,7 +388,7 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
         StringBean bean = new StringBean();
         bean.setTypeId(1);
         bean.setTitle("客服热线");
-        bean.setContent("400-666-6666");
+        bean.setContent(AppConfigStatic.APP_SERVICE_PHONE);
         list.add(bean);
         StringBean bean2 = new StringBean();
         bean2.setTypeId(2);

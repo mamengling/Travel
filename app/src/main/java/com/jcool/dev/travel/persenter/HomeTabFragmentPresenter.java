@@ -5,7 +5,6 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jcool.dev.travel.bean.CallBackVo;
-import com.jcool.dev.travel.bean.GoodsBean;
 import com.jcool.dev.travel.bean.TravelBean;
 import com.jcool.dev.travel.iactivityview.HomeTabFragmentView;
 import com.jcool.dev.travel.utils.AppUtils;
@@ -49,13 +48,15 @@ public class HomeTabFragmentPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mTabView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<TravelBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<TravelBean>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<TravelBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<TravelBean>>() {
+                    }.getType());
                     mTabView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mTabView.excuteFailedCallBack(mCallBackVo);
+                    mTabView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
             }
 
             @Override

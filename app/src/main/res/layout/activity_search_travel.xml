@@ -30,7 +30,7 @@
                 android:drawableLeft="@mipmap/icon_search_edt_right"
                 android:drawablePadding="5dp"
                 android:gravity="center_vertical"
-                android:hint="搜索"
+                android:hint="请输入关键字"
                 android:imeOptions="actionSearch"
                 android:maxLines="1"
                 android:padding="5dp"

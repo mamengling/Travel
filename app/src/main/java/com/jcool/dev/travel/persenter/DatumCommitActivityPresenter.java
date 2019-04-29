@@ -49,13 +49,16 @@ public class DatumCommitActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mDatumCommitActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mDatumCommitActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mDatumCommitActivityView.excuteFailedCallBack(mCallBackVo);
+                    mDatumCommitActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
+
             }
 
             @Override

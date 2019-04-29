@@ -20,7 +20,6 @@ import com.jcool.dev.travel.utils.StatusBarUtil;
 import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
 import com.jcool.dev.travel.view.MianChangeInputPicker;
-import com.jcool.dev.travel.view.VisaChangeInputPicker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -301,7 +300,7 @@ public class AddPersonActivity extends BaseActivity implements View.OnClickListe
                 } else if (TextUtils.equals("儿童", tamp)) {
                     tv_age.setText(tamp);
                     custAge = "02";
-                } else {
+                } else if (TextUtils.equals("成人", tamp)) {
                     tv_age.setText(tamp);
                     custAge = "03";
                 }
@@ -314,7 +313,7 @@ public class AddPersonActivity extends BaseActivity implements View.OnClickListe
         // 不允许滚动动画
         agePicker.setCanShowAnim(false);
         agePicker.setTitle("年龄段");
-        agePicker.show(agrType[0]);
+        agePicker.show(TextUtils.isEmpty(tv_age.getText().toString()) ?agrType[0] : tv_age.getText().toString());
     }
 
     private void initPersonPicker() {
@@ -322,15 +321,19 @@ public class AddPersonActivity extends BaseActivity implements View.OnClickListe
         personPicker = new MianChangeInputPicker(this, new MianChangeInputPicker.Callback() {
             @Override
             public void onSelected(String tamp, int index) {
-                tv_person_type.setText(tamp);
+
                 if (TextUtils.equals("在职", tamp)) {
                     custType = "01";
+                    tv_person_type.setText(tamp);
                 } else if (TextUtils.equals("在校学生", tamp)) {
                     custType = "02";
+                    tv_person_type.setText(tamp);
                 } else if (TextUtils.equals("退休", tamp)) {
                     custType = "03";
+                    tv_person_type.setText(tamp);
                 } else if (TextUtils.equals("学龄儿童", tamp)) {
                     custType = "04";
+                    tv_person_type.setText(tamp);
                 }
             }
         }, mPersonUnits);
@@ -341,7 +344,7 @@ public class AddPersonActivity extends BaseActivity implements View.OnClickListe
         // 不允许滚动动画
         personPicker.setCanShowAnim(false);
         personPicker.setTitle("客户类型");
-        personPicker.show(personType[0]);
+        personPicker.show(TextUtils.isEmpty(tv_person_type.getText().toString()) ? personType[0] : tv_person_type.getText().toString());
     }
 
     private void initCardPicker() {
@@ -349,11 +352,13 @@ public class AddPersonActivity extends BaseActivity implements View.OnClickListe
         cardPicker = new MianChangeInputPicker(this, new MianChangeInputPicker.Callback() {
             @Override
             public void onSelected(String tamp, int index) {
-                tv_card_type.setText(tamp);
+
                 if (TextUtils.equals("护照", tamp)) {
                     certType = "PASSPORT";
+                    tv_card_type.setText(tamp);
                 } else if (TextUtils.equals("身份证", tamp)) {
                     certType = "ID";
+                    tv_card_type.setText(tamp);
                 }
             }
         }, mCardUnits);
@@ -364,7 +369,7 @@ public class AddPersonActivity extends BaseActivity implements View.OnClickListe
         // 不允许滚动动画
         cardPicker.setCanShowAnim(false);
         cardPicker.setTitle("证件类型");
-        cardPicker.show(cardType[0]);
+        cardPicker.show(TextUtils.isEmpty(tv_card_type.getText().toString()) ?cardType[0] : tv_card_type.getText().toString());
     }
 
 }

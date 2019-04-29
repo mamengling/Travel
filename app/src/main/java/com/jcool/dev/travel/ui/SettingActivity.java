@@ -10,12 +10,17 @@ import android.widget.TextView;
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.base.BaseActivity;
 import com.jcool.dev.travel.utils.ActivityCollector;
+import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.StatusBarUtil;
 import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.tencent.qq.QQ;
+import cn.sharesdk.wechat.friends.Wechat;
 
 public class SettingActivity extends BaseActivity implements View.OnClickListener {
     @BindView(R.id.btn_login_out)
@@ -59,7 +64,11 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initData() {
-
+        try {
+            tv_clear.setText(AppUtils.getTotalCacheSize(this));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -76,14 +85,25 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             case R.id.btn_login_out:
                 loginOut();
                 ToastUtils.showShortToast("已退出");
+                Platform platWechat = ShareSDK.getPlatform(Wechat.NAME);
+                platWechat.removeAccount(true);
+                Platform platQQ = ShareSDK.getPlatform(QQ.NAME);
+                platQQ.removeAccount(true);
                 finish();
                 break;
             case R.id.tv_acc:
-                Intent intent = new Intent(this, AccMangerActivity.class);
-                startActivity(intent);
+                if (isLogin()) {
+                    Intent intent = new Intent(this, AccMangerActivity.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(this, LoginActivity.class);
+                    startActivity(intent);
+                }
                 break;
             case R.id.tv_clear:
+                AppUtils.clearAllCache(this);
                 ToastUtils.showShortToast("操作成功");
+                tv_clear.setText("0M");
                 break;
         }
     }

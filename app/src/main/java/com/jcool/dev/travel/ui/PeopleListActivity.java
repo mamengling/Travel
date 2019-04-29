@@ -140,6 +140,7 @@ public class PeopleListActivity extends BaseActivity implements View.OnClickList
     @Override
     public void excuteFailedCallBack(CallBackVo mCallBackVo) {
         ToastUtils.showShortToast(mCallBackVo.getMsg());
+        refreshLayout.finishRefresh();
     }
 
     @Override
@@ -147,6 +148,7 @@ public class PeopleListActivity extends BaseActivity implements View.OnClickList
         if (mCallBackVo.getData() != null && mCallBackVo.getData().size() > 0) {
             mAdapter.onReference(mCallBackVo.getData());
         }
+        refreshLayout.finishRefresh();
     }
 
     @Override

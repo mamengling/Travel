@@ -130,6 +130,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         SharePreferenceUtil.setValue(this, AppConfigStatic.USER_SEX, info.getSex());
         SharePreferenceUtil.setValue(this, AppConfigStatic.USER_CITY, info.getCity());
         SharePreferenceUtil.setValue(this, AppConfigStatic.USER_AVATAR, info.getAvatar());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.QQ_AVATAR, info.getQqAvatar());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.WX_AVATAR, info.getWxAvatar());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.USER_ABOUT, info.getAboutUrl());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.VISA_SHARE, info.getShareVisa());
+        SharePreferenceUtil.setValue(this, AppConfigStatic.TRAVEL_SHARE, info.getShareGoods());
 
     }
 
@@ -242,6 +247,46 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected String getWxOpenid() {
         if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.WX_OPEN_ID, ""))) {
             return SharePreferenceUtil.getString(this, AppConfigStatic.WX_OPEN_ID, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getQqAvatar() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.QQ_AVATAR ,""))) {
+            return SharePreferenceUtil.getString(this, AppConfigStatic.QQ_AVATAR, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getWxAvatar() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.WX_AVATAR, ""))) {
+            return SharePreferenceUtil.getString(this, AppConfigStatic.WX_AVATAR, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getShareVisa() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.VISA_SHARE, ""))) {
+            return SharePreferenceUtil.getString(this, AppConfigStatic.VISA_SHARE, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getShareGoods() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.TRAVEL_SHARE, ""))) {
+            return SharePreferenceUtil.getString(this, AppConfigStatic.TRAVEL_SHARE, "");
+        } else {
+            return null;
+        }
+    }
+
+    protected String getAboutUrl() {
+        if (!TextUtils.isEmpty(SharePreferenceUtil.getString(this, AppConfigStatic.USER_ABOUT, ""))) {
+            return SharePreferenceUtil.getString(this, AppConfigStatic.USER_ABOUT, "");
         } else {
             return null;
         }

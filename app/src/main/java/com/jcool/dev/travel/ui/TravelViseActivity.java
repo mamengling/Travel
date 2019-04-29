@@ -27,12 +27,10 @@ import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.VisaBean;
 import com.jcool.dev.travel.iactivityview.TravelViseActivityView;
 import com.jcool.dev.travel.persenter.TravelViseActivityPresenter;
-import com.jcool.dev.travel.utils.Constants;
 import com.jcool.dev.travel.utils.DividerItemDecoration;
 import com.jcool.dev.travel.utils.StatusBarUtil;
 import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
-import com.jcool.dev.travel.utils.ZxSharedPre;
 import com.jcool.dev.travel.view.DropDownMenu;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -50,7 +48,8 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
     private DropDownMenu mDropDownMenu;
     private EditText edt_search;
     private RelativeLayout relative_no;
-    private String headers[] = {"综合排序", "常用送签地"};
+//    private String headers[] = {"综合排序", "常用送签地"};
+    private String headers[] = {"综合排序"};
     private List<View> popupViews = new ArrayList<>();
     private String topArr[] = {"综合排序", "近期销量最高", "价格从高到低", "价格从低到高"};
     private String topArrId[] = {"", "01", "02", "03"};
@@ -68,6 +67,7 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
     private int intNumber = 0;
     private int intHandler = 101;
     private String keyName = "";
+    private String regionSort="";
 
     @Override
     protected int getContentViewId() {
@@ -79,6 +79,7 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void getExtra() {
         keyName = getIntent().getStringExtra("keyName");
+        regionSort = getIntent().getStringExtra("regionSort");
     }
 
     @Override
@@ -102,7 +103,7 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
         //init popupViews
         popupViews.clear();
         popupViews.add(listView);
-        popupViews.add(listViewPlice);
+//        popupViews.add(listViewPlice);
 
         //add item click event
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -264,7 +265,7 @@ public class TravelViseActivity extends BaseActivity implements View.OnClickList
         try {
             object.put("pageIndex", intNumber);
             object.put("pageSize", 10);
-            object.put("regionSort", "");//目的地id
+            object.put("regionSort", regionSort);//目的地id
             object.put("targetPlace", keyName);//目的地名称
             object.put("commonPlace", commonPlace);//常用送签地
             object.put("sort", sort);//排序（01：销量；02价格由高到低；03价格由低到高）

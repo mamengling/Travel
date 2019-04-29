@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="F:\myGithubApps\Travel\app\src\main\shaders"/></dataSet><dataSet config="yy360"><source path="F:\myGithubApps\Travel\app\src\yy360\shaders"/></dataSet><dataSet config="release"><source path="F:\myGithubApps\Travel\app\src\release\shaders"/></dataSet><dataSet config="yy360Release"><source path="F:\myGithubApps\Travel\app\src\yy360Release\shaders"/></dataSet></merger>

@@ -26,7 +26,6 @@ public class CollectionGoodsFragmentPresenter {
     }
 
 
-
     public void getCollectionTravelList(String token) {
         mCollectionGoodsFragmentView.showProgress();
         HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_TRAVEL_COLLECTION, token, mCollectionGoodsFragmentView.getParamenters(), new AsyncHttpResponseHandler() {
@@ -49,13 +48,15 @@ public class CollectionGoodsFragmentPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mCollectionGoodsFragmentView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<TravelBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<TravelBean>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<TravelBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<TravelBean>>() {
+                    }.getType());
                     mCollectionGoodsFragmentView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mCollectionGoodsFragmentView.excuteFailedCallBack(mCallBackVo);
+                    mCollectionGoodsFragmentView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
             }
 
             @Override

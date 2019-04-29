@@ -49,12 +49,12 @@ public class SearchTravelActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mSearchTravelActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<TravelBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<TravelBean>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<TravelBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<TravelBean>>() {
+                    }.getType());
                     mSearchTravelActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mSearchTravelActivityView.excuteFailedCallBack(mCallBackVo);
+                    mSearchTravelActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 

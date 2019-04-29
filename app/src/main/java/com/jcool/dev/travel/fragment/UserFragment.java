@@ -25,7 +25,6 @@ import com.jcool.dev.travel.ui.PeopleListActivity;
 import com.jcool.dev.travel.ui.SettingActivity;
 import com.jcool.dev.travel.ui.UserInfoActivity;
 import com.jcool.dev.travel.ui.VisaCommitActivity;
-import com.jcool.dev.travel.ui.WebviewDefulitActivity;
 import com.jcool.dev.travel.ui.YijianDefulitActivity;
 import com.jcool.dev.travel.utils.ImageLoaderUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
@@ -46,7 +45,8 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
     private IconAdapter mAdapterIcon;
     private ListIconAdapter mAdapterIconList;
     private String iconArr[] = {"全部订单", "待付款", "待出行", "待评价"};
-    private String listArr[] = {"常用联系人", "我的收藏", "浏览历史", "关于我们", "意见反馈", "其他渠道签证资料提交"};
+//    private String listArr[] = {"常用联系人", "我的收藏", "浏览历史", "关于我们", "意见反馈", "其他渠道签证资料提交"};
+    private String listArr[] = {"常用联系人", "我的收藏", "浏览历史",  "意见反馈", "其他渠道签证资料提交"};
     private int iconImage[] = {R.mipmap.icon_order_logo_all, R.mipmap.icon_order_logo_dfk, R.mipmap.icon_order_logo_dcx, R.mipmap.icon_order_logo_dpj};
     private int iconBg[] = {R.drawable.x_image_icon_bg_round_yellow, R.drawable.x_image_icon_bg_round_red, R.drawable.x_image_icon_bg_round_green, R.drawable.x_image_icon_bg_round_blue};
     private List<HomeIconBean> mListIcon;
@@ -163,6 +163,12 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
         fixedGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (!isLogin()) {
+                    Intent intentLogin = new Intent(getContext(), LoginActivity.class);
+                    intentLogin.putExtra("", "");
+                    getContext().startActivity(intentLogin);
+                    return;
+                }
                 Intent intent = new Intent(getContext(), OrderTabActivity.class);
                 intent.putExtra("number", position);
                 startActivity(intent);
@@ -171,6 +177,12 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
         itemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (!isLogin()) {
+                    Intent intentLogin = new Intent(getContext(), LoginActivity.class);
+                    intentLogin.putExtra("", "");
+                    getContext().startActivity(intentLogin);
+                    return;
+                }
                 switch (position) {
                     case 0:
                         Intent intent = new Intent(getContext(), PeopleListActivity.class);//联系人
@@ -184,17 +196,17 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
                         Intent intentH = new Intent(getContext(), MianhisToryActivity.class);//浏览历史
                         startActivity(intentH);
                         break;
+//                    case 3:
+//                        Intent intentYj = new Intent(getContext(), WebviewDefulitActivity.class);
+//                        intentYj.putExtra("loadUrl", getAboutUrl());
+//                        intentYj.putExtra("title", "关于我们");
+//                        startActivity(intentYj);
+//                        break;
                     case 3:
-                        Intent intentYj = new Intent(getContext(), WebviewDefulitActivity.class);
-                        intentYj.putExtra("loadUrl", "http://www.baidu.com");
-                        intentYj.putExtra("title", "意见反馈");
-                        startActivity(intentYj);
-                        break;
-                    case 4:
                         Intent intentMess = new Intent(getContext(), YijianDefulitActivity.class);//意见反馈
                         startActivity(intentMess);
                         break;
-                    case 5:
+                    case 4:
                         Intent intentCommit = new Intent(getContext(), VisaCommitActivity.class);//其他渠道
                         startActivity(intentCommit);
                         break;

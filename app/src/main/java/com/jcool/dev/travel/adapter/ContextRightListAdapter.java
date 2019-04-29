@@ -12,14 +12,11 @@ import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.bean.DestinationBean;
-import com.jcool.dev.travel.bean.TravelBean;
 import com.jcool.dev.travel.utils.ImageLoaderUtils;
+import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class ContextRightListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<DestinationBean.SecondPlaceBean> data = new ArrayList<>();
@@ -27,6 +24,7 @@ public class ContextRightListAdapter extends RecyclerView.Adapter<RecyclerView.V
     public static int VIEW_TYPE_TITLE = 101;
     public static int VIEW_TYPE_ONLY_CITY_NAME = 102;
     public static int VIEW_TYPE_IMAGE_NAME = 103;
+    private ConstmOnItemOnclickListener<String> mOnItemClickListener;
 
     public ContextRightListAdapter(Context mContext) {
         this.mContext = mContext;
@@ -75,20 +73,37 @@ public class ContextRightListAdapter extends RecyclerView.Adapter<RecyclerView.V
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, final int position) {
         if (getItemViewType(position) == 2) {
             ((ViewImageHolder) viewHolder).tvTitle.setText(data.get(position).getPlaceName());
-            ImageLoaderUtils.showImageView(mContext, data.get(position).getPlaceImage(), ((ViewImageHolder) viewHolder).image_city_head, R.mipmap.icon_home_banner);
+            ImageLoaderUtils.showImageViewToRoundedCorners(mContext, data.get(position).getPlaceImage(), ((ViewImageHolder) viewHolder).image_city_head, R.mipmap.icon_home_banner, R.mipmap.icon_home_banner);
+            ((ViewImageHolder) viewHolder).tvTitle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(((ViewImageHolder) viewHolder).tvTitle, position, 0, 0, data.get(position).getPlaceName());
+                }
+            });
         } else if (getItemViewType(position) == 3) {
             ((ViewTitleHolder) viewHolder).tvTitle.setText(data.get(position).getPlaceName());
         } else {
             ((ViewNameHolder) viewHolder).tvTitle.setText(data.get(position).getPlaceName());
+            ((ViewNameHolder) viewHolder).tvTitle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.clickItem(((ViewNameHolder) viewHolder).tvTitle, position, 0, 0, data.get(position).getPlaceName());
+                }
+            });
         }
+
     }
 
     @Override
     public int getItemCount() {
         return data.size();
+    }
+
+    public List<DestinationBean.SecondPlaceBean> getList() {
+        return data;
     }
 
 
@@ -119,5 +134,9 @@ public class ContextRightListAdapter extends RecyclerView.Adapter<RecyclerView.V
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tv_name);
         }
+    }
+
+    public void setOnItemClickListener(ConstmOnItemOnclickListener<String> listener) {
+        this.mOnItemClickListener = listener;
     }
 }

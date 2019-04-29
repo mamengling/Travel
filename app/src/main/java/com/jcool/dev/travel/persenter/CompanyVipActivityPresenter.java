@@ -46,12 +46,14 @@ public class CompanyVipActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mCompanyVipActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo mCallBackVo = gson.fromJson(result, CallBackVo.class);
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo mCallBackVo = gson.fromJson(result, CallBackVo.class);
                     mCompanyVipActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mCompanyVipActivityView.excuteFailedCallBack(mCallBackVo);
+                    mCompanyVipActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
             }
 
             @Override

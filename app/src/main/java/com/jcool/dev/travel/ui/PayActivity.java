@@ -1,13 +1,11 @@
 package com.jcool.dev.travel.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +16,7 @@ import android.widget.Toast;
 import com.alipay.sdk.app.PayTask;
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.base.BaseActivity;
+import com.jcool.dev.travel.base.OrderInfoPayYL;
 import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.OrderInfoPay;
 import com.jcool.dev.travel.bean.OrderInfoPayWx;
@@ -31,6 +30,7 @@ import com.tencent.mm.opensdk.constants.Build;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import com.unionpay.UPPayAssistEx;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -57,16 +57,22 @@ public class PayActivity extends BaseActivity implements View.OnClickListener, P
     ImageView image_weixin;
     @BindView(R.id.image_alipay)
     ImageView image_alipay;
+    @BindView(R.id.image_yinlian)
+    ImageView image_yinlian;
     @BindView(R.id.line_weixin)
     LinearLayout line_weixin;
     @BindView(R.id.line_alipay)
     LinearLayout line_alipay;
+    @BindView(R.id.line_yinlian)
+    LinearLayout line_yinlian;
     private String money;
     private int payType = 1;
     private String goodsName;
     private String totalAmount;
     private String outOrderNo;
     private String productType;
+    private String tn;
+    private final String mMode = "00";
 
     @Override
     protected int getContentViewId() {
@@ -101,6 +107,7 @@ public class PayActivity extends BaseActivity implements View.OnClickListener, P
         icon_title_back.setOnClickListener(this);
         line_weixin.setOnClickListener(this);
         line_alipay.setOnClickListener(this);
+        line_yinlian.setOnClickListener(this);
         btn_commit.setOnClickListener(this);
     }
 
@@ -151,19 +158,30 @@ public class PayActivity extends BaseActivity implements View.OnClickListener, P
             case R.id.line_weixin:
                 image_weixin.setImageResource(R.mipmap.icon_pay_change);
                 image_alipay.setImageResource(R.color.white);
+                image_yinlian.setImageResource(R.color.white);
                 payType = 2;
                 break;
             case R.id.line_alipay:
                 payType = 1;
                 image_alipay.setImageResource(R.mipmap.icon_pay_change);
                 image_weixin.setImageResource(R.color.white);
+                image_yinlian.setImageResource(R.color.white);
+                break;
+            case R.id.line_yinlian:
+                payType = 3;
+                image_yinlian.setImageResource(R.mipmap.icon_pay_change);
+                image_weixin.setImageResource(R.color.white);
+                image_alipay.setImageResource(R.color.white);
                 break;
             case R.id.btn_commit:
                 if (payType == 2) {
-                    ToastUtils.showShortToast("微信支付");
+//                    ToastUtils.showShortToast("微信支付");
                     mPresenter.createPreWXOrder();
+                } else if (payType == 3) {
+//                    ToastUtils.showShortToast("银联支付");
+                    mPresenter.createPreYLOrder();
                 } else {
-                    ToastUtils.showShortToast("支付宝支付");
+//                    ToastUtils.showShortToast("支付宝支付");
                     mPresenter.createPreOrder();
                 }
                 break;
@@ -249,6 +267,15 @@ public class PayActivity extends BaseActivity implements View.OnClickListener, P
         wechatPay(this, mCallBackVo.getData());
     }
 
+    @Override
+    public void excuteSuccessYlCallBack(CallBackVo<OrderInfoPayYL> mCallBackVo) {
+        tn = mCallBackVo.getData().getTn();
+        yinLPay();
+    }
+
+    private void yinLPay() {
+        UPPayAssistEx.startPay(this, null, null, tn, mMode);
+    }
 
     /**
      * 把支付信息提交给微信插件完成支付
@@ -277,5 +304,36 @@ public class PayActivity extends BaseActivity implements View.OnClickListener, P
         }
         api.sendReq(payReq);
         Toast.makeText(context, "正在加载,请稍后...", Toast.LENGTH_SHORT).show();
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        /*************************************************
+         * 步骤3：处理银联手机支付控件返回的支付结果
+         ************************************************/
+        if (data == null) {
+            return;
+        }
+        String msg = "";
+        /*
+         * 支付控件返回字符串:success、fail、cancel 分别代表支付成功，支付失败，支付取消
+         */
+        String str = data.getExtras().getString("pay_result");
+        if (str.equalsIgnoreCase("success")) {
+
+            // 如果想对结果数据验签，可使用下面这段代码，但建议不验签，直接去商户后台查询交易结果
+            // result_data结构见c）result_data参数说明
+            if (data.hasExtra("result_data")) {
+                // 结果result_data为成功时，去商户后台查询一下再展示成功
+                msg = "支付成功！";
+            } else if (str.equalsIgnoreCase("fail")) {
+                msg = "支付失败！";
+            } else if (str.equalsIgnoreCase("cancel")) {
+                msg = "用户取消了支付";
+            }
+            ToastUtils.showShortToast(msg);
+            finish();
+        }
     }
 }

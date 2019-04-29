@@ -49,12 +49,13 @@ public class RegisterActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mRegisterActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mRegisterActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mRegisterActivityView.excuteFailedCallBack(mCallBackVo);
+                    mRegisterActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -91,12 +92,13 @@ public class RegisterActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mRegisterActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mRegisterActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mRegisterActivityView.excuteFailedCallBack(mCallBackVo);
+                    mRegisterActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -133,12 +135,14 @@ public class RegisterActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mRegisterActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<CodeBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<CodeBean>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<CodeBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<CodeBean>>() {
+                    }.getType());
                     mRegisterActivityView.excuteSuccessCodeCallBack(mCallBackVo);
                 } else {
-                    mRegisterActivityView.excuteFailedCallBack(mCallBackVo);
+                    mRegisterActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -175,12 +179,10 @@ public class RegisterActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mRegisterActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
-                    mRegisterActivityView.excuteSuccessCallBack(mCallBackVo);
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    mRegisterActivityView.excuteSuccessCallBack(AppUtils.getFailure(gson, result));
                 } else {
-                    mRegisterActivityView.excuteFailedCallBack(mCallBackVo);
+                    mRegisterActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -217,12 +219,11 @@ public class RegisterActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mRegisterActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
-                    mRegisterActivityView.excuteSuccessUpdateCallBack(mCallBackVo);
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    mRegisterActivityView.excuteSuccessUpdateCallBack(AppUtils.getFailure(gson, result));
                 } else {
-                    mRegisterActivityView.excuteFailedCallBack(mCallBackVo);
+                    mRegisterActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 

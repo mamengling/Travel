@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.jcool.dev.travel.R;
@@ -14,8 +15,8 @@ import com.jcool.dev.travel.bean.TravelBean;
 import com.jcool.dev.travel.iactivityview.HomeTabFragmentView;
 import com.jcool.dev.travel.persenter.HomeTabFragmentPresenter;
 import com.jcool.dev.travel.ui.TravelDefuiltActivity;
-import com.jcool.dev.travel.utils.DividerItemDecoration;
-import com.jcool.dev.travel.view.rollviewpage.OnItemClickListener;
+import com.jcool.dev.travel.ui.TravelListActivity;
+import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,6 +55,7 @@ public class HomeTabFragment extends BaseFragment implements HomeTabFragmentView
         isDomestic = getArguments().getString("isDomestic", "");
         aroundCity = getArguments().getString("aroundCity", "");
     }
+
     @Override
     protected void initView(View view) {
         recycler_view_tab = view.findViewById(R.id.mRecyclerView);
@@ -74,13 +76,34 @@ public class HomeTabFragment extends BaseFragment implements HomeTabFragmentView
         mAdapter = new HomeTabGoodsAdapter(getActivity());
         //设置adapter
         recycler_view_tab.setAdapter(mAdapter);
-        mAdapter.setOnItemClickListener(new OnItemClickListener() {
+        mAdapter.setOnItemClickListener(new ConstmOnItemOnclickListener() {
             @Override
-            public void onItemClick(int position) {
-                Intent intent = new Intent(getContext(), TravelDefuiltActivity.class);
-                intent.putExtra("travelId", mList.get(position).getId());
-                getContext().startActivity(intent);
+            public void clickItem(View view, int position, int positionChild, int ClickType, Object content) {
+                switch (ClickType) {
+                    case 1:
+                        if (TextUtils.equals("N", isDomestic)) {
+                            Intent intent3 = new Intent(getContext(), TravelListActivity.class);
+                            intent3.putExtra("number", 1);
+                            startActivity(intent3);
+                        } else if (TextUtils.equals("Y", isDomestic)) {
+                            Intent intent3 = new Intent(getContext(), TravelListActivity.class);
+                            intent3.putExtra("number", 2);
+                            startActivity(intent3);
+                        }else {
+                            Intent intent3 = new Intent(getContext(), TravelListActivity.class);
+                            intent3.putExtra("number", 3);
+                            startActivity(intent3);
+                        }
+                        break;
+                    case 0:
+                        Intent intent = new Intent(getContext(), TravelDefuiltActivity.class);
+                        intent.putExtra("travelId", (String) content);
+                        getContext().startActivity(intent);
+
+                        break;
+                }
             }
+
         });
     }
 

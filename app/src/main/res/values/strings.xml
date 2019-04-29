@@ -1,15 +1,15 @@
 <resources>
-    <string name="app_name">旅游app</string>
-    <string name="title_home">首页</string>
-    <string name="title_dashboard">目的地</string>
-    <string name="title_notifications">签证</string>
-    <string name="title_user">我的</string>
+    <string name="app_name" translatable="false">中青国旅</string>
+    <string name="title_home" translatable="false">首页</string>
+    <string name="title_dashboard" translatable="false">目的地</string>
+    <string name="title_notifications" translatable="false">签证</string>
+    <string name="title_user" translatable="false">我的</string>
 
 
     <item name="main_content_recursion_limit" type="id" />
     <item name="statusbarutil_fake_status_bar_view" type="id" />
     <item name="statusbarutil_translucent_view" type="id" />
-    <item name="statusbar_view" type="id"/>
-    <item name="translucent_view" type="id"/>
+    <item name="statusbar_view" type="id" />
+    <item name="translucent_view" type="id" />
 
 </resources>

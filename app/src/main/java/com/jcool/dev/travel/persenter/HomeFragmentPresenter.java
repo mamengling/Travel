@@ -52,12 +52,13 @@ public class HomeFragmentPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 fragmentView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<List<BannerBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<ArrayList<BannerBean>>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<List<BannerBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<ArrayList<BannerBean>>>() {
+                    }.getType());
                     fragmentView.excuteSuccessCallBack(mCallBackVo, null);
                 } else {
-                    fragmentView.excuteFailedCallBack(mCallBackVo);
+                    fragmentView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -94,13 +95,15 @@ public class HomeFragmentPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 fragmentView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<GoodsBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<GoodsBean>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<GoodsBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<GoodsBean>>() {
+                    }.getType());
                     fragmentView.excuteSuccessCallBack(null, mCallBackVo);
                 } else {
-                    fragmentView.excuteFailedCallBack(mCallBackVo);
+                    fragmentView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
             }
 
             @Override

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="F:\myGithubApps\Travel\app\src\main\shaders"/></dataSet><dataSet config="wo"><source path="F:\myGithubApps\Travel\app\src\wo\shaders"/></dataSet><dataSet config="release"><source path="F:\myGithubApps\Travel\app\src\release\shaders"/></dataSet><dataSet config="woRelease"><source path="F:\myGithubApps\Travel\app\src\woRelease\shaders"/></dataSet></merger>

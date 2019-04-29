@@ -28,11 +28,9 @@ public class OtherTabFragmentPresenter {
     }
 
 
-
-
-    public void getOrderList(String url,String token) {
+    public void getOrderList(String url, String token) {
         mOtherTabFragmentView.showProgress();
-        HttpUtil.post(mContext, Constants.BASE_URL + url,token ,mOtherTabFragmentView.getParamenters(), new AsyncHttpResponseHandler() {
+        HttpUtil.post(mContext, Constants.BASE_URL + url, token, mOtherTabFragmentView.getParamenters(), new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -52,13 +50,14 @@ public class OtherTabFragmentPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mOtherTabFragmentView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<List<OrderInfoOthBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<OrderInfoOthBean>>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<List<OrderInfoOthBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<OrderInfoOthBean>>>() {
+                    }.getType());
                     mOtherTabFragmentView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mOtherTabFragmentView.excuteFailedCallBack(mCallBackVo);
+                    mOtherTabFragmentView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
             }
 
             @Override

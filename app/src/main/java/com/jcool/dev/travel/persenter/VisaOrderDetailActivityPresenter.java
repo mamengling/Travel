@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jcool.dev.travel.bean.CallBackVo;
-import com.jcool.dev.travel.bean.DataImageInfo;
 import com.jcool.dev.travel.bean.GroupBean;
 import com.jcool.dev.travel.bean.VisaOrderInfo;
 import com.jcool.dev.travel.iactivityview.VisaOrderDetailActivityView;
@@ -143,12 +142,13 @@ public class VisaOrderDetailActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mVisaOrderDetailActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mVisaOrderDetailActivityView.excuteSuccessOrderCallBack(mCallBackVo);
                 } else {
-                    mVisaOrderDetailActivityView.excuteFailedCallBack(mCallBackVo);
+                    mVisaOrderDetailActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -185,12 +185,12 @@ public class VisaOrderDetailActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mVisaOrderDetailActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mVisaOrderDetailActivityView.excuteSuccessOrderCallBack(mCallBackVo);
                 } else {
-                    mVisaOrderDetailActivityView.excuteFailedCallBack(mCallBackVo);
+                    mVisaOrderDetailActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 

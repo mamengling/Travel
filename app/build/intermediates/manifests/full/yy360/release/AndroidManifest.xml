@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.jcool.dev.travel" android:versionName="1.0" android:versionCode="1">
+  <uses-sdk android:targetSdkVersion="28" android:minSdkVersion="16"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <supports-screens android:anyDensity="true" android:normalScreens="true" android:smallScreens="true" android:resizeable="true" android:largeScreens="true"/>
+  <uses-permission android:name="android.permission.READ_LOGS"/>
+  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.CAMERA"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <application android:supportsRtl="true" android:label="@string/app_name" android:name="com.jcool.dev.travel.base.BaseApplication" android:theme="@style/AppTheme" android:appComponentFactory="android.support.v4.app.CoreComponentFactory" android:icon="@mipmap/icon_logo_app" android:allowBackup="true" android:usesCleartextTraffic="true" android:roundIcon="@mipmap/icon_logo_app">
+    <meta-data android:name="com.amap.api.v2.apikey" android:value="26b8008b4fe67ec8081ebc3d7e99ab17"/>
+    <service android:name="com.amap.api.location.APSService"/>
+    <activity android:label="@string/app_name" android:name="com.jcool.dev.travel.ui.MainActivity" android:theme="@style/AppTheme.NoActionBar">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity android:name="com.tencent.bugly.beta.ui.BetaActivity" android:configChanges="keyboardHidden|orientation|screenSize|locale" android:theme="@android:style/Theme.Translucent"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.CityPickerActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.TravelListActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.SearchAddressActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.TravelViseActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.VisaInfoActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.TravelInfoActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.SettingActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.RegisterActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.SetPasswordActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.UserInfoActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.EdtUserInfoActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.FindPswActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.FindPswCodeActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.TravelDefuiltActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.VisaDefuiltActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.CalendarActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.VisaDataActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.CompanyVipActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.PersonVipActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.VisaHotActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.VisaCommitActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.HisToryVisaActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.LoginActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.AddPersonActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.VisaOrderDetailActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.OtherOrderDetailActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.TravelOrderDetailActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.DatumCommitActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.OrderTabActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.WebviewDefulitActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.PayActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.MessageListActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.OrderEvaluateActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.CreateVisaOrderActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.CreateTravelOrderActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.SearchLocationActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.SearchTravelActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.PeopleListActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.CollectionActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.MianhisToryActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.YijianDefulitActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.AccMangerActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.SetPhoneActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.InputPhoneActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.InputCodeActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.RePasswordActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.SearchKeyActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden" android:name="com.jcool.dev.travel.ui.TravelSalesActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:launchMode="singleTop" android:name="com.jcool.dev.travel.wxapi.WXPayEntryActivity" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:scheme="wx578788a34a385bc4"/>
+      </intent-filter>
+    </activity>
+    <activity android:name="com.lcw.library.imagepicker.activity.ImagePickerActivity" android:screenOrientation="portrait"/>
+    <activity android:name="com.lcw.library.imagepicker.activity.ImagePreActivity" android:screenOrientation="portrait"/>
+    <provider android:name="com.lcw.library.imagepicker.provider.ImagePickerProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.jcool.dev.travel.provider">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/image_picker"/>
+    </provider>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateUnchanged" android:name="com.lljjcoder.style.citylist.CityListSelectActivity"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateUnchanged" android:name="com.lljjcoder.style.citythreelist.ProvinceActivity"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateUnchanged" android:name="com.lljjcoder.style.citythreelist.CityActivity"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateUnchanged" android:name="com.lljjcoder.style.citythreelist.AreaActivity"/>
+    <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+    <activity android:screenOrientation="behind" android:name="com.alipay.sdk.app.H5PayActivity" android:configChanges="orientation|keyboardHidden|navigation" android:exported="false"/>
+    <activity android:screenOrientation="behind" android:name="com.alipay.sdk.app.H5AuthActivity" android:configChanges="orientation|keyboardHidden|navigation" android:exported="false"/>
+    <activity android:screenOrientation="portrait" android:launchMode="singleInstance" android:name="com.alipay.sdk.app.PayResultActivity" android:configChanges="orientation|keyboardHidden|navigation" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="true">
+      <intent-filter>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <provider android:name="com.tencent.bugly.beta.utils.BuglyFileProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.jcool.dev.travel.fileProvider">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+    </provider>
+    <service android:name="com.tencent.bugly.beta.tinker.TinkerResultService" android:exported="false"/>
+    <provider android:name="com.mob.MobProvider" android:exported="false" android:authorities="com.jcool.dev.travel.com.mob.MobProvider" android:multiprocess="true"/>
+    <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppKey" android:value="2aaec8d30608a" tools:node="merge"/>
+    <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppSeret" android:value="460d5a6ebee7e37b8951fd77e5d895dd" tools:node="merge"/>
+    <activity xmlns:tools="http://schemas.android.com/tools" android:windowSoftInputMode="stateHidden|adjustResize" android:name="com.mob.tools.MobUIShell" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" tools:node="merge"/>
+    <activity android:launchMode="singleTask" android:name="cn.sharesdk.tencent.qq.ReceiveActivity" android:noHistory="true">
+      <intent-filter>
+        <data android:scheme="tencent101551149"/>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+      </intent-filter>
+    </activity>
+    <activity xmlns:tools="http://schemas.android.com/tools" android:name="cn.sharesdk.wechat.utils.WechatHandlerActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" tools:node="merge"/>
+    <activity-alias xmlns:tools="http://schemas.android.com/tools" android:name="com.jcool.dev.travel.wxapi.WXEntryActivity" android:exported="true" android:targetActivity="cn.sharesdk.wechat.utils.WechatHandlerActivity" tools:node="merge"/>
+  </application>
+  <uses-permission android:name="android.permission.GET_TASKS"/>
+  <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+  <uses-permission android:name="android.permission.BLUETOOTH"/>
+  <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+</manifest>

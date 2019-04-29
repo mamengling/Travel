@@ -5,7 +5,6 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jcool.dev.travel.bean.CallBackVo;
-import com.jcool.dev.travel.bean.TravelInfoBean;
 import com.jcool.dev.travel.iactivityview.YijianDefulitActivityView;
 import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.Constants;
@@ -13,8 +12,6 @@ import com.jcool.dev.travel.utils.HttpUtil;
 import com.jcool.dev.travel.utils.log.LogUtil;
 import com.jcool.dev.travel.utils.log.klog.JsonLog;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-
-import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -50,12 +47,13 @@ public class YijianDefulitActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mYijianDefulitActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mYijianDefulitActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mYijianDefulitActivityView.excuteFailedCallBack(mCallBackVo);
+                    mYijianDefulitActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 

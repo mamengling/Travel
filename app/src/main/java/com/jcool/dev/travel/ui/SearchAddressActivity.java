@@ -1,7 +1,7 @@
 package com.jcool.dev.travel.ui;
 
-import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -19,7 +19,8 @@ import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.adapter.ListAdapter;
 import com.jcool.dev.travel.base.BaseActivity;
 import com.jcool.dev.travel.utils.CityUtil;
-import com.jcool.dev.travel.view.ItemListView;
+import com.jcool.dev.travel.utils.StatusBarUtil;
+import com.jcool.dev.travel.utils.StatusBarUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,8 @@ public class SearchAddressActivity extends BaseActivity {
 
     @Override
     protected int getContentViewId() {
+        StatusBarUtils.setStatusTextColor(true, this);
+        StatusBarUtil.setColor(this, Color.parseColor("#ffffff"));
         return R.layout.activity_search;
     }
 

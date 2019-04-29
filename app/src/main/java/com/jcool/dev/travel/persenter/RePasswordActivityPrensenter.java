@@ -3,8 +3,6 @@ package com.jcool.dev.travel.persenter;
 import android.content.Context;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.iactivityview.RePasswordActivityView;
 import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.Constants;
@@ -48,12 +46,11 @@ public class RePasswordActivityPrensenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mRePasswordActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
-                    mRePasswordActivityView.excuteSuccessCallBack(mCallBackVo);
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    mRePasswordActivityView.excuteSuccessCallBack(AppUtils.getFailure(gson, result));
                 } else {
-                    mRePasswordActivityView.excuteFailedCallBack(mCallBackVo);
+                    mRePasswordActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 

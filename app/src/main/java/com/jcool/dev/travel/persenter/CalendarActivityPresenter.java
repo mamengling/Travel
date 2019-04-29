@@ -50,12 +50,12 @@ public class CalendarActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mCalendarActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<List<TravelInfoBean.GoodsAndDateBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<TravelInfoBean.GoodsAndDateBean>>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<List<TravelInfoBean.GoodsAndDateBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<TravelInfoBean.GoodsAndDateBean>>>() {
+                    }.getType());
                     mCalendarActivityView.excuteSuccessGoodsCallBack(mCallBackVo);
                 } else {
-                    mCalendarActivityView.excuteFailedCallBack(mCallBackVo);
+                    mCalendarActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -69,7 +69,8 @@ public class CalendarActivityPresenter {
             }
         });
     }
-  public void journeyTravelTime(String id) {
+
+    public void journeyTravelTime(String id) {
         mCalendarActivityView.showProgress();
         HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_TRAVEL_TIME_LIST, mCalendarActivityView.getParamenters(), new AsyncHttpResponseHandler() {
             @Override
@@ -91,13 +92,15 @@ public class CalendarActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mCalendarActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<List<TravelInfoBean.GoodsAndDateBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<TravelInfoBean.GoodsAndDateBean>>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<List<TravelInfoBean.GoodsAndDateBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<TravelInfoBean.GoodsAndDateBean>>>() {
+                    }.getType());
                     mCalendarActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mCalendarActivityView.excuteFailedCallBack(mCallBackVo);
+                    mCalendarActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
+
             }
 
             @Override

@@ -103,7 +103,11 @@ public class InputPhoneActivity extends BaseActivity implements View.OnClickList
             ToastUtils.showShortToast("请输入正确的手机号");
             return;
         }
-        mPresenter.registerGetCode(mPhone);
+//        mPresenter.registerGetCode(mPhone);
+        Intent intent = new Intent(this, InputCodeActivity.class);
+        intent.putExtra("flag", 101);
+        intent.putExtra("phone", mPhone);
+        startActivity(intent);
 
     }
 

@@ -17,6 +17,7 @@ import com.jcool.dev.travel.bean.PersonInfoBean;
 import com.jcool.dev.travel.bean.TravelOrderInfoAdd;
 import com.jcool.dev.travel.iactivityview.CreateTravelOrderActivityView;
 import com.jcool.dev.travel.persenter.CreateTravelOrderActivityPresenter;
+import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.StatusBarUtil;
 import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.utils.ToastUtils;
@@ -151,8 +152,16 @@ public class CreateTravelOrderActivity extends BaseActivity implements View.OnCl
             ToastUtils.showShortToast("请输入手机号");
             return;
         }
+        if (!AppUtils.isMobile(phoneNumber)) {
+            ToastUtils.showShortToast("请输入正确手机号");
+            return;
+        }
         if (TextUtils.isEmpty(emailNumber)) {
             ToastUtils.showShortToast("请输入电子邮箱");
+            return;
+        }
+        if (!AppUtils.isEmail(emailNumber)) {
+            ToastUtils.showShortToast("请输入正确邮箱");
             return;
         }
         mPresenter.addTravelOrder(getToken());

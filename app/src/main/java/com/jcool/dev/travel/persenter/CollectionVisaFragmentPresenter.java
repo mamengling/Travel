@@ -5,8 +5,6 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jcool.dev.travel.bean.CallBackVo;
-import com.jcool.dev.travel.bean.OrderTravelInfoBean;
-import com.jcool.dev.travel.bean.TravelBean;
 import com.jcool.dev.travel.bean.VisaBean;
 import com.jcool.dev.travel.iactivityview.CollectionVisaFragmentView;
 import com.jcool.dev.travel.utils.AppUtils;
@@ -50,13 +48,16 @@ public class CollectionVisaFragmentPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mCollectionVisaFragmentView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<VisaBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<VisaBean>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<VisaBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<VisaBean>>() {
+                    }.getType());
                     mCollectionVisaFragmentView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mCollectionVisaFragmentView.excuteFailedCallBack(mCallBackVo);
+                    mCollectionVisaFragmentView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
             }
 
             @Override

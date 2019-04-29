@@ -1,5 +1,6 @@
 package com.jcool.dev.travel.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,8 +24,11 @@ import com.jcool.dev.travel.bean.CityBean;
 import com.jcool.dev.travel.bean.DestinationBean;
 import com.jcool.dev.travel.iactivityview.DestinationFragmentView;
 import com.jcool.dev.travel.persenter.DestinationFragmentPresenter;
+import com.jcool.dev.travel.ui.SearchTravelActivity;
+import com.jcool.dev.travel.ui.TravelListActivity;
 import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.UiUtil;
+import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -43,7 +46,7 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
     private TitleLiftListAdapter mAdapter;
     private ContextRightListAdapter mAdapterRight;
     private TextView icon_back;
-    private EditText edt_search;
+    private TextView edt_search;
     private ImageView image_top;
     private ListView list_item;
     private RecyclerView recycler_view;
@@ -106,10 +109,18 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
                 }
             }
         });
-
         recycler_view.setLayoutManager(manager);
 
         recycler_view.setAdapter(mAdapterRight);
+        mAdapterRight.setOnItemClickListener(new ConstmOnItemOnclickListener<String>() {
+            @Override
+            public void clickItem(View view, int position, int positionChild, int ClickType, String content) {
+                Intent intent3 = new Intent(getContext(), TravelListActivity.class);
+                intent3.putExtra("number", 3);
+                intent3.putExtra("city", mAdapterRight.getList().get(position).getPlaceName());
+                startActivity(intent3);
+            }
+        });
     }
 
     @Override
@@ -135,6 +146,13 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
                     mList.addAll(mGroupList.get(position).getSecondPlace());
                     mAdapterRight.onReference(mList);
                 }
+            }
+        });
+        edt_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentS = new Intent(getContext(), SearchTravelActivity.class);
+                startActivity(intentS);
             }
         });
     }
@@ -170,6 +188,7 @@ public class DestinationFragment extends BaseFragment implements DestinationFrag
 //        initOnlineData();
         this.mCallBackVo = mCallBackVo;
         if (mCallBackVo != null) {
+            mGroupList.clear();
             mGroupList.addAll(mCallBackVo);
             uiHandler.sendEmptyMessage(101);
         }

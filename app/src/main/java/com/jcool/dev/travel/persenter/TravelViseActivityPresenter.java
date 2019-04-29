@@ -5,7 +5,6 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jcool.dev.travel.bean.CallBackVo;
-import com.jcool.dev.travel.bean.TravelBean;
 import com.jcool.dev.travel.bean.VisaBean;
 import com.jcool.dev.travel.iactivityview.TravelViseActivityView;
 import com.jcool.dev.travel.utils.AppUtils;
@@ -48,12 +47,13 @@ public class TravelViseActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mDataView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<VisaBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<VisaBean>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<VisaBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<VisaBean>>() {
+                    }.getType());
                     mDataView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mDataView.excuteFailedCallBack(mCallBackVo);
+                    mDataView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 

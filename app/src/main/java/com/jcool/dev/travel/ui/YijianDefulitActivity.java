@@ -101,6 +101,7 @@ public class YijianDefulitActivity extends BaseActivity implements View.OnClickL
         JSONObject object = new JSONObject();
         try {
             object.put("feedback", feedback);
+            object.put("userId", getUserId());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -124,7 +125,7 @@ public class YijianDefulitActivity extends BaseActivity implements View.OnClickL
 
     @Override
     public void excuteSuccessCallBack(CallBackVo<String> mCallBackVo) {
-        ToastUtils.showShortToast(mCallBackVo.getMsg());
+        ToastUtils.showShortToast("提交成功");
         finish();
     }
 }

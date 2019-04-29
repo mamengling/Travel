@@ -19,7 +19,7 @@ import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
-public class CreateTravelOrderActivityPresenter{
+public class CreateTravelOrderActivityPresenter {
     private CreateTravelOrderActivityView mCreateTravelOrderActivityView;
     private Context mContext;
 
@@ -50,12 +50,12 @@ public class CreateTravelOrderActivityPresenter{
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mCreateTravelOrderActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<List<PersonInfoBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<PersonInfoBean>>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<List<PersonInfoBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<PersonInfoBean>>>() {
+                    }.getType());
                     mCreateTravelOrderActivityView.excuteSuccessPersonCallBack(mCallBackVo);
                 } else {
-                    mCreateTravelOrderActivityView.excuteFailedCallBack(mCallBackVo);
+                    mCreateTravelOrderActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -69,12 +69,6 @@ public class CreateTravelOrderActivityPresenter{
             }
         });
     }
-
-
-
-
-
-
 
 
     public void addTravelOrder(String token) {
@@ -99,12 +93,13 @@ public class CreateTravelOrderActivityPresenter{
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mCreateTravelOrderActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<TravelOrderInfoAdd> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<TravelOrderInfoAdd>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<TravelOrderInfoAdd> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<TravelOrderInfoAdd>>() {
+                    }.getType());
                     mCreateTravelOrderActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mCreateTravelOrderActivityView.excuteFailedCallBack(mCallBackVo);
+                    mCreateTravelOrderActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 

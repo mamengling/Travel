@@ -5,7 +5,6 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jcool.dev.travel.bean.CallBackVo;
-import com.jcool.dev.travel.bean.VisaInfoDtoList;
 import com.jcool.dev.travel.iactivityview.AddPersonActivityView;
 import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.Constants;
@@ -13,8 +12,6 @@ import com.jcool.dev.travel.utils.HttpUtil;
 import com.jcool.dev.travel.utils.log.LogUtil;
 import com.jcool.dev.travel.utils.log.klog.JsonLog;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-
-import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -30,7 +27,7 @@ public class AddPersonActivityPresenter {
 
     public void addPerson(String token) {
         mAddPersonActivityView.showProgress();
-        HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_COSTOMER_PERSON_ADD,token ,mAddPersonActivityView.getParamenters(), new AsyncHttpResponseHandler() {
+        HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_COSTOMER_PERSON_ADD, token, mAddPersonActivityView.getParamenters(), new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -50,12 +47,12 @@ public class AddPersonActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mAddPersonActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mAddPersonActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mAddPersonActivityView.excuteFailedCallBack(mCallBackVo);
+                    mAddPersonActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -92,13 +89,15 @@ public class AddPersonActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mAddPersonActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mAddPersonActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mAddPersonActivityView.excuteFailedCallBack(mCallBackVo);
+                    mAddPersonActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
+
             }
 
             @Override

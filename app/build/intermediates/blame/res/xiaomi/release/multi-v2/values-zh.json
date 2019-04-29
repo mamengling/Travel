@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "F:\\myGithubApps\\Travel\\app\\build\\intermediates\\incremental\\mergeXiaomiReleaseResources\\merged.dir\\values-zh\\values-zh.xml",
+            "map": [
+                {
+                    "source": "F:\\myGithubApps\\Travel\\calendarview\\build\\intermediates\\packaged_res\\release\\values-zh\\values-zh.xml",
+                    "from": {
+                        "startLines": "2,16,48,62,81,107,111,120,129,130,131,132,133,134,135,136",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,410,1186,1542,2095,2728,2842,3099,3324,3377,3411,3445,3479,3513,3547,3581",
+                        "endLines": "15,47,61,80,106,110,119,128,129,130,131,132,133,134,135,136",
+                        "endColumns": "19,19,19,19,19,19,19,19,52,33,33,33,33,33,33,33",
+                        "endOffsets": "405,1181,1537,2090,2723,2837,3094,3319,3372,3406,3440,3474,3508,3542,3576,3610"
+                    }
+                }
+            ]
+        }
+    ]
+}

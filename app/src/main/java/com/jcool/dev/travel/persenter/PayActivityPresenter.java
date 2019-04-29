@@ -4,10 +4,10 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.jcool.dev.travel.base.OrderInfoPayYL;
 import com.jcool.dev.travel.bean.CallBackVo;
 import com.jcool.dev.travel.bean.OrderInfoPay;
 import com.jcool.dev.travel.bean.OrderInfoPayWx;
-import com.jcool.dev.travel.bean.UserInfo;
 import com.jcool.dev.travel.iactivityview.PayActivityView;
 import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.Constants;
@@ -52,12 +52,13 @@ public class PayActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mPayActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<OrderInfoPay> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<OrderInfoPay>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<OrderInfoPay> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<OrderInfoPay>>() {
+                    }.getType());
                     mPayActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mPayActivityView.excuteFailedCallBack(mCallBackVo);
+                    mPayActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -96,13 +97,64 @@ public class PayActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mPayActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<OrderInfoPayWx> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<OrderInfoPayWx>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<OrderInfoPayWx> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<OrderInfoPayWx>>() {
+                    }.getType());
                     mPayActivityView.excuteSuccessWxCallBack(mCallBackVo);
                 } else {
-                    mPayActivityView.excuteFailedCallBack(mCallBackVo);
+                    mPayActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                LogUtil.i("Http", "-----------------" + statusCode + "");
+                LogUtil.i("Http", "-----------------" + error.getMessage() + "");
+                mPayActivityView.closeProgress();
+                JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
+                mPayActivityView.excuteFailedCallBack(AppUtils.getFailure());
+            }
+        });
+    }
+
+
+
+    /**
+     * 创建支付宝预订单
+     */
+    public void createPreYLOrder() {
+        mPayActivityView.showProgress();
+        HttpUtil.post(mContext, Constants.BASE_URL + Constants.APP_HOME_API_WX_CREATE_PRE_ORDER_YINLIAN, mPayActivityView.getParamenters(), new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                mPayActivityView.showProgress();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                mPayActivityView.closeProgress();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String result = new String(responseBody);
+                LogUtil.i("Http", result);
+                JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
+                mPayActivityView.closeProgress();
+                Gson gson = new Gson();
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<OrderInfoPayYL> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<OrderInfoPayYL>>() {
+                    }.getType());
+                    mPayActivityView.excuteSuccessYlCallBack(mCallBackVo);
+                } else {
+                    mPayActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
+                }
+
             }
 
             @Override

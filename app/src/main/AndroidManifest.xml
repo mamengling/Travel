@@ -16,6 +16,14 @@
     <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+    <!--<!— 如果选择智能卡方式(即sdkPro)集成，需要额外定义以下权限 –>-->
+    <uses-permission
+        android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission
+        android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission
+        android:name="org.simalliance.openmobileapi.SMARTCARD" />
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -36,13 +44,14 @@
         android:roundIcon="@mipmap/icon_logo_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:name"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:replace="android:name">
 
+        <uses-library android:name="org.simalliance.openmobileapi" android:required="false"/>
 
         <!--<meta-data-->
-            <!--android:name="UMENG_CHANNEL"-->
-            <!--android:value="${UMENG_CHANNEL_VALUE}" />-->
+        <!--android:name="UMENG_CHANNEL"-->
+        <!--android:value="${UMENG_CHANNEL_VALUE}" />-->
         <!--高德地图-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
@@ -347,6 +356,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.TravelSalesActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
         <!-- 微信支付的界面 -->
         <activity
             android:name=".wxapi.WXPayEntryActivity"
@@ -358,6 +373,24 @@
                 <data android:scheme="wx578788a34a385bc4" />
             </intent-filter>
         </activity>
+
+
+        <!--银联支付-->
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name="com.unionpay.UPPayWapActivity"
+            android:configChanges="orientation|keyboardHidden|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"></activity>
+
+
     </application>
 
 

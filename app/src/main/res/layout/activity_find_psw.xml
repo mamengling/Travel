@@ -68,6 +68,7 @@
             android:background="@color/white"
             android:hint="请输入手机号"
             android:padding="5dp"
+            android:inputType="phone"
             android:textColor="@color/text_black"
             android:textSize="@dimen/textsize_7" />
     </LinearLayout>

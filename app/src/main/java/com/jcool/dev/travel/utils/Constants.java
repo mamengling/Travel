@@ -114,6 +114,10 @@ public class Constants {
      */
     public static final String APP_HOME_API_LOGIN = "api/front/login";
     /**
+     * WX登录
+     */
+    public static final String APP_HOME_API_WX_LOGIN = "api/front/wxLogin";
+    /**
      * 验证码登录
      */
     public static final String APP_HOME_API_LOGIN_CODE = "api/front/login/byPhone";
@@ -173,6 +177,10 @@ public class Constants {
      * 创建微信预订单
      */
     public static final String APP_HOME_API_WX_CREATE_PRE_ORDER = "api/pay/wxpay/createPreOrder";
+    /**
+     * 创建银联预订单
+     */
+    public static final String APP_HOME_API_WX_CREATE_PRE_ORDER_YINLIAN = "api/pay/unionPay/createPreOrder";
     /**
      * 前端分页查询个人签证订单
      */
@@ -240,5 +248,13 @@ public class Constants {
     /**
      * updatePassword
      */
-    public static final String APP_HOME_API_USER_UPDATE_PASS_WORD = "/api/user/password";
+    public static final String APP_HOME_API_USER_UPDATE_PASS_WORD = "api/user/password";
+    /**
+     * updatePassword
+     */
+    public static final String APP_HOME_API_USER_UPDATE_PASS_WORD_FIND_PASSWORD = "api/user/findPassword";
+    /**
+     * 热门签证
+     */
+    public static final String APP_HOME_API_USER_GOODS_HOT_GOODSINFO_QUERY = "api/goodsHot/goodsHotInfo/query/";
 }

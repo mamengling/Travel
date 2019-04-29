@@ -146,10 +146,10 @@ public class PersonVipActivity extends BaseActivity implements View.OnClickListe
             ToastUtils.showShortToast("请输入出行人数");
             return;
         }
-        if (TextUtils.isEmpty(money)) {
-            ToastUtils.showShortToast("请输入预算金额");
-            return;
-        }
+//        if (TextUtils.isEmpty(money)) {
+//            ToastUtils.showShortToast("请输入预算金额");
+//            return;
+//        }
         if (TextUtils.isEmpty(other)) {
             ToastUtils.showShortToast("请输入其他需求");
             return;
@@ -179,7 +179,7 @@ public class PersonVipActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void excuteSuccessCallBack(CallBackVo mCallBackVo) {
-        ToastUtils.showShortToast(mCallBackVo.getMsg());
+        ToastUtils.showShortToast("提交成功");
         finish();
     }
 

@@ -213,11 +213,15 @@ public class VisaOrderDetailActivity extends BaseActivity implements View.OnClic
             visaId = mCallBackVo.getData().getVisaId();
             if (TextUtils.equals("01", mCallBackVo.getData().getOrderStatus())) {
                 tv_order_status.setText("已审核");
+                tv_btn_right.setText("已审核");
             } else if (TextUtils.equals("02", mCallBackVo.getData().getOrderStatus())) {
                 tv_order_status.setText("已退审");
+                tv_btn_right.setText("已退审");
             } else {
                 tv_order_status.setText("待审核");
+                tv_btn_right.setText("待审核");
             }
+
             if (TextUtils.equals("13", mCallBackVo.getData().getOrderStatus())) {
                 tv_order_status.setText("已经取消");
 

@@ -15,18 +15,17 @@ import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.adapter.VisaInfoViewAdapter;
 import com.jcool.dev.travel.base.BaseActivity;
 import com.jcool.dev.travel.bean.CallBackVo;
-import com.jcool.dev.travel.bean.PersonInfoBean;
-import com.jcool.dev.travel.bean.StringBean;
+import com.jcool.dev.travel.bean.GoodsHistoryBean;
 import com.jcool.dev.travel.bean.TravelInfoBean;
 import com.jcool.dev.travel.bean.VisaInfoBean;
 import com.jcool.dev.travel.bean.VisaInfoBeanView;
 import com.jcool.dev.travel.iactivityview.VisaInfoActivityView;
 import com.jcool.dev.travel.persenter.VisaInfoActivityPresenter;
-import com.jcool.dev.travel.utils.AppUtils;
+import com.jcool.dev.travel.store.GoodsHisDB;
+import com.jcool.dev.travel.utils.AppConfigStatic;
 import com.jcool.dev.travel.utils.StatusBarUtil;
 import com.jcool.dev.travel.utils.StatusBarUtils;
 import com.jcool.dev.travel.view.ConstmChangeSpecPicker;
-import com.jcool.dev.travel.view.ConstmChangeStringPicker;
 import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 import com.jcool.dev.travel.view.ConstmSharePicker;
 import com.jcool.dev.travel.view.group.GroupItemDecoration;
@@ -53,7 +52,7 @@ import cn.sharesdk.wechat.friends.Wechat;
 import cn.sharesdk.wechat.moments.WechatMoments;
 
 public class VisaDefuiltActivity extends BaseActivity implements View.OnClickListener, VisaInfoActivityView, PlatformActionListener {
-
+    private GoodsHisDB goodsHisDB;
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
     @BindView(R.id.icon_title_back)
@@ -106,15 +105,17 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     protected void initTools() {
+        goodsHisDB = new GoodsHisDB(this);
         mPresenter = new VisaInfoActivityPresenter(this, this);
         icon_title.setText("签证详情");
-        icon_right.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.mipmap.icon_share_visa_info_right), null);
+//        icon_right.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.mipmap.icon_share_visa_info_right), null);
+        icon_right.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
     }
 
     @Override
     protected void setListener() {
         icon_title_back.setOnClickListener(this);
-        icon_right.setOnClickListener(this);
+//        icon_right.setOnClickListener(this);
         btn_to_pay.setOnClickListener(this);
         tv_collect.setOnClickListener(this);
         tv_chat.setOnClickListener(this);
@@ -199,7 +200,7 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
                 }
                 break;
             case R.id.tv_call_phone:
-                callPhone(getUserPhone());
+                callPhone(AppConfigStatic.APP_SERVICE_PHONE);
                 break;
             case R.id.tv_chat:
                 Intent intentChat = new Intent(this, WebviewDefulitActivity.class);
@@ -238,9 +239,15 @@ public class VisaDefuiltActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void excuteSuccessCallBack(CallBackVo<VisaInfoBean> mCallBackVo) {
-
-
         if (mCallBackVo != null && mCallBackVo.getData() != null) {
+            GoodsHistoryBean goodsHistoryBean = new GoodsHistoryBean();
+            goodsHistoryBean.setId(visaId);
+            goodsHistoryBean.setImage(mCallBackVo.getData().getVisaImage());
+            goodsHistoryBean.setName(mCallBackVo.getData().getVisaName());
+            goodsHistoryBean.setMoney(mCallBackVo.getData().getVisaPrice() + "");
+            goodsHistoryBean.setDays(mCallBackVo.getData().getValidityDate());
+            goodsHistoryBean.setType("102");
+            goodsHisDB.saveDbBean(goodsHistoryBean);
             this.mCallBackVo = mCallBackVo;
             data.clear();
             VisaInfoBeanView infoBeanView = new VisaInfoBeanView();

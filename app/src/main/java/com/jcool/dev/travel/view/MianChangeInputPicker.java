@@ -144,6 +144,7 @@ public class MianChangeInputPicker implements View.OnClickListener, PickerView.O
 
         // 弹窗时，考虑用户体验，不展示滚动动画
         if (setSelected(dateStr, true)) {
+            textChange = dateStr;
             mPickerDialog.show();
         }
     }

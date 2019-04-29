@@ -95,6 +95,11 @@ public class UserInfo {
             private String wxOpenid;
             private String qqOpenid;
             private String birthday;
+            private String qqAvatar;
+            private String wxAvatar;
+            private String aboutUrl;
+            private String shareVisa;
+            private String shareGoods;
             private String sex;
             private String city;
 
@@ -208,6 +213,46 @@ public class UserInfo {
 
             public void setCity(String city) {
                 this.city = city;
+            }
+
+            public String getQqAvatar() {
+                return qqAvatar;
+            }
+
+            public void setQqAvatar(String qqAvatar) {
+                this.qqAvatar = qqAvatar;
+            }
+
+            public String getWxAvatar() {
+                return wxAvatar;
+            }
+
+            public void setWxAvatar(String wxAvatar) {
+                this.wxAvatar = wxAvatar;
+            }
+
+            public String getAboutUrl() {
+                return aboutUrl;
+            }
+
+            public void setAboutUrl(String aboutUrl) {
+                this.aboutUrl = aboutUrl;
+            }
+
+            public String getShareVisa() {
+                return shareVisa;
+            }
+
+            public void setShareVisa(String shareVisa) {
+                this.shareVisa = shareVisa;
+            }
+
+            public String getShareGoods() {
+                return shareGoods;
+            }
+
+            public void setShareGoods(String shareGoods) {
+                this.shareGoods = shareGoods;
             }
         }
     }

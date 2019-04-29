@@ -50,13 +50,15 @@ public class PeopleListActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mPeopleListActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<List<PersonInfoBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<PersonInfoBean>>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<List<PersonInfoBean>> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<List<PersonInfoBean>>>() {
+                    }.getType());
                     mPeopleListActivityView.excuteSuccessPersonCallBack(mCallBackVo);
                 } else {
-                    mPeopleListActivityView.excuteFailedCallBack(mCallBackVo);
+                    mPeopleListActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
             }
 
             @Override
@@ -92,13 +94,16 @@ public class PeopleListActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mPeopleListActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mPeopleListActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mPeopleListActivityView.excuteFailedCallBack(mCallBackVo);
+                    mPeopleListActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
+
             }
 
             @Override

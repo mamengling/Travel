@@ -5,7 +5,6 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jcool.dev.travel.bean.CallBackVo;
-import com.jcool.dev.travel.bean.VisaBean;
 import com.jcool.dev.travel.bean.VisaInfoBean;
 import com.jcool.dev.travel.iactivityview.VisaInfoActivityView;
 import com.jcool.dev.travel.utils.AppUtils;
@@ -20,7 +19,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -140,12 +138,14 @@ public class VisaInfoActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mVisaInfoActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mVisaInfoActivityView.excuteSuccessCollectCallBack(mCallBackVo);
                 } else {
-                    mVisaInfoActivityView.excuteFailedCallBack(mCallBackVo);
+                    mVisaInfoActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -182,11 +182,10 @@ public class VisaInfoActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mVisaInfoActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo mCallBackVo = gson.fromJson(result, CallBackVo.class);
-                if (mCallBackVo.isSuccess()) {
-                    mVisaInfoActivityView.excuteSuccessAddCollectCallBack(mCallBackVo);
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    mVisaInfoActivityView.excuteSuccessAddCollectCallBack(AppUtils.getFailure(gson, result));
                 } else {
-                    mVisaInfoActivityView.excuteFailedCallBack(mCallBackVo);
+                    mVisaInfoActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 
@@ -223,11 +222,11 @@ public class VisaInfoActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mVisaInfoActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo mCallBackVo = gson.fromJson(result, CallBackVo.class);
-                if (mCallBackVo.isSuccess()) {
-                    mVisaInfoActivityView.excuteSuccessDelCollectCallBack(mCallBackVo);
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    mVisaInfoActivityView.excuteSuccessDelCollectCallBack(AppUtils.getFailure(gson, result));
                 } else {
-                    mVisaInfoActivityView.excuteFailedCallBack(mCallBackVo);
+                    mVisaInfoActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 

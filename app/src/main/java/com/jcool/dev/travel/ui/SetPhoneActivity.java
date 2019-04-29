@@ -112,7 +112,10 @@ public class SetPhoneActivity extends BaseActivity implements View.OnClickListen
             ToastUtils.showShortToast("请输入的手机号与当前绑定的手机号不一致");
             return;
         }
-        mPresenter.registerGetCode(mPhone);
+//        mPresenter.registerGetCode(mPhone);
+        Intent intent = new Intent(this, InputCodeActivity.class);
+        intent.putExtra("phone",getUserPhone());
+        startActivity(intent);
 
     }
 

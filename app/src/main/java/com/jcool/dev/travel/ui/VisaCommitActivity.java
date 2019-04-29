@@ -152,6 +152,9 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.tv_tag_place:
                 if (mPlaceUnits != null && mPlaceUnits.size() > 0) {
+//                    if (placePicker != null) {
+//                        placePicker.setSelected(tv_tag_place.getText().toString(), true);
+//                    }
                     initPlacePicker();
                 }
                 break;
@@ -248,7 +251,7 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
         // 不允许滚动动画
         buyPicker.setCanShowAnim(false);
         buyPicker.setTitle("店铺类型");
-        buyPicker.show(shopType[0]);
+        buyPicker.show(TextUtils.isEmpty(tv_shop_type.getText().toString()) ? shopType[0] : tv_shop_type.getText().toString());
     }
 
     private void initPlacePicker() {
@@ -275,7 +278,7 @@ public class VisaCommitActivity extends BaseActivity implements View.OnClickList
         // 不允许滚动动画
         placePicker.setCanShowAnim(true);
         placePicker.setTitle("目的地");
-        placePicker.show(mPlaceUnits.get(0));
+        placePicker.show(TextUtils.isEmpty(tv_tag_place.getText().toString()) ? mPlaceUnits.get(0) : tv_tag_place.getText().toString());
     }
 
     private void initGoodsPicker() {

@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -41,6 +43,10 @@ public class CompanyVipActivity extends BaseActivity implements View.OnClickList
     TextView tv_out_day;
     @BindView(R.id.radiogroup_full)
     RadioGroup radiogroup_full;
+    @BindView(R.id.radiobutton0)
+    RadioButton radiobutton0;
+    @BindView(R.id.radiobutton2)
+    RadioButton radiobutton2;
     @BindView(R.id.edt_other)
     EditText edt_other;
     @BindView(R.id.tv_money)
@@ -103,12 +109,25 @@ public class CompanyVipActivity extends BaseActivity implements View.OnClickList
                     case R.id.radiobutton0:
                         entrustType = "01";
                         break;
-                    case R.id.radiobutton1:
+                    case R.id.radiobutton2:
                         entrustType = "02";
                         break;
                 }
             }
         });
+        radiobutton0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                entrustType = "01";
+            }
+        });
+        radiobutton2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                entrustType = "02";
+            }
+        });
+
     }
 
     @Override
@@ -185,10 +204,10 @@ public class CompanyVipActivity extends BaseActivity implements View.OnClickList
             ToastUtils.showShortToast("请输入出行人数");
             return;
         }
-        if (TextUtils.isEmpty(money)) {
-            ToastUtils.showShortToast("请输入预算金额");
-            return;
-        }
+//        if (TextUtils.isEmpty(money)) {
+//            ToastUtils.showShortToast("请输入预算金额");
+//            return;
+//        }
         if (TextUtils.isEmpty(other)) {
             ToastUtils.showShortToast("请输入其他需求");
             return;
@@ -263,7 +282,7 @@ public class CompanyVipActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void excuteSuccessCallBack(CallBackVo mCallBackVo) {
-        ToastUtils.showShortToast(mCallBackVo.getMsg());
+        ToastUtils.showShortToast("提交成功");
         finish();
     }
 }

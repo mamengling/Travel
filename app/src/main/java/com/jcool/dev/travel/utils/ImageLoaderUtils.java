@@ -22,7 +22,6 @@ import com.bumptech.glide.signature.StringSignature;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 
 /**
@@ -400,13 +399,13 @@ public class ImageLoaderUtils {
      * @param imgeview 组件
      */
     public static void showImageViewToRoundedCorners(Context context, String url, ImageView imgeview, int loadingImg, int errorimg) {
-        Glide.with(context).load(url)
+        Glide.with(context).load(url).asBitmap()
                 .placeholder(loadingImg)
                 .error(errorimg)// 设置错误图片
                 .transform(new CenterCrop(context), new GlideRoundTransform(context))
 //                .bitmapTransform(new RoundedCornersTransformation(context, 30, 5,
 //                        RoundedCornersTransformation.CornerType.ALL))// 设置矩形圆角
-                .crossFade()
+//                .crossFade()
 //                .diskCacheStrategy(DiskCacheStrategy.RESULT)// 缓存修改过的图片
                 .into(imgeview);
 

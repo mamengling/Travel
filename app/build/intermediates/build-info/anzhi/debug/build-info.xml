@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="arm64-v8a,armeabi-v7a,armeabi"
+    api-level="28"
+    build-mode="COLD"
+    density="xxhdpi"
+    format="10"
+    ir-eligibility="COMPATIBLE"
+    plugin-version="3.1.4"
+    timestamp="1556539418858"
+    token="-8645987754779961053"
+    verifier="COLD_SWAP_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="7231" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="69" />
+    <task
+        name="verifier"
+        duration="2" />
+
+    <artifact
+        location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_9.apk"
+        type="SPLIT" />
+
+    <build
+        build-mode="FULL"
+        ir-eligibility="FIELD_TYPE_CHANGE"
+        timestamp="1556528443523"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\resources\instant-run\anzhi\debug\resources-anzhi-debug.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\dep\dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\instant-run-apk\anzhi\debug\TravelApp_v1.0_2019042909debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1556529294848"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\instant-run-apk\anzhi\debug\TravelApp_v1.0_2019042909debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1556532126418"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\instant-run-apk\anzhi\debug\TravelApp_v1.0_2019042910debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1556536331807"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\instant-run-apk\anzhi\debug\TravelApp_v1.0_2019042911debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="CLASS_ADDED"
+        timestamp="1556539253370"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\resources\instant-run\anzhi\debug\resources-anzhi-debug.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\dep\dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\instant-run-apk\anzhi\debug\TravelApp_v1.0_2019042912debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1556539418858"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="F:\myGithubApps\Travel\app\build\intermediates\split-apk\anzhi\debug\slices\slice_9.apk"
+            type="SPLIT" />
+    </build>
+
+</instant-run>

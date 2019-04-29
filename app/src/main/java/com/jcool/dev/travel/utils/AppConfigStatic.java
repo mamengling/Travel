@@ -50,6 +50,14 @@ public class AppConfigStatic {
      */
     public final static String QQ_OPEN_ID = "qqOpenid";
     /**
+     * qqAvatar
+     */
+    public final static String QQ_AVATAR = "qqAvatar";
+    /**
+     * wxAvatar
+     */
+    public final static String WX_AVATAR = "wxAvatar";
+    /**
      * 性别
      */
     public final static String USER_SEX = "sex";
@@ -65,6 +73,18 @@ public class AppConfigStatic {
      * login status
      */
     public final static String IS_LOGIN = "is_login_status";
+    /**
+     * 关于链接
+     */
+    public final static String USER_ABOUT = "aboutUrl";
+    /**
+     * 签证分享链接
+     */
+    public final static String VISA_SHARE = "shareVisa";
+    /**
+     * 旅游分享链接
+     */
+    public final static String TRAVEL_SHARE = "shareGoods";
     /**
      * 签证点击事件
      */
@@ -142,4 +162,8 @@ public class AppConfigStatic {
      * bugly key
      */
     public final static String APP_ID = "wxd31e1a84a800e3ae";
+    /**
+     * 客服电话
+     */
+    public final static String APP_SERVICE_PHONE = "400-666-6666";
 }

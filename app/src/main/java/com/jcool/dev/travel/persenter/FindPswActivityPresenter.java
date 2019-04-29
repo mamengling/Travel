@@ -49,13 +49,15 @@ public class FindPswActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mFindPswActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mFindPswActivityView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mFindPswActivityView.excuteFailedCallBack(mCallBackVo);
+                    mFindPswActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
+
             }
 
             @Override
@@ -93,13 +95,15 @@ public class FindPswActivityPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mFindPswActivityView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<CodeBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<CodeBean>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<CodeBean> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<CodeBean>>() {
+                    }.getType());
                     mFindPswActivityView.excuteSuccessCodeCallBack(mCallBackVo);
                 } else {
-                    mFindPswActivityView.excuteFailedCallBack(mCallBackVo);
+                    mFindPswActivityView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
             }
 
             @Override

@@ -3,11 +3,9 @@ package com.jcool.dev.travel.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.jcool.dev.travel.R;
@@ -18,12 +16,9 @@ import com.jcool.dev.travel.bean.VisaInfoDtoList;
 import com.jcool.dev.travel.iactivityview.VisaFragmentView;
 import com.jcool.dev.travel.persenter.VisaFragmentPresenter;
 import com.jcool.dev.travel.ui.SearchKeyActivity;
-import com.jcool.dev.travel.ui.SearchTravelActivity;
 import com.jcool.dev.travel.ui.TravelViseActivity;
 import com.jcool.dev.travel.ui.VisaCommitActivity;
-import com.jcool.dev.travel.ui.VisaDataActivity;
 import com.jcool.dev.travel.ui.VisaDefuiltActivity;
-import com.jcool.dev.travel.ui.VisaHotActivity;
 import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -113,6 +108,7 @@ public class VisaFragment extends BaseFragment implements View.OnClickListener, 
 
     @Override
     protected void setListener() {
+        edt_search.setOnClickListener(this);
         tv_visa_hot.setOnClickListener(this);
         mAdapter.setOnItemClickListener(new ConstmOnItemOnclickListener<VisaInfoDtoList.VisaInfoDtoListBean>() {
             @Override
@@ -120,15 +116,11 @@ public class VisaFragment extends BaseFragment implements View.OnClickListener, 
                 switch (ClickType) {
                     case 0:
                         Intent intent = new Intent(getContext(), TravelViseActivity.class);
-                        String keyName = "";
-                        if (!TextUtils.isEmpty(content.getVisaSortName())) {
-                            keyName = content.getVisaSortName().replace("热门", "");
-                        }
-                        intent.putExtra("keyName", keyName);
+                        intent.putExtra("regionSort", content.getId());
                         startActivity(intent);
                         break;
                     case 1:
-                        Intent intentCommit=new Intent(getContext(),VisaCommitActivity.class);
+                        Intent intentCommit = new Intent(getContext(), VisaCommitActivity.class);
                         startActivity(intentCommit);
                         break;
                     case 2:
@@ -145,7 +137,8 @@ public class VisaFragment extends BaseFragment implements View.OnClickListener, 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_visa_hot:
-                Intent intent = new Intent(getContext(), VisaHotActivity.class);
+                Intent intent = new Intent(getContext(), SearchKeyActivity.class);
+                intent.putExtra("flag", 101);
                 startActivity(intent);
                 break;
             case R.id.edt_search:

@@ -215,41 +215,37 @@ public class TravelOrderDetailActivity extends BaseActivity implements TravelOrd
             tv_order_status.setText("退款中");
             tv_btn_life.setVisibility(View.GONE);
             tv_btn_center.setVisibility(View.GONE);
-            tv_btn_life.setText("查看详情");
+            tv_btn_right.setText("退款中");
         } else if (TextUtils.equals("EVALUATE", mCallBackVo.getData().getState())) {
             tv_order_status.setText("已评价");
             tv_btn_life.setVisibility(View.GONE);
             tv_btn_center.setVisibility(View.GONE);
-            tv_btn_life.setText("查看详情");
-            tv_btn_right.setText("查看详情");
+            tv_btn_right.setText("已评价");
         } else if (TextUtils.equals("CLOSE", mCallBackVo.getData().getState())) {
             tv_order_status.setText("已取消");
 
             tv_btn_life.setVisibility(View.GONE);
             tv_btn_center.setVisibility(View.GONE);
-            tv_btn_right.setText("查看详情");
+            tv_btn_right.setText("已取消");
         } else if (TextUtils.equals("PAY", mCallBackVo.getData().getState())) {
             tv_order_status.setText("待出行");
             tv_btn_life.setVisibility(View.VISIBLE);
-            tv_btn_center.setVisibility(View.VISIBLE);
+            tv_btn_center.setVisibility(View.GONE);
 
             tv_btn_life.setText("退款");
-            tv_btn_center.setText("查看详情");
             tv_btn_right.setText("确认出行");
         } else if (TextUtils.equals("CREATE", mCallBackVo.getData().getState())) {
             tv_order_status.setText("待付款");
             tv_btn_life.setVisibility(View.VISIBLE);
-            tv_btn_center.setVisibility(View.VISIBLE);
+            tv_btn_center.setVisibility(View.GONE);
 
             tv_btn_life.setText("取消");
-            tv_btn_center.setText("查看详情");
             tv_btn_right.setText("立即支付");
         } else if (TextUtils.equals("USED", mCallBackVo.getData().getState())) {
             tv_order_status.setText("待评价");
             tv_btn_life.setVisibility(View.GONE);
-            tv_btn_center.setVisibility(View.VISIBLE);
+            tv_btn_center.setVisibility(View.GONE);
 
-            tv_btn_center.setText("查看详情");
             tv_btn_right.setText("去评价");
         }
     }

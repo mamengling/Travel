@@ -25,9 +25,9 @@ public class OtherVisaTabFragmentPresenter {
         this.mContext = mContext;
     }
 
-    public void getOrderList(String url,String token) {
+    public void getOrderList(String url, String token) {
         mOtherVisaTabFragmentView.showProgress();
-        HttpUtil.post(mContext, Constants.BASE_URL + url,token ,mOtherVisaTabFragmentView.getParamenters(), new AsyncHttpResponseHandler() {
+        HttpUtil.post(mContext, Constants.BASE_URL + url, token, mOtherVisaTabFragmentView.getParamenters(), new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -47,13 +47,16 @@ public class OtherVisaTabFragmentPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mOtherVisaTabFragmentView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<OrderVisaInfo> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<OrderVisaInfo>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<OrderVisaInfo> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<OrderVisaInfo>>() {
+                    }.getType());
                     mOtherVisaTabFragmentView.excuteSuccessCallBack(mCallBackVo);
                 } else {
-                    mOtherVisaTabFragmentView.excuteFailedCallBack(mCallBackVo);
+                    mOtherVisaTabFragmentView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
+
             }
 
             @Override
@@ -67,9 +70,9 @@ public class OtherVisaTabFragmentPresenter {
         });
     }
 
-    public void cancleVisaOrder(String url,String token) {
+    public void cancleVisaOrder(String url, String token) {
         mOtherVisaTabFragmentView.showProgress();
-        HttpUtil.post(mContext, Constants.BASE_URL + url,token ,mOtherVisaTabFragmentView.getParamenters(), new AsyncHttpResponseHandler() {
+        HttpUtil.post(mContext, Constants.BASE_URL + url, token, mOtherVisaTabFragmentView.getParamenters(), new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -89,13 +92,14 @@ public class OtherVisaTabFragmentPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mOtherVisaTabFragmentView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mOtherVisaTabFragmentView.excuteSuccessOrderCallBack(mCallBackVo);
                 } else {
-                    mOtherVisaTabFragmentView.excuteFailedCallBack(mCallBackVo);
+                    mOtherVisaTabFragmentView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
+
             }
 
             @Override
@@ -109,9 +113,9 @@ public class OtherVisaTabFragmentPresenter {
         });
     }
 
- public void refundVisaOrder(String url,String token) {
+    public void refundVisaOrder(String url, String token) {
         mOtherVisaTabFragmentView.showProgress();
-        HttpUtil.post(mContext, Constants.BASE_URL + url,token ,mOtherVisaTabFragmentView.getParamenters(), new AsyncHttpResponseHandler() {
+        HttpUtil.post(mContext, Constants.BASE_URL + url, token, mOtherVisaTabFragmentView.getParamenters(), new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -131,12 +135,13 @@ public class OtherVisaTabFragmentPresenter {
                 JsonLog.printJson("HttpJson", result, this.getRequestURI().toString());
                 mOtherVisaTabFragmentView.closeProgress();
                 Gson gson = new Gson();
-                CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
-                }.getType());
-                if (mCallBackVo.isSuccess()) {
+
+                if (AppUtils.getFailure(gson, result).isSuccess()) {
+                    CallBackVo<String> mCallBackVo = gson.fromJson(result, new TypeToken<CallBackVo<String>>() {
+                    }.getType());
                     mOtherVisaTabFragmentView.excuteSuccessOrderCallBack(mCallBackVo);
                 } else {
-                    mOtherVisaTabFragmentView.excuteFailedCallBack(mCallBackVo);
+                    mOtherVisaTabFragmentView.excuteFailedCallBack(AppUtils.getFailure(gson, result));
                 }
             }
 

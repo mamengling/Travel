@@ -128,7 +128,7 @@ public class SetPasswordActivity extends BaseActivity implements View.OnClickLis
             /**
              * 忘记密码
              */
-
+            mPresenter.setFindPasword();
         } else {
             /**
              * 修改密码
@@ -139,8 +139,20 @@ public class SetPasswordActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void excuteSuccessCallBack(CallBackVo<String> mCallBackVo) {
-        ToastUtils.showShortToast("设置成功");
+        if (getFlag == 101) {
+            ToastUtils.showShortToast("设置成功");
+        } else if (getFlag == 102) {
+            ToastUtils.showShortToast("设置成功");
+        } else {
+            ToastUtils.showShortToast("修改成功");
+        }
+
         ActivityCollector.getInstance().finishFlagActivities();
+    }
+
+    @Override
+    public void excuteFailedRegieterCallBack(CallBackVo<String> mCallBackVo) {
+        ToastUtils.showShortToast(mCallBackVo.getData());
     }
 
     @Override

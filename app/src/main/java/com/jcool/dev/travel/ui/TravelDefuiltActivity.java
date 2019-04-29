@@ -1,36 +1,30 @@
 package com.jcool.dev.travel.ui;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jcool.dev.travel.R;
 import com.jcool.dev.travel.adapter.TravelInfoViewAdapter;
 import com.jcool.dev.travel.base.BaseActivity;
 import com.jcool.dev.travel.bean.CallBackVo;
+import com.jcool.dev.travel.bean.GoodsHistoryBean;
 import com.jcool.dev.travel.bean.TravelInfoBean;
 import com.jcool.dev.travel.bean.TravelInfoBeanView;
-import com.jcool.dev.travel.bean.VisaInfoBean;
 import com.jcool.dev.travel.iactivityview.TravelInfoActivityView;
 import com.jcool.dev.travel.persenter.TravelInfoActivityPresenter;
+import com.jcool.dev.travel.store.GoodsHisDB;
+import com.jcool.dev.travel.utils.AppConfigStatic;
 import com.jcool.dev.travel.utils.AppUtils;
 import com.jcool.dev.travel.utils.StatusBarUtil;
 import com.jcool.dev.travel.utils.StatusBarUtils;
-import com.jcool.dev.travel.utils.ToastUtils;
-import com.jcool.dev.travel.view.ConstmChangeSpecPicker;
 import com.jcool.dev.travel.view.ConstmOnItemOnclickListener;
 import com.jcool.dev.travel.view.ConstmSharePicker;
 import com.jcool.dev.travel.view.group.GroupItemDecoration;
-import com.mob.MobSDK;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
@@ -39,10 +33,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -51,8 +42,6 @@ import butterknife.ButterKnife;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.onekeyshare.OnekeyShare;
-import cn.sharesdk.onekeyshare.ShareContentCustomizeCallback;
 import cn.sharesdk.tencent.qq.QQ;
 import cn.sharesdk.tencent.qzone.QZone;
 import cn.sharesdk.wechat.friends.Wechat;
@@ -60,6 +49,7 @@ import cn.sharesdk.wechat.moments.WechatMoments;
 
 public class TravelDefuiltActivity extends BaseActivity implements View.OnClickListener, TravelInfoActivityView, PlatformActionListener {
     private TravelInfoActivityPresenter mPresenter;
+    private GoodsHisDB goodsHisDB;
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
     @BindView(R.id.icon_back)
@@ -107,15 +97,17 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
 
     @Override
     protected void initTools() {
+        goodsHisDB = new GoodsHisDB(this);
         icon_title_back.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.mipmap.icon_travel_back), null, null, null);
-        icon_right.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.mipmap.icon_share_info), null);
+//        icon_right.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.mipmap.icon_share_info), null);
+        icon_right.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
         mPresenter = new TravelInfoActivityPresenter(this, this);
     }
 
     @Override
     protected void setListener() {
         icon_title_back.setOnClickListener(this);
-        icon_right.setOnClickListener(this);
+//        icon_right.setOnClickListener(this);
         tv_collect.setOnClickListener(this);
         tv_buy.setOnClickListener(this);
         tv_chat.setOnClickListener(this);
@@ -191,7 +183,6 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
     protected void initData() {
         mPresenter.journeyTravelInfo(travelId);
         mPresenter.getCollectStatus(travelId, getToken());
-
     }
 
     @Override
@@ -212,7 +203,7 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
                 if (TextUtils.equals("true", isCollect)) {
                     JSONArray array = new JSONArray();
                     array.put(travelId);
-                    mPresenter.journeyTravelCollectDelete(array,getToken());
+                    mPresenter.journeyTravelCollectDelete(array, getToken());
 
                 } else {
 
@@ -220,7 +211,7 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
                 }
                 break;
             case R.id.tv_call_phone:
-                callPhone(getUserPhone());
+                callPhone(AppConfigStatic.APP_SERVICE_PHONE);
                 break;
             case R.id.tv_chat:
                 Intent intentChat = new Intent(this, WebviewDefulitActivity.class);
@@ -272,6 +263,14 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
     @Override
     public void excuteSuccessCallBack(CallBackVo<TravelInfoBean> mCallBackVo) {
         if (mCallBackVo != null && mCallBackVo.getData() != null) {
+            GoodsHistoryBean goodsHistoryBean = new GoodsHistoryBean();
+            goodsHistoryBean.setId(travelId);
+            goodsHistoryBean.setImage(mCallBackVo.getData().getHeadImg());
+            goodsHistoryBean.setName(mCallBackVo.getData().getName());
+            goodsHistoryBean.setMoney(mCallBackVo.getData().getMinPrice() + "");
+            goodsHistoryBean.setDays("");
+            goodsHistoryBean.setType("101");
+            goodsHisDB.saveDbBean(goodsHistoryBean);
             data.clear();
             TravelInfoBeanView itemBean = new TravelInfoBeanView();
             itemBean.setViewType(101);
@@ -433,7 +432,7 @@ public class TravelDefuiltActivity extends BaseActivity implements View.OnClickL
         shareParams.setText("中青国旅");
         shareParams.setTitle("中青国旅");
         shareParams.setUrl("http://www.baidu.com");
-        shareParams.setShareType(Platform.SHARE_WEBPAGE);
+        shareParams.setShareType(Platform.SHARE_APPS);
         platform.setPlatformActionListener(this);
         platform.share(shareParams);
     }

@@ -147,7 +147,7 @@ public class FindPswCodeActivity extends BaseActivity implements View.OnClickLis
     @Override
     public void excuteSuccessCallBack(CallBackVo<String> mCallBackVo) {
         Intent intent = new Intent(this, SetPasswordActivity.class);
-        intent.putExtra("phone", getUserPhone());
+        intent.putExtra("phone", mPhone);
         intent.putExtra("getFlag", 102);
         startActivity(intent);
     }
