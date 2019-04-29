@@ -48,6 +48,7 @@ public class OrderVisaListAdapter extends BaseQuickAdapter<OrderVisaInfo.Records
             helper.setVisible(R.id.tv_btn_center, false);
 
             helper.setText(R.id.tv_btn_right, "查看详情");
+            helper.setTag(R.id.tv_btn_right, "查看详情");
         } else if (TextUtils.equals("10", item.getOrderStatus())) {
             helper.setText(R.id.tv_status, "资料待审核");
 

@@ -103,8 +103,6 @@ public class OtherVisaTabFragment extends BaseFragment implements View.OnClickLi
         mAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-
-
                 switch (view.getId()) {
                     case R.id.tv_btn_right:
                         switch ((String) adapter.getViewByPosition(position, R.id.tv_btn_right).getTag()) {
@@ -122,7 +120,6 @@ public class OtherVisaTabFragment extends BaseFragment implements View.OnClickLi
                                 getContext().startActivity(intentInfo);
                                 break;
                         }
-
                         break;
                     case R.id.tv_btn_center:
                         switch ((String) adapter.getViewByPosition(position, R.id.tv_btn_center).getTag()) {

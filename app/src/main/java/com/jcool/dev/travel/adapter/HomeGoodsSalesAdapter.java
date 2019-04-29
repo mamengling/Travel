@@ -32,10 +32,15 @@ public class HomeGoodsSalesAdapter extends BaseListAdapter<GoodsBean.RecordsBean
         this.activity = context;
     }
 
-    @Override
-    public int getCount() {
-        return super.getCount();
-    }
+//    @Override
+//    public int getCount() {
+//        if (getData() != null && getData().size() > 0) {
+//            return super.getCount();
+//        } else {
+//            return 1;
+//        }
+//
+//    }
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -47,30 +52,43 @@ public class HomeGoodsSalesAdapter extends BaseListAdapter<GoodsBean.RecordsBean
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        final GoodsBean.RecordsBean app = getItem(position);
-        holder.tv_content.setText(app.getGoodsName());
+//        if (getData() != null && getData().size() > 0) {
+            final GoodsBean.RecordsBean app = getItem(position);
+            holder.tv_content.setText(app.getGoodsName());
 
-        if (TextUtils.equals("", app.getIsOnline())) {
+            if (TextUtils.equals("", app.getIsOnline())) {
 
-        }
-        holder.title.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, TravelSalesActivity.class);
-                mContext.startActivity(intent);
             }
-        });
-        holder.goods.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, TravelDefuiltActivity.class);
-                intent.putExtra("travelId",app.getGoodsId());
-                mContext.startActivity(intent);
-            }
-        });
+//            holder.title.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(mContext, TravelSalesActivity.class);
+//                    mContext.startActivity(intent);
+//                }
+//            });
+            holder.goods.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, TravelDefuiltActivity.class);
+                    intent.putExtra("travelId", app.getGoodsId());
+                    mContext.startActivity(intent);
+                }
+            });
 
-        holder.tv_money.setText("¥" + app.getSalesPrice());
-        ImageLoaderUtils.showImageViewToRoundedCorners(mContext, app.getHeadImg(), holder.givImage, R.mipmap.icon_home_banner, R.mipmap.icon_home_banner);
+            holder.tv_money.setText("¥" + app.getSalesPrice());
+            ImageLoaderUtils.showImageViewToRoundedCorners(mContext, app.getHeadImg(), holder.givImage, R.mipmap.icon_home_banner, R.mipmap.icon_home_banner);
+//        } else {
+//            holder.title.setVisibility(View.VISIBLE);
+//            holder.goods.setVisibility(View.GONE);
+//            holder.tv_content.setVisibility(View.GONE);
+//            holder.title.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(mContext, TravelSalesActivity.class);
+//                    mContext.startActivity(intent);
+//                }
+//            });
+//        }
         return convertView;
     }
 
@@ -78,14 +96,14 @@ public class HomeGoodsSalesAdapter extends BaseListAdapter<GoodsBean.RecordsBean
     static class ViewHolder {
         @BindView(R.id.image_goods)
         ImageView givImage;
-        @BindView(R.id.tv_goods_title)
-        TextView tvTitle;
+//        @BindView(R.id.tv_goods_title)
+//        TextView tvTitle;
         @BindView(R.id.tv_content)
         TextView tv_content;
         @BindView(R.id.tv_money)
         TextView tv_money;
-        @BindView(R.id.title)
-        RelativeLayout title;
+//        @BindView(R.id.title)
+//        RelativeLayout title;
         @BindView(R.id.goods)
         RelativeLayout goods;
 

@@ -4,7 +4,7 @@ public class Constants {
     public static final String BASE_ROOT = "mock/14/";
     //服务器ip地址
 //    public static final String BASE_URL = "http://39.98.51.93/";
-    public static final String BASE_URL = "http://192.168.0.121:1025/";
+    public static final String BASE_URL = "http://111.14.214.166:1025/";
     /**
      * 获取首页banner
      */

@@ -33,6 +33,7 @@ import com.jcool.dev.travel.ui.CompanyVipActivity;
 import com.jcool.dev.travel.ui.PersonVipActivity;
 import com.jcool.dev.travel.ui.SearchTravelActivity;
 import com.jcool.dev.travel.ui.TravelListActivity;
+import com.jcool.dev.travel.ui.TravelSalesActivity;
 import com.jcool.dev.travel.ui.TravelViseActivity;
 import com.jcool.dev.travel.ui.WebviewDefulitActivity;
 import com.jcool.dev.travel.utils.AppConfigStatic;
@@ -118,6 +119,7 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
         icon_message = view.findViewById(R.id.icon_right);
         icon_phone = view.findViewById(R.id.icon_back);
         view.findViewById(R.id.btn_go_out).setOnClickListener(this);
+        view.findViewById(R.id.title).setOnClickListener(this);
         view.findViewById(R.id.btn_search).setOnClickListener(this);
         view.findViewById(R.id.btn_vise).setOnClickListener(this);
         view.findViewById(R.id.btn_all_around).setOnClickListener(this);
@@ -229,6 +231,10 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView, View
             case R.id.tv_title:
                 Intent intent = new Intent(getContext(), CityPickerActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.title:
+                Intent intentA = new Intent(getContext(), TravelSalesActivity.class);
+                startActivity(intentA);
                 break;
             case R.id.icon_right:
 //                Intent intentMess = new Intent(getContext(), MessageListActivity.class);

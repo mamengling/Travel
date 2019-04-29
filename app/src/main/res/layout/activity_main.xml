@@ -83,6 +83,7 @@
         android:layout_marginEnd="0dp"
         android:background="?android:attr/windowBackground"
         app:itemIconTint="@drawable/home_tab_color"
+        app:itemIconSize="20dp"
         app:itemTextColor="@drawable/home_tab_color"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
